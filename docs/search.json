@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "RMB-2025-Computer-Practicals",
+    "section": "",
+    "text": "Week 1 : Descriptive Statistics, Data Processing and R\nThis week we will explore how to use Jamovi to compute and visualise descriptive statistics from a dataset. This will include some revision on Jamovi from last semester and an introduction on how we can use the R coding language to simplify complex data processing."
+  },
+  {
+    "objectID": "index.html#the-dataset",
+    "href": "index.html#the-dataset",
+    "title": "RMB-2025-Computer-Practicals",
+    "section": "The Dataset",
+    "text": "The Dataset\nWe will be exploring data that was collected as part of the ‘Many Labs 3’ project (Ebersole et al., 2016). This collected data from university students in the USA across a wide range of cognitive, behavioural and demographic measures. We will be exploring a subset of this dataset concerning individual differences in personality measures. The experimenters collected data to compute the ‘Big Five’ personality factors from each participant. Wikipedia describes the factors as:\n\nConscientiousness (efficient/organized vs. extravagant/careless)\nAgreeableness (friendly/compassionate vs. critical/rational)\nNeuroticism (sensitive/nervous vs. resilient/confident)\nOpenness to experience (inventive/curious vs. consistent/cautious)\nExtraversion (outgoing/energetic vs. solitary/reserved)\n\nThis is a very simple (Gosling et al., 2003) and influential model that is used to summarise personality differences. Though it is popular, some researchers have criticised big five factors for conceptual and methodological reasons (Block, 1995). Read around and form your own view!\nThe data contains the average of two questions about each factor in which participants responded to questions using a scale from 1 to 7. A value of 1 indicates a low score and a value of 7 is a high score. For example, someone with an extraversion score of 2 is more introverted that someone with an extraversion score of 5."
+  },
+  {
+    "objectID": "index.html#the-challenge",
+    "href": "index.html#the-challenge",
+    "title": "RMB-2025-Computer-Practicals",
+    "section": "The Challenge",
+    "text": "The Challenge\nWe have data from a sample of students in a big data table. This raw data needs to be summarised and visualised so that we can turn this massive block of numbers into something intuitive.\nBy computing a range of key features from the data we can generate a concise overview of the main characteristics of the data.\n\n\n\n\n\n\n\nCheck Your Understanding 1\n\n\n\nTry your best with this question and don’t forget to speak with your tutor if you get stuck!\n\nQuestionHintSolution\n\n\nYou have reproduced the descriptive statistics for the big 5 personality factors. Now you can do the same for some of the other factors in Table 2 of section 3.5 in Ebersole et al. (2016).\nSpecifically - try and compute the mean and standard deviations for:\n\nSelf Esteem (see section 3.5.1 for details)\nPerceived Stress (see section 3.5.4)\nNeed for cognition (see section 3.5.5) Can you find variables (columns) that correspond to these factors?\n\nNote: Open datasets sometimes use shorthand for variable names rather than the names used in the manuscript. This is not ideal but does happen in practice! we should be ready take a little time to explore and understand a new dataset when working with it.\n\n\nIn this case the variables in the dataset to use are:\nIn Manuscript –&gt; In Jamovi Self Esteem –&gt; ‘SelfEsteem’ Perceived Stress –&gt; ‘Stress’ Need for cognition –&gt; ‘NFC’\nTalk to your tutor if you’re getting stuck.\n\n\nYou should be able to reproduce the following table. Verify that the computed Mean and Standard Deviations match those published in table 2 of Ebersole et al (2016)"
+  }
+]
