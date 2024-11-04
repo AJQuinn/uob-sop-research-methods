@@ -13,3 +13,5 @@ data <- data %>%
            'Intrinsic', 'Mood', 'NFC', 'SelfEsteem',))
 
 write.csv(data, 'data/ManyLabs3/ML3AllSites_rmb.csv')
+
+

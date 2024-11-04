@@ -1,23 +1,23 @@
-# Week 1 : Descriptive Statistics, Data Processing and R {.unnumbered}
+# Week 1 : Exploring new data and computing descriptives {.unnumbered}
 
 This week we will explore how to use Jamovi to compute and visualise descriptive statistics from a dataset. This will include some revision on Jamovi from last semester and an introduction on how we can use the R coding language to simplify complex data processing.
 
 ### Learning Objectives
 
-|  ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods |
+| ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods |
 |-----|:-----------------------------------------------------|
-|     | Measures of central tendency (Mean and Median)                      |
-|     | Measures of dispersion and spread (Standard Deviation & Interquartile Range)                                   |
-|     | Measures of skew and normality                                      |
+|     | Measures of central tendency (Mean and Median)         |
+|     | Measures of dispersion and spread (Standard Deviation and Interquartile Range)     |
+|     | Measures of skew and normality      |
 |     | Recognising different types of distribution |
 
-|  ![](../images/logos/rm-logo_data-skills.png){width=50px} | Data Skills |
+| ![](../images/logos/rm-logo_data-skills.png){width=50px} | Data Skills |
 |-----|:-------------------------------------------------------|
 |     | Exploring and cleaning datasets Jamovi             |
 |     | Computing descriptive statistics in Jamovi             |
 |     | Computing descriptive plots in Jamovi             |
 
-|  ![](../images/logos/rm-logo_open-science.png){width=50px}   | Open Science   |
+| ![](../images/logos/rm-logo_open-science.png){width=50px}   | Open Science   |
 |-----|:-----------------------------------------------------------|
 |     | Working with openly available research data |
 
@@ -139,16 +139,16 @@ Its probably not a good idea to include the data from the participants with impo
 Remove the two participants with impossible ages, you can use the extreme values table in the 'Descriptives' output to help find the row numbers. You can remove a row in Jamovi by right clicking on the row number (far left of the Data view) and clicking 'Delete Row'.
 
 ![](../images/rmb-2025_week-1_computer-practical/RMB-2025_week-1_computer-practical_imgB.png){width="600px"}
+
+This will not change the original data file (unless you export the data back out again..), it will only affect the view of the data loaded into Jamovi. If you make a mistake you can simply load the original file and start again.
+
+Notice that the bottom of the data viewer tells you how many rows have been deleted in that dataset.
 :::
 
 ::: {.callout-note appearance="simple"}
 # Key step
 
 Now you can recompute the descriptive statistics of your age variable and see what has changed.
-
-I can save you some time! The -2 year old is on row 2165 and the 149 year old is on row 2997 (or 2996 if you've already deleted the youngster...). Take care to make sure you have the right row before modifying the dataset.
-
-Note, that this will not change the file - just the version of the data loaded into Jamovi. If you make a mistake you can simply load the original file and start again.
 
 ![](../images/rmb-2025_week-1_computer-practical/RMB-2025_week-1_computer-practical_imgC.png){width="250px"}
 
@@ -169,7 +169,7 @@ The recomputed descriptive statistics now has an N=2399. Removing the 13 year ol
 The youngest participant is now 16 which is more realistic (though still very impressive for that 16 year old!).
 :::
 
-This process can be intricate and involves a lot of clicking aorund in Jamovi - it would be easy to make a mistake and not notice. We'll explore some more transparent and efficient ways to do this using R code during this course.
+This process can be intricate and involves a lot of clicking in Jamovi - it would be easy to make a mistake and not notice that something has gone wrong. We'll explore some faster and more transparent ways to do this using R code during this course.
 
 <!--# #############################################  -->
 

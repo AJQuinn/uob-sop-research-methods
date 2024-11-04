@@ -5,8 +5,30 @@ project:
 bibliography: references.bib
 
 website:
+  title: "Research Methods"
   page-navigation: true
-
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Week 1"
+        href: tutorials/rmb_week-1_descriptives-and-rj.qmd   
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+    - section: "Research Methods B"
+      contents:
+      - text: "Week 1 - New data and descriptives"
+        href: tutorials/rmb_week-1_descriptives-and-rj.qmd   
+      - text: "Week 2 - Introducing R and Rj"
+        href: tutorials/rmb_week-1_descriptives-and-rj.qmd          
+    - section: "Support"
+      contents:
+        - text: "Using Copilot at UoB"
+          href: copilot.qmd 
 format:
   html:
     toc: true

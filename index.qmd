@@ -2,4 +2,7 @@
 
 ## Research Methods B
 
-- [Week 1 :  Descriptive Statistics, Data Processing and R](tutorials/rmb_week-1_descriptives-and-rj.qmd)
+-   [Week 1 : Descriptive Statistics, Data Processing and R](tutorials/rmb_week-1_descriptives-and-rj.qmd)
+
+toc: true
+toc-depth: 2
