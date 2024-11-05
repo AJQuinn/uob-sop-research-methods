@@ -13,8 +13,6 @@ website:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Week 1"
-        href: tutorials/rmb_week-1_descriptives-and-rj.qmd   
   sidebar:
     style: "docked"
     search: true
@@ -22,9 +20,9 @@ website:
     - section: "Research Methods B"
       contents:
       - text: "Week 1 - New data and descriptives"
-        href: tutorials/rmb_week-1_descriptives-and-rj.qmd   
+        href: tutorials/rmb_week-1_new-data-and-descriptives.qmd   
       - text: "Week 2 - Introducing R and Rj"
-        href: tutorials/rmb_week-1_descriptives-and-rj.qmd          
+        href: tutorials/rmb_week-2_intro-to-Rj.qmd          
     - section: "Support"
       contents:
         - text: "Using Copilot at UoB"
