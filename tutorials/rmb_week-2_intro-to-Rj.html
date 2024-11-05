@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>rmb_week-2_stats-in-rj – Research Methods</title>
+<title>rmb_week-2_intro-to-rj – Research Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,6 +84,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../copilot.html" rel="next">
+<link href="../tutorials/rmb_week-1_new-data-and-descriptives.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,10 +147,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="../tutorials/rmb_week-1_descriptives-and-rj.html" aria-current="page"> 
-<span class="menu-text">Week 1</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -140,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmb_week-1_new-data-and-descriptives.html">Research Methods B</a></li><li class="breadcrumb-item"><a href="../tutorials/rmb_week-2_intro-to-Rj.html">Week 2 - Introducing R and Rj</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,13 +189,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/rmb_week-1_descriptives-and-rj.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-1_new-data-and-descriptives.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1 - New data and descriptives</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/rmb_week-1_descriptives-and-rj.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-2_intro-to-Rj.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Week 2 - Introducing R and Rj</span></a>
   </div>
 </li>
@@ -212,16 +230,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#week-2-computing-reproducible-statistics-using-rj" id="toc-week-2-computing-reproducible-statistics-using-rj" class="nav-link active" data-scroll-target="#week-2-computing-reproducible-statistics-using-rj">Week 2 : Computing reproducible statistics using Rj</a>
   <ul class="collapse">
-  <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">The Dataset</a></li>
-  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">The Challenge</a></li>
-  <li><a href="#install-the-rj-add-on-in-jamovi" id="toc-install-the-rj-add-on-in-jamovi" class="nav-link" data-scroll-target="#install-the-rj-add-on-in-jamovi">Install the Rj Add-On in Jamovi</a></li>
-  <li><a href="#functions-and-variables" id="toc-functions-and-variables" class="nav-link" data-scroll-target="#functions-and-variables">Functions and Variables</a></li>
-  <li><a href="#compute-descriptive-statistics-using-r" id="toc-compute-descriptive-statistics-using-r" class="nav-link" data-scroll-target="#compute-descriptive-statistics-using-r">Compute Descriptive Statistics using R</a></li>
-  <li><a href="#cleaning-data-using-the-filter-function" id="toc-cleaning-data-using-the-filter-function" class="nav-link" data-scroll-target="#cleaning-data-using-the-filter-function">Cleaning data using the <code>filter()</code> function</a></li>
+  <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">1. The Dataset</a></li>
+  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">2. The Challenge</a></li>
+  <li><a href="#install-the-rj-add-on-in-jamovi" id="toc-install-the-rj-add-on-in-jamovi" class="nav-link" data-scroll-target="#install-the-rj-add-on-in-jamovi">3. Install the Rj Add-On in Jamovi</a></li>
+  <li><a href="#variables-and-functions" id="toc-variables-and-functions" class="nav-link" data-scroll-target="#variables-and-functions">4. Variables and Functions</a></li>
+  <li><a href="#accessing-the-data-table-in-rj" id="toc-accessing-the-data-table-in-rj" class="nav-link" data-scroll-target="#accessing-the-data-table-in-rj">5. Accessing the data table in Rj</a></li>
+  <li><a href="#running-desriptive-statistics-using-rj" id="toc-running-desriptive-statistics-using-rj" class="nav-link" data-scroll-target="#running-desriptive-statistics-using-rj">6. Running desriptive statistics using Rj</a></li>
+  <li><a href="#selecting-rows-of-data-using-the-filter-function" id="toc-selecting-rows-of-data-using-the-filter-function" class="nav-link" data-scroll-target="#selecting-rows-of-data-using-the-filter-function">7. Selecting rows of data using the <code>filter()</code> function</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8. Summary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
-  <li><a href="#data-cleaning-1---converting" id="toc-data-cleaning-1---converting" class="nav-link" data-scroll-target="#data-cleaning-1---converting">Data Cleaning 1 - Converting</a></li>
-  <li><a href="#data-cleaning-2---filtering" id="toc-data-cleaning-2---filtering" class="nav-link" data-scroll-target="#data-cleaning-2---filtering">Data Cleaning 2 - Filtering</a></li>
-  <li><a href="#reproducible-data-analysis" id="toc-reproducible-data-analysis" class="nav-link" data-scroll-target="#reproducible-data-analysis">Reproducible data analysis</a></li>
   </ul>
 </nav>
     </div>
@@ -236,9 +254,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This week we will explore how to use Jamovi to compute and visualise descriptive statistics from a dataset. This will include some revision on Jamovi from last semester and an introduction on how we can use the R coding language to simplify complex data processing.</p>
 <table class="caption-top table">
 <caption>Learning objectives for this session</caption>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th><img src="../images/logos/rm-logo_quantitative-methods.png" class="img-fluid" width="50"></th>
 <th style="text-align: left;">Quantitative Methods</th>
 </tr>
 </thead>
@@ -258,9 +280,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 91%">
+</colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th><img src="../images/logos/rm-logo_data-skills.png" class="img-fluid" width="50"></th>
 <th style="text-align: left;">Data Skills</th>
 </tr>
 </thead>
@@ -280,9 +306,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 92%">
+</colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th><img src="../images/logos/rm-logo_open-science.png" class="img-fluid" width="50"></th>
 <th style="text-align: left;">Open Science</th>
 </tr>
 </thead>
@@ -291,10 +321,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td></td>
 <td style="text-align: left;">Validating and working with openly available research data</td>
 </tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">Create a reproducible data analysis script</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table" data-quarto-postprocess="true">
+<caption>Learning Objectives.</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"><img src="../images/logos/rm-logo_quantitative-methods.png" class="img-fluid" width="50"></th>
+<th data-quarto-table-cell-role="th">Quantitative Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Measures of central tendency</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Measures of dispersion and spread</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Measures of skew and normality</td>
+</tr>
 </tbody>
 </table>
 <section id="the-dataset" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="the-dataset">The Dataset</h2>
+<h2 class="unnumbered anchored" data-anchor-id="the-dataset">1. The Dataset</h2>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -308,7 +365,7 @@ Dataset
 <p>Note that this is the same dataset as in week 1</p>
 </div>
 </div>
-<p>We will be exploring data that was collected as part of the ‘Many Labs 3’ project (Ebersole et al., 2016). This collected data from university students in the USA across a wide range of cognitive, behavioural and demographic measures. We will be exploring a subset of this dataset concerning individual differences in personality measures. The experimenters collected data to compute the ‘Big Five’ personality factors from each participant. Wikipedia describes the factors as:</p>
+<p>We will be exploring data that was collected as part of the ‘Many Labs 3’ project <span class="citation" data-cites="Ebersole2016_ManyLabs3">(<a href="#ref-Ebersole2016_ManyLabs3" role="doc-biblioref">Ebersole et al. 2016</a>)</span>. This collected data from university students in the USA across a wide range of cognitive, behavioural and demographic measures. We will be exploring a subset of this dataset concerning individual differences in personality measures. The experimenters collected data to compute the ‘Big Five’ personality factors from each participant. <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits">Wikipedia describes the factors</a> as:</p>
 <ul>
 <li>Conscientiousness (efficient/organized vs.&nbsp;extravagant/careless)</li>
 <li>Agreeableness (friendly/compassionate vs.&nbsp;critical/rational)</li>
@@ -316,16 +373,16 @@ Dataset
 <li>Openness to experience (inventive/curious vs.&nbsp;consistent/cautious)</li>
 <li>Extraversion (outgoing/energetic vs.&nbsp;solitary/reserved)</li>
 </ul>
-<p>This is a very simple (Gosling et al., 2003) and influential model that is used to summarise personality differences. Though it is popular, some researchers have criticised big five factors for conceptual and methodological reasons (Block, 1995). Read around and form your own view!</p>
+<p>This is a very simple <span class="citation" data-cites="Gosling2003_VeryBrief">(<a href="#ref-Gosling2003_VeryBrief" role="doc-biblioref">Gosling, Rentfrow, and Swann 2003</a>)</span> and influential model that is used to summarise personality differences. Though it is popular, some researchers have criticised big five factors for conceptual and methodological reasons <span class="citation" data-cites="Block1995_Contrarian">(<a href="#ref-Block1995_Contrarian" role="doc-biblioref">Block 1995</a>)</span>. Read around and form your own view!</p>
 <p>The data contains the average of two questions about each factor in which participants responded to questions using a scale from 1 to 7. A value of 1 indicates a low score and a value of 7 is a high score. For example, someone with an extraversion score of 2 is more introverted that someone with an extraversion score of 5.</p>
 </section>
 <section id="the-challenge" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="the-challenge">The Challenge</h2>
+<h2 class="unnumbered anchored" data-anchor-id="the-challenge">2. The Challenge</h2>
 <p>Last week, we looked at how we can spend some time understanding a new dataset and compute some descriptive statistics from it.</p>
 <p>Now, we’re going to learn how to use Jamovi and R to make this process more repeatable and more transparent. This will make it much easier for us to come back to the analysis and understand what steps were taken at a later date.</p>
 </section>
 <section id="install-the-rj-add-on-in-jamovi" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="install-the-rj-add-on-in-jamovi">Install the Rj Add-On in Jamovi</h2>
+<h2 class="unnumbered anchored" data-anchor-id="install-the-rj-add-on-in-jamovi">3. Install the Rj Add-On in Jamovi</h2>
 <p>First, you should install the Rj Add-On using this <a href="https://docs.jamovi.org/_pages/Install_modules.html" class="external" target="_blank">guide for installing Jamovi modules</a>. Once installed you should have a new button on the Ribbon menu at the top of Jamovi…</p>
 <p><img src="../images/rmb-2025_week-1_computer-practical/RMB-2025_week-1_computer-practical_img2.png" class="img-fluid"></p>
 <p>Click on this and select ‘Rj Editor’ to open a window in which we can write R code! Click on the small cog icon and make sure that ‘Output’ is set to ‘Show code and output’.</p>
@@ -376,38 +433,13 @@ Data Skills - R as a calculator
 </div>
 <!--# #############################################  -->
 </section>
-<section id="functions-and-variables" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="functions-and-variables">Functions and Variables</h2>
-<p>Notice that the one of the equations in my example is a bit different to the others. The final example uses a function called sqrt as a shortcut to compute the square root of the number nine.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Definition of a function
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Functions are used to perform specific, predefined tasks, such as calculations, data transformations, or visualization. You can think of it as a “black box” that takes in a value, performs some internal calculation, and returns the result.</p>
-</div>
-</div>
-<p>The <code>sqrt</code> function calculates the square root of a given number. In R code, this looks something like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>with the ‘x’ replaced by any number. For example, we could compute the square root of 36 using the following command.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">36</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Add this line to your Rj editor and check the result..</p>
-<p>Many functions, take inputs contained in parentheses written after the name of the function. These inputs are sometimes known as the arguments of a function. In the last example, 36 is an argument for the function sqrt.</p>
-<p>Sometimes functions take several arguments, and the arguments themselves can have specific names. For example.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">12.345</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>will round the value <code>x</code> to a whole number with zero digits after the decimal point. Where as</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">12.345</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>would round the same number to preserve 2 digits after the decimal point. Try running these examples in Rj with a range of different numbers to get a sense of how it works.</p>
-<p>Often, we don’t just want to see the result of some maths or a function call, we want to store the result to use again later. For this, we want to use variables. For example, here we store the result of a calculator sum in a variable named ‘y’</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="variables-and-functions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="variables-and-functions">4. Variables and Functions</h2>
+<p>Often, we don’t just want to see the result of a calculation, we want to store the result to use again later. For this, we want to use variables. For example, here we store the result of a calculator sum in a variable named ‘y’</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you run this in Rj, you’ll notice that we no longer get the number 4 printed to the screen. This is as the output is now caught and stored rather than printed out. If we still want to see what is contained in <code>y</code>, we can use another helpful function named <code>print</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Will now also display the content of <code>y</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -421,6 +453,66 @@ Definition of a variable
 <div class="callout-body-container callout-body">
 <p>A variable is an object that provides a labelled space to store information. The <code>&lt;-</code> or <code>=</code> symbols indicate that we’re assigning some information to a variable (the two symbols behave the same way, you could see either).</p>
 <p>Crucially, the information on the right hand side is assigned to a variable with the name from the left hand side.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding with Copilot (Optional)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try asking Copilot for more information about <code>variables</code> in R. We suggest you try the following prompts to get started.</p>
+<ul>
+<li>“Write a simple description of variables in R for a beginner”</li>
+<li>“How can I choose a name for my variable in R”</li>
+</ul>
+<p>Make sure to ask follow up questions if you would like more information. Remember to talk with your session tutors if you get stuck.</p>
+</div>
+</div>
+<p>Notice that the one of the equations in my example is a bit different to the others. The final example uses a function called sqrt as a shortcut to compute the square root of the number nine.</p>
+<p>The <code>sqrt</code> function calculates the square root of a given number. In R code, this looks something like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>with the ‘x’ replaced by any number. For example, we could compute the square root of 36 using the following command.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">36</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Add this line to your Rj editor and check the result..</p>
+<p>Many functions, take inputs contained in parentheses written after the name of the function. These inputs are sometimes known as the arguments of a function. In the last example, 36 is an argument for the function sqrt.</p>
+<p>Sometimes functions take several arguments, and the arguments themselves can have specific names. For example.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">12.345</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>will round the value <code>x</code> to a whole number with zero digits after the decimal point. Where as</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">12.345</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>would round the same number to preserve 2 digits after the decimal point. Try running these examples in Rj with a range of different numbers to get a sense of how it works.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition of a function
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Functions are used to perform specific, predefined tasks, such as calculations, data transformations, or visualization. You can think of it as a “black box” that takes in a value, performs some internal calculation, and returns the result.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding with Copilot (Optional)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try asking Copilot for more information about <code>functions</code> in R. We suggest you try the following prompts to get started.</p>
+<ul>
+<li>“Write a simple description of functions in R for a beginner”</li>
+</ul>
+<p>Make sure to ask follow up questions if you would like more information. Remember to talk with your session tutors if you get stuck.</p>
 </div>
 </div>
 <p>A single analysis might have several lines of code that create, store and reuse a several different variables with several different functions. For example:</p>
@@ -437,7 +529,7 @@ Check Your Understanding
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Solution</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>What does this R code do? what is the value of <code>x</code>, <code>y</code> and <code>z</code>?</p>
@@ -462,11 +554,8 @@ Check Your Understanding
 <!--# #############################################  -->
 <p>Rj has a special feature that the data loaded into our spreadsheet is always contained in a special variable named <code>data</code>. We can refer to this <code>data</code> variable to view and run analyses on our dataset.</p>
 </section>
-<section id="compute-descriptive-statistics-using-r" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="compute-descriptive-statistics-using-r">Compute Descriptive Statistics using R</h2>
-<p>Ok, back to statistics! How can we use our new R skills to compute statistics?</p>
-<p>The trick is to understand that all the analyses in Jamovi are actually carried out by functions in R. Each analysis we can select from the top ribbon in Jamovi corresponds to a function that can be called in the code. Similarly, all of the options that we select in the analysis, dialogue boxes, correspond to arguments for that function. Let’s take a look in practice.</p>
-<p>To help understand this Jamovi provides an “R Syntax Mode”, in this mode, Jamovi produces equivalent R code for each analysis. To change to syntax mode, select the application menu (⋮) at the top right of Jamovi, and check the Syntax mode checkbox there.</p>
+<section id="accessing-the-data-table-in-rj" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="accessing-the-data-table-in-rj">5. Accessing the data table in Rj</h2>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -477,64 +566,44 @@ Key step
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Take a moment to load the data file into Jamovi.</p>
-<p>With syntax mode on, compute the descriptive statistics for the big five personality factors again.</p>
-</div>
-</div>
-<p>The outputs should look like this:</p>
+<p>Take a moment to load the data file into Jamovi and compute the descriptive statistics for the big five personality factors again.</p>
 <p><img src="../images/rmb-2025_week-1_computer-practical/RMB-2025_week-1_computer-practical_img7.png" class="img-fluid"></p>
-<p>Notice that some R code has appeared at the top of the output table. This is relatively complex compared to our previous functions like <code>print</code> or <code>sqrt</code>. Let’s break it down a bit.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Data Skills - Understanding the descriptives function
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>This is the code that Jamovi’s syntax mode will produce (with a little formatting to make the appearance simpler). Take a look through each part to understand what it does. Click the number in the annotation to highlight the corresponding part of the code.</p>
-<div class="sourceCode" id="annotated-cell-8"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-1" class="code-annotation-target"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">descriptives</span>(</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-8-2" class="code-annotation-target"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> data,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-8-3" class="code-annotation-target"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">vars =</span> <span class="fu">vars</span>(Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism)</span>
-<span id="annotated-cell-8-4"><a href="#annotated-cell-8-4" aria-hidden="true" tabindex="-1"></a>    )</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="1" data-code-annotation="1">This is the name of the function that will do the computation for us. Everything contained within these parentheses are known as arguments, or inputs, for the function</span>
-</dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="2" data-code-annotation="2">The first input is named <code>data</code> and is assigned to be the special data variable that contains the data loaded into our spreadsheet.</span>
-</dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="3" data-code-annotation="3">The second input is a list of the data columns in our spreadsheet that we want to compute descriptives from.</span>
-</dd>
-</dl>
-</div>
-</div>
-<p>There is a lot of information here that might be hard to understand at first. Try changing the analysis options using the Jamovi buttons and watch what happens to the R syntax. In particular, try adding and removing different variables to the analysis.</p>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Key step
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Once you’re ready, you can right click on this R syntax and click ‘Copy’ to copy it to your clipboard.</p>
-<p><img src="../images/rmb-2025_week-1_computer-practical/RMB-2025_week-1_computer-practical_img8.png" class="img-fluid"></p>
-<p>and pasting it into an Rj window - now you can click run to reproduce your descriptive statistics table using the underlying R code.</p>
-</div>
-</div>
-<p>Great - well done on completing your first data analysis using R code! You should have the following output that will match the descriptives you’ve seen in the main Jamovi window.</p>
-<p><img src="../images/rmb-2025_week-1_computer-practical/RMB-2025_week-1_computer-practical_img9.png" class="img-fluid"></p>
-<p>Head back over to the Jamovi descriptives tab and try updating your analysis. You could change the variables that you are computing the descriptive statistics from, add in some extra metrics (such as the Skewness or Shapiro-Wilk) or even generate a plot like a histogram.</p>
-<p>Note that the R code in the syntax box of the output will stay up to date with your changes. Pay attention to how the function updates when you select different options.</p>
+<p>The data we have loaded into our Jamovi session can be accessed in Rj with the <code>data</code> variable. Jamovi automatically makes the <code>data</code> available for us in the R environment.</p>
+<p>We can view and interact with the data here as well. For example, to view the first few rows of the dataset you can run the <code>head</code> function and pass in <code>data</code> as an argument.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and to view the last few rows, you can do the same with the <code>tail</code> function.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Often, we’ll only want to work with a subset of the columns in a data frame at any given time. We can access individual columns using the dollar operator. For example, this code will access the age column within the loaded dataset.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s break this command down into its pieces:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>R code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>data</code></td>
+<td>this is the name of the whole data array we have loaded in</td>
+</tr>
+<tr class="even">
+<td><code>$</code></td>
+<td>this is a separator that R uses to help us access subsections of datasets</td>
+</tr>
+<tr class="odd">
+<td><code>age</code></td>
+<td>This is the name of a single column we want to access</td>
+</tr>
+</tbody>
+</table>
 <!--# #############################################  -->
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -550,21 +619,95 @@ Check Your Understanding
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>What is the R code required to compute descriptive statistics from the Openness and Conscientiousness variables, whilst including the Skewness metric, the Shapiro-Wilk statistic and a histogram?</p>
-<p>Can you run this analysis in Rj?</p>
+<p>Can you access the column of Mood scores from the same dataset?</p>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p>Remember that the R code in the syntax mode will update as you define your analysis in Jamovi. Get the analysis right there and you can simply copy over the code.</p>
-<p>Talk to your tutor if you’re getting stuck.</p>
+<p>You can use the <code>head</code> function to see the list of all available columns in the dataset. The example above accesses the ‘age’ column, you can tweak this to extract the mood data instead.</p>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>The final code should look like this</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">descriptives</span>(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> data,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">vars =</span> <span class="fu">vars</span>(Openness, Conscientiousness),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">hist =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">skew =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sw =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Mood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We can also apply functions to these variables. <code>R</code> includes a wide range of standard mathmatical functions that we can use for common computations. This code computes the <code>mean</code> of the age data in our dataset.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Try running this in Rj. You should get the answer <code>19.3</code> - this matches the value we computed using the descriptives analysis last week.</p>
+<p>Similarly, the following function computes the standard deviation</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you run this, you should get the answer <code>3.808</code>.</p>
+</section>
+<section id="running-desriptive-statistics-using-rj" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="running-desriptive-statistics-using-rj">6. Running desriptive statistics using Rj</h2>
+<p>Ok, back to statistics! How can we use our new R skills to compute statistics?</p>
+<p>The trick is to understand that all the analyses in Jamovi are actually carried out by functions in R. Each analysis we can select from the top ribbon in Jamovi corresponds to a function that can be called in the code. Similarly, all of the options that we select in the analysis, dialogue boxes, correspond to arguments for that function. Let’s take a look in practice.</p>
+<p>Jamovi provides a collection of R functions that correspond to each analysis dialogue box in Jamovi. This package of functions is named <code>jmv</code>. The<code>jmv</code> function that computes descriptive statistics is called:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span>descriptives</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here we first name the <code>jmv</code> package specify the <code>descriptives</code> function within it (this link is made with the two colons).</p>
+<p>We can compute the descriptive statistics for age by passing the <code>data</code> into the function and specifying that we want to use the age variable. Try running the following:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">descriptives</span>(tidy_data, <span class="at">vars=</span><span class="st">'age'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and you should generate the following result table.</p>
+<p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img3.png" class="img-fluid"></p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You might notice that we still have the unusual ages in this analysis, we’ll discuss how to remove them in the next section</p>
+</div>
+</div>
+<p>Jamovi provide a lot of <a href="https://www.jamovi.org/jmv/descriptives.html">documentation on the descriptives function</a>. This lists every single option that can be passed into <code>jmv::descriptives</code>. There is an option here for every single checkbox and selector in the main Jamovi dialogue.</p>
+<p>The following code additionally computes a histogram by adding the <code>hist</code> argument.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">descriptives</span>(tidy_data, <span class="at">vars=</span><span class="st">'age'</span>, <span class="at">hist=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img4.png" class="img-fluid"></p>
+<p>We can end up specifying a lot of these options. Sometimes it can be a good idea to split the function across multiple lines. This is fine as long as the parentheses are in the right place and there are commas in between each option.</p>
+<p>This code computes descriptive statistics including the skewness, interquartile range and mode.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">descriptives</span>(tidy_data, </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vars=</span><span class="st">'age'</span>, </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">skew=</span><span class="cn">TRUE</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">iqr=</span><span class="cn">TRUE</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mode=</span><span class="cn">TRUE</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">hist=</span><span class="cn">TRUE</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img5.png" class="img-fluid"></p>
+<p>Of course, we could run these analyses by hand. The main advantage here is that we can automate the selection of critical options and reduce the possiblity of mistakes when communicating analyses within teams. As long as we have this line saved, we can rerun it on new datasets without having to recheck every box by hand.</p>
+<!--# #############################################  -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Use the examples above and the <code>JMV</code> <a href="https://www.jamovi.org/jmv/descriptives.html">documentation on the descriptives function</a> to write a function definition that does the following.</p>
+<p>Compute the core descriptive statistics for the Openess variable, make sure to include the range and a boxplot.</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Take a look at the ‘range’ and ‘box’ options in the <a href="https://www.jamovi.org/jmv/descriptives.html">documentation page</a>.</p>
+<p>Be careful with the spelling of each argument!</p>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>The final code should be:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">descriptives</span>(data, </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vars=</span><span class="st">'Openness'</span>, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">range=</span><span class="cn">TRUE</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">box=</span><span class="cn">TRUE</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img6.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
@@ -572,9 +715,9 @@ Check Your Understanding
 </div>
 <!--# #############################################  -->
 </section>
-<section id="cleaning-data-using-the-filter-function" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="cleaning-data-using-the-filter-function">Cleaning data using the <code>filter()</code> function</h2>
-<p>Remember that last week we very carefully removed several participants who had entered unrealisic or impossible ages into the datasets. This may have been an accident or mistake but either way we should not use this data.</p>
+<section id="selecting-rows-of-data-using-the-filter-function" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="selecting-rows-of-data-using-the-filter-function">7. Selecting rows of data using the <code>filter()</code> function</h2>
+<p>Remember that last week we very carefully removed several participants who had entered unrealisic or impossible ages into the datasets. This may have been an accident or mistake but either way we should not use this data. Our examples so far have just used all the data.</p>
 <p>R and Rj make it very easy to clean data without the boring, manual work we did last week. R can do the hard work and we can avoid scrolling through very large datasets by hand. Sounds good!</p>
 <p>The first thing we can do is investigate what range of responses that people actually gave when asked about their age. To do this we can use a new function called <code>unique()</code>. This takes a column of a dataset as an input and returns a list of all the unique responses that it contains.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
@@ -588,58 +731,98 @@ Key step
 </div>
 <div class="callout-body-container callout-body">
 <p>Load up an Rj Editor window (or continue in your old one) and run <code>unique()</code> on the age data.</p>
-<p>We can access a single column of a dataset using the doller sign <code>$</code>. In this case <code>data$age</code> accesses the age column of the data sheet.</p>
-</div>
-</div>
 <p>The result should look like this:</p>
-<p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img1.png" class="img-fluid"></p>
-<p>What do you think?</p>
+<p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img7.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Most of these responses are fine but, as we saw last week, there are a lot of strange ones. Most importantly, we can find the extreme values that are very likely errors during data collection (-2 and 149)</p>
+<p>We need to remove these from our analysis to get the most accurate results.</p>
+<p>To do this we’re going to use an R library named <code>dplyr</code> (short for ‘Data Pliers’, <a href="https://dplyr.tidyverse.org/">see their documentation here</a>). This is an extremely powerful library that is very widely used across the world.</p>
+<p>To use <code>dplyr</code>, we first need to load the library into Rj by adding the following line to our code.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This tells Rj that we want to use the functions from this library.</p>
+<p>The key function we need today is <code>filter()</code> - this extracts rows from a dataset based on logical conditions that we specify in the code. We are going to specify two arguments, firstly we will pass in the <code>data</code> and secondly we will specify the condition.</p>
+<p>In this example we extract only the rows in which participants have an age above 20.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(data, age<span class="sc">&gt;</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img8.png" class="img-fluid"></p>
+<p>Notice that the dataset printed in the right hand window now only has values from the participants who are older than 20.</p>
+<p>Try changing this condition to a few different options to see the difference.</p>
+<p>We can even specify multiple options - here we extract rows with participants older than 20 but younger than 23.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(data, age<span class="sc">&gt;</span><span class="dv">20</span>, age<span class="sc">&lt;</span><span class="dv">23</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, to recreate our data tidying form last week, we need to extract the rows of participants who are older than -2 and younger than 149.</p>
+<p>These values might be too specific and might not apply to every dataset. We can apply some common sense and suggest some broad, but much more sensible boundaries for a student population. We also save the result into a variable we can reuse late.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>tidy_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, age <span class="sc">&gt;</span> <span class="dv">15</span>, age <span class="sc">&lt;</span> <span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And finally, we can combine this with our call to `jmv::descriptives`` to both filter our data to only the rows we want to use and compute the descriptive statistics on the result.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>tidy_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, age <span class="sc">&gt;</span> <span class="dv">15</span>, age <span class="sc">&lt;</span> <span class="dv">60</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">descriptives</span>(tidy_data, <span class="at">vars=</span><span class="st">'age'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img9.png" class="img-fluid"></p>
+<!--# #############################################  -->
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Data Skills - Evaluating the age column
+Check Your Understanding
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Ok, most of these responses are fine but there are a lot of strange ones.</p>
-<ul>
-<li>Firstly, we can find the extreme values that we saw last week (-2 and 149) - these are clearly mistakes (or some kind of weird prank).</li>
-<li>Next, we can see a lot of people adding text (eg ‘almost 19’). This is not helpful for the computer though it can be socially useful. The computer will read this in words and not numbers. These responses with additional text will count as missing data for any numerical analysis we do.</li>
-<li><code>&lt;NA&gt;</code> means that the data value is simply missing - perhaps these participants skipped the question.</li>
-</ul>
-<p>We caught some of these issues last time but likely not all. It would be a huge effort to comb through the data line-by-line and identify all these issues.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Use the information in this tutorial to compute descriptive statistics for the Openness variable from Introverted participants.</p>
+<p>Compute the core descriptive statistics for the Openess variable, make sure to include the median and a histogram</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>To extract the data rows for Introverted participants we want to extract rows where the Extraversion score is less than 3.5</p>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<p>The final code should be:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>tidy_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, Extraversion <span class="sc">&lt;</span> <span class="fl">3.5</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">descriptives</span>(tidy_data, <span class="at">vars=</span><span class="st">'Openness'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img10.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
+</div>
+</div>
+<!--# #############################################  -->
 </section>
-</section>
-<section id="data-cleaning-1---converting" class="level1">
-<h1>Data Cleaning 1 - Converting</h1>
-<p>One solution to all this is to convert every value in the age column to a number and replace it with <code>&lt;NA&gt;</code>. We can then treat all these values the same rather than having many different types of response to worry about.</p>
-<p>We can do this using another function: <code>as.numeric()</code>. Try the following:</p>
-<p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img2.png" class="img-fluid"></p>
-<p>This code replaces the age column of the dataset with a new, converted one that only contains numerical values or <code>&lt;NA&gt;</code> for anything that cannot be converted to a number.</p>
-</section>
-<section id="data-cleaning-2---filtering" class="level1">
-<h1>Data Cleaning 2 - Filtering</h1>
-<p>Now that we have a clean data column we can use some filtering to remove the missing data and any extreme values.</p>
-</section>
-<section id="reproducible-data-analysis" class="level1">
-<h1>Reproducible data analysis</h1>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">8. Summary</h2>
 <p>It probably seems like a small difference so far. After all, we same results for our analysis using the check, boxes in Jamovi or the code in R. The Jamovi analysis is certainly quicker to run for the first time and it’s more convenient when exploring your data.</p>
 <p>However the R code has several crucial advantages.</p>
 <ul>
-<li>The R code is much more transparent about what is actually being run to generate the results and by sharing this code, we enable others to repeat our analysis. This makes it really straightforward to run and re-run identical analyses in situations where we need to be really sure that everybody has done the same thing. For example, if we want to be certain that two data sets have been analysed in an identical way then that our code would be the best way to do this.</li>
-<li>R code is the best way to share what we’ve done with the rest of the world. It is common practice for modern academic public it to include the code that was used to generate the results in the paper. This way everybody who wants to check can make sure they fully understand what the authors of the paper have done.</li>
+<li><strong>The R code is transparent about what is actually being run to generate the results</strong> and by sharing this code, we enable others to repeat our analysis. This makes it really straightforward to run and re-run identical analyses in situations where we need to be really sure that everybody has done the same thing. For example, if we want to be certain that two data sets have been analysed in an identical way then that our code would be the best way to do this.</li>
+<li><strong>R code is the best way to share what we’ve done with the rest of the world</strong>. It is common practice for modern academic public it to include the code that was used to generate the results in the paper. This way everybody who wants to check can make sure they fully understand what the authors of the paper have done.</li>
 </ul>
 <p>Finally, over the course of the semester we’ll see that R allows us to do much more than what is possible in Jamovi. We can define blocks of R code that can tidy-up and arrange our data, run multiple analyses and generate tables &amp; figures all in one go. Much easier that clicking through all the menus each time we want to rerun an analysis!</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Block1995_Contrarian" class="csl-entry" role="listitem">
+Block, Jack. 1995. <span>“A Contrarian View of the Five-Factor Approach to Personality Description.”</span> <em>Psychological Bulletin</em> 117 (2): 187–215. <a href="https://doi.org/10.1037/0033-2909.117.2.187">https://doi.org/10.1037/0033-2909.117.2.187</a>.
+</div>
+<div id="ref-Ebersole2016_ManyLabs3" class="csl-entry" role="listitem">
+Ebersole, Charles R., Olivia E. Atherton, Aimee L. Belanger, Hayley M. Skulborstad, Jill M. Allen, Jonathan B. Banks, Erica Baranski, et al. 2016. <span>“Many Labs 3: Evaluating Participant Pool Quality Across the Academic Semester via Replication.”</span> <em>Journal of Experimental Social Psychology</em> 67: 68–82. https://doi.org/<a href="https://doi.org/10.1016/j.jesp.2015.10.012">https://doi.org/10.1016/j.jesp.2015.10.012</a>.
+</div>
+<div id="ref-Gosling2003_VeryBrief" class="csl-entry" role="listitem">
+Gosling, Samuel D, Peter J Rentfrow, and William B Swann. 2003. <span>“A Very Brief Measure of the Big-Five Personality Domains.”</span> <em>Journal of Research in Personality</em> 37 (6): 504–28. <a href="https://doi.org/10.1016/s0092-6566(03)00046-1">https://doi.org/10.1016/s0092-6566(03)00046-1</a>.
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1063,6 +1246,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../tutorials/rmb_week-1_new-data-and-descriptives.html" class="pagination-link" aria-label="Week 1 - New data and descriptives">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 1 - New data and descriptives</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../copilot.html" class="pagination-link" aria-label="Using Copilot at UoB">
+        <span class="nav-page-text">Using Copilot at UoB</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
