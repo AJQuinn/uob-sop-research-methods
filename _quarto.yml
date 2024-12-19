@@ -23,6 +23,8 @@ website:
         href: tutorials/rmb_week-1_new-data-and-descriptives.qmd   
       - text: "Week 2 - Introducing R and Rj"
         href: tutorials/rmb_week-2_intro-to-Rj.qmd          
+      - text: "Week 3 - One-Sample T-tests"
+        href: tutorials/rmb_week-3_one-sample-t-tests.qmd   
     - section: "Support"
       contents:
         - text: "Using Copilot at UoB"
