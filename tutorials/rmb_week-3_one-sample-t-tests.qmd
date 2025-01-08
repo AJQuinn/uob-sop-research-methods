@@ -2,24 +2,35 @@
 
 This week we will explore how to use Jamovi to compute and visualise descriptive statistics from a dataset. This will include some revision on Jamovi from last semester and an introduction on how we can use the R coding language to simplify complex data processing.
 
-|     | Quantitative Methods              |
-|-----|:----------------------------------|
-|     | Measures of central tendency      |
-|     | Measures of dispersion and spread |
-|     | Measures of skew and normality    |
++------------+---------------------------------------------------------+
+|            | Quantitative Methods                                    |
++============+:========================================================+
+|            | Measures of central tendency                            |
++------------+---------------------------------------------------------+
+|            | Measures of dispersion and spread                       |
++------------+---------------------------------------------------------+
+|            | Measures of skew and normality                          |
++------------+---------------------------------------------------------+
 
 : Learning objectives for this session
 
-|     | Data Skills                                            |
-|-----|:-------------------------------------------------------|
-|     | Working with the Rj editor to use R code within Jamovi |
-|     | Learn the basics about functions and variables in R    |
-|     | Computing descriptive statistics using R               |
++----------+-----------------------------------------------------------+
+|          | Data Skills                                               |
++==========+:==========================================================+
+|          | Working with the Rj editor to use R code within Jamovi    |
++----------+-----------------------------------------------------------+
+|          | Learn the basics about functions and variables in R       |
++----------+-----------------------------------------------------------+
+|          | Computing descriptive statistics using R                  |
++----------+-----------------------------------------------------------+
 
-|     | Open Science                                               |
-|-----|:-----------------------------------------------------------|
-|     | Validating and working with openly available research data |
-|     | Create a reproducible data analysis script                 |
++----------+------------------------------------------------------------+
+|          | Open Science                                               |
++==========+:===========================================================+
+|          | Validating and working with openly available research data |
++----------+------------------------------------------------------------+
+|          | Create a reproducible data analysis script                 |
++----------+------------------------------------------------------------+
 
 ## 1. The Dataset {.unnumbered}
 
@@ -131,14 +142,50 @@ The responses in the Low SES story condition were more northern.
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - can we tell from the descriptives whether this is a significant difference?
 
-No! remember that we
+No! remember that descriptive statistics only summarise the data as it is. They cannot tell us whether we would expect what we see in that data to generalise beyond the specific data sample.
 :::
 
 ## 4. Data filters in Jamovi {.unnumbered}
 
-[Jamovi documentation on data filters](https://blog.jamovi.org/2018/04/25/jamovi-filters.html)
+Next, we're going to ask whether the participants in the either the High or Low SES conditions had a preference towards locating our fictional character in the North or South of the city. This is our one-sample t-test. The `NorthSouth_Position` is our data variable and the centre point of the city is the comparison value.
+
+First, we need to split out the data so that we can run the t-test using either the Low or High SES conditions, not using both mixed together.
+
+We can do this in Jamovi using a 'Filter'. Jamovi provides some great [documentation on data filters](https://blog.jamovi.org/2018/04/25/jamovi-filters.html) on their website. Take a few minutes and read through the info on 'Row Filters' on this page.
+
+The most important thing about filters is that they are reversible. We can apply a filter to run an analysis on a subset of the data without actually changing the dataset itself. This means we could make several different filters and turn them on and off to repeat the same analyses on different sections of the dataset. Convenient!
+
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Following the guidance on the Jamovi [documentation on data filters](https://blog.jamovi.org/2018/04/25/jamovi-filters.html), create a filter to select ONLY the participants who heard the low SES story.
+
+The result should exclude the first 75 rows from your dataset, you can confirm this by looking at the ticks and crosses in the 'Filter' column, and by inspecting the values in the very bottom of the window.
+
+![](../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img4.png)
+:::
+
+
+Note that your analyses in results windows will automatically update when you apply a filter to the data. With the filter applied, you will only see the descriptive statistics for the 'Low' SES_Story groups.
+
+If you click the 'active' toggle in the 'Filter' window you can turn the filter off and your analysis will return to its initial state.
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+With your first Filter turned OFF, create a filter to select ONLY the participants who heard the High SES story.
+
+The result should now exclude the last 61 rows from your dataset.
+
+![](../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img5.png)
+You can turn your filters on and off to see how this changes the data available for the analysis, though turning both filters on will exclude all the data in this case...
+
+:::
 
 ## 5. One-Sample T-tests {.unnumbered}
+
+Now we're ready to test our hypothesis!
 
 $$
 t = \frac{\text{The sample mean} - \text{Comparison Value}}{\text{The standard error of the mean}}
