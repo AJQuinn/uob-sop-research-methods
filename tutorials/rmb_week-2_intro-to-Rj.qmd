@@ -453,25 +453,24 @@ filter(data, age>20)
 
 Notice that the dataset printed in the right hand window now only has values from the participants who are older than 20.
 
-Try changing this condition to a few different options to see the difference.
 
-We can even specify multiple options - here we extract rows with participants older than 20 but younger than 23.
+We can even specify multiple options - here we extract rows with participants older than 20 but still 23 or younger.
 
 ``` r
 library(dplyr)
 
-filter(data, age>20, age<23)
+filter(data, age>20, age<=23)
 ```
 
 Next, to recreate our data tidying form last week, we need to extract the rows of participants who are older than -2 and younger than 149.
 
-These values might be too specific and might not apply to every dataset. We can apply some common sense and suggest some broad, but much more sensible boundaries for a student population. We also save the result into a variable we can reuse late.
+These values might be too specific and might not apply to every dataset. We can apply some common sense and suggest some broad, but much more sensible boundaries for a student population. We also save the result into a variable we can reuse later.
 
 ``` r
 tidy_data <- filter(data, age > 15, age < 60)
 ```
 
-And finally, we can combine this with our call to \`jmv::descriptives\`\` to both filter our data to only the rows we want to use and compute the descriptive statistics on the result.
+And finally, we can combine this with our call to `jmv::descriptives` to both filter our data to only the rows we want to use and compute the descriptive statistics on the result.
 
 ``` r
 tidy_data <- filter(data, age > 15, age < 60)
@@ -481,6 +480,13 @@ jmv::descriptives(tidy_data, vars='age')
 
 ![](../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img9.png)
 
+::: {.callout-note appearance="simple"}
+# Key step
+
+Practice changing the age conditions to a few different options to see the difference it makes to the descriptives analysis. What happens when you set a condition that results in zero valid participants?
+
+:::
+
 <!--# #############################################  -->
 
 :::: callout-tip
@@ -489,7 +495,7 @@ jmv::descriptives(tidy_data, vars='age')
 ::: panel-tabset
 ## Question
 
-Use the information in this tutorial to compute descriptive statistics for the Openness variable from Introverted participants.
+Use the information in this tutorial to compute descriptive statistics for the Openness variable from Introverted participants. In other words - what is the mean Openess score for participants who are more Introverted than Extraverted.
 
 Compute the core descriptive statistics for the Openess variable, make sure to include the median and a histogram
 
