@@ -766,19 +766,31 @@ Key step
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(data, age<span class="sc">&gt;</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img8.png" class="img-fluid"></p>
 <p>Notice that the dataset printed in the right hand window now only has values from the participants who are older than 20.</p>
-<p>Try changing this condition to a few different options to see the difference.</p>
-<p>We can even specify multiple options - here we extract rows with participants older than 20 but younger than 23.</p>
+<p>We can even specify multiple options - here we extract rows with participants older than 20 but still 23 or younger.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(data, age<span class="sc">&gt;</span><span class="dv">20</span>, age<span class="sc">&lt;</span><span class="dv">23</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(data, age<span class="sc">&gt;</span><span class="dv">20</span>, age<span class="sc">&lt;=</span><span class="dv">23</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Next, to recreate our data tidying form last week, we need to extract the rows of participants who are older than -2 and younger than 149.</p>
-<p>These values might be too specific and might not apply to every dataset. We can apply some common sense and suggest some broad, but much more sensible boundaries for a student population. We also save the result into a variable we can reuse late.</p>
+<p>These values might be too specific and might not apply to every dataset. We can apply some common sense and suggest some broad, but much more sensible boundaries for a student population. We also save the result into a variable we can reuse later.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>tidy_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, age <span class="sc">&gt;</span> <span class="dv">15</span>, age <span class="sc">&lt;</span> <span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>And finally, we can combine this with our call to `jmv::descriptives`` to both filter our data to only the rows we want to use and compute the descriptive statistics on the result.</p>
+<p>And finally, we can combine this with our call to <code>jmv::descriptives</code> to both filter our data to only the rows we want to use and compute the descriptive statistics on the result.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>tidy_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, age <span class="sc">&gt;</span> <span class="dv">15</span>, age <span class="sc">&lt;</span> <span class="dv">60</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">descriptives</span>(tidy_data, <span class="at">vars=</span><span class="st">'age'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img9.png" class="img-fluid"></p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Practice changing the age conditions to a few different options to see the difference it makes to the descriptives analysis. What happens when you set a condition that results in zero valid participants?</p>
+</div>
+</div>
 <!--# #############################################  -->
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -794,7 +806,7 @@ Check Your Understanding
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<p>Use the information in this tutorial to compute descriptive statistics for the Openness variable from Introverted participants.</p>
+<p>Use the information in this tutorial to compute descriptive statistics for the Openness variable from Introverted participants. In other words - what is the mean Openess score for participants who are more Introverted than Extraverted.</p>
 <p>Compute the core descriptive statistics for the Openess variable, make sure to include the median and a histogram</p>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
