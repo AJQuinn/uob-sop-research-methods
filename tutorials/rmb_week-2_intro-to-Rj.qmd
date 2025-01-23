@@ -330,7 +330,7 @@ Here we first name the `jmv` package specify the `descriptives` function within 
 We can compute the descriptive statistics for age by passing the `data` into the function and specifying that we want to use the age variable. Try running the following:
 
 ``` r
-jmv::descriptives(tidy_data, vars='age')
+jmv::descriptives(data, vars='age')
 ```
 
 and you should generate the following result table.
@@ -348,7 +348,7 @@ Jamovi provide a lot of [documentation on the descriptives function](https://www
 The following code additionally computes a histogram by adding the `hist` argument.
 
 ``` r
-jmv::descriptives(tidy_data, vars='age', hist=TRUE)
+jmv::descriptives(data, vars='age', hist=TRUE)
 ```
 
 ![](../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img4.png)
@@ -358,7 +358,7 @@ We can end up specifying a lot of these options. Sometimes it can be a good idea
 This code computes descriptive statistics including the skewness, interquartile range and mode.
 
 ``` r
-jmv::descriptives(tidy_data, 
+jmv::descriptives(data, 
   vars='age', 
   skew=TRUE,
   iqr=TRUE,
