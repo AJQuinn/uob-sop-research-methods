@@ -29,6 +29,8 @@ website:
       contents:
         - text: "Using Copilot at UoB"
           href: copilot.qmd 
+        - text: "FAQs"
+          href: tutorials/frequently-asked-questions.qmd 
 format:
   html:
     toc: true

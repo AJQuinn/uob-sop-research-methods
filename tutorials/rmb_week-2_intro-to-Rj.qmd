@@ -2,42 +2,26 @@
 
 This week we will explore how to use Jamovi to compute and visualise descriptive statistics from a dataset. This will include some revision on Jamovi from last semester and an introduction on how we can use the R coding language to simplify complex data processing.
 
-| ![](../images/logos/rm-logo_quantitative-methods.png){width=50px} | Quantitative Methods |
-|-----|:----------------------------------|
-|     | Measures of central tendency      |
-|     | Measures of dispersion and spread |
-|     | Measures of skew and normality    |
+|   ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}         | Quantitative Methods                                    |
+|-----|:-------------------------------------------|
+|            | Measures of central tendency                            |
+|            | Measures of dispersion and spread                       |
+|            | Measures of skew and normality                          |
 
 : Learning objectives for this session
 
-| ![](../images/logos/rm-logo_data-skills.png){width=50px}| Data Skills |
-|-----|:-------------------------------------------------------|
-|     | Working with the Rj editor to use R code within Jamovi |
-|     | Learn the basics about functions and variables in R    |
-|     | Computing descriptive statistics using R               |
+|    ![](../images/logos/rm-logo_data-skills.png){width=50px}      | Data Skills                                              |
+|-----|:-------------------------------------------|
+|          | Working with the Rj editor to use R code within Jamovi   |
+|          | Learn the basics about functions and variables in R      |
+|          | Computing descriptive statistics using R                 |
 
-| ![](../images/logos/rm-logo_open-science.png){width=50px} | Open Science |
-|-----|:-----------------------------------------------------------|
-|     | Validating and working with openly available research data |
-|     | Create a reproducible data analysis script |
+|    ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
+|-----|:-------------------------------------------|
+|          | Validating and working with openly available research data |
+|          | Create a reproducible data analysis script                 |
 
 
-```{=html}
-<table>
-  <caption>Learning Objectives.</caption>
-  <thead>
-    <tr>
-      <th><img src="../images/logos/rm-logo_quantitative-methods.png" width=50px /></th>
-      <th>Quantitative Methods</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td></td><td>Measures of central tendency</td></tr>
-    <tr><td></td><td>Measures of dispersion and spread</td></tr>
-    <tr><td></td><td>Measures of skew and normality</td></tr>
-  </tbody>
-</table>
-```
 
 ## 1. The Dataset {.unnumbered}
 
@@ -46,6 +30,7 @@ This week we will explore how to use Jamovi to compute and visualise descriptive
 
 Note that this is the same dataset as in week 1
 :::
+
 
 We will be exploring data that was collected as part of the ‘Many Labs 3’ project [@Ebersole2016_ManyLabs3]. This collected data from university students in the USA across a wide range of cognitive, behavioural and demographic measures. We will be exploring a subset of this dataset concerning individual differences in personality measures. The experimenters collected data to compute the ‘Big Five’ personality factors from each participant. [Wikipedia describes the factors](https://en.wikipedia.org/wiki/Big_Five_personality_traits) as:
 
@@ -59,18 +44,37 @@ This is a very simple [@Gosling2003_VeryBrief] and influential model that is use
 
 The data contains the average of two questions about each factor in which participants responded to questions using a scale from 1 to 7. A value of 1 indicates a low score and a value of 7 is a high score. For example, someone with an extraversion score of 2 is more introverted that someone with an extraversion score of 5.
 
-
 ## 2. The Challenge {.unnumbered}
 
 Last week, we looked at how we can spend some time understanding a new dataset and compute some descriptive statistics from it.
 
 Now, we're going to learn how to use Jamovi and R to make this process more repeatable and more transparent. This will make it much easier for us to come back to the analysis and understand what steps were taken at a later date.
 
+::: {.callout-warning appearance="simple"}
+# Opening Jamovi
+
+We'll be working with Jamovi throughout this practical. 
+
+**Working on campus?** You can open Jamovi through AppsAnywhere, either open the desktop application through the start menu on a campus computer or [Birmingham's AppsAnywhere website](https://apps.bham.ac.uk/).
+
+Take a look at these [frequently asked questions](frequently-asked-questions.qmd) or ask your tutor if you get stuck.
+
+**Working on your own computer?** You can [install Jamovi (for free!) folling these instructions](https://www.jamovi.org/). Install the 'Desktop' application - not the 'Cloud' version.
+
+:::
+
 ## 3. Install the Rj Add-On in Jamovi {.unnumbered}
 
-First, you should install the Rj Add-On using this [guide for installing Jamovi modules](https://docs.jamovi.org/_pages/Install_modules.html){.external target="_blank"}. Once installed you should have a new button on the Ribbon menu at the top of Jamovi...
+We'll be working with the Rj Add-On for Jamovi this week. 
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Before continuing, install the Rj add-on for jamovi following the [guide for installing Jamovi modules](https://docs.jamovi.org/_pages/Install_modules.html){.external target="_blank"}. Once installed you should have a new button on the Ribbon menu at the top of Jamovi...
 
 ![](../images/rmb-2025_week-1_computer-practical/RMB-2025_week-1_computer-practical_img2.png)
+
+:::
 
 Click on this and select 'Rj Editor' to open a window in which we can write R code! Click on the small cog icon and make sure that 'Output' is set to 'Show code and output'.
 
@@ -99,8 +103,6 @@ You can use the following symbols to define your sums.
 ![](../images/rmb-2025_week-1_computer-practical/RMB-2025_week-1_computer-practical_img4.png)
 :::
 
-
-
 <!--# #############################################  -->
 
 ## 4. Variables and Functions {.unnumbered}
@@ -127,16 +129,17 @@ A variable is an object that provides a labelled space to store information. The
 
 Crucially, the information on the right hand side is assigned to a variable with the name from the left hand side.
 :::
-:::: callout-tip
+
+::: callout-tip
 ## Check Your Understanding with Copilot (Optional)
 
 Try asking Copilot for more information about `variables` in R. We suggest you try the following prompts to get started.
 
-- "Write a simple description of variables in R for a beginner"
-- "How can I choose a name for my variable in R"
+-   "Write a simple description of variables in R for a beginner"
+-   "How can I choose a name for my variable in R"
 
 Make sure to ask follow up questions if you would like more information. Remember to talk with your session tutors if you get stuck.
-::::
+:::
 
 Notice that the one of the equations in my example is a bit different to the others. The final example uses a function called sqrt as a shortcut to compute the square root of the number nine.
 
@@ -175,15 +178,16 @@ would round the same number to preserve 2 digits after the decimal point. Try ru
 
 Functions are used to perform specific, predefined tasks, such as calculations, data transformations, or visualization. You can think of it as a "black box" that takes in a value, performs some internal calculation, and returns the result.
 :::
-:::: callout-tip
+
+::: callout-tip
 ## Check Your Understanding with Copilot (Optional)
 
 Try asking Copilot for more information about `functions` in R. We suggest you try the following prompts to get started.
 
-- "Write a simple description of functions in R for a beginner"
+-   "Write a simple description of functions in R for a beginner"
 
 Make sure to ask follow up questions if you would like more information. Remember to talk with your session tutors if you get stuck.
-::::
+:::
 
 A single analysis might have several lines of code that create, store and reuse a several different variables with several different functions. For example:
 
@@ -237,35 +241,37 @@ Take a moment to load the data file into Jamovi and compute the descriptive stat
 ![](../images/rmb-2025_week-1_computer-practical/RMB-2025_week-1_computer-practical_img7.png)
 :::
 
-
 The data we have loaded into our Jamovi session can be accessed in Rj with the `data` variable. Jamovi automatically makes the `data` available for us in the R environment.
 
 We can view and interact with the data here as well. For example, to view the first few rows of the dataset you can run the `head` function and pass in `data` as an argument.
 
-```R
+``` r
 head(data)
 ```
 
 and to view the last few rows, you can do the same with the `tail` function.
 
-```R
+``` r
 tail(data)
 ```
 
 Often, we'll only want to work with a subset of the columns in a data frame at any given time. We can access individual columns using the dollar operator. For example, this code will access the age column within the loaded dataset.
 
-```R
+``` r
 data$age
 ```
 
 Let's break this command down into its pieces:
 
-| R code  |	Meaning |
-|---------|---------------------------------|
-| `data`	  | this is the name of the whole data array we have loaded in |
-| `$`	      |this is a separator that R uses to help us access subsections of datasets |
-| `age` |	This is the name of a single column we want to access |
-
++---------------+---------------------------------------------------------------------------+
+| R code        | Meaning                                                                   |
++===============+===========================================================================+
+| `data`        | this is the name of the whole data array we have loaded in                |
++---------------+---------------------------------------------------------------------------+
+| `$`           | this is a separator that R uses to help us access subsections of datasets |
++---------------+---------------------------------------------------------------------------+
+| `age`         | This is the name of a single column we want to access                     |
++---------------+---------------------------------------------------------------------------+
 
 <!--# #############################################  -->
 
@@ -291,10 +297,9 @@ data$Mood
 :::
 ::::
 
-
 We can also apply functions to these variables. `R` includes a wide range of standard mathmatical functions that we can use for common computations. This code computes the `mean` of the age data in our dataset.
 
-``` R
+``` r
 mean(data$age)
 ```
 
@@ -302,12 +307,11 @@ Try running this in Rj. You should get the answer `19.3` - this matches the valu
 
 Similarly, the following function computes the standard deviation
 
-``` R
+``` r
 sd(data$age)
 ```
 
 If you run this, you should get the answer `3.808`.
-
 
 ## 6. Running desriptive statistics using Rj {.unnumbered}
 
@@ -317,7 +321,7 @@ The trick is to understand that all the analyses in Jamovi are actually carried 
 
 Jamovi provides a collection of R functions that correspond to each analysis dialogue box in Jamovi. This package of functions is named `jmv`. The`jmv` function that computes descriptive statistics is called:
 
-``` R
+``` r
 jmv::descriptives
 ```
 
@@ -325,7 +329,7 @@ Here we first name the `jmv` package specify the `descriptives` function within 
 
 We can compute the descriptive statistics for age by passing the `data` into the function and specifying that we want to use the age variable. Try running the following:
 
-``` R
+``` r
 jmv::descriptives(tidy_data, vars='age')
 ```
 
@@ -343,7 +347,7 @@ Jamovi provide a lot of [documentation on the descriptives function](https://www
 
 The following code additionally computes a histogram by adding the `hist` argument.
 
-``` R
+``` r
 jmv::descriptives(tidy_data, vars='age', hist=TRUE)
 ```
 
@@ -353,7 +357,7 @@ We can end up specifying a lot of these options. Sometimes it can be a good idea
 
 This code computes descriptive statistics including the skewness, interquartile range and mode.
 
-``` R
+``` r
 jmv::descriptives(tidy_data, 
   vars='age', 
   skew=TRUE,
@@ -364,7 +368,6 @@ jmv::descriptives(tidy_data,
 ```
 
 ![](../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img5.png)
-
 
 Of course, we could run these analyses by hand. The main advantage here is that we can automate the selection of critical options and reduce the possiblity of mistakes when communicating analyses within teams. As long as we have this line saved, we can rerun it on new datasets without having to recheck every box by hand.
 
@@ -390,7 +393,7 @@ Be careful with the spelling of each argument!
 
 The final code should be:
 
-``` R
+``` r
 jmv::descriptives(data, 
   vars='Openness', 
   range=TRUE,
@@ -420,10 +423,9 @@ Load up an Rj Editor window (or continue in your old one) and run `unique()` on 
 The result should look like this:
 
 ![](../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img7.png)
-
 :::
 
-Most of these responses are fine but, as we saw last week, there are a lot of strange ones. Most importantly, we can find the extreme values that are very likely errors during data collection (-2 and 149) 
+Most of these responses are fine but, as we saw last week, there are a lot of strange ones. Most importantly, we can find the extreme values that are very likely errors during data collection (-2 and 149)
 
 We need to remove these from our analysis to get the most accurate results.
 
@@ -431,7 +433,7 @@ To do this we're going to use an R library named `dplyr` (short for 'Data Pliers
 
 To use `dplyr`, we first need to load the library into Rj by adding the following line to our code.
 
-```R
+``` r
 library(dplyr)
 ```
 
@@ -441,7 +443,7 @@ The key function we need today is `filter()` - this extracts rows from a dataset
 
 In this example we extract only the rows in which participants have an age above 20.
 
-```R
+``` r
 library(dplyr)
 
 filter(data, age>20)
@@ -449,30 +451,29 @@ filter(data, age>20)
 
 ![](../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img8.png)
 
-
 Notice that the dataset printed in the right hand window now only has values from the participants who are older than 20.
 
 Try changing this condition to a few different options to see the difference.
 
 We can even specify multiple options - here we extract rows with participants older than 20 but younger than 23.
 
-```R
+``` r
 library(dplyr)
 
 filter(data, age>20, age<23)
 ```
 
-Next, to recreate our data tidying form last week, we need to extract the rows of participants who are older than -2 and younger than 149. 
+Next, to recreate our data tidying form last week, we need to extract the rows of participants who are older than -2 and younger than 149.
 
 These values might be too specific and might not apply to every dataset. We can apply some common sense and suggest some broad, but much more sensible boundaries for a student population. We also save the result into a variable we can reuse late.
 
-```R
+``` r
 tidy_data <- filter(data, age > 15, age < 60)
 ```
 
-And finally, we can combine this with our call to `jmv::descriptives`` to both filter our data to only the rows we want to use and compute the descriptive statistics on the result.
+And finally, we can combine this with our call to \`jmv::descriptives\`\` to both filter our data to only the rows we want to use and compute the descriptive statistics on the result.
 
-```R
+``` r
 tidy_data <- filter(data, age > 15, age < 60)
 
 jmv::descriptives(tidy_data, vars='age')
@@ -488,7 +489,7 @@ jmv::descriptives(tidy_data, vars='age')
 ::: panel-tabset
 ## Question
 
-Use the information in this tutorial to compute descriptive statistics for the Openness variable from Introverted participants. 
+Use the information in this tutorial to compute descriptive statistics for the Openness variable from Introverted participants.
 
 Compute the core descriptive statistics for the Openess variable, make sure to include the median and a histogram
 
@@ -500,7 +501,7 @@ To extract the data rows for Introverted participants we want to extract rows wh
 
 The final code should be:
 
-``` R
+``` r
 library(dplyr)
 
 tidy_data <- filter(data, Extraversion < 3.5)
@@ -509,7 +510,6 @@ jmv::descriptives(tidy_data, vars='Openness')
 ```
 
 ![](../images/rmb-2025_week-2_computer-practical/RMB-2025_week-2_computer-practical_img10.png)
-
 :::
 ::::
 
@@ -525,7 +525,6 @@ However the R code has several crucial advantages.
 -   **R code is the best way to share what we've done with the rest of the world**. It is common practice for modern academic public it to include the code that was used to generate the results in the paper. This way everybody who wants to check can make sure they fully understand what the authors of the paper have done.
 
 Finally, over the course of the semester we'll see that R allows us to do much more than what is possible in Jamovi. We can define blocks of R code that can tidy-up and arrange our data, run multiple analyses and generate tables & figures all in one go. Much easier that clicking through all the menus each time we want to rerun an analysis!
-
 
 ## References
 

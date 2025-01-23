@@ -5,19 +5,19 @@ This week we will explore how to use Jamovi to compute and visualise descriptive
 ### Learning Objectives
 
 | ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods |
-|--------------|:---------------------------------------------------------|
+|-----|:-------------------------------------------|
 |  | Measures of central tendency (Mean and Median) |
 |  | Measures of dispersion and spread (Standard Deviation and Interquartile Range) |
 |  | Measures of skew and normality |
 |  | Recognising different types of distribution |
 
-| ![](../images/logos/rm-logo_data-skills.png){width=50px}    | Data Skills                                |
+| ![](../images/logos/rm-logo_data-skills.png){width=50px}    | Data Skills   |
 |-----|:-------------------------------------------|
 |     | Exploring and cleaning datasets Jamovi     |
 |     | Computing descriptive statistics in Jamovi |
 |     | Computing descriptive plots in Jamovi      |
 
-|  ![](../images/logos/rm-logo_open-science.png){width=50px}   | Open Science                                |
+|  ![](../images/logos/rm-logo_open-science.png){width=50px}   | Open Science     |
 |-----|:--------------------------------------------|
 |     | Working with openly available research data |
 
@@ -40,6 +40,19 @@ The data contains the average of two questions about each factor in which partic
 We have data from a sample of students in a big data table. This raw data needs to be summarised and visualised so that we can turn this massive block of numbers into something intuitive.
 
 We can generate a concise overview of the main characteristics of the data by computing and visualising few key features from the data.
+
+::: {.callout-warning appearance="simple"}
+# Opening Jamovi
+
+We'll be working with Jamovi throughout this practical. 
+
+**Working on campus?** You can open Jamovi through AppsAnywhere, either open the desktop application through the start menu on a campus computer or [Birmingham's AppsAnywhere website](https://apps.bham.ac.uk/).
+
+Take a look at these [frequently asked questions](frequently-asked-questions.qmd) or ask your tutor if you get stuck.
+
+**Working on your own computer?** You can [install Jamovi (for free!) folling these instructions](https://www.jamovi.org/). Install the 'Desktop' application - not the 'Cloud' version.
+
+:::
 
 <!--# #############################################  -->
 
