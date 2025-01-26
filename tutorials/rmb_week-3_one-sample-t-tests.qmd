@@ -2,35 +2,24 @@
 
 This week we will explore how to use Jamovi to compute and visualise descriptive statistics from a dataset. This will include some revision on Jamovi from last semester and an introduction on how we can use the R coding language to simplify complex data processing.
 
-+------------+---------------------------------------------------------+
-|            | Quantitative Methods                                    |
-+============+:========================================================+
+|  ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods                                    |
+|-----|:-------------------------------------------|
 |            | Measures of central tendency                            |
-+------------+---------------------------------------------------------+
 |            | Measures of dispersion and spread                       |
-+------------+---------------------------------------------------------+
 |            | Measures of skew and normality                          |
-+------------+---------------------------------------------------------+
 
 : Learning objectives for this session
 
-+----------+-----------------------------------------------------------+
-|          | Data Skills                                               |
-+==========+:==========================================================+
+|    ![](../images/logos/rm-logo_data-skills.png){width=50px}      | Data Skills                                               |
+|-----|:-------------------------------------------|
 |          | Working with the Rj editor to use R code within Jamovi    |
-+----------+-----------------------------------------------------------+
 |          | Learn the basics about functions and variables in R       |
-+----------+-----------------------------------------------------------+
 |          | Computing descriptive statistics using R                  |
-+----------+-----------------------------------------------------------+
 
-+----------+------------------------------------------------------------+
-|          | Open Science                                               |
-+==========+:===========================================================+
+|      ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
+|-----|:-------------------------------------------|
 |          | Validating and working with openly available research data |
-+----------+------------------------------------------------------------+
 |          | Create a reproducible data analysis script                 |
-+----------+------------------------------------------------------------+
 
 ## 1. The Dataset {.unnumbered}
 
@@ -59,7 +48,10 @@ This week we will use one-sample t-tests to explore whether participants from th
 
 Before we start, think about what you would predict about participants from the UK. Is there a reason to expect that people in the UK would associate the north of a city with high SES or vice versa?
 
-Note that there isn’t necessarily a correct answer to this question but it is good practice to be clear about our predictions and expectations before starting a data analysis.
+Make a note of your answer and the reasons behind it. Note that there isn’t necessarily a correct answer to this question and we won't ask you for it later. 
+
+It is good practice to be clear about our predictions and expectations before starting a data analysis. 
+
 :::
 
 ## 3. Getting started with descriptive Statistics {.unnumbered}
@@ -145,6 +137,16 @@ The responses in the Low SES story condition were more northern.
 No! remember that descriptive statistics only summarise the data as it is. They cannot tell us whether we would expect what we see in that data to generalise beyond the specific data sample.
 :::
 
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - are we more confident in our estimate of the mean for the 'North' or 'South' condition?
+ 
+The standard error of the mean tells us how well we think our estimated mean from the data sample represents the 'true' population mean.
+
+The standard error of the mean for the 'Low' group is higher (9.96 vs 7.3 for 'High') - indicating that we are less confident that this is a good representation of our population mean. Note that it could still be a good estimate, we're just relatively less confident than we are for the 'High' condition.
+
+:::
+
 ## 4. Data filters in Jamovi {.unnumbered}
 
 Next, we're going to ask whether the participants in the either the High or Low SES conditions had a preference towards locating our fictional character in the North or South of the city. This is our one-sample t-test. The `NorthSouth_Position` is our data variable and the centre point of the city is the comparison value.
@@ -185,15 +187,27 @@ You can turn your filters on and off to see how this changes the data available 
 
 ## 5. One-Sample T-tests {.unnumbered}
 
-Now we're ready to test our hypothesis!
+Now we're ready to test our hypothesis! remember that the equation for a one-sample t-test is the following:
 
 $$
 t = \frac{\text{The sample mean} - \text{Comparison Value}}{\text{The standard error of the mean}}
 $$
 
-In this case we want to compare our mean to the middle of the city which has a value of zero.
+We're looking at the difference between our observed mean and a comparison value as a ratio to the precision to which we have estimated our observed mean.
 
-We have both of these values above. Can you compute the value of our t-test using a calculator?
+Our descriptive statistics output contains the  mean and standard error of the mean for both groups. Our comparison value is the centre of the city, indicated by a score of `0` (zero).
+
+We all the values required for a one-sample t-test already in the descriptive statistics! For the 'Low' SES_Story condition, we have:
+
+-   Group Mean = 18.6
+-   Comparison Value = 0
+-   Standard error of the mean = 9.96
+
+So, the one sample t-test value is:
+
+$$
+t = \frac{18.6 - 0}{9.96} = 1.867
+$$
 
 <!--# #############################################  -->
 
@@ -203,7 +217,7 @@ We have both of these values above. Can you compute the value of our t-test usin
 ::: panel-tabset
 ## Question
 
-Can you compute the t-value for the High SES Story group?
+Can you compute the t-value for the High SES Story group using a calculator or Rj?
 
 ## Hint
 
@@ -213,20 +227,209 @@ First, get the three values that you'll need for the computation. These are the 
 
 The individual values are
 
--   Group Mean =
+-   Group Mean = -39.0
 -   Comparison Value = 0
--   Standard error of the mean =
+-   Standard error of the mean = 7.30
 
 so the t-value is
 
 $$
-t = \frac{xyz - 0}{sem} = 234
+t = \frac{-39.0 - 0}{7.30} = -5.342
 $$
 :::
 ::::
 
+## 6.  One Sample T-tests in Jamovi {.unnumbered}
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Before going any further - make sure that your data filter is set to include **only** the data from the 'Low' SES_Story condition.
+
+:::
+
+Of course, we will normally compute the t-test using Jamovi as rather than relying on hand calculations. We can do this by opening the 'One Sample T-Test' option under the 'Analysis -> T-Tests' menu on the top ribbon. 
+
+Open the One Sample T-Test option now, and drag the `NorthSouth_Position` variable over to the 'dependent variables' box. The result should appear on the right hand side. Before we inspect the result, we should check and add a number of important options to our analysis.
+
+![](../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img6_crop.png){width=450px}
+
+
+- **Hypothesis - test value** it is critical that we select the correct hypothesis or our test will be meaningless. Our 'test value', also known as a 'comparison value', is set to zero by default. This is correct for our analysis but may need setting to something else for other analyses. Take care to check it makes sense each time.
+
+- **Hypothesis - test tail** we can also specify whether we're going to perform a one- or two-tailed test. Here we want to specify a two-tailed test in which the mean does not equal the test value. 
+
+- **Assumption Checks** we should add a test to check that our data are normally distributed. Selecting the 'Normality test' box will compute a Shapio-Wilks statistic for you
+
+- **Additional Statistics** there are a number of important options here. For now, add the 'Descriptive plots' option to your analysis. This will show us a visualisation of the estimated mean and its confidence intervals.
+
+
+Let's take a look at the outputs, first the t-test table.
+
+![](../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img6_ttable.png){width=450px}
+
+This contains the information we need to report our t-test: the t-value, the degrees of freedom and the p-value.
+
+> t(60) = 1.87, p = 0.066
+
+This t-value should match the number you computed by hand earlier on. Note that the footnote of the table reminds us of the hypothesis that we specified. Make sure that this matches what you expect!
+
+Next, the normality check:
+
+![](../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img6_normaltable.png){width=450px}
+
+This reports the Shapiro-Wilk W statistic and associated p-value. In this case the p-value is not significant which indicates that the data are normally distributed and we're happy to go ahead with the parametric t-test.
+
+Next, the descriptives plot:
+
+![](../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img6_descriptiveplot.png){width=450px}
+
+This is a really useful visualisation of our test. We can see the mean of the data (black dot) and the test value (dotted line). We also have the 95% confidence intervals of the estimated mean. We can see that the confidence intervals overlap with the test value - this tells us that it is likely our test will not be significant - according to our confidence intervals, the true population mean might include our test value zero which would indicate no real difference.
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Change your data filter to compute the one-sample t-test for the 'High' SES_Story condition. The test should update once your filter is on without you having to respecify the test.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - Is the mean position of participants in the 'High' condition significantly different to zero?
+
+Yes, we do have a significant difference - we could report our test as follows
+
+> t(74) = -5.35, p < 0.001
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - Is it valid to use parametric statistics on this data?
+
+The Shapiro Wilk statistic has a p-value of 0.038 which is less than p = 0.05. This suggets that our data are not normally distributed. We should inspect the data in more detail and consider using a non-parametric alternative. 
+
+The Wilcoxon Rank test is the non-parametric alternative for One Sample t-test. You can add this to the analysis to see if it gives the same result as the parametric test.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - Do the confidence intervals of the estimated mean cross zero?
+
+No - in the 'High' condition the confidence intervals of the mean are a long way from zero. 
+
+:::
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Go back to your notes from the start of the session. Do the results match your predictions about whether a UK data sample would expect a high or low socio-economic status people to live in the north or south of the city?
+
+:::
+
 <!--# #############################################  -->
 
-## 6. Reproducible One-Sample T-tests {.unnumbered}
+## 7. Reproducible One-Sample T-tests {.unnumbered}
 
-Recall that the equation for a one-sample t-test is a fraction with the difference between the mean and our comparison value on the top and the standard error of the mean on the bottom.
+Finally - we should make a reproducible version of our analysis using Rj.
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Open a new Rj window and add the following line to load the `dplyr` library.
+
+``` r
+library(dplyr)
+```
+
+:::
+
+Firstly, we'll need to replicate our data filter to select only the 'High' or 'Low' conditions for our analysis. We covered this in detail last week - if you need a refresher, take a look at the information on [selecting rows of data using the filter function from week 2](../tutorials/rmb_week-2_intro-to-Rj.qmd#selecting-rows-of-data-using-the-filter-function)
+
+Let's build a filter to select only the 'High' condition.
+
+``` r
+library(dplyr)
+
+high_ses <- filter(data, SES_Story == 'High')
+```
+
+Next - turn on Jamovi's [syntax mode](https://docs.jamovi.org/_pages/um_6_syntax_mode.html) to display the R code associated with our analyses. This should create some R code at the top of each results block.
+
+![](../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img8.png){width=450px}
+
+We can right click on this code to copy it before pasting it into the Rj window. Our code should then look like this:
+
+``` r
+library(dplyr)
+
+high_ses <- filter(data, SES_Story == 'High')
+
+jmv::ttestOneS(
+    data = data,
+    vars = NorthSouth_Position,
+    norm = TRUE,
+    plots = TRUE)
+
+```
+
+This command runs the function `ttestOneS` which computes the One Sample t-test. Jamovi has automatically detected that we want to add the normality test and the descriptive plots and included these options in the function call (see `norm=TRUE` and `plots=TRUE`).
+
+There is a keyword argument in R for every option in Jamovi - take a look at the `jmv` library documentation for [ttestOneS](https://www.jamovi.org/jmv/ttestones.html) to see a full list.
+
+Before running the code we need to make one adjustment. The function runs on the full dataset `data` by default but we want to use our new filtered data `high_ses` instead. Update the function to take in the filtered data as an input.
+
+
+``` r
+library(dplyr)
+
+high_ses <- filter(data, SES_Story == 'High')
+
+jmv::ttestOneS(
+    data = high_ses,
+    vars = NorthSouth_Position,
+    norm = TRUE,
+    plots = TRUE)
+
+```
+
+Now running the code should output result tables that match our previous analysis. Importantly the form of data preprocessing (the filtering) and the test itself are all clearly specified in the code. Making it easier for others to understand what analysis we have run.
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Can you add a code block to compute the one-sample t-test for only the 'Low' SES_Story condition
+
+## Hint
+
+Remember that you'll need to write a new filter line to create a copy of the dataset with only the 'Low' values for SES_Story. You can save this into a variable and pass it in as the data argument to `ttestOneS`
+
+## Solution
+
+Your final code should look like this:
+
+```R
+low_ses <- filter(data, SES_Story == 'Low')
+
+jmv::ttestOneS(
+    data = low_ses,
+    vars = NorthSouth_Position,
+    norm = TRUE,
+    plots = TRUE)
+```
+:::
+::::
+
+You can keep adding R code to your script to run multiple analyses at once, this way we can run the t-test for both conditions with out having to go back and forth in Jamovi toggling the data filters on and off.
+
+It takes a little more setup but the R code has some big advantages once you get used to it!
+
+## 8. Summary {.unnumbered}
+
+We've done a lot of work to consolidate our skills on filtering data and computing one sample t-tests! You should now be able to compute these tests in Jamovi and create reproducible R code.
+
+## References {.unnumbered}
