@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -242,7 +276,10 @@ window.Quarto = {
   <li><a href="#getting-started-with-descriptive-statistics" id="toc-getting-started-with-descriptive-statistics" class="nav-link" data-scroll-target="#getting-started-with-descriptive-statistics">3. Getting started with descriptive Statistics</a></li>
   <li><a href="#data-filters-in-jamovi" id="toc-data-filters-in-jamovi" class="nav-link" data-scroll-target="#data-filters-in-jamovi">4. Data filters in Jamovi</a></li>
   <li><a href="#one-sample-t-tests" id="toc-one-sample-t-tests" class="nav-link" data-scroll-target="#one-sample-t-tests">5. One-Sample T-tests</a></li>
-  <li><a href="#reproducible-one-sample-t-tests" id="toc-reproducible-one-sample-t-tests" class="nav-link" data-scroll-target="#reproducible-one-sample-t-tests">6. Reproducible One-Sample T-tests</a></li>
+  <li><a href="#one-sample-t-tests-in-jamovi" id="toc-one-sample-t-tests-in-jamovi" class="nav-link" data-scroll-target="#one-sample-t-tests-in-jamovi">6. One Sample T-tests in Jamovi</a></li>
+  <li><a href="#reproducible-one-sample-t-tests" id="toc-reproducible-one-sample-t-tests" class="nav-link" data-scroll-target="#reproducible-one-sample-t-tests">7. Reproducible One-Sample T-tests</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8. Summary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -259,12 +296,12 @@ window.Quarto = {
 <table class="caption-top table">
 <caption>Learning objectives for this session</caption>
 <colgroup>
-<col style="width: 18%">
-<col style="width: 80%">
+<col style="width: 10%">
+<col style="width: 89%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th><img src="../images/logos/rm-logo_quantitative-methods.png" class="img-fluid" width="50"></th>
 <th style="text-align: left;">Quantitative Methods</th>
 </tr>
 </thead>
@@ -285,12 +322,12 @@ window.Quarto = {
 </table>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 83%">
+<col style="width: 10%">
+<col style="width: 89%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th><img src="../images/logos/rm-logo_data-skills.png" class="img-fluid" width="50"></th>
 <th style="text-align: left;">Data Skills</th>
 </tr>
 </thead>
@@ -311,12 +348,12 @@ window.Quarto = {
 </table>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 84%">
+<col style="width: 10%">
+<col style="width: 89%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th><img src="../images/logos/rm-logo_open-science.png" class="img-fluid" width="50"></th>
 <th style="text-align: left;">Open Science</th>
 </tr>
 </thead>
@@ -360,7 +397,8 @@ A new hypothesis?
 </div>
 <div class="callout-body-container callout-body">
 <p>Before we start, think about what you would predict about participants from the UK. Is there a reason to expect that people in the UK would associate the north of a city with high SES or vice versa?</p>
-<p>Note that there isn’t necessarily a correct answer to this question but it is good practice to be clear about our predictions and expectations before starting a data analysis.</p>
+<p>Make a note of your answer and the reasons behind it. Note that there isn’t necessarily a correct answer to this question and we won’t ask you for it later.</p>
+<p>It is good practice to be clear about our predictions and expectations before starting a data analysis.</p>
 </div>
 </div>
 </section>
@@ -520,6 +558,23 @@ Key step
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - are we more confident in our estimate of the mean for the ‘North’ or ‘South’ condition?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The standard error of the mean tells us how well we think our estimated mean from the data sample represents the ‘true’ population mean.</p>
+<p>The standard error of the mean for the ‘Low’ group is higher (9.96 vs 7.3 for ‘High’) - indicating that we are less confident that this is a good representation of our population mean. Note that it could still be a good estimate, we’re just relatively less confident than we are for the ‘High’ condition.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="data-filters-in-jamovi" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="data-filters-in-jamovi">4. Data filters in Jamovi</h2>
@@ -562,12 +617,22 @@ Key step
 </section>
 <section id="one-sample-t-tests" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="one-sample-t-tests">5. One-Sample T-tests</h2>
-<p>Now we’re ready to test our hypothesis!</p>
+<p>Now we’re ready to test our hypothesis! remember that the equation for a one-sample t-test is the following:</p>
 <p><span class="math display">\[
 t = \frac{\text{The sample mean} - \text{Comparison Value}}{\text{The standard error of the mean}}
 \]</span></p>
-<p>In this case we want to compare our mean to the middle of the city which has a value of zero.</p>
-<p>We have both of these values above. Can you compute the value of our t-test using a calculator?</p>
+<p>We’re looking at the difference between our observed mean and a comparison value as a ratio to the precision to which we have estimated our observed mean.</p>
+<p>Our descriptive statistics output contains the mean and standard error of the mean for both groups. Our comparison value is the centre of the city, indicated by a score of <code>0</code> (zero).</p>
+<p>We all the values required for a one-sample t-test already in the descriptive statistics! For the ‘Low’ SES_Story condition, we have:</p>
+<ul>
+<li>Group Mean = 18.6</li>
+<li>Comparison Value = 0</li>
+<li>Standard error of the mean = 9.96</li>
+</ul>
+<p>So, the one sample t-test value is:</p>
+<p><span class="math display">\[
+t = \frac{18.6 - 0}{9.96} = 1.867
+\]</span></p>
 <!--# #############################################  -->
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -583,7 +648,7 @@ Check Your Understanding
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>Can you compute the t-value for the High SES Story group?</p>
+<p>Can you compute the t-value for the High SES Story group using a calculator or Rj?</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>First, get the three values that you’ll need for the computation. These are the comparison value and the mean and standard error of the mean for the High SES group.</p>
@@ -591,24 +656,227 @@ Check Your Understanding
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>The individual values are</p>
 <ul>
-<li>Group Mean =</li>
+<li>Group Mean = -39.0</li>
 <li>Comparison Value = 0</li>
-<li>Standard error of the mean =</li>
+<li>Standard error of the mean = 7.30</li>
 </ul>
 <p>so the t-value is</p>
 <p><span class="math display">\[
-t = \frac{xyz - 0}{sem} = 234
+t = \frac{-39.0 - 0}{7.30} = -5.342
 \]</span></p>
 </div>
 </div>
 </div>
 </div>
 </div>
+</section>
+<section id="one-sample-t-tests-in-jamovi" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="one-sample-t-tests-in-jamovi">6. One Sample T-tests in Jamovi</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before going any further - make sure that your data filter is set to include <strong>only</strong> the data from the ‘Low’ SES_Story condition.</p>
+</div>
+</div>
+<p>Of course, we will normally compute the t-test using Jamovi as rather than relying on hand calculations. We can do this by opening the ‘One Sample T-Test’ option under the ‘Analysis -&gt; T-Tests’ menu on the top ribbon.</p>
+<p>Open the One Sample T-Test option now, and drag the <code>NorthSouth_Position</code> variable over to the ‘dependent variables’ box. The result should appear on the right hand side. Before we inspect the result, we should check and add a number of important options to our analysis.</p>
+<p><img src="../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img6_crop.png" class="img-fluid" width="450"></p>
+<ul>
+<li><p><strong>Hypothesis - test value</strong> it is critical that we select the correct hypothesis or our test will be meaningless. Our ‘test value’, also known as a ‘comparison value’, is set to zero by default. This is correct for our analysis but may need setting to something else for other analyses. Take care to check it makes sense each time.</p></li>
+<li><p><strong>Hypothesis - test tail</strong> we can also specify whether we’re going to perform a one- or two-tailed test. Here we want to specify a two-tailed test in which the mean does not equal the test value.</p></li>
+<li><p><strong>Assumption Checks</strong> we should add a test to check that our data are normally distributed. Selecting the ‘Normality test’ box will compute a Shapio-Wilks statistic for you</p></li>
+<li><p><strong>Additional Statistics</strong> there are a number of important options here. For now, add the ‘Descriptive plots’ option to your analysis. This will show us a visualisation of the estimated mean and its confidence intervals.</p></li>
+</ul>
+<p>Let’s take a look at the outputs, first the t-test table.</p>
+<p><img src="../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img6_ttable.png" class="img-fluid" width="450"></p>
+<p>This contains the information we need to report our t-test: the t-value, the degrees of freedom and the p-value.</p>
+<blockquote class="blockquote">
+<p>t(60) = 1.87, p = 0.066</p>
+</blockquote>
+<p>This t-value should match the number you computed by hand earlier on. Note that the footnote of the table reminds us of the hypothesis that we specified. Make sure that this matches what you expect!</p>
+<p>Next, the normality check:</p>
+<p><img src="../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img6_normaltable.png" class="img-fluid" width="450"></p>
+<p>This reports the Shapiro-Wilk W statistic and associated p-value. In this case the p-value is not significant which indicates that the data are normally distributed and we’re happy to go ahead with the parametric t-test.</p>
+<p>Next, the descriptives plot:</p>
+<p><img src="../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img6_descriptiveplot.png" class="img-fluid" width="450"></p>
+<p>This is a really useful visualisation of our test. We can see the mean of the data (black dot) and the test value (dotted line). We also have the 95% confidence intervals of the estimated mean. We can see that the confidence intervals overlap with the test value - this tells us that it is likely our test will not be significant - according to our confidence intervals, the true population mean might include our test value zero which would indicate no real difference.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Change your data filter to compute the one-sample t-test for the ‘High’ SES_Story condition. The test should update once your filter is on without you having to respecify the test.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - Is the mean position of participants in the ‘High’ condition significantly different to zero?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Yes, we do have a significant difference - we could report our test as follows</p>
+<blockquote class="blockquote">
+<p>t(74) = -5.35, p &lt; 0.001</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - Is it valid to use parametric statistics on this data?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Shapiro Wilk statistic has a p-value of 0.038 which is less than p = 0.05. This suggets that our data are not normally distributed. We should inspect the data in more detail and consider using a non-parametric alternative.</p>
+<p>The Wilcoxon Rank test is the non-parametric alternative for One Sample t-test. You can add this to the analysis to see if it gives the same result as the parametric test.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - Do the confidence intervals of the estimated mean cross zero?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No - in the ‘High’ condition the confidence intervals of the mean are a long way from zero.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Go back to your notes from the start of the session. Do the results match your predictions about whether a UK data sample would expect a high or low socio-economic status people to live in the north or south of the city?</p>
+</div>
+</div>
 <!--# #############################################  -->
 </section>
 <section id="reproducible-one-sample-t-tests" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="reproducible-one-sample-t-tests">6. Reproducible One-Sample T-tests</h2>
-<p>Recall that the equation for a one-sample t-test is a fraction with the difference between the mean and our comparison value on the top and the standard error of the mean on the bottom.</p>
+<h2 class="unnumbered anchored" data-anchor-id="reproducible-one-sample-t-tests">7. Reproducible One-Sample T-tests</h2>
+<p>Finally - we should make a reproducible version of our analysis using Rj.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open a new Rj window and add the following line to load the <code>dplyr</code> library.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Firstly, we’ll need to replicate our data filter to select only the ‘High’ or ‘Low’ conditions for our analysis. We covered this in detail last week - if you need a refresher, take a look at the information on <a href="../tutorials/rmb_week-2_intro-to-Rj.html#selecting-rows-of-data-using-the-filter-function">selecting rows of data using the filter function from week 2</a></p>
+<p>Let’s build a filter to select only the ‘High’ condition.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>high_ses <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, SES_Story <span class="sc">==</span> <span class="st">'High'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next - turn on Jamovi’s <a href="https://docs.jamovi.org/_pages/um_6_syntax_mode.html">syntax mode</a> to display the R code associated with our analyses. This should create some R code at the top of each results block.</p>
+<p><img src="../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img8.png" class="img-fluid" width="450"></p>
+<p>We can right click on this code to copy it before pasting it into the Rj window. Our code should then look like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>high_ses <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, SES_Story <span class="sc">==</span> <span class="st">'High'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestOneS</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> data,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">vars =</span> NorthSouth_Position,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">plots =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command runs the function <code>ttestOneS</code> which computes the One Sample t-test. Jamovi has automatically detected that we want to add the normality test and the descriptive plots and included these options in the function call (see <code>norm=TRUE</code> and <code>plots=TRUE</code>).</p>
+<p>There is a keyword argument in R for every option in Jamovi - take a look at the <code>jmv</code> library documentation for <a href="https://www.jamovi.org/jmv/ttestones.html">ttestOneS</a> to see a full list.</p>
+<p>Before running the code we need to make one adjustment. The function runs on the full dataset <code>data</code> by default but we want to use our new filtered data <code>high_ses</code> instead. Update the function to take in the filtered data as an input.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>high_ses <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, SES_Story <span class="sc">==</span> <span class="st">'High'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestOneS</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> high_ses,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">vars =</span> NorthSouth_Position,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">plots =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now running the code should output result tables that match our previous analysis. Importantly the form of data preprocessing (the filtering) and the test itself are all clearly specified in the code. Making it easier for others to understand what analysis we have run.</p>
+<!--# #############################################  -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Can you add a code block to compute the one-sample t-test for only the ‘Low’ SES_Story condition</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Remember that you’ll need to write a new filter line to create a copy of the dataset with only the ‘Low’ values for SES_Story. You can save this into a variable and pass it in as the data argument to <code>ttestOneS</code></p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Your final code should look like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>low_ses <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, SES_Story <span class="sc">==</span> <span class="st">'Low'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestOneS</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> low_ses,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">vars =</span> NorthSouth_Position,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">plots =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>You can keep adding R code to your script to run multiple analyses at once, this way we can run the t-test for both conditions with out having to go back and forth in Jamovi toggling the data filters on and off.</p>
+<p>It takes a little more setup but the R code has some big advantages once you get used to it!</p>
+</section>
+<section id="summary" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="summary">8. Summary</h2>
+<p>We’ve done a lot of work to consolidate our skills on filtering data and computing one sample t-tests! You should now be able to compute these tests in Jamovi and create reproducible R code.</p>
+</section>
+<section id="references" class="level2 unnumbered">
+
 
 
 
