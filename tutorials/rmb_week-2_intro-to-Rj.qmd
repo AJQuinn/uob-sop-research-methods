@@ -381,7 +381,7 @@ Of course, we could run these analyses by hand. The main advantage here is that 
 
 Use the examples above and the `JMV` [documentation on the descriptives function](https://www.jamovi.org/jmv/descriptives.html) to write a function definition that does the following.
 
-Compute the core descriptive statistics for the Openess variable, make sure to include the range and a boxplot.
+Compute the core descriptive statistics for the Openness variable, make sure to include the range and a boxplot.
 
 ## Hint
 
@@ -495,9 +495,9 @@ Practice changing the age conditions to a few different options to see the diffe
 ::: panel-tabset
 ## Question
 
-Use the information in this tutorial to compute descriptive statistics for the Openness variable from Introverted participants. In other words - what is the mean Openess score for participants who are more Introverted than Extraverted.
+Use the information in this tutorial to compute descriptive statistics for the Openness variable from Introverted participants. In other words - what is the mean Openness score for participants who are more Introverted than Extraverted.
 
-Compute the core descriptive statistics for the Openess variable, make sure to include the median and a histogram
+Compute the core descriptive statistics for the Openness variable, make sure to include the median and a histogram
 
 ## Hint
 

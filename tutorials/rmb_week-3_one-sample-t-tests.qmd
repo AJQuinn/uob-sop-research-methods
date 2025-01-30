@@ -416,11 +416,12 @@ Your final code should look like this:
 low_ses <- filter(data, SES_Story == 'Low')
 
 jmv::ttestOneS(
-    data = low_ses,
+    data = low_ses, 
     vars = NorthSouth_Position,
     norm = TRUE,
     plots = TRUE)
 ```
+
 :::
 ::::
 
