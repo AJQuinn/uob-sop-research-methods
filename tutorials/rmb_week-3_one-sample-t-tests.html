@@ -821,6 +821,20 @@ Key step
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">vars =</span> NorthSouth_Position,</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">plots =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some people have encountered an issue with running this code block - if your R session stalls whilst running the code above, please try again whilst removing <code>plots=TRUE</code>.</p>
+<p>Apologies - we’re working on a fix for this.</p>
+</div>
+</div>
 <p>This command runs the function <code>ttestOneS</code> which computes the One Sample t-test. Jamovi has automatically detected that we want to add the normality test and the descriptive plots and included these options in the function call (see <code>norm=TRUE</code> and <code>plots=TRUE</code>).</p>
 <p>There is a keyword argument in R for every option in Jamovi - take a look at the <code>jmv</code> library documentation for <a href="https://www.jamovi.org/jmv/ttestones.html">ttestOneS</a> to see a full list.</p>
 <p>Before running the code we need to make one adjustment. The function runs on the full dataset <code>data</code> by default but we want to use our new filtered data <code>high_ses</code> instead. Update the function to take in the filtered data as an input.</p>
