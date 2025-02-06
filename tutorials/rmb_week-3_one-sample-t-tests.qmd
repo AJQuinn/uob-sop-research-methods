@@ -371,6 +371,12 @@ jmv::ttestOneS(
 
 ```
 
+::: {.callout-warning}
+Some people have encountered an issue with running this code block - if your R session stalls whilst running the code above, please try again whilst removing `plots=TRUE`.
+
+Apologies - we're working on a fix for this.
+:::
+
 This command runs the function `ttestOneS` which computes the One Sample t-test. Jamovi has automatically detected that we want to add the normality test and the descriptive plots and included these options in the function call (see `norm=TRUE` and `plots=TRUE`).
 
 There is a keyword argument in R for every option in Jamovi - take a look at the `jmv` library documentation for [ttestOneS](https://www.jamovi.org/jmv/ttestones.html) to see a full list.
@@ -392,6 +398,7 @@ jmv::ttestOneS(
 ```
 
 Now running the code should output result tables that match our previous analysis. Importantly the form of data preprocessing (the filtering) and the test itself are all clearly specified in the code. Making it easier for others to understand what analysis we have run.
+
 
 
 <!--# #############################################  -->
