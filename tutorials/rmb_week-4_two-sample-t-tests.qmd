@@ -1,25 +1,23 @@
 # Week 4 : Two-Sample t-tests {.unnumbered}
 
-This week we will explore how to use Jamovi to compute and visualise descriptive statistics from a dataset. This will include some revision on Jamovi from last semester and an introduction on how we can use the R coding language to simplify complex data processing.
+This week we will explore how to use Jamovi to test hypotheses about a dataset using t-tests. We will touch on some revision from previous weeks so please do jump back to past computer practicals for revision if required
 
 |  ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods                                    |
 |-----|:-------------------------------------------|
-|            | Measures of central tendency                            |
-|            | Measures of dispersion and spread                       |
-|            | Measures of skew and normality                          |
+|            | Independent samples t-tests                            |
+|            | Paired samples t-tests                           |
+|            | Assumptions of parametric tests                           |
 
 : Learning objectives for this session
 
 |    ![](../images/logos/rm-logo_data-skills.png){width=50px}      | Data Skills                                               |
 |-----|:-------------------------------------------|
-|          | Working with the Rj editor to use R code within Jamovi    |
-|          | Learn the basics about functions and variables in R       |
-|          | Computing descriptive statistics using R                  |
+|          | Computing a new variable from existing data    |
+|          | Computing checks for normality and homogeneity of variance                  |
 
 |      ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
 |-----|:-------------------------------------------|
-|          | Validating and working with openly available research data |
-|          | Create a reproducible data analysis script                 |
+|          | Exploring and understanding new datasets       |
 
 ## 1. The Dataset {.unnumbered}
 
@@ -391,6 +389,8 @@ We should report the Wilcoxon Rank test along with the medians for non-parametri
 
 > A Wilcoxon Rank test showed a significant difference in participants confidence in their ability to distinguish AI faces from real faces before (Median=4) and after (Median=5) the face perception task. W=680, p<0.001. Confidence was significantly reduced after completing the task.
 
+
+
 :::
 
 ## 8. Bonus Hypothesis! People are more accurate at identifying photos of real people compared to AI generated photos.
@@ -435,6 +435,9 @@ We need to compute a paired samples t-test to answer the question as each partic
 ::::
 
 ## 8. Summary
+
+We've computed a range of tests to statistically assess our hypotheses today! One experiment can often yield enough data to run a wide range of analyses. It is always a good idea to start with your hypotheses and predictions to break the analysis down into manageable chunks.
+
 
 
 ## References {.unnumbered}
