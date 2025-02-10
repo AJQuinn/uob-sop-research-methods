@@ -15,6 +15,7 @@ This week we will explore how to use Jamovi to test hypotheses about a dataset u
 |          | Computing a new variable from existing data    |
 |          | Computing checks for normality and homogeneity of variance                  |
 
+
 |      ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
 |-----|:-------------------------------------------|
 |          | Exploring and understanding new datasets       |
@@ -176,7 +177,7 @@ One critical piece of information is missing though! we have accuracy for each i
 ::: callout-tip
 ## Data Skills - computing a variable from other columns
 
-We can define our own variables in Jamovi using the 'Transform' function in the 'Variables' or the 'Data' tabs. Open a new Transformed variable.
+We can define our own variables in Jamovi using the 'Compute' function in the 'Variables' or the 'Data' tabs. Open a new Transformed variable.
 
 This will open a menu with an option to give the new variable an name and description. Name the variable 'PropFacesCorrect' to indicate that it contatins the proportion of faces that the participant responded correctly on. You can add a description if you like though this is optional.
 
@@ -254,15 +255,18 @@ We need to run a one sample t-test that compares the `PropCorrectFaces` variable
 
 > A one sample t-test comparing the group average proportion of correctly identified faces (M = 0.634, SD=0.164) to chance level (proportion correct = 0.5) showed a significant effect, t(85) = 7.52, p<0.001. Participants were on average more accurate than chance at distinguishing AI generated face from  photos of real faces.
 
-The statistical test allows us to reject the null hypothesis that participant performance was no different to chance level on this task.
 
 ![](../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img5.png){width="400px"}
 
 :::
 ::::
 
-Does the conclusion match your expectations?
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - do the results support hypothesis 1?
 
+Yes, the statistical test allows us to reject the null hypothesis that participant performance was no different to chance level on this task and accept the experimental hypothesis that participants are able to distinguish AI generated faces from real photos of humans.
+
+:::
 ## 5. Hypothesis 2 - Confident people are better at distinguishing AI faces from real faces. {.unnumbered}
 
 Now the second hypothesis. We don't have everything we need to test this hypothesis yet. We'll need some way to split our participants into two groups - one with high confidence in AI face detection and one with low confidence. Time to compute another variable.
@@ -296,7 +300,7 @@ The values in `ConfidentBefore` will now be 'True' for people with  high confide
 
 With our new variable, we have what we need to run an independent samples t-test. This is very straightforward following the analyses we've run previously in the module.
 
-Open the 'Independent Sample t-test' menu under 't-tests'. To run the analysis, drag `AIConfidenceBefore` across as our dependent variable and our new `ConfidentBefore` variable as the grouping variable. The results should appear on the right automatically.
+Open the 'Independent Sample t-test' menu under 't-tests'. To run the analysis, drag `PropFacesCorrect` across as our dependent variable and our new `ConfidentBefore` variable as the grouping variable. The results should appear on the right automatically.
 
 Once you have computed the core test - add the following options:
 
@@ -335,19 +339,30 @@ Both  assumptions of the standard Student's t-test we looked at above are met by
 
 Confident participants were more accurate! participants in this study are good at judging their ability.
 
-We can see this by looking at the means in the descriptive statistics and the descriptives plot if you run this.
+We can see this by looking at the means in the descriptive statistics and the descriptives plot if you have run it.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - do the results support hypothesis 2?
+
+Yes, overall it seems like we can reject the null for hypothesis 2 and accept the experimental hypothesis that more confident participants are better at distinguishing AI faces from real human faces.
 
 :::
 
 ## 6. Hypothesis 3 - People’s confidence in their ability to distinguish AI generated faces will reduce after performing the task  {.unnumbered}
 
-Open the 'Independent Sample t-test' menu under 't-tests'. To run the analysis, drag `AIConfidenceBefore` across as our dependent variable and our new `ConfidentBefore` variable as the grouping variable. The results should appear on the right automatically.
+Next we want to explore whether performing the face decision task changes peoples confidences in their abililty to detect AI generated faces. Remember that all participants categorised 12 faces with immediate correct/incorrect feedback and made confidence ratings at the start and end of the task. 
 
-Once you have computed the core test - add the following options:
+Open the 'Paired Sample t-test' menu under 't-tests'. To run the analysis, drag `AIConfidenceBefore` and `AIConfidenceAfter` across as our pair of dependent variables. This is the format for running paired samples t-tests, the rest of the options should be familiar from our previous analyses.
+
+Once you have computed the core test, do the same for the `EmoConfidence` and `MemoryConfidence`, and add the following options:
 
 - Descriptives
 - Homogeneity Test
 - Normality Test
+
+The results should appear on the right automatically.
 
 ![](../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img8.png)
 
@@ -389,11 +404,16 @@ We should report the Wilcoxon Rank test along with the medians for non-parametri
 
 > A Wilcoxon Rank test showed a significant difference in participants confidence in their ability to distinguish AI faces from real faces before (Median=4) and after (Median=5) the face perception task. W=680, p<0.001. Confidence was significantly reduced after completing the task.
 
+:::
 
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - do the results support hypothesis 3?
+
+Yes, overall it seems like we can reject the null for hypothesis 3 and accept the experimental hypothesis. Participants were less confident in their ability to detect AI generated faces after completing the task but their confidence in detecting emotions and remembering faces from a long time ago remains unchanged.
 
 :::
 
-## 8. Bonus Hypothesis! People are more accurate at identifying photos of real people compared to AI generated photos.
+## 7. Bonus Hypothesis! People are more accurate at identifying photos of real people compared to AI generated photos.
 
 Let's use our new skills from this practical to answer one last question.
 
