@@ -221,7 +221,7 @@ div.csl-indent {
   <li><a href="#hypothesis-1---people-are-able-to-distinguish-ai-generated-faces-from-real-photos-of-humans" id="toc-hypothesis-1---people-are-able-to-distinguish-ai-generated-faces-from-real-photos-of-humans" class="nav-link" data-scroll-target="#hypothesis-1---people-are-able-to-distinguish-ai-generated-faces-from-real-photos-of-humans">4. Hypothesis 1 - People are able to distinguish AI generated faces from real photos of humans</a></li>
   <li><a href="#hypothesis-2---confident-people-are-better-at-distinguishing-ai-faces-from-real-faces." id="toc-hypothesis-2---confident-people-are-better-at-distinguishing-ai-faces-from-real-faces." class="nav-link" data-scroll-target="#hypothesis-2---confident-people-are-better-at-distinguishing-ai-faces-from-real-faces.">5. Hypothesis 2 - Confident people are better at distinguishing AI faces from real faces.</a></li>
   <li><a href="#hypothesis-3---peoples-confidence-in-their-ability-to-distinguish-ai-generated-faces-will-reduce-after-performing-the-task" id="toc-hypothesis-3---peoples-confidence-in-their-ability-to-distinguish-ai-generated-faces-will-reduce-after-performing-the-task" class="nav-link" data-scroll-target="#hypothesis-3---peoples-confidence-in-their-ability-to-distinguish-ai-generated-faces-will-reduce-after-performing-the-task">6. Hypothesis 3 - People’s confidence in their ability to distinguish AI generated faces will reduce after performing the task</a></li>
-  <li><a href="#bonus-hypothesis-people-are-more-accurate-at-identifying-photos-of-real-people-compared-to-ai-generated-photos." id="toc-bonus-hypothesis-people-are-more-accurate-at-identifying-photos-of-real-people-compared-to-ai-generated-photos." class="nav-link" data-scroll-target="#bonus-hypothesis-people-are-more-accurate-at-identifying-photos-of-real-people-compared-to-ai-generated-photos.">8. Bonus Hypothesis! People are more accurate at identifying photos of real people compared to AI generated photos.</a></li>
+  <li><a href="#bonus-hypothesis-people-are-more-accurate-at-identifying-photos-of-real-people-compared-to-ai-generated-photos." id="toc-bonus-hypothesis-people-are-more-accurate-at-identifying-photos-of-real-people-compared-to-ai-generated-photos." class="nav-link" data-scroll-target="#bonus-hypothesis-people-are-more-accurate-at-identifying-photos-of-real-people-compared-to-ai-generated-photos.">7. Bonus Hypothesis! People are more accurate at identifying photos of real people compared to AI generated photos.</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8. Summary</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
@@ -618,7 +618,7 @@ Data Skills - computing a variable from other columns
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We can define our own variables in Jamovi using the ‘Transform’ function in the ‘Variables’ or the ‘Data’ tabs. Open a new Transformed variable.</p>
+<p>We can define our own variables in Jamovi using the ‘Compute’ function in the ‘Variables’ or the ‘Data’ tabs. Open a new Transformed variable.</p>
 <p>This will open a menu with an option to give the new variable an name and description. Name the variable ‘PropFacesCorrect’ to indicate that it contatins the proportion of faces that the participant responded correctly on. You can add a description if you like though this is optional.</p>
 <p>The variable is defined within the formula box below the name definitions. We want to compute the average accuracy across all 12 faces so we can add the formula to compute that into the box.</p>
 <p><img src="../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img3.png" class="img-fluid" width="600"></p>
@@ -716,14 +716,28 @@ Check Your Understanding
 <blockquote class="blockquote">
 <p>A one sample t-test comparing the group average proportion of correctly identified faces (M = 0.634, SD=0.164) to chance level (proportion correct = 0.5) showed a significant effect, t(85) = 7.52, p&lt;0.001. Participants were on average more accurate than chance at distinguishing AI generated face from photos of real faces.</p>
 </blockquote>
-<p>The statistical test allows us to reject the null hypothesis that participant performance was no different to chance level on this task.</p>
 <p><img src="../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img5.png" class="img-fluid" width="400"></p>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p>Does the conclusion match your expectations?</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - do the results support hypothesis 1?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Yes, the statistical test allows us to reject the null hypothesis that participant performance was no different to chance level on this task and accept the experimental hypothesis that participants are able to distinguish AI generated faces from real photos of humans.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="hypothesis-2---confident-people-are-better-at-distinguishing-ai-faces-from-real-faces." class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="hypothesis-2---confident-people-are-better-at-distinguishing-ai-faces-from-real-faces.">5. Hypothesis 2 - Confident people are better at distinguishing AI faces from real faces.</h2>
@@ -759,7 +773,7 @@ Check Your Understanding
 </div>
 </div>
 <p>With our new variable, we have what we need to run an independent samples t-test. This is very straightforward following the analyses we’ve run previously in the module.</p>
-<p>Open the ‘Independent Sample t-test’ menu under ‘t-tests’. To run the analysis, drag <code>AIConfidenceBefore</code> across as our dependent variable and our new <code>ConfidentBefore</code> variable as the grouping variable. The results should appear on the right automatically.</p>
+<p>Open the ‘Independent Sample t-test’ menu under ‘t-tests’. To run the analysis, drag <code>PropFacesCorrect</code> across as our dependent variable and our new <code>ConfidentBefore</code> variable as the grouping variable. The results should appear on the right automatically.</p>
 <p>Once you have computed the core test - add the following options:</p>
 <ul>
 <li>Descriptives</li>
@@ -769,7 +783,7 @@ Check Your Understanding
 <p><img src="../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img7.png" class="img-fluid"></p>
 <p>Let’s think through the results</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -778,25 +792,9 @@ Check Your Understanding
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The Shairo-Wilk statistic is not significant, indicating that the data are likely to be normally distributed</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - do we have homogeneity of variance?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
 <div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Levene’s statistic is not significant, indicating that the variance of the two groups is comparable. We can confirm this by looking at the standard deviations in the descriptives table. 0.171 and 0.158 are fairly similar so the test report makes intuitive sense.</p>
+<p>The Shairo-Wilk statistic is not significant, indicating that the data are likely to be normally distributed</p>
 </div>
 </div>
 </div>
@@ -806,13 +804,13 @@ Check Your Understanding
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - which test should we report? Student’s, Welch’s or Mann-Whitney U?
+<i class="bi bi-question-lg"></i> Data Skills - do we have homogeneity of variance?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Both assumptions of the standard Student’s t-test we looked at above are met by the data - we can proceed with Student’s test.</p>
+<p>Levene’s statistic is not significant, indicating that the variance of the two groups is comparable. We can confirm this by looking at the standard deviations in the descriptives table. 0.171 and 0.158 are fairly similar so the test report makes intuitive sense.</p>
 </div>
 </div>
 </div>
@@ -822,45 +820,30 @@ Check Your Understanding
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - were confident partiticpants or unconfident participants more accurate?
+<i class="bi bi-question-lg"></i> Data Skills - which test should we report? Student’s, Welch’s or Mann-Whitney U?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Confident participants were more accurate! participants in this study are good at judging their ability.</p>
-<p>We can see this by looking at the means in the descriptive statistics and the descriptives plot if you run this.</p>
+<p>Both assumptions of the standard Student’s t-test we looked at above are met by the data - we can proceed with Student’s test.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="hypothesis-3---peoples-confidence-in-their-ability-to-distinguish-ai-generated-faces-will-reduce-after-performing-the-task" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="hypothesis-3---peoples-confidence-in-their-ability-to-distinguish-ai-generated-faces-will-reduce-after-performing-the-task">6. Hypothesis 3 - People’s confidence in their ability to distinguish AI generated faces will reduce after performing the task</h2>
-<p>Open the ‘Independent Sample t-test’ menu under ‘t-tests’. To run the analysis, drag <code>AIConfidenceBefore</code> across as our dependent variable and our new <code>ConfidentBefore</code> variable as the grouping variable. The results should appear on the right automatically.</p>
-<p>Once you have computed the core test - add the following options:</p>
-<ul>
-<li>Descriptives</li>
-<li>Homogeneity Test</li>
-<li>Normality Test</li>
-</ul>
-<p><img src="../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img8.png" class="img-fluid"></p>
-<p>Let’s think through the results…</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - does confidence in distinguishing AI faces from real faces change after completing the face task?
+<i class="bi bi-question-lg"></i> Data Skills - were confident partiticpants or unconfident participants more accurate?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Yes, the results indicate that there is a significant difference. We could report the results like this:</p>
-<blockquote class="blockquote">
-<p>A paired samples t-test showed a significant difference in participants confidence in their ability to distinguish AI faces from real faces before (M=4.48, SD=2.20) and after (M=5.66, SD=2.57) the face perception task. t(76) = -3.769, p&lt;0.001. Confidence was significantly reduced after completing the task.</p>
-</blockquote>
+<p>Confident participants were more accurate! participants in this study are good at judging their ability.</p>
+<p>We can see this by looking at the means in the descriptive statistics and the descriptives plot if you have run it.</p>
 </div>
 </div>
 </div>
@@ -870,34 +853,45 @@ Check Your Understanding
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - does confidence in distinguishing sad faces from happy faces change after completing the face task?
+<i class="bi bi-question-lg"></i> Data Skills - do the results support hypothesis 2?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>No, the results indicate that there is not a significant difference. We could report the results like this:</p>
-<blockquote class="blockquote">
-<p>A paired samples t-test showed a significant difference in participants confidence in their ability to distinguish sad faces from happy faces before (M=2.57, SD=1.49) and after (M=2.74, SD=1.37) the face perception task. t(64) = -1.1017, p=0.313. Confidence was unchanged before and after the task.</p>
-</blockquote>
+<p>Yes, overall it seems like we can reject the null for hypothesis 2 and accept the experimental hypothesis that more confident participants are better at distinguishing AI faces from real human faces.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="hypothesis-3---peoples-confidence-in-their-ability-to-distinguish-ai-generated-faces-will-reduce-after-performing-the-task" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="hypothesis-3---peoples-confidence-in-their-ability-to-distinguish-ai-generated-faces-will-reduce-after-performing-the-task">6. Hypothesis 3 - People’s confidence in their ability to distinguish AI generated faces will reduce after performing the task</h2>
+<p>Next we want to explore whether performing the face decision task changes peoples confidences in their abililty to detect AI generated faces. Remember that all participants categorised 12 faces with immediate correct/incorrect feedback and made confidence ratings at the start and end of the task.</p>
+<p>Open the ‘Paired Sample t-test’ menu under ‘t-tests’. To run the analysis, drag <code>AIConfidenceBefore</code> and <code>AIConfidenceAfter</code> across as our pair of dependent variables. This is the format for running paired samples t-tests, the rest of the options should be familiar from our previous analyses.</p>
+<p>Once you have computed the core test, do the same for the <code>EmoConfidence</code> and <code>MemoryConfidence</code>, and add the following options:</p>
+<ul>
+<li>Descriptives</li>
+<li>Homogeneity Test</li>
+<li>Normality Test</li>
+</ul>
+<p>The results should appear on the right automatically.</p>
+<p><img src="../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img8.png" class="img-fluid"></p>
+<p>Let’s think through the results…</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - does confidence in recognising a face you haven’t seen for a long time change after completing the face task?
+<i class="bi bi-question-lg"></i> Data Skills - does confidence in distinguishing AI faces from real faces change after completing the face task?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>No, the results indicate that there is not a significant difference. We could report the results like this:</p>
+<p>Yes, the results indicate that there is a significant difference. We could report the results like this:</p>
 <blockquote class="blockquote">
-<p>A paired samples t-test showed a significant difference in participants confidence in their ability to recognise faces of people they haven’t seen for a long time before (M=3.67, SD=1.89) and after (M=3.70, SD=1.86) the face perception task. t(66) = -0.234, p=0.816. Confidence was unchanged before and after the task.</p>
+<p>A paired samples t-test showed a significant difference in participants confidence in their ability to distinguish AI faces from real faces before (M=4.48, SD=2.20) and after (M=5.66, SD=2.57) the face perception task. t(76) = -3.769, p&lt;0.001. Confidence was significantly reduced after completing the task.</p>
 </blockquote>
 </div>
 </div>
@@ -908,11 +902,49 @@ Check Your Understanding
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - What test should we report for these comparisons? Are the parametric assumptions met?
+<i class="bi bi-question-lg"></i> Data Skills - does confidence in distinguishing sad faces from happy faces change after completing the face task?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No, the results indicate that there is not a significant difference. We could report the results like this:</p>
+<blockquote class="blockquote">
+<p>A paired samples t-test showed a significant difference in participants confidence in their ability to distinguish sad faces from happy faces before (M=2.57, SD=1.49) and after (M=2.74, SD=1.37) the face perception task. t(64) = -1.1017, p=0.313. Confidence was unchanged before and after the task.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - does confidence in recognising a face you haven’t seen for a long time change after completing the face task?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No, the results indicate that there is not a significant difference. We could report the results like this:</p>
+<blockquote class="blockquote">
+<p>A paired samples t-test showed a significant difference in participants confidence in their ability to recognise faces of people they haven’t seen for a long time before (M=3.67, SD=1.89) and after (M=3.70, SD=1.86) the face perception task. t(66) = -0.234, p=0.816. Confidence was unchanged before and after the task.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - What test should we report for these comparisons? Are the parametric assumptions met?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Check the results of hte normality tests. The Shapiro-Wilk statistic is significant for all three tests! We should consider the non-parametric alternative test - add the ‘Wilcoxon Rank’ test to your analysis.</p>
 <p>We should report the Wilcoxon Rank test along with the medians for non-parametric data. For example:</p>
@@ -922,9 +954,25 @@ Check Your Understanding
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - do the results support hypothesis 3?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Yes, overall it seems like we can reject the null for hypothesis 3 and accept the experimental hypothesis. Participants were less confident in their ability to detect AI generated faces after completing the task but their confidence in detecting emotions and remembering faces from a long time ago remains unchanged.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="bonus-hypothesis-people-are-more-accurate-at-identifying-photos-of-real-people-compared-to-ai-generated-photos." class="level2">
-<h2 class="anchored" data-anchor-id="bonus-hypothesis-people-are-more-accurate-at-identifying-photos-of-real-people-compared-to-ai-generated-photos.">8. Bonus Hypothesis! People are more accurate at identifying photos of real people compared to AI generated photos.</h2>
+<h2 class="anchored" data-anchor-id="bonus-hypothesis-people-are-more-accurate-at-identifying-photos-of-real-people-compared-to-ai-generated-photos.">7. Bonus Hypothesis! People are more accurate at identifying photos of real people compared to AI generated photos.</h2>
 <p>Let’s use our new skills from this practical to answer one last question.</p>
 <!--# #############################################  -->
 <div class="callout callout-style-default callout-tip callout-titled">
