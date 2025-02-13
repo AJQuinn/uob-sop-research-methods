@@ -1,0 +1,396 @@
+# Week 5 : p-values and effect sizes {.unnumbered}
+
+This week we will explore how to use Jamovi to test hypotheses about a dataset using t-tests. We will touch on some revision from previous weeks so please do jump back to past computer practicals for revision if required
+
+|  ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods          |
+|-----|:-------------------------------------------|
+|            | Variability in p-values and t-stats            |
+|            | Cohen's d effect size                  |
+|            | Power analysis                           |
+
+: Learning objectives for this session
+
+|    ![](../images/logos/rm-logo_data-skills.png){width=50px}      | Data Skills                                               |
+|-----|:-------------------------------------------|
+|          | Use `group_by()` and `slice_sample()` in R to select a random subset of a dataset |
+|          | Use `mutate()` in R to compute a new variable                 |
+|          | Write a loop to repeat an analysis in R                 |
+|          | Run a power analysis in Rj                  |
+
+
+|      ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
+|-----|:-------------------------------------------|
+|          | Use power analysis to recommend a sample size for a replication       |
+
+
+## 1. The Dataset {.unnumbered}
+
+::: {.callout-note}
+# Dataset
+
+Please note, this is the same dataset as we used in week 4.
+
+:::
+
+We'll be working with the dataset we collected after the break during the lecture in Week 3. This is a partial replication of a study published in the journal Psychological Science [@Miller2024_AIHyperrealism]. The original paper found the following results summarised in the abstract.
+
+>Recent evidence shows that AI-generated faces are now indistinguishable from human faces. However, algorithms are trained disproportionately on White faces, and thus White AI faces may appear especially realistic. In Experiment 1 (N = 124 adults), alongside our reanalysis of previously published data, we showed that White AI faces are judged as human more often than actual human faces—a phenomenon we term AI hyperrealism. Paradoxically, people who made the most errors in this task were the most confident (a Dunning-Kruger effect). In Experiment 2 (N = 610 adults), we used face-space theory and participant qualitative reports to identify key facial attributes that distinguish AI from human faces but were misinterpreted by participants, leading to AI hyperrealism. However, the attributes permitted high accuracy using machine learning. These findings illustrate how psychological theory can inform understanding of AI outputs and provide direction for debiasing AI algorithms, thereby promoting the ethical use of AI.
+
+We ran a quiz that students in the lecture could join on their phones/laptops. There were two parts to the quiz:
+
+The faces section included 12 faces that were either photographs or real people or AI generated images of people. The stimuli were taked from the materials released by [@Miller2024_AIHyperrealism] on the [Open Science Framework](https://osf.io/ru36d/). Responses were either 'Real person' or 'AI generated'.
+
+![](../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img0.png){width="600px"}
+
+
+The confidence section asked participants to rate their confidence in their ability to do the following three things.
+
+ - Distinguish real photos of people from AI generated images  (Experimental condition)
+ - Distinguish photos of happy people from photos of sad people (Emotional control condition)
+ - Distinguish photos of people you used to know in primary school from strangers (Memory control condition)
+
+ Scores were recorded on a scale from 1 (Completely confidence) to 10 (Not at all confident). The confidence section was repeated before and after the faces section to see if participants confidence changed as a result of doing the AI faces task
+
+
+
+## 2. The Challenge {.unnumbered}
+
+This week we will explore some factors that influence t-stats and p-values whilst introducing the concept of loops in R. We will finish by using effect sizes to compute a power analysis.
+
+
+## 3. Compute new variables with `mutate()` {.unnumbered}
+
+Last week, we used Jamovi to create several new variables that allowed us to run our analyses. We can do the same in a more transparent and reproducible way using R code.
+
+We need to create both our proportion of correct faces across the 12 stimuli in one variable and a grouping variable which indicates whether each participant was confident in their ability to tell the difference between AI faces and real faces.
+
+We can do both with the `mutate()` from the dplyr library, this provides functionality that lets us create, modify, and delete columns within a dataset. Take a look at the [official documentation for mutate](https://dplyr.tidyverse.org/reference/mutate.html) for more information.
+
+When computing a new varaible with `mutate()` we three pieces of information.
+
+- The dataset to work on
+- The name of the new variable to be created
+- The definition of how to compute the new variable for existing variables.
+
+### Compute the grouping variable
+
+Let's start with our grouping variable. Our three pieces of information are 
+
+- The dataset to work on - is `data`, which refers to the original datasheet loaded into Jamovi
+- The name of the new variable - is `ConfidentBefore`, the same as we used last week
+- The definition - is `AIConfidenceBefore<4`, again the same as we used last week
+
+We can combine these into a single line to create the variable. Note that we save the result into a new variable named `my_data`, we'll use this from now on to avoid confusion with the original datasheet.
+
+```R
+my_data <- mutate(data, ConfidentBefore = AIConfidenceBefore<4)
+```
+
+We can check that this has done what we expected by running `head` to see the first few rows of the dataset.
+
+```R
+head(my_data)
+```
+
+The result should look like this:
+
+![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img1.png)
+
+
+We can see on in the results on the right hand side that the additional colume `ConfidentBefore` now appears with TRUE and FALSE values for each participant.
+
+### Compute the proportion of correct responses
+
+Let's do the same for total proportion of correctly identified faces. We can use the same principle as we used for the grouping variable and use `mutate()` along with the variable definition and name to create our new column. 
+
+This definition is pretty long as we have 12 different faces to work with! You can copy the whole line using the copy icon in the right hand side of the code box. Take a moment to look through and understand each part: which part is the *Dataset*, the *Name* and the *Definition*?
+
+```R
+my_data <- mutate(my_data, PropFacesCorrect = (Face1_Real + Face2_Real + Face3_AI + Face4_AI + Face5_AI + Face6_AI + Face7_Real + Face8_Real + Face9_Real + Face10_Real + Face11_AI + Face12_AI) / 12)
+```
+
+and validate the overall result using `head()` to make sure that `my_data` now has the column we expected.
+
+![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img2.png)
+
+The final column of the dataset is now `PropFacesCorrect` and contains the proportion of face trials that participant got right.
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Can you compute variables containing the proportion of correct responses for photos of real people and AI generated faces separately? 
+
+Store the results in `PropRealCorrectFaces` for real faces and `PropIACorrectFaces` for AI generated faces.
+
+## Hint
+
+We can use the code we wrote to compute the proportion of correct responses for all faces as a starting point.
+
+Think about how you could modify this line to compute the result for either real or AI faces on their own? What would you need to change in the code?
+
+## Solution
+
+The following code will compute the variables
+
+```R
+my_data <- mutate(my_data, PropRealFacesCorrect = (Face1_Real + Face2_Real + Face7_Real + Face8_Real + Face9_Real + Face10_Real) / 6)
+my_data <- mutate(my_data, PropAIFacesCorrect = (Face3_AI + Face4_AI + Face5_AI + Face6_AI + Face11_AI + Face12_AI) / 6)
+
+```
+
+We've separated out the columns to sum all the real or AI faces together and changed the division to divide the results by 6 rather than 12.
+
+Checking the results with `head()` should produce the following outputs with four additional columns!
+
+![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img3.png)
+
+:::
+::::
+
+<!--# #############################################  -->
+
+
+## 4. Compute a t-test using R {.unnumbered}
+
+We have the ingredients for our hypothesis test. Let's use R to explore the following hypothesis (Hypothesis 2 from week 4).
+
+> Confident people are better at distinguishing AI faces from real faces
+
+We can compute this test using the following code that calls `ttestIS()` - this is the function that computes independent samples t-tests. Read more about it on [the ttestIS documentation page](https://www.jamovi.org/jmv/ttestis.html).
+
+You can click the numbers by the definitions at the bottom to highlight the corresponding part of the code.
+
+```R
+jmv::ttestIS(                                       # <1>
+    formula = PropFacesCorrect ~ ConfidentBefore,   # <2>
+    data = my_data,                                 # <3>
+    effectSize = TRUE)                              # <4>
+```
+1. `jmv::ttestIS` is the name of the R function that Jamovi uses to compute independent samples t-tests
+2. This tells `ttestIS` the formula that defines the test we want to run.
+3. This tells `ttestIS` which dataset we want to analyse
+4. This adds an additional effect size computation to the results
+
+Most of this will be familiar from previous weeks, but let's think about the formula in a little more detail.
+
+In R, the tilde (~) is used in formula definitions to specify the relationship between variables, particularly in statistical modeling and data analysis. Here, the tilde separates the dependent variable (response) from the independent variables (predictors). In our example, `PropFacesCorrect` is the dependent variable and `ConfidentBefore` is our independent variable (grouping variable) - so this formula
+
+```R
+PropFacesCorrect ~ ConfidentBefore
+```
+
+
+is essentially telling `ttestIS()` to "Compute the ttest on `PropFacesCorrect` using `ConfidentBefore` as our groups".
+
+We can now run all our code to get the results of the ttest - the code clearly tells the reader how all the relevant variables were computed and what hypothesis test has been run all in one screen.
+
+![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img4.png)
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Read through the [ttestIS documentation page](https://www.jamovi.org/jmv/ttestis.html). How could you change your code to add the following assumption checks
+
+- Test for homogeneity of variance
+- Test for normal distribution
+
+## Hint
+
+The documentation page contains a list of all the possible information that we can pass as an input to our `ttestIS()` function call. Each item in the list corresponds to the options available in the Jamovi dialogue box.
+
+Have a look at the `norm` and `eqv` definitions. What would you need to add to the function call to run these additional checks?
+
+## Solution
+
+The following code will compute all the checks in addition to the t-test.
+
+```R
+jmv::ttestIS(                                       
+    formula = PropFacesCorrect ~ ConfidentBefore,  
+    data = my_data,                                
+    effectSize = TRUE,
+    norm = TRUE,
+    eqv = TRUE)                             
+```
+
+The results should look like this:
+
+![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img5.png)
+
+Do the assumptions for Student's t-test hold for this data?
+
+:::
+::::
+
+<!--# #############################################  -->
+
+Your script might be getting quite long at this point! It is always a good idea to keep code neat and tidy where possible so that other people are able to read it, and so that we can read it if we come back to the analysis in the future.
+
+There are many ways to keep things organised in a script. Here are two good hints, code comments can organise your script without changing the output and `print()` statements can help organise your code and the outputs.
+
+#### Code comments
+
+Any line of R code that starts with a hashtag is called a 'comment'. The writing on this line is there for our information and will not be run by the computer. Adding code comments is a useful way to annotate your code indicating what each line or each section is doing. For example:
+
+```
+# This is code comment
+
+# Compute which participants were more confident than the median
+my_data <- mutate(data, ConfidentBefore = AIConfidenceBefore<4)
+
+```
+
+This will make it easier to understand what the coding is doing in future.
+
+#### Print statements
+
+We can use the `print()` function to help organise our code as well. The text within the call to `print()` will not be executed by the computer but will simply be printed into the output console. This can be useful to break the output of your code into sections and to inlcude additional information about the analysis next to the outputs themselves.
+
+For example:
+
+```R
+print('Hypothesis 1')
+print('Confident people are better at distinguishing AI faces from real faces')
+jmv::ttestIS(                                       
+    formula = PropFacesCorrect ~ ConfidentBefore,  
+    data = my_data,                                
+    effectSize = TRUE)
+```
+
+This code will print out information about the hypothesis next to the outputs.
+
+
+A full cleaned and commented version of our code might look like this.
+
+```R
+# Compute which participants were more confident than the median
+my_data <- mutate(data, ConfidentBefore = AIConfidenceBefore<4)
+
+# Compute the proportion of all faces each participant got right
+my_data <- mutate(my_data, PropFacesCorrect = (Face1_Real + Face2_Real + Face3_AI + Face4_AI + Face5_AI + Face6_AI + Face7_Real + Face8_Real + Face9_Real + Face10_Real + Face11_AI + Face12_AI) / 12)
+
+# Compute the proportion of REAL faces each participant got right
+my_data <- mutate(my_data, PropRealFacesCorrect = (Face1_Real + Face2_Real + Face7_Real + Face8_Real + Face9_Real + Face10_Real) / 6)
+
+# Compute the proportion of AI faces each participant got right
+my_data <- mutate(my_data, PropAIFacesCorrect = (Face3_AI + Face4_AI + Face5_AI + Face6_AI + Face11_AI + Face12_AI) / 6)
+
+# Hypothesis test
+print('Hypothesis 1')
+print('Confident people are better at distinguishing AI faces from real faces')
+jmv::ttestIS(                                       
+    formula = PropFacesCorrect ~ ConfidentBefore,  
+    data = my_data,                                
+    effectSize = TRUE)
+```
+
+and running this code produces the following outputs including the test from our print statements
+
+![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img5.png)
+
+Nice and clear what is happening at each stage! There is no perfect or 'correct' way to tidy up your code (though some people can get opinionated about this...). Choose a mix of comments and print statements that makes sense to you.
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Extend your code to test a second hypothesis.
+
+> Confident participants are more accurate than unconfident participants when identifying photos of real faces.
+
+Include some code comments and print statements
+
+## Hint
+
+This will require a second indenpendent samples t-test asking whether the mean proportion correct value for only real faces is different between our confident and not-confident groups.
+
+Use the previous t-test as a starting point, can you copy this and modify it to do what we need?
+
+## Solution
+
+The following code will test the new hypothesis with some comments and print statements
+
+```R
+# Hypothesis test
+print('Hypothesis 2')
+print('Confident participants are more accurate than unconfident participants when identifying photos of real faces.')
+jmv::ttestIS(                                       
+    formula = PropRealFacesCorrect ~ ConfidentBefore,  
+    data = my_data,                                
+    effectSize = TRUE)                       
+```
+
+The output of the whole script should now look like this.
+
+![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img7.png)
+
+Note how the print statements help to separate the results into interpretable chunks.
+
+:::
+::::
+
+<!--# #############################################  -->
+
+Now we're going to explore how the size of the data sample changes the t-values that w
+
+Introduce slice_sample
+Introduce simple loops
+
+
+
+## 5. Compute t-tests on smaller data samples {.unnumbered}
+
+Add independent samples t-test Jamovi code to loop - run 5 subsamples for 10, 25, 50 and 100 participants and see difference in t-values.
+
+
+## 6. Compute effect sizes for t-tests {.unnumbered}
+
+
+
+
+## 7. Use an effect size for a power analysis {.unnumbered}
+
+
+Test your understanding - repeat this process for the paired sample t-test of confidence, compute effect size and run power analysis
+
+
+## 8. Summary {.unnumbered}
+
+```R
+
+data <- mutate(data, ConfidentBefore2 = AIConfidenceBefore<4)
+
+group_data <- group_by(data, ConfidentBefore)
+
+for (i in 1:5) {
+
+small_data <- slice_sample(group_data, n=5)
+
+result <- jmv::ttestIS(
+    formula = PropFacesCorrect ~ ConfidentBefore,
+    data = small_data,
+    effectSize = TRUE)
+
+print(as.data.frame(result$ttest)$stat)
+    
+}
+```
+
+## References {.unnumbered}
