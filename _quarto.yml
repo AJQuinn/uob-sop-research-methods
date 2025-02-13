@@ -27,6 +27,8 @@ website:
         href: tutorials/rmb_week-3_one-sample-t-tests.qmd   
       - text: "Week 4 - Two-Sample T-tests"
         href: tutorials/rmb_week-4_two-sample-t-tests.qmd
+      - text: "Week 5 - p-values and Effect Sizes"
+        href: tutorials/rmb_week-5_pvalue-effect-size.qmd
     - section: "Support"
       contents:
         - text: "Using Copilot at UoB"

@@ -359,7 +359,6 @@ Open the 'Paired Sample t-test' menu under 't-tests'. To run the analysis, drag 
 Once you have computed the core test, do the same for the `EmoConfidence` and `MemoryConfidence`, and add the following options:
 
 - Descriptives
-- Homogeneity Test
 - Normality Test
 
 The results should appear on the right automatically.
