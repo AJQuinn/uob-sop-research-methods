@@ -279,7 +279,7 @@ div.csl-indent {
 
 <section id="week-5-p-values-and-effect-sizes" class="level1 unnumbered">
 <h1 class="unnumbered">Week 5 : p-values and effect sizes</h1>
-<p>This week we will explore how to use Jamovi to test hypotheses about a dataset using t-tests. We will touch on some revision from previous weeks so please do jump back to past computer practicals for revision if required</p>
+<p>This week we will explore how to use the <code>jmv</code> package in R to test hypotheses about a dataset using t-tests and to compute effect sizes corresponding to those tests. We will use those effect sizes to help interpret the sensitivity and power of our experiments.</p>
 <table class="caption-top table">
 <caption>Learning objectives for this session</caption>
 <colgroup>
@@ -295,13 +295,9 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td></td>
-<td style="text-align: left;">Variability in p-values and t-stats</td>
-</tr>
-<tr class="even">
-<td></td>
 <td style="text-align: left;">Cohen’s d effect size</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td style="text-align: left;">Power analysis</td>
 </tr>
@@ -321,17 +317,13 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td></td>
-<td style="text-align: left;">Use <code>group_by()</code> and <code>slice_sample()</code> in R to select a random subset of a dataset</td>
-</tr>
-<tr class="even">
-<td></td>
 <td style="text-align: left;">Use <code>mutate()</code> in R to compute a new variable</td>
 </tr>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">Write a loop to repeat an analysis in R</td>
-</tr>
 <tr class="even">
+<td></td>
+<td style="text-align: left;">Compute t-tests using the <code>jmv</code> R package</td>
+</tr>
+<tr class="odd">
 <td></td>
 <td style="text-align: left;">Run a power analysis in Rj</td>
 </tr>
@@ -351,6 +343,10 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td></td>
+<td style="text-align: left;">Understand and validate code written by someone else</td>
+</tr>
+<tr class="even">
+<td></td>
 <td style="text-align: left;">Use power analysis to recommend a sample size for a replication</td>
 </tr>
 </tbody>
@@ -367,7 +363,7 @@ Dataset
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please note, this is the same dataset as we used in week 4.</p>
+<p>Please note, this is the same dataset as we used in week 4 - but make sure that you load in the <code>rmb-week-3_lecture-quiz-data_ai-faces-fixed.omv</code> file from this week and NOT the week 4 file. It contains a small fix that we need for this week.</p>
 </div>
 </div>
 <p>We’ll be working with the dataset we collected after the break during the lecture in Week 3. This is a partial replication of a study published in the journal Psychological Science <span class="citation" data-cites="Miller2024_AIHyperrealism">(<a href="#ref-Miller2024_AIHyperrealism" role="doc-biblioref">Miller et al. 2023</a>)</span>. The original paper found the following results summarised in the abstract.</p>
