@@ -1,10 +1,9 @@
 # Week 5 : p-values and effect sizes {.unnumbered}
 
-This week we will explore how to use Jamovi to test hypotheses about a dataset using t-tests. We will touch on some revision from previous weeks so please do jump back to past computer practicals for revision if required
+This week we will explore how to use the `jmv` package in R to test hypotheses about a dataset using t-tests and to compute effect sizes corresponding to those tests. We will use those effect sizes to help interpret the sensitivity and power of our experiments.
 
 |  ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods          |
 |-----|:-------------------------------------------|
-|            | Variability in p-values and t-stats            |
 |            | Cohen's d effect size                  |
 |            | Power analysis                           |
 
@@ -12,14 +11,14 @@ This week we will explore how to use Jamovi to test hypotheses about a dataset u
 
 |    ![](../images/logos/rm-logo_data-skills.png){width=50px}      | Data Skills                                               |
 |-----|:-------------------------------------------|
-|          | Use `group_by()` and `slice_sample()` in R to select a random subset of a dataset |
 |          | Use `mutate()` in R to compute a new variable                 |
-|          | Write a loop to repeat an analysis in R                 |
+|          | Compute t-tests using the `jmv` R package                 |
 |          | Run a power analysis in Rj                  |
 
 
 |      ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
 |-----|:-------------------------------------------|
+|          | Understand and validate code written by someone else       |
 |          | Use power analysis to recommend a sample size for a replication       |
 
 
@@ -28,7 +27,7 @@ This week we will explore how to use Jamovi to test hypotheses about a dataset u
 ::: {.callout-note}
 # Dataset
 
-Please note, this is the same dataset as we used in week 4.
+Please note, this is the same dataset as we used in week 4 - but make sure that you load in the `rmb-week-3_lecture-quiz-data_ai-faces-fixed.omv` file from this week and NOT the week 4 file. It contains a small fix that we need for this week.
 
 :::
 
