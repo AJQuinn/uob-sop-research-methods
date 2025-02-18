@@ -65,7 +65,7 @@ How would you report the Mann-Whitney U test.
 <!--# #############################################  -->
 
 :::: callout-tip
-## Check Your Understanding - Data Quiz
+## Check Your Understanding - Data Quiz 
 
 Answer the following questions in the spaces provided.
 
