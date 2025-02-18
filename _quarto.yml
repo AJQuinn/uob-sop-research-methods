@@ -1,43 +1,46 @@
 project:
   type: website
   output-dir: docs
-
 bibliography: references.bib
-
 website:
-  title: "Research Methods"
+  title: Research Methods
   page-navigation: true
   navbar:
     background: primary
     search: true
     left:
-      - text: "Home"
-        href: index.qmd
+    - text: Home
+      href: index.qmd
   sidebar:
-    style: "docked"
+    style: docked
     search: true
     contents:
-    - section: "Research Methods B"
+    - section: Research Methods B
       contents:
-      - text: "Week 1 - New data and descriptives"
-        href: tutorials/rmb_week-1_new-data-and-descriptives.qmd   
-      - text: "Week 2 - Introducing R and Rj"
-        href: tutorials/rmb_week-2_intro-to-Rj.qmd          
-      - text: "Week 3 - One-Sample T-tests"
-        href: tutorials/rmb_week-3_one-sample-t-tests.qmd   
-      - text: "Week 4 - Two-Sample T-tests"
+      - text: Week 1 - New data and descriptives
+        href: tutorials/rmb_week-1_new-data-and-descriptives.qmd
+      - text: Week 2 - Introducing R and Rj
+        href: tutorials/rmb_week-2_intro-to-Rj.qmd
+      - text: Week 3 - One-Sample T-tests
+        href: tutorials/rmb_week-3_one-sample-t-tests.qmd
+      - text: Week 4 - Two-Sample T-tests
         href: tutorials/rmb_week-4_two-sample-t-tests.qmd
-      - text: "Week 5 - p-values and Effect Sizes"
+      - text: Week 5 - p-values and Effect Sizes
         href: tutorials/rmb_week-5_pvalue-effect-size.qmd
-    - section: "Support"
+      - text: Week 7 - Non-parametric tests and plotting
+        href: tutorials/rmb_week-7_non-parametrics.qmd
+    - section: Support
       contents:
-        - text: "Using Copilot at UoB"
-          href: copilot.qmd 
-        - text: "FAQs"
-          href: tutorials/frequently-asked-questions.qmd 
+      - text: Using Copilot at UoB
+        href: copilot.qmd
+      - text: FAQs
+        href: tutorials/frequently-asked-questions.qmd
 format:
   html:
     toc: true
-    theme: [cosmo, rmb-style.scss]
-
+    theme:
+    - cosmo
+    - rmb-style.scss
+    css: include/webex.css
+    include-after-body: include/webex.js
 editor: visual
