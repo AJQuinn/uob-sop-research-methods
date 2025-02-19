@@ -2,6 +2,12 @@
 engine: knitr
 ---
 
+```{r}
+#| echo: false
+library(webexercises)
+```
+
+
 # Week 7 : Testing data distributions and Non-parametric alternative tests {.unnumbered}
 
 This week we will explore how to use the `jmv` package in R to test hypotheses about a dataset using t-tests and to compute effect sizes corresponding to those tests. We will use those effect sizes to help interpret the sensitivity and power of our experiments.
@@ -76,4 +82,4 @@ Answer the following questions in the spaces provided.
 :::
 
 ## 4. Transforming a variable with log {.unnumbered}
-
+ 
