@@ -624,7 +624,7 @@ This is the practical consequence of effect sizes! The smaller effect for `Chang
 
 It might be the case that our face recognition really does change participants confidence in recognising emotional faces, and our study simply doesn't have enough participants to detect the change with statistical confidence. Perhaps we should consider running a larger study?
 
-How many participants would we need to have 80% chance of correctly detecting the estimated effect size from Cohen's d for `ChangeEmoConfidence`?
+If we assume that our value for Cohen's d is accurate and we assume that there really is an effect to be detected (these are pretty brave assumptions!), how many participants would a future study need to have 80% chance of correctly detecting the effect?
 
 ## Hint
 
