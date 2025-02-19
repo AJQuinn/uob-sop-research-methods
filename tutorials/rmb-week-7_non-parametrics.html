@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>intro – Research Methods</title>
+<title>rmb-week-7_non-parametrics – Research Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,59 +20,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-be42407f4aef0d90c43f9db1a885ba93.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-be42407f4aef0d90c43f9db1a885ba93.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="../include/webex.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -112,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Research Methods</span>
     </a>
   </div>
@@ -123,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -168,37 +154,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-1_new-data-and-descriptives.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-1_new-data-and-descriptives.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1 - New data and descriptives</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-2_intro-to-Rj.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-2_intro-to-Rj.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 2 - Introducing R and Rj</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-3_one-sample-t-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-3_one-sample-t-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 3 - One-Sample T-tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-4_two-sample-t-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-4_two-sample-t-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4 - Two-Sample T-tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-5_pvalue-effect-size.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-5_pvalue-effect-size.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 5 - p-values and Effect Sizes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-7_non-parametrics.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-7_non-parametrics.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 7 - Non-parametric tests and plotting</span></a>
   </div>
 </li>
@@ -215,13 +201,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./copilot.html" class="sidebar-item-text sidebar-link">
+  <a href="../copilot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using Copilot at UoB</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/frequently-asked-questions.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/frequently-asked-questions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FAQs</span></a>
   </div>
 </li>
@@ -237,7 +223,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#week-7-testing-data-distributions-and-non-parametric-alternative-tests" id="toc-week-7-testing-data-distributions-and-non-parametric-alternative-tests" class="nav-link active" data-scroll-target="#week-7-testing-data-distributions-and-non-parametric-alternative-tests">Week 7 : Testing data distributions and Non-parametric alternative tests</a>
+  <ul class="collapse">
+  <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">1. The Dataset</a></li>
+  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">2. The Challenge</a></li>
+  <li><a href="#exploring-the-data-using-skills-so-far" id="toc-exploring-the-data-using-skills-so-far" class="nav-link" data-scroll-target="#exploring-the-data-using-skills-so-far">3. Exploring the data using skills so far</a></li>
+  <li><a href="#transforming-a-variable-with-log" id="toc-transforming-a-variable-with-log" class="nav-link" data-scroll-target="#transforming-a-variable-with-log">4. Transforming a variable with log</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -247,21 +239,138 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>This is a book created from markdown and executable code.</p>
-<p>See <span class="citation" data-cites="knuth84">(<a href="#ref-knuth84" role="doc-biblioref"><strong>knuth84?</strong></a>)</span> for additional discussion of literate programming.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<section id="week-7-testing-data-distributions-and-non-parametric-alternative-tests" class="level1 unnumbered">
+<h1 class="unnumbered">Week 7 : Testing data distributions and Non-parametric alternative tests</h1>
+<p>This week we will explore how to use the <code>jmv</code> package in R to test hypotheses about a dataset using t-tests and to compute effect sizes corresponding to those tests. We will use those effect sizes to help interpret the sensitivity and power of our experiments.</p>
+<table class="caption-top table">
+<caption>Learning objectives for this session</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_quantitative-methods.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Quantitative Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Assumptions of parametric tests</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">Data transformation with the <code>log()</code> function</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Histograms</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">QQ plots</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_data-skills.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Data Skills</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Data visualisations using <code>ggplot</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">Run non-parametric alternative tests in Jamovi and R</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_open-science.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Open Science</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Replicate part of a published analysis</td>
+</tr>
+</tbody>
+</table>
+<section id="the-dataset" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="the-dataset">1. The Dataset</h2>
+<p>Flashbacks and intrusive thoughts are a core features of post-traumatic stress disorder (PTSD). These can be highly distressing and disruptive for the person suffering from them and there are few early interventions that are known to help.</p>
+<p>One unexpected and intriguing proposal in the last few decades suggests that carrying out very engaging visuo-spatial tasks with a neutral emotion in the immediate aftermath of a traumatic event may help reduce later flashbacks <span class="citation" data-cites="Holmes2009_CanPlaying">(<a href="#ref-Holmes2009_CanPlaying" role="doc-biblioref">Holmes et al. 2009</a>)</span>. This is thought to be due to intense visuo-spatial processing disrupting the formations of the flashback memories, which are themselves flashbacks.</p>
+<p>This week, we’re going to look at the dataset from one experiment attempting a replication and extension of this effect <span class="citation" data-cites="James2015_ComputerGame">(<a href="#ref-James2015_ComputerGame" role="doc-biblioref">James et al. 2015</a>)</span>. The abstract of the paper is below</p>
+<blockquote class="blockquote">
+<p>Memory of a traumatic event becomes consolidated within hours. Intrusive memories can then flash back repeatedly into the mind’s eye and cause distress. We investigated whether reconsolidation—the process during which memories become malleable when recalled—can be blocked using a cognitive task and whether such an approach can reduce these unbidden intrusions. We predicted that reconsolidation of a reactivated visual memory of experimental trauma could be disrupted by engaging in a visuospatial task that would compete for visual working memory resources. We showed that intrusive memories were virtually abolished by playing the computer game Tetris following a memory-reactivation task 24 hr after initial exposure to experimental trauma. Furthermore, both memory reactivation and playing Tetris were required to reduce subsequent intrusions (Experiment 2), consistent with reconsolidation-update mechanisms. A simple, noninvasive cognitive-task procedure administered after emotional memory has already consolidated (i.e., &gt; 24 hours after exposure to experimental trauma) may prevent the recurrence of intrusive memories of those emotional events</p>
+</blockquote>
+<p>This experiment shows participants a 12-minute distressing film to simulate a traumatic event (there is a more detailed description in the paper for those who may want more information, note the discussion around the ethics of showing participants these materials in the paper). Participants completed three sessions in the experiment day 0, day 1 and day 7. They also kept a diary recording their thoughts and memories about the film throughout the week. Participants viewed the film on day 0 and completed a range of experimental tasks on days 1 and 7.</p>
+<p>Crucially, participants were allocated to one of four conditions in the time immediately following the video. One group played tetris as a distraction, a second group completed a reactivation task which was throught to help reduce the emotional response to the video, a third group did both tetris and reconsolidation and a fourth group was a no-task control group.</p>
+</section>
+<section id="the-challenge" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="the-challenge">2. The Challenge</h2>
+<p>This week - we will explore two of the four conditions to test the following hypothesis:</p>
+<blockquote class="blockquote">
+<p>Playing tetris will after a trumatic event will reduce number of subsequent intrusive memories</p>
+</blockquote>
+<p>Along the way, we’ll take a detailed tour of our options when working with non-normally distributed data. We’ll begin to look at some more advanced options for creating data visualisations using a R package named <code>ggplot</code> - or not.</p>
+</section>
+<section id="exploring-the-data-using-skills-so-far" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exploring-the-data-using-skills-so-far">3. Exploring the data using skills so far</h2>
+<p>Set up a data filter to isolate two conditions <code>Condition == "No-Task Control" or Condition == "Reactivation+Tetris"</code></p>
+<p>Explore descriptives - what do you find? Strong postive skew and some kutosis in both, QQ plot confirms. Day one more prominent.</p>
+<p>Compute independent samples t-test with effect size and normality checks.</p>
+<p>How would you report the Mann-Whitney U test.</p>
+<!--# #############################################  -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Answer the following questions in the spaces provided.</p>
+<p>2 + 2 is <input class="webex-solveme nospaces" size="1" data-answer="[&quot;4&quot;]"></p>
+<p>2 + 2 is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;3.24&quot;]"></p>
+</div>
+</div>
+</section>
+<section id="transforming-a-variable-with-log" class="level2 unnumbered">
+
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">4. Transforming a variable with log</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Holmes2009_CanPlaying" class="csl-entry" role="listitem">
+Holmes, Emily A., Ella L. James, Thomas Coode-Bate, and Catherine Deeprose. 2009. <span>“Can Playing the Computer Game <span>‘Tetris’</span> Reduce the Build-up of Flashbacks for Trauma? A Proposal from Cognitive Science.”</span> Edited by Vaughan Bell. <em>PLoS ONE</em> 4 (1): e4153. <a href="https://doi.org/10.1371/journal.pone.0004153">https://doi.org/10.1371/journal.pone.0004153</a>.
+</div>
+<div id="ref-James2015_ComputerGame" class="csl-entry" role="listitem">
+James, Ella L., Michael B. Bonsall, Laura Hoppitt, Elizabeth M. Tunbridge, John R. Geddes, Amy L. Milton, and Emily A. Holmes. 2015. <span>“Computer Game Play Reduces Intrusive Memories of Experimental Trauma via Reconsolidation-Update Mechanisms.”</span> <em>Psychological Science</em> 26 (8): 1201–15. <a href="https://doi.org/10.1177/0956797615583071">https://doi.org/10.1177/0956797615583071</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script>
 
 /* update total correct if #webex-total_correct exists */
