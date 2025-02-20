@@ -125,7 +125,7 @@ The final column of the dataset is now `PropFacesCorrect` and contains the propo
 
 Can you compute variables containing the proportion of correct responses for photos of real people and AI generated faces separately? 
 
-Store the results in `PropRealCorrectFaces` for real faces and `PropIACorrectFaces` for AI generated faces.
+Store the results in `PropRealCorrectFaces` for real faces and `PropAICorrectFaces` for AI generated faces.
 
 ## Hint
 
@@ -485,7 +485,7 @@ These can be useful guidelines - through they have been criticised strongly for 
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - Is the effect size for `ChangeAIConfidence` small, medium or large?
 
-The effect size `-0.429` is just below the thresold to be a 'medium' effect (ignoring the sign of the effect size). The effect size for the Rank Biserial correlation is similar.
+The effect size `-0.403` is just below the thresold to be a 'medium' effect (ignoring the sign of the effect size). The effect size for the Rank Biserial correlation is similar.
 
 :::
 
