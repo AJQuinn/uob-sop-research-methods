@@ -10,21 +10,20 @@ library(webexercises)
 
 # Week 7 : Testing data distributions and Non-parametric alternative tests {.unnumbered}
 
-This week we will explore how to use the `jmv` package in R to test hypotheses about a dataset using t-tests and to compute effect sizes corresponding to those tests. We will use those effect sizes to help interpret the sensitivity and power of our experiments.
+This week we will explore how to check the assumptions of hypothesis tests and make sure that we're using the right tests. We will introduce the idea of transforming data to squeeze the data into the shape of a normal distribution.
 
 |  ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods          |
 |-----|:-------------------------------------------|
 |            | Assumptions of parametric tests                  |
-|            | Data transformation with the `log()` function                  |
+|            | Log transforms and Box-Cox transforms                  |
 |            | Histograms                           |
-|            | QQ plots                           |
 
 : Learning objectives for this session
 
 |    ![](../images/logos/rm-logo_data-skills.png){width=50px}      | Data Skills       |
 |-----|:-------------------------------------------|
-|          | Data visualisations using `ggplot`                 |
-|          | Run non-parametric alternative tests in Jamovi and R                |
+|          | Compute data transformations using Jamovi              |
+|          | Run non-parametric alternative tests in Jamovi              |
 
 
 |      ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
@@ -61,7 +60,9 @@ This week - we will explore two of the four conditions to test the following hyp
 
 > Playing tetris will after a trumatic event will reduce number of subsequent intrusive memories 
 
-Along the way, we'll take a detailed tour of our options when working with non-normally distributed data. We'll begin to look at some more advanced options for creating data visualisations using a R package named `ggplot` - or not.
+Along the way, we'll take a detailed tour of our options when working with non-normally distributed data.
+
+The theme this week is PRECISION! we need high precision when interpreting and analysing results, the exercises this week are designed to give you practice in paying close attention to the details of your data...
 
 ## 3. Dataset description {.unnumbered}
 
@@ -343,20 +344,165 @@ How did the following factors change or not after watching the film?
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - did the film manipulation work?
 
-Yes, all factors apart from Hopelessless were increased by watching the film, indicating that the film had a strongly negative impact on participants in the experiment.
+Yes, all factors apart from Hopelessless showed a statistically significant increase after watching the film. This indicates that the film had a strongly impact on participants negative emotions. It seems like the experimental manipulation worked.
 
 :::
 
 
-## 7. Control analyses testing for potential confounds. {.unnumbered}
 
 
+## 7. Transforming non-nomrally distributed data {.unnumbered}
 
+There are times when we might not want to use a non-parametric test, for example if we specifically want to interpret the mean of the data rather than the median or if we're running many similar tests and we don't want to be switching back and forth between parametric and non-parametric tests.
+
+We have another option when working with non-normal data. This is to apply a reversible transformation to the data observations in a variable to change the distribution to one that is closer to being normally distributed. When this process works, we are able to run the parametric test on the transformed data rather thans swapping to the non-parametric alternative.
+
+This is valid when the transformation **preserves the relationships** in the dataset, that is it maintains the relative order of the observations. If data point A is larger than B before transformation then it should still be larger after the transformation. It is fine if the transformation changes the numbers themselves - we just have to be careful when making an interpretation.
+
+We'll think about two data transformations in this section
+
+| Transform | Explanation |
+| --------- | ---------------------------- |
+| Log Transform | The logarithm function, typically base 10 (log), is applied to each data point. |
+| Box-Cox Transform | Similar to the log-transform but with some parameters are tuned to work optimally for the specific dataset |
+
+The main difference is that the Box-Cox transform is more adaptive - whilst it the log-transform is applied in the same way to every dataset, the Box-Cox trasnform can be slightly different so that it works best for the data being analysed each time.
+
+We can easily [transform variables using Jamovi](https://blog.jamovi.org/2018/10/23/transforming-variables.html) and have done something very similar when computing variables in previous weeks.
+
+
+::: callout-tip
+## Data Skills - transforming a variable.
+
+You can read about transforming variables in detail on [the Jamovi documentation page on transforming variables](https://blog.jamovi.org/2018/10/23/transforming-variables.html). There are a few different steps but they are all straightforward.
+
+First, head to the 'Data' view and right click on the variable you want to transform, in this case we want `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary`
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img8.png){width=450px}
+
+This will open a dialogue box where you cna define the new variable. Give your new variable a descriptive name and make sure that the 'Source variable' is the one that you expect. Note that you might see a 'Circular definition' warning until you rename your variable.
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img9.png){width=450px}
+
+Next we need to specify the transformation that we want to use. Click into the 'using transform' drop-down box and select "Create New Transform".
+
+Here you can define the transformation that you want to apply. You can define a single transform and apply it to multiple variables. Give the transformation a descriptive name and specify that you want the transfrom to apply the `LOG10()` function to the `$source` variable. (`$source` is a way to tell Jamovi to use 'whichever variable is passed into the transform' rather than defining the transform on only 1 variable here.)
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img10.png){width=450px}
+
+You can click on the `Fx` logo to select functions from a list if you prefer, there are lots of pre-defined options.
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img11.png){width=450px}
+
+Once you're happy with the transformation, you can close the transformation definition dialogue and specify that we want to use the 'LogTransform' that we just defined to transfrom `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary` to make our new variable.
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img12.png){width=450px}
+
+There are a lot of steps here - but each is fairly straightforward. Ask your tutor if you get stuck.
+
+:::
+
+Now that we have our new variable we can explore what it has done. Let's compare the descriptive statistics for the original and the transformed variable.
+
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img13.png){width=750px}
+
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img14.png){width=450px}
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img14b.png){width=400px}
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - has the log transform changed mean of the data?
+
+Yes, the log transform has changed the mean by a long way. The original data shows that the average participant had 3.5 intrusive memories but that number has changed to 1.28 in the transformed data.
+
+This does not mean that the number has really reduced! remember that the transformation is changing the absolute values of the observations but should be preserving the relative relationships between the data points.
+
+This is fine, but we must not report the log-transformed values as the actual means. The participants still had an average of 3.5 intrusive memories whether we transformed the data or not.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - has the log transform changed the skewness and kurtosis of the data?
+
+Yes, it has had a big impact. Both the skewness and kurtosis values are much closer to zero in the transformed data compared to the original. Both indicates that the transformed data are more normally distributed.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - is there a statistically significant difference from a normal distribution in the transformed data?
+
+No, whereas the Shapiro-Wilk statistic showed a significant departure from a normal distribution for the original data (W = 0.8, p < 0.001) it shows that the transformed data is now indistinguishable from a normal distribution (W = 0.963, p = 0.257)
+
+:::
 
  
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Compute a new data transform that applies a Box-Cox transform to `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary`.
+
+## Hint
+
+Follow the instructions above, the Box-Cox transform is one of the predefined transformation options.
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img15.png){width=450px}
+
+
+## Solution
+
+Your transformed variable should have the following descriptive statistics. See `Days_One_to_Seven_BoxCox` below.
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img16.png)
+
+:::
+::::
+
+
+Finally - let's see if we can use our transformed variables to compute a parametric t-test. Repeat the independent samples t-test from earlier but include all three variables in the 'Dependent Variables' box. Make sure to include 
+
+
+- `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary` - original data
+- `Days_One_to_Seven_Transformed` - Log transformed data
+- `Days_One_to_Seven_BoxCox` - BoxCox transformed data
+
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Use your results on the independant samples t-test to answer the following questions in the spaces provided.
+
+With the original data, a Shapiro-Wilk statistic found a `r mcq(c(answer="a significant", "no significant"))` difference from a normal distribution, W=`r fitb(0.881)`, p = `r fitb(0.001)`. We can proceed with `r mcq(c("Student's t-test", answer="Mann-Whitney U test"))`.
+
+Using the log-transformed data, a Shapiro-Wilk statistic found a `r mcq(c("a significant", answer="no significant"))` difference from a normal distribution, W=`r fitb(0.974)`, p = `r fitb(0.550)`. Levene's test found that the we `r mcq(c(answer="can", "can not"))` assume that the groups have homogeneity of variance, F(1, 34) = `r fitb(0.357)`, p = `r fitb(0.554)`. We can proceed with `r mcq(c(answer="Student's t-test", answer="Welch's t-test", "Mann-Whitney U test"))`.
+
+Using the BoxCox-transformed data, a Shapiro-Wilk statistic found a `r mcq(c("a significant", answer="no significant"))` difference from a normal distribution, W=`r fitb(0.982)`, p = `r fitb(0.826)`. Levene's test found that the we `r mcq(c(answer="can", "can not"))` assume that the groups have homogeneity of variance, F(1, 34) = `r fitb(0.634)`, p = `r fitb(0.431)`. We can proceed with `r mcq(c(answer="Student's t-test", answer="Welch's t-test", "Mann-Whitney U test"))`.
+
+## Hint
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img17.png)
+
+:::
+::::
+
+
+
+
 ## 8. Summary {.unnumbered}
 
-We've done a lot of work to consolidate our skills on filtering data and computing one sample t-tests! You should now be able to compute these tests in Jamovi and create reproducible R code.
+We have explored an interesting dataset in some detail and worked with serveral different analysis approaches. Specifically, we have several options when working on checking the assumptions of our analyses. We have to be careful when computing and reporting hypothesis tests that we're using the correct tests in a way that is supported by the data. Sometimes we can use a transform to continuous using parametric tests when the assumptions are not supported but this will not always work.
 
 ## References {.unnumbered}
 

@@ -27,7 +27,7 @@ website:
         href: tutorials/rmb_week-4_two-sample-t-tests.qmd
       - text: Week 5 - p-values and Effect Sizes
         href: tutorials/rmb_week-5_pvalue-effect-size.qmd
-      - text: Week 7 - Non-parametric tests and plotting
+      - text: Week 7 - Non-parametric tests and data transformation
         href: tutorials/rmb_week-7_non-parametrics.qmd
     - section: Support
       contents:
