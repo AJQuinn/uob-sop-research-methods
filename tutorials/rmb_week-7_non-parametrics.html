@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.41">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,7 +57,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-48ffa3e5b9d089919c6712c39e5b00f2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-be42407f4aef0d90c43f9db1a885ba93.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -125,7 +125,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmb_week-1_new-data-and-descriptives.html">Research Methods B</a></li><li class="breadcrumb-item"><a href="../tutorials/rmb_week-7_non-parametrics.html">Week 7 - Non-parametric tests and plotting</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmb_week-1_new-data-and-descriptives.html">Research Methods B</a></li><li class="breadcrumb-item"><a href="../tutorials/rmb_week-7_non-parametrics.html">Week 7 - Non-parametric tests and data transformation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -187,7 +187,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../tutorials/rmb_week-7_non-parametrics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Week 7 - Non-parametric tests and plotting</span></a>
+ <span class="menu-text">Week 7 - Non-parametric tests and data transformation</span></a>
   </div>
 </li>
       </ul>
@@ -237,7 +237,7 @@ div.csl-indent {
   <li><a href="#baseline-differences-in-intrusive-memories" id="toc-baseline-differences-in-intrusive-memories" class="nav-link" data-scroll-target="#baseline-differences-in-intrusive-memories">Baseline differences in intrusive memories</a></li>
   <li><a href="#change-in-mood-due-to-watching-the-film" id="toc-change-in-mood-due-to-watching-the-film" class="nav-link" data-scroll-target="#change-in-mood-due-to-watching-the-film">Change in mood due to watching the film</a></li>
   </ul></li>
-  <li><a href="#control-analyses-testing-for-potential-confounds.-1" id="toc-control-analyses-testing-for-potential-confounds.-1" class="nav-link" data-scroll-target="#control-analyses-testing-for-potential-confounds.-1">7. Control analyses testing for potential confounds.</a></li>
+  <li><a href="#transforming-non-nomrally-distributed-data" id="toc-transforming-non-nomrally-distributed-data" class="nav-link" data-scroll-target="#transforming-non-nomrally-distributed-data">7. Transforming non-nomrally distributed data</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8. Summary</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
@@ -245,14 +245,14 @@ div.csl-indent {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmb_week-1_new-data-and-descriptives.html">Research Methods B</a></li><li class="breadcrumb-item"><a href="../tutorials/rmb_week-7_non-parametrics.html">Week 7 - Non-parametric tests and plotting</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmb_week-1_new-data-and-descriptives.html">Research Methods B</a></li><li class="breadcrumb-item"><a href="../tutorials/rmb_week-7_non-parametrics.html">Week 7 - Non-parametric tests and data transformation</a></li></ol></nav></header>
 
 
 
 
 <section id="week-7-testing-data-distributions-and-non-parametric-alternative-tests" class="level1 unnumbered">
 <h1 class="unnumbered">Week 7 : Testing data distributions and Non-parametric alternative tests</h1>
-<p>This week we will explore how to use the <code>jmv</code> package in R to test hypotheses about a dataset using t-tests and to compute effect sizes corresponding to those tests. We will use those effect sizes to help interpret the sensitivity and power of our experiments.</p>
+<p>This week we will explore how to check the assumptions of hypothesis tests and make sure that we’re using the right tests. We will introduce the idea of transforming data to squeeze the data into the shape of a normal distribution.</p>
 <table class="caption-top table">
 <caption>Learning objectives for this session</caption>
 <colgroup>
@@ -272,15 +272,11 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td></td>
-<td style="text-align: left;">Data transformation with the <code>log()</code> function</td>
+<td style="text-align: left;">Log transforms and Box-Cox transforms</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td style="text-align: left;">Histograms</td>
-</tr>
-<tr class="even">
-<td></td>
-<td style="text-align: left;">QQ plots</td>
 </tr>
 </tbody>
 </table>
@@ -298,11 +294,11 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td></td>
-<td style="text-align: left;">Data visualisations using <code>ggplot</code></td>
+<td style="text-align: left;">Compute data transformations using Jamovi</td>
 </tr>
 <tr class="even">
 <td></td>
-<td style="text-align: left;">Run non-parametric alternative tests in Jamovi and R</td>
+<td style="text-align: left;">Run non-parametric alternative tests in Jamovi</td>
 </tr>
 </tbody>
 </table>
@@ -354,7 +350,8 @@ Content Info
 <blockquote class="blockquote">
 <p>Playing tetris will after a trumatic event will reduce number of subsequent intrusive memories</p>
 </blockquote>
-<p>Along the way, we’ll take a detailed tour of our options when working with non-normally distributed data. We’ll begin to look at some more advanced options for creating data visualisations using a R package named <code>ggplot</code> - or not.</p>
+<p>Along the way, we’ll take a detailed tour of our options when working with non-normally distributed data.</p>
+<p>The theme this week is PRECISION! we need high precision when interpreting and analysing results, the exercises this week are designed to give you practice in paying close attention to the details of your data…</p>
 </section>
 <section id="dataset-description" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="dataset-description">3. Dataset description</h2>
@@ -718,18 +715,186 @@ Check Your Understanding - Data Quiz
 </div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Yes, all factors apart from Hopelessless were increased by watching the film, indicating that the film had a strongly negative impact on participants in the experiment.</p>
+<p>Yes, all factors apart from Hopelessless showed a statistically significant increase after watching the film. This indicates that the film had a strongly impact on participants negative emotions. It seems like the experimental manipulation worked.</p>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="control-analyses-testing-for-potential-confounds.-1" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="control-analyses-testing-for-potential-confounds.-1">7. Control analyses testing for potential confounds.</h2>
+<section id="transforming-non-nomrally-distributed-data" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="transforming-non-nomrally-distributed-data">7. Transforming non-nomrally distributed data</h2>
+<p>There are times when we might not want to use a non-parametric test, for example if we specifically want to interpret the mean of the data rather than the median or if we’re running many similar tests and we don’t want to be switching back and forth between parametric and non-parametric tests.</p>
+<p>We have another option when working with non-normal data. This is to apply a reversible transformation to the data observations in a variable to change the distribution to one that is closer to being normally distributed. When this process works, we are able to run the parametric test on the transformed data rather thans swapping to the non-parametric alternative.</p>
+<p>This is valid when the transformation <strong>preserves the relationships</strong> in the dataset, that is it maintains the relative order of the observations. If data point A is larger than B before transformation then it should still be larger after the transformation. It is fine if the transformation changes the numbers themselves - we just have to be careful when making an interpretation.</p>
+<p>We’ll think about two data transformations in this section</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Transform</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Log Transform</td>
+<td>The logarithm function, typically base 10 (log), is applied to each data point.</td>
+</tr>
+<tr class="even">
+<td>Box-Cox Transform</td>
+<td>Similar to the log-transform but with some parameters are tuned to work optimally for the specific dataset</td>
+</tr>
+</tbody>
+</table>
+<p>The main difference is that the Box-Cox transform is more adaptive - whilst it the log-transform is applied in the same way to every dataset, the Box-Cox trasnform can be slightly different so that it works best for the data being analysed each time.</p>
+<p>We can easily <a href="https://blog.jamovi.org/2018/10/23/transforming-variables.html">transform variables using Jamovi</a> and have done something very similar when computing variables in previous weeks.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data Skills - transforming a variable.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can read about transforming variables in detail on <a href="https://blog.jamovi.org/2018/10/23/transforming-variables.html">the Jamovi documentation page on transforming variables</a>. There are a few different steps but they are all straightforward.</p>
+<p>First, head to the ‘Data’ view and right click on the variable you want to transform, in this case we want <code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code></p>
+<p><img src="../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img8.png" class="img-fluid" width="450"></p>
+<p>This will open a dialogue box where you cna define the new variable. Give your new variable a descriptive name and make sure that the ‘Source variable’ is the one that you expect. Note that you might see a ‘Circular definition’ warning until you rename your variable.</p>
+<p><img src="../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img9.png" class="img-fluid" width="450"></p>
+<p>Next we need to specify the transformation that we want to use. Click into the ‘using transform’ drop-down box and select “Create New Transform”.</p>
+<p>Here you can define the transformation that you want to apply. You can define a single transform and apply it to multiple variables. Give the transformation a descriptive name and specify that you want the transfrom to apply the <code>LOG10()</code> function to the <code>$source</code> variable. (<code>$source</code> is a way to tell Jamovi to use ‘whichever variable is passed into the transform’ rather than defining the transform on only 1 variable here.)</p>
+<p><img src="../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img10.png" class="img-fluid" width="450"></p>
+<p>You can click on the <code>Fx</code> logo to select functions from a list if you prefer, there are lots of pre-defined options.</p>
+<p><img src="../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img11.png" class="img-fluid" width="450"></p>
+<p>Once you’re happy with the transformation, you can close the transformation definition dialogue and specify that we want to use the ‘LogTransform’ that we just defined to transfrom <code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code> to make our new variable.</p>
+<p><img src="../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img12.png" class="img-fluid" width="450"></p>
+<p>There are a lot of steps here - but each is fairly straightforward. Ask your tutor if you get stuck.</p>
+</div>
+</div>
+<p>Now that we have our new variable we can explore what it has done. Let’s compare the descriptive statistics for the original and the transformed variable.</p>
+<p><img src="../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img13.png" class="img-fluid" width="750"></p>
+<p><img src="../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img14.png" class="img-fluid" width="450"> <img src="../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img14b.png" class="img-fluid" width="400"></p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - has the log transform changed mean of the data?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Yes, the log transform has changed the mean by a long way. The original data shows that the average participant had 3.5 intrusive memories but that number has changed to 1.28 in the transformed data.</p>
+<p>This does not mean that the number has really reduced! remember that the transformation is changing the absolute values of the observations but should be preserving the relative relationships between the data points.</p>
+<p>This is fine, but we must not report the log-transformed values as the actual means. The participants still had an average of 3.5 intrusive memories whether we transformed the data or not.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - has the log transform changed the skewness and kurtosis of the data?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Yes, it has had a big impact. Both the skewness and kurtosis values are much closer to zero in the transformed data compared to the original. Both indicates that the transformed data are more normally distributed.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - is there a statistically significant difference from a normal distribution in the transformed data?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No, whereas the Shapiro-Wilk statistic showed a significant departure from a normal distribution for the original data (W = 0.8, p &lt; 0.001) it shows that the transformed data is now indistinguishable from a normal distribution (W = 0.963, p = 0.257)</p>
+</div>
+</div>
+</div>
+<!--# #############################################  -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>Compute a new data transform that applies a Box-Cox transform to <code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code>.</p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p>Follow the instructions above, the Box-Cox transform is one of the predefined transformation options.</p>
+<p><img src="../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img15.png" class="img-fluid" width="450"></p>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<p>Your transformed variable should have the following descriptive statistics. See <code>Days_One_to_Seven_BoxCox</code> below.</p>
+<p><img src="../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img16.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Finally - let’s see if we can use our transformed variables to compute a parametric t-test. Repeat the independent samples t-test from earlier but include all three variables in the ‘Dependent Variables’ box. Make sure to include</p>
+<ul>
+<li><code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code> - original data</li>
+<li><code>Days_One_to_Seven_Transformed</code> - Log transformed data</li>
+<li><code>Days_One_to_Seven_BoxCox</code> - BoxCox transformed data</li>
+</ul>
+<!--# #############################################  -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>Use your results on the independant samples t-test to answer the following questions in the spaces provided.</p>
+<p>With the original data, a Shapiro-Wilk statistic found a <select class="webex-select"><option value="blank"></option><option value="answer">a significant</option><option value="">no significant</option></select> difference from a normal distribution, W=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.881&quot;,&quot;.881&quot;]">, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.001&quot;,&quot;.001&quot;]">. We can proceed with <select class="webex-select"><option value="blank"></option><option value="">Student’s t-test</option><option value="answer">Mann-Whitney U test</option></select>.</p>
+<p>Using the log-transformed data, a Shapiro-Wilk statistic found a <select class="webex-select"><option value="blank"></option><option value="">a significant</option><option value="answer">no significant</option></select> difference from a normal distribution, W=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.974&quot;,&quot;.974&quot;]">, p = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.55&quot;,&quot;.55&quot;]">. Levene’s test found that the we <select class="webex-select"><option value="blank"></option><option value="answer">can</option><option value="">can not</option></select> assume that the groups have homogeneity of variance, F(1, 34) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.357&quot;,&quot;.357&quot;]">, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.554&quot;,&quot;.554&quot;]">. We can proceed with <select class="webex-select"><option value="blank"></option><option value="answer">Student’s t-test</option><option value="answer">Welch’s t-test</option><option value="">Mann-Whitney U test</option></select>.</p>
+<p>Using the BoxCox-transformed data, a Shapiro-Wilk statistic found a <select class="webex-select"><option value="blank"></option><option value="">a significant</option><option value="answer">no significant</option></select> difference from a normal distribution, W=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.982&quot;,&quot;.982&quot;]">, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.826&quot;,&quot;.826&quot;]">. Levene’s test found that the we <select class="webex-select"><option value="blank"></option><option value="answer">can</option><option value="">can not</option></select> assume that the groups have homogeneity of variance, F(1, 34) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.634&quot;,&quot;.634&quot;]">, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.431&quot;,&quot;.431&quot;]">. We can proceed with <select class="webex-select"><option value="blank"></option><option value="answer">Student’s t-test</option><option value="answer">Welch’s t-test</option><option value="">Mann-Whitney U test</option></select>.</p>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p><img src="../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img17.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="summary" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="summary">8. Summary</h2>
-<p>We’ve done a lot of work to consolidate our skills on filtering data and computing one sample t-tests! You should now be able to compute these tests in Jamovi and create reproducible R code.</p>
+<p>We have explored an interesting dataset in some detail and worked with serveral different analysis approaches. Specifically, we have several options when working on checking the assumptions of our analyses. We have to be careful when computing and reporting hypothesis tests that we’re using the correct tests in a way that is supported by the data. Sometimes we can use a transform to continuous using parametric tests when the assumptions are not supported but this will not always work.</p>
 </section>
 <section id="references" class="level2 unnumbered">
 
