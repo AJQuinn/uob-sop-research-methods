@@ -1,0 +1,63 @@
+---
+engine: knitr
+---
+
+```{r}
+#| echo: false
+library(webexercises)
+```
+
+
+# Week 9 : One Way Analysis of Variance (ANOVA) {.unnumbered}
+
+This week we will explore how to check the assumptions of hypothesis tests and make sure that we're using the right tests. We will introduce the idea of transforming data to squeeze the data into the shape of a normal distribution.
+
+|  ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods          |
+|-----|:-------------------------------------------|
+|            | Assumptions of parametric tests                  |
+|            | Log transforms and Box-Cox transforms                  |
+|            | Histograms                           |
+
+: Learning objectives for this session
+
+|    ![](../images/logos/rm-logo_data-skills.png){width=50px}      | Data Skills       |
+|-----|:-------------------------------------------|
+|          | Compute data transformations using Jamovi              |
+|          | Run non-parametric alternative tests in Jamovi              |
+
+
+|      ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
+|-----|:-------------------------------------------|
+|          | Replicate part of a published analysis       |
+
+
+::: {.callout-note appearance="simple"}
+# Content Info
+
+This tutorial refers to a video in which participants watched unpleasant events to simulate a traumatic experience in the lab. The content of this video is not disclosed or dicussed in any more detail than this during this tutorial - those who are interested can find more information in methods section the published article. This tutorial does explore the emotional impact that the video has on participants.
+
+:::
+
+## 1. The Dataset {.unnumbered}
+
+Flashbacks and intrusive thoughts are a core features of post-traumatic stress disorder (PTSD). These can be highly distressing and disruptive for the person suffering from them and there are few early interventions that are known to help.
+
+One unexpected and intriguing proposal in the last few decades suggests that carrying out very engaging visuo-spatial tasks with a neutral emotion in the immediate aftermath of a traumatic event may help reduce later flashbacks [@Holmes2009_CanPlaying]. This is thought to be due to intense visuo-spatial processing disrupting the formations of the flashback memories, which are themselves flashbacks. 
+
+This week, we’re going to look at the dataset from one experiment attempting a replication and extension of this effect [@James2015_ComputerGame]. The abstract of the paper is below 
+
+> Memory of a traumatic event becomes consolidated within hours. Intrusive memories can then flash back repeatedly into the mind’s eye and cause distress. We investigated whether reconsolidation—the process during which memories become malleable when recalled—can be blocked using a cognitive task and whether such an approach can reduce these unbidden intrusions. We predicted that reconsolidation of a reactivated visual memory of experimental trauma could be disrupted by engaging in a visuospatial task that would compete for visual working memory resources. We showed that intrusive memories were virtually abolished by playing the computer game Tetris following a memory-reactivation task 24 hr after initial exposure to experimental trauma. Furthermore, both memory reactivation and playing Tetris were required to reduce subsequent intrusions (Experiment 2), consistent with reconsolidation-update mechanisms. A simple, noninvasive cognitive-task procedure administered after emotional memory has already consolidated (i.e., > 24 hours after exposure to experimental trauma) may prevent the recurrence of intrusive memories of those emotional events 
+
+This experiment shows participants a 12-minute distressing film to simulate a traumatic event. Participants completed three sessions in the experiment day 0, day 1 and day 7. They also kept a diary recording their thoughts and memories about the film throughout the week. Participants viewed the film on day 0 and completed a range of experimental tasks on days 1 and 7.
+
+Crucially, participants were allocated to one of four conditions in the time immediately following the video. One group played tetris as a distraction, a second group completed a reactivation task which was throught to help reduce the emotional response to the video, a third group did both tetris and reconsolidation and a fourth group was a no-task control group.
+
+
+
+## 2. The Challenge {.unnumbered}
+
+This week - we will explore two of the four conditions to test the following hypothesis:
+
+> Playing tetris will after a trumatic event will reduce number of subsequent intrusive memories 
+
+

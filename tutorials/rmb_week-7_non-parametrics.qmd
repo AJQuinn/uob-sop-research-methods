@@ -7,7 +7,6 @@ engine: knitr
 library(webexercises)
 ```
 
-
 # Week 7 : Testing data distributions and Non-parametric alternative tests {.unnumbered}
 
 This week we will explore how to check the assumptions of hypothesis tests and make sure that we're using the right tests. We will introduce the idea of transforming data to squeeze the data into the shape of a normal distribution.
