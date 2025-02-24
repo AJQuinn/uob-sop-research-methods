@@ -32,6 +32,13 @@ This week we will explore how to use the `jmv` package in R to test hypotheses a
 |          | Replicate part of a published analysis       |
 
 
+::: {.callout-note appearance="simple"}
+# Content Info
+
+This tutorial refers to a video in which participants watched unpleasant events to simulate a traumatic experience in the lab. The content of this video is not disclosed or dicussed in any more detail than this during this tutorial - those who are interested can find more information in methods section the published article. This tutorial does explore the emotional impact that the video has on participants.
+
+:::
+
 ## 1. The Dataset {.unnumbered}
 
 Flashbacks and intrusive thoughts are a core features of post-traumatic stress disorder (PTSD). These can be highly distressing and disruptive for the person suffering from them and there are few early interventions that are known to help.
@@ -42,9 +49,10 @@ This week, we’re going to look at the dataset from one experiment attempting a
 
 > Memory of a traumatic event becomes consolidated within hours. Intrusive memories can then flash back repeatedly into the mind’s eye and cause distress. We investigated whether reconsolidation—the process during which memories become malleable when recalled—can be blocked using a cognitive task and whether such an approach can reduce these unbidden intrusions. We predicted that reconsolidation of a reactivated visual memory of experimental trauma could be disrupted by engaging in a visuospatial task that would compete for visual working memory resources. We showed that intrusive memories were virtually abolished by playing the computer game Tetris following a memory-reactivation task 24 hr after initial exposure to experimental trauma. Furthermore, both memory reactivation and playing Tetris were required to reduce subsequent intrusions (Experiment 2), consistent with reconsolidation-update mechanisms. A simple, noninvasive cognitive-task procedure administered after emotional memory has already consolidated (i.e., > 24 hours after exposure to experimental trauma) may prevent the recurrence of intrusive memories of those emotional events 
 
-This experiment shows participants a 12-minute distressing film to simulate a traumatic event (there is a more detailed description in the paper for those who may want more information, note the discussion around the ethics of showing participants these materials in the paper). Participants completed three sessions in the experiment day 0, day 1 and day 7. They also kept a diary recording their thoughts and memories about the film throughout the week. Participants viewed the film on day 0 and completed a range of experimental tasks on days 1 and 7.
+This experiment shows participants a 12-minute distressing film to simulate a traumatic event. Participants completed three sessions in the experiment day 0, day 1 and day 7. They also kept a diary recording their thoughts and memories about the film throughout the week. Participants viewed the film on day 0 and completed a range of experimental tasks on days 1 and 7.
 
 Crucially, participants were allocated to one of four conditions in the time immediately following the video. One group played tetris as a distraction, a second group completed a reactivation task which was throught to help reduce the emotional response to the video, a third group did both tetris and reconsolidation and a fourth group was a no-task control group.
+
 
 
 ## 2. The Challenge {.unnumbered}
@@ -55,31 +63,300 @@ This week - we will explore two of the four conditions to test the following hyp
 
 Along the way, we'll take a detailed tour of our options when working with non-normally distributed data. We'll begin to look at some more advanced options for creating data visualisations using a R package named `ggplot` - or not.
 
-## 3. Exploring the data using skills so far {.unnumbered}
+## 3. Dataset description {.unnumbered}
 
-Set up a data filter to isolate two conditions
-`Condition == "No-Task Control" or Condition == "Reactivation+Tetris"`
+Let's start by getting familiar with the dataset. Load the file into Jamovi and take a look at the 'Variables' tab.
 
-Explore descriptives - what do you find?
-Strong postive skew and some kutosis in both, QQ plot confirms. Day one more prominent.
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img1.png){width=450px}
 
-Compute independent samples t-test with effect size and normality checks.
+The creators of this dataset have helpfully included annotations for many of the variables they've measured. This is extremely useful for us and definitely worth a few moments for you to do the same when working with your own data.
 
-How would you report the Mann-Whitney U test.
+::: {.callout-note appearance="simple"}
+# Key step
+
+Take a moment to read through the variable descriptions. You'll need to refer back to this list throughout the session to find relevant variables.
+
+:::
+
+Next - take a look at the data sheet and the `Condition` variable. These relate to the different conditions in the experiment - all participants watched the film containing traumatic events and the four conditions describe what participants did after watching the film on day 1 of the experiment. 
+
+| Condition | Description |
+|----------|:------------------|
+| No-Task Control | Participants sit quietly |
+| Reactivation+Tetris | Participants rewatch the film and then play Tetris |
+| Tetris Only | Participants play Tetris |
+| Reactivation Only | Participants rewatch the film |
+
+Participants were asked to keep an diary of any intrusive thoughts that they had prior to the experiment (day zero) and during the week after the experiment (days one to seven).
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - which variable tracks the diary of intrusive memories?
+
+`Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary` contains the number of intrusive memories the participant recorded in the week after watching the film.
+
+`Day_Zero_Image_Based_Intrusions_in_Intrusion_Diary` is very similar - it contains the number of intrusive memories the participant recorded in the time prior to watching the film. This is a good measure to include so we can rule out differences in the baseline number of intrusive memories between our groups.
+
+:::
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - what information do we have about participant's performance when playing tetris?
+
+`Tetris_Total_Score` contains the cumulative score of all tetris games the participant played - participants were allowed to restart their game if they finished before the time was up.
+
+We also have `Self_Rated_Tetris_Performance` which measures how participants rated the difficulty of the tetris task and `Tetris_Demand_Rating` which measures how participants thought that playing tetris would affect their intrusive memories.
+
+:::
+
+## 4. Is participant performance on Tetris normally distributed? {.unnumbered}
+
+Let's start by taking a look at how participants in the conditions that played Tetris scored during their game time. Compute descriptive statistics on the `Tetris_Total_Score` variable and take a moment to get a sense of what it is telling you.
 
 
 <!--# #############################################  -->
 
 :::: callout-tip
-## Check Your Understanding - Data Quiz 
+## Check Your Understanding - Data Quiz
 
-Answer the following questions in the spaces provided.
+::: panel-tabset
+## Questions
 
-2 + 2 is `r fitb(4)`
+Use the descriptive statistics of `Tetris_Total_Score` to answer the following questions in the spaces provided.
 
-2 + 2 is `r fitb(3.24)`
+The average Tetris score was `r fitb(30513)`.
+
+The most successful Tetris player scored `r fitb(107782)` points.
+
+The Tetris scores are `r mcq(c(answer = "positively skewed", "not skewed", "negatively skewed"))` with a skewness of `r fitb(1.50)`.
+
+The Shapiro-Wilk statistic has a value of W = `r fitb(0.858)` and the p-value indicates that the scores are `r mcq(c(answer = "significantly non-normally distributed", "normally distributed"))`
+
+We should use `r mcq(c("parametric", answer = "non-parametric"))` statistical approaches when analysing `Tetris_Total_Score`.
+
+## Hint
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img3.png){width=450px}
+
+:::
+::::
+
+Let's use this data to test a hypothesis.
+
+> Performance whilst playing Tetris will be different at different times of day.
+
+We can test this with an independent samples t-test as we've done in previous weeks. Set up the t-test and include the following:
+
+ - Welchs' t-test
+ - Mann-Whitney U
+ - Effect Size
+ - Homogeneity test
+ - Normality test
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img4.png){width=900px}
+
+
+Let's unpack the results.
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - does the Normality assumption check confirm what we saw in the descriptives?
+
+Yes, we get the same picture but with a little less detail. Shapiro-Wilk's test is significant indicating a non-normal distribution, but we still need the descriptive stats to understand HOW the distribution is different from a normal distribution.
+
+Importantly, this confirms that we should report the non-parametric alternative test - the Mann-Whitney U.
+
+You could add the descriptives to the t-test page - but notice that this only includes a handful of metrics that are specifically related to t-tests (mean, standard deviation etc). We need the full list on the 'Descriptives' tab to investigate distributions in detail.
 
 :::
 
-## 4. Transforming a variable with log {.unnumbered}
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - what does Levene's test indicate and does this matter for us?
+
+Levene's test explores homogeneity of variance, the result is not significant indicating that we are safe to assume homogeneity of variance between our groups.
+
+However, the data are not normally distributed - non-parametric tests don't have an assumption of homogeneity of variance at all so, for this analysis, Levene's test isn't really relevant.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - what does the Mann-Whitney U test indicate about our hypothesis?
+
+The Mann-Whitney U test is not significant - it seems like tetris scores are similar for participants who played in the morning and those who played in the afternoon.
+
+:::
+
+
+## 4. Is Tetris effective at reducing intrusive memories? {.unnumbered}
+
+On to our main hypothesis. [@James2015_ComputerGame] were most interested in the combination of the reactivation task and the tetris intervention and their effect on intrusive memories about the film. Let's focus on only the two conditions we can compare with a t-test.
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Set up a Jamovi data filter to focus our analysis on only the two conditions "No-Task Control" and "Reactivation+Tetris" conditions. Take a look at week 3 section 4 to revise data filters if you need to.
+
+You can use this code to select both conditions together:
+
+`Condition == "No-Task Control" or Condition == "Reactivation+Tetris"`
+
+Finally, compute an independent samples t-test to test the following:
+
+> Performing a Reactivation and Tetris task changes the number of intrusive memories in the week after watching a traumatic film.
+
+Take a moment to understand the results and compute any additional statistics that you might need to help your interpretation and reporting.
+
+:::
+
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Use your results on the independant samples t-test to answer the following questions in the spaces provided.
+
+There are `r fitb(18)` participants in each group.
+
+The Shapio-Wilk statistic indicated that the data are `r mcq(c(answer = "significantly non-normally distributed", "normally distributed"))`, W = `r fitb(0.881)`, p <  `r fitb(0.001)`
+
+Levene's test for homogeneity of variance indicated that we `r mcq(c("can", answer="can not"))` assume homogeneity of variance between the No-Task and Reactivation+Tetris groups, F(1, 32) =  `r fitb(8.96)`, p =  `r fitb(0.005)`.
+
+A Mann-Whitney U test showed `r mcq(c(answer = "a significant", "no significant"))` difference in intrusive memories in the week after the film between the No Task (Median=`r fitb(4)`) and the Reactivation plus Tetris (Median=`r fitb(2)`) groups. U = `r fitb(72.5)`, p = `r fitb(0.004)`, Rank Biserial Correlation = `r fitb(0.552)`.
+
+## Hint
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img5.png)
+
+:::
+::::
+
+## 5. Control analyses testing for potential confounds. {.unnumbered}
+
+Our hypothesis test gives statistical support to the idea that playing tetris reduces intrusive memories - but could there be other explanations? This experiment is likely not perfect and it is possible that some bad luck in the data collection could have impacted the results. In this section we'll validate a few additional factors in the experimenta..
+
+### Baseline differences in intrusive memories
+
+[@James2015_ComputerGame] collected  data variable to act as a control condition and rule out one possible confound in the experiment. `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary` indicates the number of intrusive memories each participant had in the time before the experiment.
+
+There isn't a huge number of participants in each condition, it is possible that one group of participants was having more or less intrusive memories to begin with - irrespective of the experimental procedure.
+
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Compute a t-test to test the following:
+
+> There are no differences in the number of instrusive memories between the two experimental group BEFORE the experiment started.
+
+Take a moment to understand the results and compute any additional statistics that you might need to help your interpretation and reporting.
+
+:::
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Use your results on the independant samples t-test to answer the following questions in the spaces provided.
+
+The participant in the 'No-Task Control' group had mean of `r fitb(3.56)` intrusive memories prior to the experiment starting.
+
+The participant in the 'Reactivation+Tetris' group had mean of `r fitb(3.11)` intrusive memories prior to the experiment starting.
+
+The Shapio-Wilk statistic indicated that the data are `r mcq(c(answer = "significantly non-normally distributed", "normally distributed"))`, W = `r fitb(0.905)`, p =  `r fitb(0.005)`
+
+A Mann-Whitney U test showed `r mcq(c("a significant", answer="no significant"))` difference in intrusive memories in day before between the No Task (Median=`r fitb(4)`) and the Reactivation plus Tetris (Median=`r fitb(2)`) groups. U = `r fitb(132)`, p = `r fitb(0.343)`, Rank Biserial Correlation = `r fitb(0.185)`.
+
+
+## Hint
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img6.png)
+
+:::
+::::
+
+
+### Change in mood due to watching the film
+
+Another important factor to check was that the film actually changed how the participants felt. If the film didn't do anything to impact the participants emotions then it is possible that we don't actually understand the source of the difference we saw in the main hypothesis.
+
+The film is the main experimental manipulation that so it is critical to check that it worked as we expected.
+
+
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Compute paired samples t-test's to check the following:
+
+> Watching the traumatic film will change participants emotional state.
+
+Check ALL of participants reported sadness, hopelessness, fear, horror and anxiousness.
+
+Take a moment to understand the results and compute any additional statistics that you might need to help your interpretation and reporting.
+
+:::
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Use your results on the independant samples t-test to answer the following questions in the spaces provided.
+
+True or False? The data variables for these factors are Normally Distributed according to Shaprio-Wilk statistics.
+
+ - Sadness `r torf(TRUE)`
+ - Hopeless `r torf(FALSE)`
+ - Fear `r torf(FALSE)`
+ - Horror `r torf(TRUE)`
+ - Axious `r torf(FALSE)`
+
+How did the following factors change or not after watching the film?
+
+ - Sadness `r mcq(c(answer="increased", "stayed the same", "decreased"))` after watching the film
+ - Hopelessless `r mcq(c("increased", answer="stayed the same", "decreased"))` after watching the film
+ - Fear `r mcq(c(answer="increased", "stayed the same", "decreased"))` after watching the film
+ - Horror `r mcq(c(answer="increased", "stayed the same", "decreased"))` after watching the film
+ - Axiousness `r mcq(c(answer="increased", "stayed the same", "decreased"))` after watching the film
+
+
+## Hint
+
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img7.png)
+
+:::
+::::
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - did the film manipulation work?
+
+Yes, all factors apart from Hopelessless were increased by watching the film, indicating that the film had a strongly negative impact on participants in the experiment.
+
+:::
+
+
+## 7. Control analyses testing for potential confounds. {.unnumbered}
+
+
+
+
  
+## 8. Summary {.unnumbered}
+
+We've done a lot of work to consolidate our skills on filtering data and computing one sample t-tests! You should now be able to compute these tests in Jamovi and create reproducible R code.
+
+## References {.unnumbered}
+
