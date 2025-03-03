@@ -101,6 +101,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 </head>
@@ -204,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/rmb_week-8_tidy-data.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-8_sampling-distributions.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 8 - Sampling Distributions</span></a>
   </div>
 </li>
@@ -254,7 +283,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">1. The Dataset</a></li>
   <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">2. The Challenge</a></li>
   <li><a href="#simulating-data-samples-in-r" id="toc-simulating-data-samples-in-r" class="nav-link" data-scroll-target="#simulating-data-samples-in-r">3. Simulating data samples in R</a></li>
-  <li><a href="#simulating-data-samples-in-r-1" id="toc-simulating-data-samples-in-r-1" class="nav-link" data-scroll-target="#simulating-data-samples-in-r-1">3. Simulating data samples in R</a></li>
+  <li><a href="#estimating-the-samping-distribution-of-the-mean" id="toc-estimating-the-samping-distribution-of-the-mean" class="nav-link" data-scroll-target="#estimating-the-samping-distribution-of-the-mean">3. Estimating the samping distribution of the mean</a></li>
+  <li><a href="#visualising-the-samping-distribution-of-the-mean" id="toc-visualising-the-samping-distribution-of-the-mean" class="nav-link" data-scroll-target="#visualising-the-samping-distribution-of-the-mean">4. Visualising the samping distribution of the mean</a></li>
+  <li><a href="#understanding-the-samping-distribution-of-the-mean" id="toc-understanding-the-samping-distribution-of-the-mean" class="nav-link" data-scroll-target="#understanding-the-samping-distribution-of-the-mean">5. Understanding the samping distribution of the mean</a></li>
+  <li><a href="#sampling-distributions-for-one-sample-t-tests" id="toc-sampling-distributions-for-one-sample-t-tests" class="nav-link" data-scroll-target="#sampling-distributions-for-one-sample-t-tests">6. Sampling distributions for one sample t-tests</a></li>
+  <li><a href="#why-do-we-test-the-null-distribution" id="toc-why-do-we-test-the-null-distribution" class="nav-link" data-scroll-target="#why-do-we-test-the-null-distribution">7. Why do we test the null distribution?</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8. Summary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -341,8 +376,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <section id="the-dataset" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="the-dataset">1. The Dataset</h2>
+<p>TLDR: There is no data to download! we’re going to make the data ourselves.</p>
 <p>The dataset this week is very simple - we’re going to create it ourselves using R. At this point, we know a lot about the types of questions that we can ask with t-tests and we know a lot about the data processing around it. We can check our understanding of different aspects of these statistical tests by simulating data samples that have known properties (eg mean and standard deviation) and checking if the outcome of the t-test is what we would expect.</p>
 <p>This way we can numerically validate the tests we’re running and take a look under the hood and see what sort of processes Jamovi and R are using to compute the tests for us.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Content Info
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is a lot of code in this session - don’t be afraid to ask for help from your tutors!</p>
+</div>
+</div>
 </section>
 <section id="the-challenge" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="the-challenge">2. The Challenge</h2>
@@ -423,47 +472,601 @@ Key step
 <p>These 20 simulated numbers could now represent a data sample for a variable in an analysis. The difference is we have absolute confidence about the ‘truth’ of the population statistics underlying this data sample.</p>
 <p>You may notice that you do get 20 numbers, but that you get a different 20 numbers than I did! This is as <code>rnorm()</code> works hard to generate random numbers that are different each time. You can verify this by running your code multiple times, even though the code stays the same you will get a different data sample each time. Remember that the code and the underlying distribution remain the always the same but the data sample is changing.</p>
 <p>This is actually a good thing for us. Real experiments and data collection always have an element of random luck and we want our simulations to reflect this as well.</p>
-<p>Its tricky for a tutorial though, we want to make sure you can compare your code to mine and have confidence in your work. We can constrain the randomness a little to make sure that our random number generators produce samples the same way each time using hte <code>set.seed()</code> function. This takes an arbitary reference value and will ensure that random numbers are generated the same way each time.</p>
-<p>For example, if we set the reference to <code>set.seed(123)</code> then we should all get the following numbers.</p>
-<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img2.png" class="img-fluid"></p>
-<p>Try running this several times, the numbers should now stay the same everytime (unless you change the options in the function call).</p>
 </section>
-<section id="simulating-data-samples-in-r-1" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="simulating-data-samples-in-r-1">3. Simulating data samples in R</h2>
-<p>Generate 10 random numbers from a standard normal distribution (mean = 0, sd = 1):</p>
-<p>random_numbers &lt;- rnorm(10) print(random_numbers) Generate 10 random numbers from a normal distribution with mean = 5 and sd = 2:</p>
-<p>random_numbers &lt;- rnorm(10, mean = 5, sd = 2) print(random_numbers) Generate 1000 random numbers and plot a histogram:</p>
-<p>random_numbers &lt;- rnorm(1000, mean = 0, sd = 1) hist(random_numbers, breaks = 30, main = “Histogram of Random Numbers”, xlab = “Value”, col = “lightblue”, border = “white”)</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set parameters</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)               <span class="co"># For reproducibility</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">30</span>                      <span class="co"># Sample size</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">=</span> <span class="dv">0</span>                      <span class="co"># Population mean</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">=</span> <span class="dv">1</span>                   <span class="co"># Population standard deviation</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>comparison_value <span class="ot">=</span> <span class="dv">0</span>        <span class="co"># Pre specified comparison value</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">1000</span>      <span class="co"># Number of simulations</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a vector to store t-values</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>t_values <span class="ot">=</span> <span class="fu">numeric</span>(num_simulations)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop to perform simulations</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Generate a random sample</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  sample <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the sample mean and standard deviation</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  sample_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  sample_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(sample)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the t-value</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  t_value <span class="ot">&lt;-</span> (sample_mean <span class="sc">-</span> comparison_value) <span class="sc">/</span> (sample_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store the t-value</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  t_values[i] <span class="ot">&lt;-</span> t_value</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the sampling distribution of t-values</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(t_values, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">main =</span> <span class="st">"Sampling Distribution of t-values"</span>,</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"t-value"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="estimating-the-samping-distribution-of-the-mean" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="estimating-the-samping-distribution-of-the-mean">3. Estimating the samping distribution of the mean</h2>
+<p>In week 2 we discussed how sampling relatively small amount of data from a wider population can impact our estimates of values like the mean.</p>
+<p>To recap, let’s say we’re interested in computing the average attainment for secondary school children on a particular vocabulary test. Our target population might be ‘all secondary school students in the UK’ but is it practically impossible to get data from every single student currently in secondard school. We have to make do with smaller data samples of a few tens or few hundreds of students (or even more, if we’re lucky).</p>
+<p>Our simulations do exactly this. The parameters we pass into <code>rnorm()</code> define ‘population level’ characteristics in the form of a normal distribution and each time we run the function we draw a ‘sample’ of a fixed number of data points from that population. We can think of this as rerunning our data sampling every time the function is executed. This would be massively complicated, time consuming and expensive in real life, but with a few assumptions a computer can simulate it in a fraction of a second.</p>
+<p>We can now start to explore how sampling variability - AKA the random differences between data samples from the same population - can impact our estimates of the mean and standard deviation.</p>
+<p>Update your code to store the data sample into a variable and compute the mean with <code>mean()</code> and standard deviation with <code>sd()</code>. The result might look like this.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the mean</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Mean:'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mean</span>(sample))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the standard deviation</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Standard Deviation:'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sd</span>(sample))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img4.png" class="img-fluid"></p>
+<p>Running this code will show the mean and standard deviation of each individual data sample, try running this a few times. Notice that the values are sometimes close to our ‘population’ estimates of mean = 1 and standard deviation = 2 but also sometimes quite far away.</p>
+<p>Try tweaking your code to answer these questions</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - is the estimate of the mean better or worse with a sample of 200?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Update your code to use this data simulation</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Running this a few times should show you mean values much closer to 1 and standard deviations much closer to 2 than we saw with a sample of 20 values. They still won’t be perfect though.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - is the estimate of the mean better or worse when the population standard deviation is 10?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Update your code to use this data simulation</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Running this a few times should make your estimates of the mean and standard deviation much more variable again. When variability in the population is very wide, large data samples won’t necessarily make up the difference.</p>
+</div>
+</div>
+</div>
+<p>We can get an informal sense of sampling variability by clicking to rerun this code a few times, but R code allows us to do much better, we can tweak the code to rerun this analysis hundreds or thousands of times to explicitly quantify the variability we see.</p>
+<p>To do this, we’ll need a code element called a loop which looks something like this</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>num_simulation <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop to perform simulations</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(i)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There are two aspects to this code block. The first sets the number of simulated data samples we want to draw.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This line sets the variable num_simulations to 10. This means you want to perform 10 iterations in the loop.</p>
+<p>The second part is the loop itself:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(i)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is a for loop that will iterate from 1 to num_simulations (which is 10 in this case). Here’s what happens inside the loop:</p>
+<ul>
+<li>Initialization: The loop starts with <code>i</code> set to 1.</li>
+<li>Condition: The loop will continue to run as long as <code>i</code> is less than or equal to num_simulations.</li>
+<li>Increment: After each iteration, <code>i</code> is incremented by 1.</li>
+</ul>
+<p>Inside the loop, the <code>print(i)</code> statement is executed, which prints the current value of <code>i</code> to the console.</p>
+<p>The output of this code will be the numbers from 1 to 10, each printed on a new line. The full output might look like this:</p>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img5.png" class="img-fluid"></p>
+<p>Printing the value of <code>i</code> is instructive but really we want our loop to include some interesting computations. Next, we should move our sampling code within the curly brackets <code>{}</code> of the loop.</p>
+<p>Everything within the those curly brackets will be repeated on every iteration of the loop. So if we includ the code to draw a sample and compute the mean, it will be repeated every time. Here is an example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My loop</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">10</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">mean</span>(sample))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img6.png" class="img-fluid"></p>
+<p>The output of the loop is now the mean of each data sample, though the exact values you get will be slightly different to mine.</p>
+<p>We can see that 20 samples drawn from a population with mean = 1, sd = 10 we have extremely variable estimates of the mean. Try reducing the standard deviation back down to <code>2</code> to see the result.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My loop</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">mean</span>(sample))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img7.png" class="img-fluid"></p>
+<p>These are much closer to our expected population value of 1.</p>
+</section>
+<section id="visualising-the-samping-distribution-of-the-mean" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="visualising-the-samping-distribution-of-the-mean">4. Visualising the samping distribution of the mean</h2>
+<p>We’re very close to completing our loop. There is one final issue to sort.</p>
+<p>At the moment, the estimated sample is lost every time the code in the loop restarts - we need to store the whole set of mean values for every single simulation if we want to properly see what is going on.</p>
+<p>For this we need to add two elements to the loop. Firstly we need to create a variable to store the means we estimate. We do this before the loop starts.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mean_values <span class="ot">=</span> <span class="fu">numeric</span>(num_simulations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and secondly, within the loop, we need to add the estimated mean to our new <code>mean_values</code> variable.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    mean_values[i] <span class="ot">=</span> <span class="fu">mean</span>(sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>mean_values</code> can store many numbers altogether in a list or vector. Each individual element can be accessed using the square bracket notation. For example <code>mean_values[5]</code> would access the fifth value in the list. The code above will store each value in to the <code>i</code>th position in the list so that we keep them all.</p>
+<p>The final code should look like this:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My loop</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>mean_values <span class="ot">=</span> <span class="fu">numeric</span>(num_simulations)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the loop</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Draw a data sample</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute and store the mean of the data sample</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    mean_values[i] <span class="ot">=</span> <span class="fu">mean</span>(sample)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>mean_values</code> now contains all of our simulated means that we can visualise using a histogram with the <code>hist()</code> function.</p>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img8.png" class="img-fluid"></p>
+<p>Which will produce a simple Histogram of the values for us. Note that, as ever, your histogram will be a little different to mine. Try rerunning the code a few times to get a sense of the variabity.</p>
+<p>We can make our plot a bit more attractive and informative by specifying some additional inputs. These just change the visualisation of the histogram rather than the analysis.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the sampling distribution of t-values</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mean_values, <span class="at">main =</span> <span class="st">"Sampling Distribution of Means"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">4</span>),</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Sample Mean"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This has a lot of inputs, lets break down what they all mean</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Input</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mean_values</code></td>
+<td>The data sample to visualise</td>
+</tr>
+<tr class="even">
+<td><code>main</code></td>
+<td>The main title</td>
+</tr>
+<tr class="odd">
+<td><code>xlim</code></td>
+<td>The start and end points of the x-axis within a collection</td>
+</tr>
+<tr class="even">
+<td><code>xlab</code></td>
+<td>The label for the x-axis</td>
+</tr>
+<tr class="odd">
+<td><code>col</code></td>
+<td>The colour of the bars</td>
+</tr>
+<tr class="even">
+<td><code>border</code></td>
+<td>The colour of the borders of the bars</td>
+</tr>
+</tbody>
+</table>
+<p>Adding these to the function call makes a much nicer and more informative image.</p>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img9.png" class="img-fluid"></p>
+<p>You can tweak the titles and axis labels to be sometime informative to you, and you can change the colours to be anything you like. Try customising the plot - update the labels and colours as you prefer them.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for names of colours in R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can use the colour names defined here to customise your histogram.</p>
+<p><img src="../images/rmb-week-8_computer-practical/42-colors-names.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="understanding-the-samping-distribution-of-the-mean" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="understanding-the-samping-distribution-of-the-mean">5. Understanding the samping distribution of the mean</h2>
+<p>Once your histogram is customised and ready to go - we can put our code to work and understand the core concepts.</p>
+<p>Let’s review what we have so far.</p>
+<ul>
+<li>We have constructed a loop that draws data samples from a defined population</li>
+<li>We compute and store the mean of that data sample</li>
+<li>We use a histogram to visualise the distribution of means estimated from all of the data samples</li>
+<li>This is the sampling distribution of the mean.</li>
+</ul>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure you have an organised script ready to go at this point, try adding comments to understand what each line does. You can delete some of the older parts of the code that aren’t included in the loop if you like. Your code should look something like this.:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My loop</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>mean_values <span class="ot">=</span> <span class="fu">numeric</span>(num_simulations)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the loop</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Draw a data sample</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute and store the mean of the data sample</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    mean_values[i] <span class="ot">=</span> <span class="fu">mean</span>(sample)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the sampling distribution of t-values</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mean_values, <span class="at">main =</span> <span class="st">"Sampling Distribution of Means"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">4</span>),</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Sample Mean"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Recall that the variance of the sampling distribution is one of its key parameters - it tells us how precisely our estimated means map onto the known population mean. (Recall from lecture 3 that the standard error of the mean can be computed from this number).</p>
+<p>Sampling distributions with wider variances indicate that we have less precisely estimated the mean, whereas tighter distributions indicate that we have more confidence. Let’s use our code to illustrate this concept.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Change your code to repeat the simulation 1000 times rather than just 10, you should get a much more ‘normal’ distribution that changes less when you rerun the code.</p>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img10.png" class="img-fluid"></p>
+</div>
+</div>
+<p>This distribution is the sampling distribution of the mean for the simulated data. We can learn the following things:</p>
+<ul>
+<li>We are most likely to estimate a value of the mean that is close to 1</li>
+<li>The spread of the distribution indicates that values between 0.5 and 1.5 are still fairly common</li>
+<li>We will very occasionally estimate a mean around 0 or around 2</li>
+</ul>
+<p>Try changing your code to answer these questions.</p>
+<!--# #############################################  -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>How does the sampling distribution change when each data sample has 100 data points rather than just 20?</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>For this question, you’ll need to update the first input to <code>rnorm()</code> to have 100 data points rather than 20.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>With more data in each data sample - we can see that the spread in the sampling distribution has <em>reduced</em>. In other words, each sample has a similar estimate of the population mean.</p>
+<p>Compare this result to the ‘Key step’ above:</p>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img11.png" class="img-fluid"></p>
+<ul>
+<li>The centre of the distribution is still very close to 1</li>
+<li>We will very occasionally estimate a mean around 0.5 or around 1.5, but these are rare</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>How does the sampling distribution change when we increase the standard deviation to 10?</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>For this question, you’ll need to update the <code>sd</code> input to <code>rnorm()</code> to be 10 rather than 2.</p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>With more variability in each data sample - we can see that the variance in the sampling distribution has <em>increased</em>. In other words, each sample can have extremely different estimates of the population mean.</p>
+<p>Compare this result to the ‘Key step’ above:</p>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img12.png" class="img-fluid"></p>
+<ul>
+<li>The centre of the distribution is still very close to 1</li>
+<li>It is still common to get estimates of the mean of 0.5 or around 1.5.</li>
+<li>With this much variability, some data samples have a mean estimate as far away as -1 or 3!</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Back in week 4 we computed the following descriptives for participants confidence in a range of face processing tasks.</p>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img13.png" class="img-fluid" width="500"></p>
+<p>Can you compute the sampling distribution of the mean for the <code>AIConfidenceBefore</code> variable?</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>For this question, you’ll need to the number of data samples, the mean and the standard deviation using the values in hte descriptive statistics.</p>
+<p>Its also a good idea to update the <code>xlim</code> of your histogram to something around <code>c(2, 7)</code>.</p>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>The code and result should look something like this:</p>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img14.png" class="img-fluid"></p>
+<p>Based on this, we can see that the most commonly estimated mean value is very close to our expected mean of <code>4.57</code> and that almost every data sample has a mean of between 4 and 5.</p>
+<p>This is a useful way to visualise how accurate we are likely to have been when estimating our sample means.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sampling-distributions-for-one-sample-t-tests" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="sampling-distributions-for-one-sample-t-tests">6. Sampling distributions for one sample t-tests</h2>
+<p>So far we’ve looked at sampling distributions of the mean but we can do the same thing with t-tests to get a sense of how varaible a t statistic might be under different circumstances. This also gives us some important insights into how t and p values are related.</p>
+<p>To do this we’ll need to make a couple of additions to our code.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open a new Rj window before starting this segment. The code changes will be large and you may want to refer back to the previous parts for revision later.</p>
+</div>
+</div>
+<p>The first thing we’ll need is to compute a t value for a one sample t-test from our data vector from this definition:</p>
+<p><span class="math display">\[
+t = \frac{\text{The sample mean} - \text{Comparison Value}}{\text{The standard error of the mean}}
+\]</span></p>
+<p>We need to use this code to compute the three ingredients and the t-test itself. Copy this code into your new Rj window and take a moment to understand each line.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of participants</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a random sample</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">=</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the sample mean and standard deviation</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>sample_mean <span class="ot">=</span> <span class="fu">mean</span>(sample)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>sample_sd <span class="ot">=</span> <span class="fu">sd</span>(sample)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the sample error of the mean </span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>sample_standard_error <span class="ot">=</span> sample_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Define comparison value</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>comparison_value <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute t-value</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>t_value <span class="ot">=</span> (sample_mean <span class="sc">-</span> comparison_value) <span class="sc">/</span> sample_standard_error</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(t_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that we’re simulating data with a <code>mean</code> of zero and using a <code>comparison_value</code> of zero as well. This is our Null Model - the t-values we get from this code are ones that might appear if there is no true effect in the data.</p>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img15.png" class="img-fluid"></p>
+<p>As before, you can run this code a few times to see the variability in the final t-value. Remember this this is a null model - most of the t-values are close to zero, but some are quite large…</p>
+<!--# #############################################  -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>For the final part of new code, we need to combine our t-test with the loop from the previous section.</p>
+<p>Copy this code into your Rj window (you can overwrite the previous code if you like), and fill in the blanks indicated by <code>__YOUR_CODE_HERE__</code> (you should delete <code>__YOUR_CODE_HERE__</code> and replace it with your answer).</p>
+<p>If you get it right you will see a histogram of sampling distribution of t values.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My loop</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>t_values <span class="ot">=</span> <span class="fu">numeric</span>(num_simulations)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the loop</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of participants</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">=</span> __YOUR_CODE_HERE__</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate a random sample</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">=</span> __YOUR_CODE_HERE__</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample mean and standard deviation</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    sample_mean <span class="ot">=</span> __YOUR_CODE_HERE__</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    sample_sd <span class="ot">=</span> __YOUR_CODE_HERE__</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample error of the mean </span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    sample_standard_error <span class="ot">=</span> __YOUR_CODE_HERE__</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define comparison value</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    comparison_value <span class="ot">=</span> __YOUR_CODE_HERE__</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute t-value</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    t_value[i] <span class="ot">=</span> __YOUR_CODE_HERE__</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the sampling distribution of t-values</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(t_values, <span class="at">main =</span> <span class="st">"Sampling Distribution of t-values"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>),</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Sample t-value"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>All the answers are in previous sections, pay particular attention to the code defining the t-test in section 5.</p>
+<p>Chat with one of your tutors if you get stuck.</p>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<p>Well done if you got this correct. The final code should look like this:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My loop</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>t_values <span class="ot">=</span> <span class="fu">numeric</span>(num_simulations)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the loop</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of participants</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate a random sample</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">=</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample mean and standard deviation</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    sample_mean <span class="ot">=</span> <span class="fu">mean</span>(sample)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    sample_sd <span class="ot">=</span> <span class="fu">sd</span>(sample)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample error of the mean </span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    sample_standard_error <span class="ot">=</span> sample_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define comparison value</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    comparison_value <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute t-value</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    t_values[i] <span class="ot">=</span> (sample_mean <span class="sc">-</span> comparison_value) <span class="sc">/</span> sample_standard_error</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the sampling distribution of t-values</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(t_values, <span class="at">main =</span> <span class="st">"Sampling Distribution of t-values"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>),</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Sample t-value"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img16.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>After this exercise, you can now compute the null model for a one sample t-test yourself. With this code you can run an analysis to explore how likely it is to observe different t-values when we assume the null hypothesis is true.</p>
+<p>Think about the following questions and tweak your code to find the answers.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - how does the sampling distribution change when we have large samples? Use n = 250 as an example.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Update your code to reduce the number of participants to 25:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of participants</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">=</span> <span class="dv">250</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img18.png" class="img-fluid"></p>
+<p>Running this a few times, you should see that the sampling distribution gets <em>narrower</em> compared to what we saw for <code>n = 20</code>. We commonly see values between -2 and 2 but almost never see values of -3 or +3.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - how does the sampling distribution change when we have very small samples? Use n = 4 as an example.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Update your code to reduce the number of participants to 5:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of participants</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">=</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img17.png" class="img-fluid"></p>
+<p>Running this a few times, you should see that the sampling distribution gets <em>broader</em> than for smaller samples. We see more values close to 4 and -4 than we did with a dataset of 20 or 250.</p>
+</div>
+</div>
+</div>
+<p>In all of these analyses we are absolutely assuming that the null hypothesis of no difference is true. With this assumptions, our sampling distribution shows that we get more extreme t-values (around +/- 4) by chance when working with smaller data samples. By contrast for larger data samples these same values occur extremely rarely.</p>
+<p>When data are perfectly normally distributed (parametric assumptions are met), Jamovi and R can compute these null distributions for us using a shortcut without simulating lots of data samples but the result is the same.</p>
+<p>To conduct a hypothesis test from real data, we would compute the t-statistic as normal and can then compare the observed value to this sampling distribution that assumes no difference and has the same sample size. If the t-value we’ve observed from the real data would be extremely unlikely to have occured if the null is true, then we can reject that hypothesis.</p>
+</section>
+<section id="why-do-we-test-the-null-distribution" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="why-do-we-test-the-null-distribution">7. Why do we test the null distribution?</h2>
+<p>Finally, let’s consider why we test against the null distribution of no effect. This is fairly straightforward from the code we have written so far.</p>
+<p>We can absolutely compute a sampling distribution for a case where there is a real difference between the mean and the comparison value. For example, this code simulates data with a mean of 1 and compares that to a comparison value of 0. Note that the <code>rnorm()</code> function inputs have changed.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My loop</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>t_values <span class="ot">=</span> <span class="fu">numeric</span>(num_simulations)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the loop</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of participants</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate a random sample</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">=</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample mean and standard deviation</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    sample_mean <span class="ot">=</span> <span class="fu">mean</span>(sample)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    sample_sd <span class="ot">=</span> <span class="fu">sd</span>(sample)</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample error of the mean </span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    sample_standard_error <span class="ot">=</span> sample_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define comparison value</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>    comparison_value <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute t-value</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>    t_values[i] <span class="ot">=</span> (sample_mean <span class="sc">-</span> comparison_value) <span class="sc">/</span> sample_standard_error</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the sampling distribution of t-values</span></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(t_values, <span class="at">breaks=</span><span class="dv">24</span>, <span class="at">main =</span> <span class="st">"Sampling Distribution of t-values"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>),</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Sample t-value"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The result is a sampling distribution which is not centred around mean.</p>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img20.png" class="img-fluid"></p>
+<p>This distribution tells us that with 20 participants, a mean of 1 and a standard deviation of 1 - we are mostly likely to get a -value of 5 but that t-value could be as small as 2 or as large as 9 for extreme data samples.</p>
+<p>This is very useful, but the issue that is we have had to assume what the real effect is. We get radically different sampling distributions if we change that effect around.</p>
+<section id="mean-of-0.5-and-standard-deviation-of-1-with-20-participants-compared-to-zero." class="level4">
+<h4 class="anchored" data-anchor-id="mean-of-0.5-and-standard-deviation-of-1-with-20-participants-compared-to-zero.">Mean of 0.5 and standard deviation of 1 with 20 participants compared to zero.</h4>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19a.png" class="img-fluid" width="450"></p>
+</section>
+<section id="mean-of--1-and-standard-deviation-of-1-with-20-participants-compared-to-zero." class="level4">
+<h4 class="anchored" data-anchor-id="mean-of--1-and-standard-deviation-of-1-with-20-participants-compared-to-zero.">Mean of -1 and standard deviation of 1 with 20 participants compared to zero.</h4>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19b.png" class="img-fluid" width="450"></p>
+</section>
+<section id="mean-of-1.5-and-standard-deviation-of-1-with-20-participants-compared-to-zero." class="level4">
+<h4 class="anchored" data-anchor-id="mean-of-1.5-and-standard-deviation-of-1-with-20-participants-compared-to-zero.">Mean of 1.5 and standard deviation of 1 with 20 participants compared to zero.</h4>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19c.png" class="img-fluid" width="450"></p>
+<p>There are an infinite number of possible sampling distributions when there is a real effect! In contrast, the null case is very closely controlled.</p>
+</section>
+</section>
+<section id="summary" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="summary">8. Summary</h2>
+<p>We’ve done a lot of work to consolidate our skills on filtering data and computing one sample t-tests! You should now be able to compute these tests in Jamovi and create reproducible R code.</p>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
 
 </section>
