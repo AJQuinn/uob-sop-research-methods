@@ -358,14 +358,15 @@ We have another option when working with non-normal data. This is to apply a rev
 
 This is valid when the transformation **preserves the relationships** in the dataset, that is it maintains the relative order of the observations. If data point A is larger than B before transformation then it should still be larger after the transformation. It is fine if the transformation changes the numbers themselves - we just have to be careful when making an interpretation.
 
-We'll think about two data transformations in this section
+We'll use the LOG data transformation in this section
 
 | Transform | Explanation |
 | --------- | ---------------------------- |
 | Log Transform | The logarithm function, typically base 10 (log), is applied to each data point. |
-| Box-Cox Transform | Similar to the log-transform but with some parameters are tuned to work optimally for the specific dataset |
 
-The main difference is that the Box-Cox transform is more adaptive - whilst it the log-transform is applied in the same way to every dataset, the Box-Cox trasnform can be slightly different so that it works best for the data being analysed each time.
+One downside of the log transform is that it has a weird value when the datapoint being transformed is zero or negative. `log(0)` equals negative infinity! this will break a lot of analyses that happen afterwards but fortunately there is a straightforward solution. 
+
+When your data contains zeros or negatives you can simply add an offset value to make your data positive and then apply the log transform. Again, this is valid as long as we are preserving the relationships within our data by adding exactly the same offset to every single point in the dataset.
 
 We can easily [transform variables using Jamovi](https://blog.jamovi.org/2018/10/23/transforming-variables.html) and have done something very similar when computing variables in previous weeks.
 
@@ -379,13 +380,15 @@ First, head to the 'Data' view and right click on the variable you want to trans
 
 ![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img8.png){width=450px}
 
-This will open a dialogue box where you cna define the new variable. Give your new variable a descriptive name and make sure that the 'Source variable' is the one that you expect. Note that you might see a 'Circular definition' warning until you rename your variable.
+This will open a dialogue box where you can define the new variable. Give your new variable a descriptive name and make sure that the 'Source variable' is the one that you expect. Note that you might see a 'Circular definition' warning until you rename your variable.
 
 ![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img9.png){width=450px}
 
 Next we need to specify the transformation that we want to use. Click into the 'using transform' drop-down box and select "Create New Transform".
 
-Here you can define the transformation that you want to apply. You can define a single transform and apply it to multiple variables. Give the transformation a descriptive name and specify that you want the transfrom to apply the `LOG10()` function to the `$source` variable. (`$source` is a way to tell Jamovi to use 'whichever variable is passed into the transform' rather than defining the transform on only 1 variable here.)
+Here you can define the transformation that you want to apply. You can define a single transform and apply it to multiple variables. Give the transformation a descriptive name and specify that you want the transfrom to apply the `LOG10()` function to the `$source` variable. (`$source` is a way to tell Jamovi to use 'whichever variable is passed into the transform' rather than defining the transform on only 1 variable here.).
+
+We also include a small offset value of `+1` here. This is as some participants had no intrusive memories at all and we want to avoid issues with computing `log(0)` in our analysis.
 
 ![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img10.png){width=450px}
 
@@ -411,10 +414,11 @@ Now that we have our new variable we can explore what it has done. Let's compare
 ![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img14b.png){width=400px}
 
 
+
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - has the log transform changed mean of the data?
 
-Yes, the log transform has changed the mean by a long way. The original data shows that the average participant had 3.5 intrusive memories but that number has changed to 1.28 in the transformed data.
+Yes, the log transform has changed the mean by a long way. The original data shows that the average participant had 3.5 intrusive memories but that number has changed to 0.54 in the transformed data.
 
 This does not mean that the number has really reduced! remember that the transformation is changing the absolute values of the observations but should be preserving the relative relationships between the data points.
 
@@ -432,44 +436,17 @@ Yes, it has had a big impact. Both the skewness and kurtosis values are much clo
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - is there a statistically significant difference from a normal distribution in the transformed data?
 
-No, whereas the Shapiro-Wilk statistic showed a significant departure from a normal distribution for the original data (W = 0.8, p < 0.001) it shows that the transformed data is now indistinguishable from a normal distribution (W = 0.963, p = 0.257)
+No, whereas the Shapiro-Wilk statistic showed a significant departure from a normal distribution for the original data (W = 0.8, p < 0.001) it shows that the transformed data is now indistinguishable from a normal distribution (W = 0.953, p = 0.130)
 
 :::
 
  
-<!--# #############################################  -->
-
-:::: callout-tip
-## Check Your Understanding
-
-::: panel-tabset
-## Question
-
-Compute a new data transform that applies a Box-Cox transform to `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary`.
-
-## Hint
-
-Follow the instructions above, the Box-Cox transform is one of the predefined transformation options.
-
-![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img15.png){width=450px}
-
-
-## Solution
-
-Your transformed variable should have the following descriptive statistics. See `Days_One_to_Seven_BoxCox` below.
-
-![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img16.png)
-
-:::
-::::
-
 
 Finally - let's see if we can use our transformed variables to compute a parametric t-test. Repeat the independent samples t-test from earlier but include all three variables in the 'Dependent Variables' box. Make sure to include 
 
 
 - `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary` - original data
 - `Days_One_to_Seven_Transformed` - Log transformed data
-- `Days_One_to_Seven_BoxCox` - BoxCox transformed data
 
 
 
@@ -483,15 +460,15 @@ Finally - let's see if we can use our transformed variables to compute a paramet
 
 Use your results on the independant samples t-test to answer the following questions in the spaces provided.
 
-With the original data, a Shapiro-Wilk statistic found a `r mcq(c(answer="a significant", "no significant"))` difference from a normal distribution, W=`r fitb(0.881)`, p = `r fitb(0.001)`. We can proceed with `r mcq(c("Student's t-test", answer="Mann-Whitney U test"))`.
+With the original data, a Shapiro-Wilk statistic found a `r mcq(c(answer="a significant", "no significant"))` difference from a normal distribution, W=`r fitb(0.881)`, p = `r fitb(0.001)`. We can proceed with `r mcq(c("Student's t-test", answer="Welch's t-test", answer="Mann-Whitney U test"))`.
 
-Using the log-transformed data, a Shapiro-Wilk statistic found a `r mcq(c("a significant", answer="no significant"))` difference from a normal distribution, W=`r fitb(0.974)`, p = `r fitb(0.550)`. Levene's test found that the we `r mcq(c(answer="can", "can not"))` assume that the groups have homogeneity of variance, F(1, 34) = `r fitb(0.357)`, p = `r fitb(0.554)`. We can proceed with `r mcq(c(answer="Student's t-test", answer="Welch's t-test", "Mann-Whitney U test"))`.
-
-Using the BoxCox-transformed data, a Shapiro-Wilk statistic found a `r mcq(c("a significant", answer="no significant"))` difference from a normal distribution, W=`r fitb(0.982)`, p = `r fitb(0.826)`. Levene's test found that the we `r mcq(c(answer="can", "can not"))` assume that the groups have homogeneity of variance, F(1, 34) = `r fitb(0.634)`, p = `r fitb(0.431)`. We can proceed with `r mcq(c(answer="Student's t-test", answer="Welch's t-test", "Mann-Whitney U test"))`.
+Using the log-transformed data, a Shapiro-Wilk statistic found a `r mcq(c("a significant", answer="no significant"))` difference from a normal distribution, W=`r fitb(0.975)`, p = `r fitb(0.569)`. Levene's test found that the we `r mcq(c(answer="can", "can not"))` assume that the groups have homogeneity of variance, F(1, 34) = `r fitb(0.165)`, p = `r fitb(0.687)`. We can proceed with `r mcq(c(answer="Student's t-test", answer="Welch's t-test", "Mann-Whitney U test"))`.
 
 ## Hint
 
-![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img17.png)
+![](../images/rmb-week-7_computer-practical/rmb-week-7_computer-practical_img15.png)
+
+Note that Welch's t-test is valid whether or not we can assume homogeneity of variance...
 
 :::
 ::::

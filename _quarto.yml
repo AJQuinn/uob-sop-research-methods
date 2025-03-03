@@ -29,6 +29,10 @@ website:
         href: tutorials/rmb_week-5_pvalue-effect-size.qmd
       - text: Week 7 - Non-parametric tests and data transformation
         href: tutorials/rmb_week-7_non-parametrics.qmd
+      - text: Week 8 - Sampling Distributions
+        href: tutorials/rmb_week-8_tidy-data.qmd
+      - text: Week 9 - One-way ANOVA 
+        href: tutorials/rmb_week-9_one-way-anova.qmd
     - section: Support
       contents:
       - text: Using Copilot at UoB
