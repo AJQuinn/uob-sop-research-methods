@@ -730,7 +730,9 @@ This is very useful, but the issue that is we have had to assume what the real e
 #### Mean of 1.5 and standard deviation of 1 with 20 participants compared to zero.
 ![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19c.png){width=450px}
 
-There are an infinite number of possible sampling distributions when there is a real effect! In contrast, the null case is very closely controlled.
+There are an infinite number of possible sampling distributions when there is a real effect! It isn't possible to know which distribution we should be comparing with without making some massive assumptions about the exact size, variability and direction of effect that we expect to see. This simply isn't possible in practice.
+
+In contrast, the null case is very closely controlled and easier to work with. The interpretation is trickier but rejecting the null hypothesis is a tractable problem that we can do a good job of solving.
 
 ## 8. Summary {.unnumbered}
 
