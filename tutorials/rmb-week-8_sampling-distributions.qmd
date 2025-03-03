@@ -34,14 +34,22 @@ The sampling distribution is central to how we can move from t-values to p-value
 
 ## 1. The Dataset {.unnumbered}
 
+TLDR: There is no data to download! we're going to make the data ourselves.
+
 The dataset this week is very simple - we're going to create it ourselves using R. At this point, we know a lot about the types of questions that we can ask with t-tests and we know a lot about the data processing around it. We can check our understanding of different aspects of these statistical tests by simulating data samples that have known properties (eg mean and standard deviation) and checking if the outcome of the t-test is what we would expect.
 
 This way we can numerically validate the tests we're running and take a look under the hood and see what sort of processes Jamovi and R are using to compute the tests for us.
 
+::: {.callout-note appearance="simple"}
+# Content Info
+
+There is a lot of code in this session - don't be afraid to ask for help from your tutors!
+
+:::
+
 ## 2. The Challenge {.unnumbered}
 
 Today, we'll first introduce some concepts and functions in R to simulate a data sample and compute our own one sample t-test. With that in hand, we will set up code to run thousands of tests in one go to help us to better understand sampling distributions.
-
 
 ## 3. Simulating data samples in R {.unnumbered}
 
@@ -99,64 +107,633 @@ You may notice that you do get 20 numbers, but that you get a different 20 numbe
 
 This is actually a good thing for us. Real experiments and data collection always have an element of random luck and we want our simulations to reflect this as well.
 
-Its tricky for a tutorial though, we want to make sure you can compare your code to mine and have confidence in your work. We can constrain the randomness a little to make sure that our random number generators produce samples the same way each time using hte `set.seed()` function. This takes an arbitary reference value and will ensure that random numbers are generated the same way each time.
-
-For example, if we set the reference to `set.seed(123)` then we should all get the following numbers.
-
-![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img2.png)
-
-Try running this several times, the numbers should now stay the same everytime (unless you change the options in the function call).
 
 
-## 3. Simulating data samples in R {.unnumbered}
+## 3. Estimating the samping distribution of the mean {.unnumbered}
 
+In week 2 we discussed how sampling relatively small amount of data from a wider population can impact our estimates of values like the mean. 
 
+To recap, let's say we're interested in computing the average attainment for secondary school children on a particular vocabulary test. Our target population might be 'all secondary school students in the UK' but is it practically impossible to get data from every single student currently in secondard school. We have to make do with smaller data samples of a few tens or few hundreds of students (or even more, if we're lucky).
 
-Generate 10 random numbers from a standard normal distribution (mean = 0, sd = 1):
+Our simulations do exactly this. The parameters we pass into `rnorm()` define 'population level' characteristics in the form of a normal distribution and each time we run the function we draw a 'sample' of a fixed number of data points from that population. We can think of this as rerunning our data sampling every time the function is executed. This would be massively complicated, time consuming and expensive in real life, but with a few assumptions a computer can simulate it in a fraction of a second.
 
-random_numbers <- rnorm(10)
-print(random_numbers)
-Generate 10 random numbers from a normal distribution with mean = 5 and sd = 2:
+We can now start to explore how sampling variability - AKA the random differences between data samples from the same population - can impact our estimates of the mean and standard deviation.
 
-random_numbers <- rnorm(10, mean = 5, sd = 2)
-print(random_numbers)
-Generate 1000 random numbers and plot a histogram:
-
-random_numbers <- rnorm(1000, mean = 0, sd = 1)
-hist(random_numbers, breaks = 30, main = "Histogram of Random Numbers",
-     xlab = "Value", col = "lightblue", border = "white")
-
-    
+Update your code to store the data sample into a variable and compute the mean with `mean()` and standard deviation with `sd()`. The result might look like this.
 
 ```R
-# Set parameters
-set.seed(123)               # For reproducibility
-n = 30                      # Sample size
-mu = 0                      # Population mean
-sigma = 1                   # Population standard deviation
-comparison_value = 0        # Pre specified comparison value
-num_simulations = 1000      # Number of simulations
+sample = rnorm(20, mean=1, sd=2)
 
-# Initialize a vector to store t-values
-t_values = numeric(num_simulations)
+# Compute the mean
+print('Mean:')
+print(mean(sample))
+
+# Compute the standard deviation
+print('Standard Deviation:')
+print(sd(sample))
+```
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img4.png)
+
+Running this code will show the mean and standard deviation of each individual data sample, try running this a few times. Notice that the values are sometimes close to our 'population' estimates of mean = 1 and standard deviation = 2 but also sometimes quite far away.
+
+Try tweaking your code to answer these questions
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - is the estimate of the mean better or worse with a sample of 200?
+
+Update your code to use this data simulation
+
+```R
+sample = rnorm(200, mean=1, sd=2)
+```
+
+Running this a few times should show you mean values much closer to 1 and standard deviations much closer to 2 than we saw with a sample of 20 values. They still won't be perfect though.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - is the estimate of the mean better or worse when the population standard deviation is 10?
+
+Update your code to use this data simulation
+
+```R
+sample = rnorm(200, mean=1, sd=10)
+```
+
+Running this a few times should make your estimates of the mean and standard deviation much more variable again. When variability in the population is very wide, large data samples won't necessarily make up the difference.
+
+:::
+
+We can get an informal sense of sampling variability by clicking to rerun this code a few times, but R code allows us to do much better, we can tweak the code to rerun this analysis hundreds or thousands of times to explicitly quantify the variability we see.
+
+To do this, we'll need a code element called a loop which looks something like this 
+
+```R
+num_simulation = 10
 
 # Loop to perform simulations
 for (i in 1:num_simulations) {
-  # Generate a random sample
-  sample <- rnorm(n, mean = mu, sd = sigma)
-  
-  # Calculate the sample mean and standard deviation
-  sample_mean <- mean(sample)
-  sample_sd <- sd(sample)
-  
-  # Calculate the t-value
-  t_value <- (sample_mean - comparison_value) / (sample_sd / sqrt(n))
-  
-  # Store the t-value
-  t_values[i] <- t_value
+    print(i)
+}
+```
+
+There are two aspects to this code block. The first sets the number of simulated data samples we want to draw.
+
+```R
+num_simulations = 10
+```
+
+This line sets the variable num_simulations to 10. This means you want to perform 10 iterations in the loop.
+
+The second part is the loop itself:
+
+```R
+for (i in 1:num_simulations) {
+    print(i)
+}
+```
+This is a for loop that will iterate from 1 to num_simulations (which is 10 in this case). Here's what happens inside the loop:
+
+- Initialization: The loop starts with `i` set to 1.
+- Condition: The loop will continue to run as long as `i` is less than or equal to num_simulations.
+- Increment: After each iteration, `i` is incremented by 1.
+
+Inside the loop, the `print(i)` statement is executed, which prints the current value of `i` to the console.
+
+The output of this code will be the numbers from 1 to 10, each printed on a new line. The full output might look like this:
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img5.png)
+
+Printing the value of `i` is instructive but really we want our loop to include some interesting computations. Next, we should move our sampling code within the curly brackets `{}` of the loop.
+
+Everything within the those curly brackets will be repeated on every iteration of the loop. So if we includ the code to draw a sample and compute the mean, it will be repeated every time. Here is an example:
+
+```R
+# My loop
+num_simulations = 10
+
+for (i in 1:num_simulations) {
+    sample = rnorm(20, mean=1, sd=10)
+    print(mean(sample))
+}
+```
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img6.png)
+
+The output of the loop is now the mean of each data sample, though the exact values you get will be slightly different to mine. 
+
+We can see that 20 samples drawn from a population with mean = 1, sd = 10 we have extremely variable estimates of the mean. Try reducing the standard deviation back down to `2` to see the result.
+
+```R
+# My loop
+num_simulations = 10
+
+for (i in 1:num_simulations) {
+    sample = rnorm(20, mean=1, sd=2)
+    print(mean(sample))
+}
+```
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img7.png)
+
+These are much closer to our expected population value of 1.
+
+
+## 4. Visualising the samping distribution of the mean {.unnumbered}
+
+We're very close to completing our loop. There is one final issue to sort.
+
+At the moment, the estimated sample is lost every time the code in the loop restarts - we need to store the whole set of mean values for every single simulation if we want to properly see what is going on.
+
+For this we need to add two elements to the loop. Firstly we need to create a variable to store the means we estimate. We do this before the loop starts.
+
+```R
+# Create a numeric variable to store the means
+mean_values = numeric(num_simulations)
+```
+
+and secondly, within the loop, we need to add the estimated mean to our new `mean_values` variable.
+
+```R
+# Create a numeric variable to store the means
+    mean_values[i] = mean(sample)
+```
+
+`mean_values` can store many numbers altogether in a list or vector. Each individual element can be accessed using the square bracket notation. For example `mean_values[5]` would access the fifth value in the list. The code above will store each value in to the `i`th position in the list so that we keep them all.
+
+The final code should look like this:
+
+```R
+# My loop
+num_simulations = 10
+
+# Create a numeric variable to store the means
+mean_values = numeric(num_simulations)
+
+# Run the loop
+for (i in 1:num_simulations) {
+    # Draw a data sample
+    sample = rnorm(20, mean=1, sd=2)
+    # Compute and store the mean of the data sample
+    mean_values[i] = mean(sample)
+}
+```
+
+`mean_values` now contains all of our simulated means that we can visualise using a histogram with the `hist()` function.
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img8.png)
+
+Which will produce a simple Histogram of the values for us. Note that, as ever, your histogram will be a little different to mine. Try rerunning the code a few times to get a sense of the variabity.
+
+We can make our plot a bit more attractive and informative by specifying some additional inputs. These just change the visualisation of the histogram rather than the analysis.
+
+```R
+# Plot the sampling distribution of t-values
+hist(mean_values, main = "Sampling Distribution of Means", xlim=c(-2, 4),
+     xlab = "Sample Mean", col = "skyblue", border = "white")
+```
+
+This has a lot of inputs, lets break down what they all mean
+
+| Input | Description |
+| ------|-----------------|
+| `mean_values` | The data sample to visualise |
+| `main` |  The main title |
+| `xlim` |  The start and end points of the x-axis within a collection |
+|  `xlab` | The label for the x-axis |
+| `col` | The colour of the bars |
+| `border` | The colour of the borders of the bars |
+
+Adding these to the function call makes a much nicer and more informative image.
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img9.png)
+
+
+
+You can tweak the titles and axis labels to be sometime informative to you, and you can change the colours to be anything you like. Try customising the plot - update the labels and colours as you prefer them.
+
+::: {.callout-note appearance='simple' collapse="true"}
+## Click for names of colours in R
+
+You can use the colour names defined here to customise your histogram.
+
+![](../images/rmb-week-8_computer-practical/42-colors-names.png)
+
+:::
+
+
+## 5. Understanding the samping distribution of the mean {.unnumbered}
+
+Once your histogram is customised and ready to go - we can put our code to work and understand the core concepts.
+
+Let's review what we have so far.
+
+- We have constructed a loop that draws data samples from a defined population
+- We compute and store the mean of that data sample
+- We use a histogram to visualise the distribution of means estimated from all of the data samples
+- This is the sampling distribution of the mean.
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Make sure you have an organised script ready to go at this point, try adding comments to understand what each line does. You can delete some of the older parts of the code that aren't included in the loop if you like. Your code should look something like this.:
+
+```R
+# My loop
+num_simulations = 10
+
+# Create a numeric variable to store the means
+mean_values = numeric(num_simulations)
+
+# Run the loop
+for (i in 1:num_simulations) {
+    # Draw a data sample
+    sample = rnorm(20, mean=1, sd=2)
+    # Compute and store the mean of the data sample
+    mean_values[i] = mean(sample)
 }
 
 # Plot the sampling distribution of t-values
-hist(t_values, breaks = 30, main = "Sampling Distribution of t-values",
-     xlab = "t-value", col = "skyblue", border = "white")
+hist(mean_values, main = "Sampling Distribution of Means", xlim=c(-2, 4),
+     xlab = "Sample Mean", col = "skyblue", border = "white")
+
 ```
+:::
+
+Recall that the variance of the sampling distribution is one of its key parameters - it tells us how precisely our estimated means map onto the known population mean. (Recall from lecture 3 that the standard error of the mean can be computed from this number).
+
+Sampling distributions with wider variances indicate that we have less precisely estimated the mean, whereas tighter distributions indicate that we have more confidence. Let's use our code to illustrate this concept.
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Change your code to repeat the simulation 1000 times rather than just 10, you should get a much more 'normal' distribution that changes less when you rerun the code.
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img10.png)
+
+:::
+
+This distribution is the sampling distribution of the mean for the simulated data. We can learn the following things:
+
+- We are most likely to estimate a value of the mean that is close to 1
+- The spread of the distribution indicates that values between 0.5 and 1.5 are still fairly common
+- We will very occasionally estimate a mean around 0 or around 2
+
+
+Try changing your code to answer these questions.
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+How does the sampling distribution change when each data sample has 100 data points rather than just 20?
+
+## Hint
+
+For this question, you'll need to update the first input to `rnorm()` to have 100 data points rather than 20.
+
+## Solution
+
+With more data in each data sample - we can see that the spread in the sampling distribution has *reduced*. In other words, each sample has a similar estimate of the population mean.
+
+Compare this result to the 'Key step' above:
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img11.png)
+
+- The centre of the distribution is still very close to 1
+- We will very occasionally estimate a mean around 0.5 or around 1.5, but these are rare
+
+:::
+::::
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+How does the sampling distribution change when we increase the standard deviation to 10?
+
+## Hint
+
+For this question, you'll need to update the `sd` input to `rnorm()` to be 10 rather than 2.
+
+## Solution
+
+With more variability in each data sample - we can see that the variance in the sampling distribution has *increased*. In other words, each sample can have extremely different estimates of the population mean.
+
+Compare this result to the 'Key step' above:
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img12.png)
+
+- The centre of the distribution is still very close to 1
+- It is still common to get estimates of the mean of 0.5 or around 1.5.
+- With this much variability, some data samples have a mean estimate as far away as -1 or 3!
+
+:::
+::::
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+
+Back in week 4 we computed the following descriptives for participants confidence in a range of face processing tasks.
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img13.png){width=500px}
+
+Can you compute the sampling distribution of the mean for the `AIConfidenceBefore` variable?
+
+## Hint
+
+For this question, you'll need to the number of data samples, the mean and the standard deviation using the values in hte descriptive statistics.
+
+Its also a good idea to update the `xlim` of your histogram to something around `c(2, 7)`.
+
+## Solution
+
+The code and result should look something like this:
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img14.png)
+
+Based on this, we can see that the most commonly estimated mean value is very close to our expected mean of `4.57` and that almost every data sample has a mean of between 4 and 5.
+
+This is a useful way to visualise how accurate we are likely to have been when estimating our sample means.
+
+:::
+::::
+
+## 6. Sampling distributions for one sample t-tests {.unnumbered}
+
+
+So far we've looked at sampling distributions of the mean but we can do the same thing with t-tests to get a sense of how varaible a t statistic might be under different circumstances. This also gives us some important insights into how t and p values are related.
+
+To do this we'll need to make a couple of additions to our code.
+
+
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Open a new Rj window before starting this segment. The code changes will be large and you may want to refer back to the previous parts for revision later.
+
+:::
+
+The first thing we'll need is to compute a t value for a one sample t-test from our data vector from this definition:
+
+$$
+t = \frac{\text{The sample mean} - \text{Comparison Value}}{\text{The standard error of the mean}}
+$$
+
+We need to use this code to compute the three ingredients and the t-test itself. Copy this code into your new Rj window and take a moment to understand each line. 
+
+```R
+# Number of participants
+n = 20
+
+# Generate a random sample
+sample = rnorm(n, mean = 0, sd = 1)
+
+# Calculate the sample mean and standard deviation
+sample_mean = mean(sample)
+sample_sd = sd(sample)
+
+# Calculate the sample error of the mean 
+sample_standard_error = sample_sd / sqrt(n)
+
+# Define comparison value
+comparison_value = 0
+
+# Compute t-value
+t_value = (sample_mean - comparison_value) / sample_standard_error
+print(t_value)
+```
+
+ Note that we're simulating data with a `mean` of zero and using a `comparison_value` of zero as well. This is our Null Model - the t-values we get from this code are ones that might appear if there is no true effect in the data.
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img15.png)
+
+
+As before, you can run this code a few times to see the variability in the final t-value. Remember this this is a null model - most of the t-values are close to zero, but some are quite large...
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+For the final part of new code, we need to combine our t-test with the loop from the previous section.
+
+Copy this code into your Rj window (you can overwrite the previous code if you like), and fill in the blanks indicated by  `__YOUR_CODE_HERE__` (you should delete `__YOUR_CODE_HERE__` and replace it with your answer).
+
+If you get it right you will see a histogram of sampling distribution of t values.
+
+```R
+# My loop
+num_simulations = 1000
+
+# Create a numeric variable to store the means
+t_values = numeric(num_simulations)
+
+# Run the loop
+for (i in 1:num_simulations) {
+    # Number of participants
+    n = __YOUR_CODE_HERE__
+
+    # Generate a random sample
+    sample = __YOUR_CODE_HERE__
+
+    # Calculate the sample mean and standard deviation
+    sample_mean = __YOUR_CODE_HERE__
+    sample_sd = __YOUR_CODE_HERE__
+
+    # Calculate the sample error of the mean 
+    sample_standard_error = __YOUR_CODE_HERE__
+
+    # Define comparison value
+    comparison_value = __YOUR_CODE_HERE__
+
+    # Compute t-value
+    t_value[i] = __YOUR_CODE_HERE__
+}
+
+# Plot the sampling distribution of t-values
+hist(t_values, main = "Sampling Distribution of t-values", xlim=c(-4, 4),
+     xlab = "Sample t-value", col = "skyblue", border = "white")
+
+```
+## Hint
+
+All the answers are in previous sections, pay particular attention to the code defining the t-test in section 5.
+
+Chat with one of your tutors if you get stuck.
+
+## Solution
+
+Well done if you got this correct. The final code should look like this:
+
+```R
+# My loop
+num_simulations = 1000
+
+# Create a numeric variable to store the means
+t_values = numeric(num_simulations)
+
+# Run the loop
+for (i in 1:num_simulations) {
+    # Number of participants
+    n = 20
+
+    # Generate a random sample
+    sample = rnorm(n, mean = 0, sd = 1)
+
+    # Calculate the sample mean and standard deviation
+    sample_mean = mean(sample)
+    sample_sd = sd(sample)
+
+    # Calculate the sample error of the mean 
+    sample_standard_error = sample_sd / sqrt(n)
+
+    # Define comparison value
+    comparison_value = 0
+
+    # Compute t-value
+    t_values[i] = (sample_mean - comparison_value) / sample_standard_error
+}
+
+# Plot the sampling distribution of t-values
+hist(t_values, main = "Sampling Distribution of t-values", xlim=c(-4, 4),
+     xlab = "Sample t-value", col = "skyblue", border = "white")
+    
+```
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img16.png)
+
+
+:::
+::::
+
+After this exercise, you can now compute the null model for a one sample t-test yourself. With this code you can run an analysis to explore how likely it is to observe different t-values when we assume the null hypothesis is true.
+
+Think about the following questions and tweak your code to find the answers.
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - how does the sampling distribution change when we have large samples? Use n = 250 as an example.
+
+Update your code to reduce the number of participants to 25:
+
+```R
+    # Number of participants
+    n = 250
+```
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img18.png)
+
+
+Running this a few times, you should see that the sampling distribution gets *narrower* compared to what we saw for `n = 20`. We commonly see values between -2 and 2 but almost never see values of -3 or +3.
+
+:::
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - how does the sampling distribution change when we have very small samples? Use n = 4 as an example.
+
+Update your code to reduce the number of participants to 5:
+
+```R
+    # Number of participants
+    n = 4
+```
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img17.png)
+
+Running this a few times, you should see that the sampling distribution gets *broader* than for smaller samples. We see more values close to 4 and -4 than we did with a dataset of 20 or 250.
+
+:::
+
+
+In all of these analyses we are absolutely assuming that the null hypothesis of no difference is true. With this assumptions, our sampling distribution shows that we get more extreme t-values (around +/- 4) by chance when working with smaller data samples. By contrast for larger data samples these same values occur extremely rarely.
+
+When data are perfectly normally distributed (parametric assumptions are met), Jamovi and R can compute these null distributions for us using a shortcut without simulating lots of data samples but the result is the same.
+
+To conduct a hypothesis test from real data, we would compute the t-statistic as normal and can then compare the observed value to this sampling distribution that assumes no difference and has the same sample size. If the t-value we've observed from the real data would be extremely unlikely to have occured if the null is true, then we can reject that hypothesis.
+
+
+
+## 7. Why do we test the null distribution? {.unnumbered}
+
+
+Finally, let's consider why we test against the null distribution of no effect. This is fairly straightforward from the code we have written so far.
+
+We can absolutely compute a sampling distribution for a case where there is a real difference between the mean and the comparison value. For example, this code simulates data with a mean of 1 and compares that to a comparison value of 0. Note that the `rnorm()` function inputs have changed.
+
+```R
+# My loop
+num_simulations = 1000
+
+# Create a numeric variable to store the means
+t_values = numeric(num_simulations)
+
+# Run the loop
+for (i in 1:num_simulations) {
+    # Number of participants
+    n = 20
+
+    # Generate a random sample
+    sample = rnorm(n, mean = 1, sd = 1)
+
+    # Calculate the sample mean and standard deviation
+    sample_mean = mean(sample)
+    sample_sd = sd(sample)
+
+    # Calculate the sample error of the mean 
+    sample_standard_error = sample_sd / sqrt(n)
+
+    # Define comparison value
+    comparison_value = 0
+
+    # Compute t-value
+    t_values[i] = (sample_mean - comparison_value) / sample_standard_error
+}
+
+# Plot the sampling distribution of t-values
+hist(t_values, breaks=24, main = "Sampling Distribution of t-values", xlim=c(-10, 10),
+     xlab = "Sample t-value", col = "skyblue", border = "white")
+```
+
+The result is a sampling distribution which is not centred around mean.
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img20.png)
+
+This distribution tells us that with 20 participants, a mean of 1 and a standard deviation of 1 - we are mostly likely to get a -value of 5 but that t-value could be as small as 2 or as large as 9 for extreme data samples.
+
+This is very useful, but the issue that is we have had to assume what the real effect is. We get radically different sampling distributions if we change that effect around.
+
+#### Mean of 0.5 and standard deviation of 1 with 20 participants compared to zero.
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19a.png){width=450px}
+
+#### Mean of -1 and standard deviation of 1 with 20 participants compared to zero.
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19b.png){width=450px}
+
+#### Mean of 1.5 and standard deviation of 1 with 20 participants compared to zero.
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19c.png){width=450px}
+
+There are an infinite number of possible sampling distributions when there is a real effect! In contrast, the null case is very closely controlled.
+
+## 8. Summary {.unnumbered}
+
+We've done a lot of work to consolidate our skills on filtering data and computing one sample t-tests! You should now be able to compute these tests in Jamovi and create reproducible R code.
+
+## References {.unnumbered}
