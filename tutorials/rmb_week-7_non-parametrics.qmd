@@ -240,7 +240,7 @@ Our hypothesis test gives statistical support to the idea that playing tetris re
 
 ### Baseline differences in intrusive memories
 
-[@James2015_ComputerGame] collected  data variable to act as a control condition and rule out one possible confound in the experiment. `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary` indicates the number of intrusive memories each participant had in the time before the experiment.
+[@James2015_ComputerGame] collected  data variable to act as a control condition and rule out one possible confound in the experiment. `Days_Zero_Image_Based_Intrusions_in_Intrusion_Diary` indicates the number of intrusive memories each participant had in the time before the experiment.
 
 There isn't a huge number of participants in each condition, it is possible that one group of participants was having more or less intrusive memories to begin with - irrespective of the experimental procedure.
 
