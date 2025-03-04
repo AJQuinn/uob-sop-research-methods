@@ -2,58 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://AJQuinn.github.io/uob-sop-research-methods/references.html</loc>
-    <lastmod>2025-03-03T18:32:15.537Z</lastmod>
+    <lastmod>2025-03-04T00:37:59.049Z</lastmod>
   </url>
   <url>
     <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/frequently-asked-questions.html</loc>
-    <lastmod>2025-03-03T18:32:15.538Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb_week-3_one-sample-t-tests.html</loc>
-    <lastmod>2025-03-03T18:32:15.538Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb-week-9_one-way-anova.html</loc>
-    <lastmod>2025-03-03T18:32:15.538Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb_week-5_pvalue-effect-size.html</loc>
-    <lastmod>2025-03-03T18:32:15.539Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb_week-1_new-data-and-descriptives.html</loc>
-    <lastmod>2025-03-03T18:32:15.538Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AJQuinn.github.io/uob-sop-research-methods/copilot.html</loc>
-    <lastmod>2025-03-03T18:32:15.363Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AJQuinn.github.io/uob-sop-research-methods/index.html</loc>
-    <lastmod>2025-03-03T18:32:15.536Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AJQuinn.github.io/uob-sop-research-methods/summary.html</loc>
-    <lastmod>2025-03-03T18:32:15.538Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb_week-4_two-sample-t-tests.html</loc>
-    <lastmod>2025-03-03T18:32:15.539Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb-week-8_sampling-distributions.html</loc>
-    <lastmod>2025-03-03T18:32:15.538Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb_week-2_intro-to-Rj.html</loc>
-    <lastmod>2025-03-03T18:32:15.538Z</lastmod>
+    <lastmod>2025-03-04T00:37:59.050Z</lastmod>
   </url>
   <url>
     <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb_week-7_non-parametrics.html</loc>
-    <lastmod>2025-03-03T18:32:15.539Z</lastmod>
+    <lastmod>2025-03-04T00:37:59.052Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb_week-3_one-sample-t-tests.html</loc>
+    <lastmod>2025-03-04T00:37:59.052Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb-week-9_one-way-anova.html</loc>
+    <lastmod>2025-03-04T00:37:59.051Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb_week-4_two-sample-t-tests.html</loc>
+    <lastmod>2025-03-04T00:37:59.052Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AJQuinn.github.io/uob-sop-research-methods/summary.html</loc>
+    <lastmod>2025-03-04T00:37:59.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AJQuinn.github.io/uob-sop-research-methods/index.html</loc>
+    <lastmod>2025-03-04T00:37:59.049Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AJQuinn.github.io/uob-sop-research-methods/copilot.html</loc>
+    <lastmod>2025-03-04T00:37:58.867Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb_week-1_new-data-and-descriptives.html</loc>
+    <lastmod>2025-03-04T00:37:59.052Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb_week-5_pvalue-effect-size.html</loc>
+    <lastmod>2025-03-04T00:37:59.052Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb_week-2_intro-to-Rj.html</loc>
+    <lastmod>2025-03-04T00:37:59.052Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb-week-10_sampling-distributions-tvalues.html</loc>
+    <lastmod>2025-03-04T00:37:59.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AJQuinn.github.io/uob-sop-research-methods/tutorials/rmb-week-8_sampling-distributions-mean.html</loc>
+    <lastmod>2025-03-04T00:37:59.051Z</lastmod>
   </url>
   <url>
     <loc>https://AJQuinn.github.io/uob-sop-research-methods/intro.html</loc>
-    <lastmod>2025-03-03T18:32:15.536Z</lastmod>
+    <lastmod>2025-03-04T00:37:59.049Z</lastmod>
   </url>
 </urlset>
