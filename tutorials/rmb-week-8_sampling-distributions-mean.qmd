@@ -323,7 +323,7 @@ You can use the colour names defined here to customise your histogram.
 :::
 
 
-## 5. Understanding the samping distribution of the mean {.unnumbered}
+## 5. Understanding the sampling distribution of the mean {.unnumbered}
 
 Once your histogram is customised and ready to go - we can put our code to work and understand the core concepts.
 
@@ -466,63 +466,94 @@ The code and result should look something like this:
 
 Based on this, we can see that the most commonly estimated mean value is very close to our expected mean of `4.57` and that almost every data sample has a mean of between 4 and 5.
 
-This is a useful way to visualise how accurate we are likely to have been when estimating our sample means.
+This is a useful way to visualise how accurate our sample mean estimates are likely to be.
 
 :::
 ::::
 
-## 6. Sampling distributions for one sample t-tests {.unnumbered}
-
-
-So far we've looked at sampling distributions of the mean but we can do the same thing with t-tests to get a sense of how varaible a t statistic might be under different circumstances. This also gives us some important insights into how t and p values are related.
-
-To do this we'll need to make a couple of additions to our code.
-
-
+## 6. Sampling distributions of the maximum {.unnumbered}
 
 ::: {.callout-note appearance="simple"}
 # Key step
 
-Open a new Rj window before starting this segment. The code changes will be large and you may want to refer back to the previous parts for revision later.
+Open a new Rj window and copy your code loop into it before starting this segment. 
+
+We will make large changes to the code and you may want to refer back to the previous parts for revision later.
 
 :::
 
-The first thing we'll need is to compute a t value for a one sample t-test from our data vector from this definition:
+We can compute sampling distributions for any summary statistic that we want to. This can be useful for quantifying sampling variability properties other than the mean. One straightforward example is the sampling distribution of the maximum.
 
-$$
-t = \frac{\text{The sample mean} - \text{Comparison Value}}{\text{The standard error of the mean}}
-$$
+Let's use the heights of human women as an example. According to [Our World in Data](https://ourworldindata.org/human-height#height-is-normally-distributed), the height of women born between 1980 and 1994 is normally distributed with a mean values of 164.7cm and the standard deviation is 7.07cm.
 
-We need to use this code to compute the three ingredients and the t-test itself. Copy this code into your new Rj window and take a moment to understand each line. 
+We can use these parameters to define a population that we can use to simulate our data samples. This code will draw a data sample of the height of a single person.
 
 ```R
-# Number of participants
-n = 20
-
-# Generate a random sample
-sample = rnorm(n, mean = 0, sd = 1)
-
-# Calculate the sample mean and standard deviation
-sample_mean = mean(sample)
-sample_sd = sd(sample)
-
-# Calculate the sample error of the mean 
-sample_standard_error = sample_sd / sqrt(n)
-
-# Define comparison value
-comparison_value = 0
-
-# Compute t-value
-t_value = (sample_mean - comparison_value) / sample_standard_error
-print(t_value)
+rnorm(1, mean=164.7, sd=7.07)
 ```
 
- Note that we're simulating data with a `mean` of zero and using a `comparison_value` of zero as well. This is our Null Model - the t-values we get from this code are ones that might appear if there is no true effect in the data.
+We can plug this into our code to compute the sampling distributions for height. The full loop will look like this -  remember to update the `xlim` input to the histograms as well!
 
-![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img15.png)
+```R
+# My loop
+num_simulations = 1000
 
+# Create a numeric variable to store the means
+mean_values = numeric(num_simulations)
 
-As before, you can run this code a few times to see the variability in the final t-value. Remember this this is a null model - most of the t-values are close to zero, but some are quite large...
+# Run the loop
+for (i in 1:num_simulations) {
+    # Draw a data sample
+    sample = rnorm(10, mean=164.7, sd=7.07)
+    # Compute and store the mean of the data sample
+    mean_values[i] = mean(sample)
+}
+
+# Plot the sampling distribution
+hist(mean_values, main = "Sampling Distribution of Mean", xlim=c(130, 200),
+     xlab = "Sample Mean", col = "skyblue", border = "white")
+```
+
+This is the sampling distribution of the mean for samples of 10 data points draw from the population distribution of women's heights. The sampling distribution shows that the average height of a group of 10 women drawn randomly from the population will nearly always fall between 160cm and 170cm.
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img21.png)
+
+We can adapt this code to ask other questions - for example how tall is the tallest person in a group of 10 women likely to be?
+
+We can adapt our code to compute this sampling distribution of maximums as well. Here is an exmaple - look out for sections with `NEW CODE` indicating a change.
+
+Critically, we use the `max()` function to return the maximum value of each data sample, in exactly the same way that we used `mean()` to compute the average.
+
+```R
+# My loop
+num_simulations = 1000
+
+# Create a numeric variable to store the means
+mean_values = numeric(num_simulations)
+max_values = numeric(num_simulations)  # <- NEW CODE
+
+# Run the loop
+for (i in 1:num_simulations) {
+    # Draw a data sample
+    sample = rnorm(10, mean=164.7, sd=7.07)
+    # Compute and store the mean of the data sample
+    mean_values[i] = mean(sample)
+    max_values[i] = max(sample)  # <- NEW CODE
+}
+
+# Plot the sampling distribution
+hist(mean_values, main = "Sampling Distribution of Mean", xlim=c(130, 200),
+     xlab = "Sample Mean", col = "skyblue", border = "white")
+
+# NEW CODE
+hist(max_values, main = "Sampling Distribution of Maximums", xlim=c(130, 200),
+     xlab = "Sample Maximum", col = "skyblue", border = "white")
+    
+```
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img22.png)
+
+This shows us that the tallest person in a group of 10 women is likely to be between 170cm and 180cm.
 
 
 <!--# #############################################  -->
@@ -533,206 +564,123 @@ As before, you can run this code a few times to see the variability in the final
 ::: panel-tabset
 ## Question
 
-For the final part of new code, we need to combine our t-test with the loop from the previous section.
+Can you compute the sampling distribution of the minimum value to compute the height of the shortest person in groups of 10 women?
 
-Copy this code into your Rj window (you can overwrite the previous code if you like), and fill in the blanks indicated by  `__YOUR_CODE_HERE__` (you should delete `__YOUR_CODE_HERE__` and replace it with your answer).
+Update the code that you have already written.
 
-If you get it right you will see a histogram of sampling distribution of t values.
-
-```R
-# My loop
-num_simulations = 1000
-
-# Create a numeric variable to store the means
-t_values = numeric(num_simulations)
-
-# Run the loop
-for (i in 1:num_simulations) {
-    # Number of participants
-    n = __YOUR_CODE_HERE__
-
-    # Generate a random sample
-    sample = __YOUR_CODE_HERE__
-
-    # Calculate the sample mean and standard deviation
-    sample_mean = __YOUR_CODE_HERE__
-    sample_sd = __YOUR_CODE_HERE__
-
-    # Calculate the sample error of the mean 
-    sample_standard_error = __YOUR_CODE_HERE__
-
-    # Define comparison value
-    comparison_value = __YOUR_CODE_HERE__
-
-    # Compute t-value
-    t_value[i] = __YOUR_CODE_HERE__
-}
-
-# Plot the sampling distribution of t-values
-hist(t_values, main = "Sampling Distribution of t-values", xlim=c(-4, 4),
-     xlab = "Sample t-value", col = "skyblue", border = "white")
-
-```
 ## Hint
 
-All the answers are in previous sections, pay particular attention to the code defining the t-test in section 5.
-
-Chat with one of your tutors if you get stuck.
+Take a look at the changes highlighted in the previous section, can you repeat those changes to include an equivalent to the maximum?
 
 ## Solution
 
-Well done if you got this correct. The final code should look like this:
+The following code computes and displays the sampling distribution of the minimum value.
 
 ```R
 # My loop
 num_simulations = 1000
 
 # Create a numeric variable to store the means
-t_values = numeric(num_simulations)
+mean_values = numeric(num_simulations)
+max_values = numeric(num_simulations)
+min_values = numeric(num_simulations)
 
 # Run the loop
 for (i in 1:num_simulations) {
-    # Number of participants
-    n = 20
-
-    # Generate a random sample
-    sample = rnorm(n, mean = 0, sd = 1)
-
-    # Calculate the sample mean and standard deviation
-    sample_mean = mean(sample)
-    sample_sd = sd(sample)
-
-    # Calculate the sample error of the mean 
-    sample_standard_error = sample_sd / sqrt(n)
-
-    # Define comparison value
-    comparison_value = 0
-
-    # Compute t-value
-    t_values[i] = (sample_mean - comparison_value) / sample_standard_error
+    # Draw a data sample
+    sample = rnorm(4, mean=164.7, sd=7.07)
+    # Compute and store the mean of the data sample
+    mean_values[i] = mean(sample)
+    max_values[i] = max(sample)
+    min_values[i] = min(sample)
+    
 }
 
 # Plot the sampling distribution of t-values
-hist(t_values, main = "Sampling Distribution of t-values", xlim=c(-4, 4),
-     xlab = "Sample t-value", col = "skyblue", border = "white")
+hist(mean_values, main = "Sampling Distribution of Mean", xlim=c(130, 200),
+     xlab = "Sample Mean", col = "skyblue", border = "white")
+
+hist(max_values, main = "Sampling Distribution of Maximums", xlim=c(130, 200),
+     xlab = "Sample Maximum", col = "skyblue", border = "white")
     
+hist(min_values, main = "Sampling Distribution of Minimums", xlim=c(130, 200),
+     xlab = "Sample Minimum", col = "skyblue", border = "white")
 ```
 
-![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img16.png)
-
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img23.png)
 
 :::
 ::::
 
-After this exercise, you can now compute the null model for a one sample t-test yourself. With this code you can run an analysis to explore how likely it is to observe different t-values when we assume the null hypothesis is true.
 
-Think about the following questions and tweak your code to find the answers.
+## 7. Sampling distributions from non-normal data {.unnumbered}
 
+Throughout this course, we have seen many data variables that are not normally distributed. Examples include dice rolls, reaction times and the intrusive memories from last week. These are interesting datasets but don't follow some of the nice assumptions that we can use with normally distributed data.
 
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - how does the sampling distribution change when we have large samples? Use n = 250 as an example.
+Now that we have our loops to compute sampling distributions, we can explore how much of a problem non normally distributed data is for our estimates.
 
-Update your code to reduce the number of participants to 25:
+::: {.callout-note appearance="simple"}
+# Key step
 
-```R
-    # Number of participants
-    n = 250
-```
+Open a new Rj window and copy your code loop from section 5 into it before starting this segment. 
 
-![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img18.png)
-
-
-Running this a few times, you should see that the sampling distribution gets *narrower* compared to what we saw for `n = 20`. We commonly see values between -2 and 2 but almost never see values of -3 or +3.
+We will make large changes to the code and you may want to refer back to the previous parts for revision later.
 
 :::
 
+Let's simulate some data for an experiment. Let's simulate data from an experiment where participants indicate their confidence in performing some action on a scale from 1 to 10. The absolute truth of these data observations is that every participant has a equal probability of selecting any confidence from 1 to 10 - this is known as a uniform distribution and it is very different to a normal distribution.
 
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - how does the sampling distribution change when we have very small samples? Use n = 4 as an example.
+We can simulate this data using `runif()` - note that this is an abbreviation of 'random uniform', not an indication to 'run if' something happens...
 
-Update your code to reduce the number of participants to 5:
+To use `runif()` we specify an `n` as usual in addition to the smallest and largest values that might occur.
 
 ```R
-    # Number of participants
-    n = 4
+runif(n, min = 1, max = 10)
 ```
 
-![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img17.png)
-
-Running this a few times, you should see that the sampling distribution gets *broader* than for smaller samples. We see more values close to 4 and -4 than we did with a dataset of 20 or 250.
-
-:::
-
-
-In all of these analyses we are absolutely assuming that the null hypothesis of no difference is true. With this assumptions, our sampling distribution shows that we get more extreme t-values (around +/- 4) by chance when working with smaller data samples. By contrast for larger data samples these same values occur extremely rarely.
-
-When data are perfectly normally distributed (parametric assumptions are met), Jamovi and R can compute these null distributions for us using a shortcut without simulating lots of data samples but the result is the same.
-
-To conduct a hypothesis test from real data, we would compute the t-statistic as normal and can then compare the observed value to this sampling distribution that assumes no difference and has the same sample size. If the t-value we've observed from the real data would be extremely unlikely to have occured if the null is true, then we can reject that hypothesis.
-
-
-
-## 7. Why do we test the null distribution? {.unnumbered}
-
-
-Finally, let's consider why we test against the null distribution of no effect. This is fairly straightforward from the code we have written so far.
-
-We can absolutely compute a sampling distribution for a case where there is a real difference between the mean and the comparison value. For example, this code simulates data with a mean of 1 and compares that to a comparison value of 0. Note that the `rnorm()` function inputs have changed.
+As usual, we can slot this into our data loop to simulate our uniform distribution. Let's start by drawing a single value during each repetition of the experiment. This will visualise our distribution.
 
 ```R
 # My loop
 num_simulations = 1000
 
 # Create a numeric variable to store the means
-t_values = numeric(num_simulations)
+mean_values = numeric(num_simulations)
+
 
 # Run the loop
 for (i in 1:num_simulations) {
-    # Number of participants
-    n = 20
-
-    # Generate a random sample
-    sample = rnorm(n, mean = 1, sd = 1)
-
-    # Calculate the sample mean and standard deviation
-    sample_mean = mean(sample)
-    sample_sd = sd(sample)
-
-    # Calculate the sample error of the mean 
-    sample_standard_error = sample_sd / sqrt(n)
-
-    # Define comparison value
-    comparison_value = 0
-
-    # Compute t-value
-    t_values[i] = (sample_mean - comparison_value) / sample_standard_error
+    # Draw a data sample
+    sample = runif(1, min = 1, max = 10)
+    # Compute and store the mean of the data sample
+    mean_values[i] = mean(sample)
 }
 
 # Plot the sampling distribution of t-values
-hist(t_values, breaks=24, main = "Sampling Distribution of t-values", xlim=c(-10, 10),
-     xlab = "Sample t-value", col = "skyblue", border = "white")
+hist(mean_values, main = "Sampling Distribution of Mean", xlim=c(0, 11),
+     xlab = "Sample Mean", col = "skyblue", border = "white")
 ```
 
-The result is a sampling distribution which is not centred around mean.
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img24.png)
 
-![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img20.png)
+You can run this a few times to verify that the histogram shows a nearly uniform distribution where all outcomes are approximately equally likely to occur.
 
-This distribution tells us that with 20 participants, a mean of 1 and a standard deviation of 1 - we are mostly likely to get a -value of 5 but that t-value could be as small as 2 or as large as 9 for extreme data samples.
 
-This is very useful, but the issue that is we have had to assume what the real effect is. We get radically different sampling distributions if we change that effect around.
+Now, something odd happens when we increase the size of each data sample drawn from our population parameters. Rather than visualising the response of a single individual - lets take a look at the average response of 10 different individuals. 
 
-#### Mean of 0.5 and standard deviation of 1 with 20 participants compared to zero.
-![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19a.png){width=450px}
+Update the code to have an n of 10 rather than 1 in the call to `runif()`.
 
-#### Mean of -1 and standard deviation of 1 with 20 participants compared to zero.
-![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19b.png){width=450px}
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img25.png)
 
-#### Mean of 1.5 and standard deviation of 1 with 20 participants compared to zero.
-![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19c.png){width=450px}
+Now, though the raw data are uniformly distributed - the averages of uniform variables look like they are more normally distributed. Strange.
 
-There are an infinite number of possible sampling distributions when there is a real effect! It isn't possible to know which distribution we should be comparing with without making some massive assumptions about the exact size, variability and direction of effect that we expect to see. This simply isn't possible in practice.
+This is a property called the *Central Limit Theorem*. The Central Limit Theorem states that, given a sufficiently large sample size, the sampling distribution of the sample mean will be approximately normally distributed, regardless of the shape of the population distribution.
 
-In contrast, the null case is very closely controlled and easier to work with. The interpretation is trickier but rejecting the null hypothesis is a tractable problem that we can do a good job of solving.
+This is important as it tells us that the properties of data can change when we make computations from it. In our example, each individual response is uniformly distributed but the average response is approximately normally distributed. 
+
+Secondly, this is why the normal distribution is so important. The Central Limit Theorem means that is weirdly likely that we will encounter normally distributed data variables - any variable that is an aggregate of other things becomes more and more normally distributed. We often deal with this sort of composite data in Psychology, 
+
+The learning statistics with jamovi textbook as an [excellent description of central limit theorem](https://davidfoxcroft.github.io/lsj-book/08-Estimating-unknown-quantities-from-a-sample.html#sec-The-central-limit-theorem) if you want more information.
 
 ## 8. Summary {.unnumbered}
 
