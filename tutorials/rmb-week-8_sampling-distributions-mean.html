@@ -265,8 +265,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#estimating-the-samping-distribution-of-the-mean" id="toc-estimating-the-samping-distribution-of-the-mean" class="nav-link" data-scroll-target="#estimating-the-samping-distribution-of-the-mean">3. Estimating the samping distribution of the mean</a></li>
   <li><a href="#visualising-the-samping-distribution-of-the-mean" id="toc-visualising-the-samping-distribution-of-the-mean" class="nav-link" data-scroll-target="#visualising-the-samping-distribution-of-the-mean">4. Visualising the samping distribution of the mean</a></li>
   <li><a href="#understanding-the-sampling-distribution-of-the-mean" id="toc-understanding-the-sampling-distribution-of-the-mean" class="nav-link" data-scroll-target="#understanding-the-sampling-distribution-of-the-mean">5. Understanding the sampling distribution of the mean</a></li>
-  <li><a href="#sampling-distributions-of-the-maximum" id="toc-sampling-distributions-of-the-maximum" class="nav-link" data-scroll-target="#sampling-distributions-of-the-maximum">6. Sampling distributions of the maximum</a></li>
-  <li><a href="#sampling-distributions-from-non-normal-data" id="toc-sampling-distributions-from-non-normal-data" class="nav-link" data-scroll-target="#sampling-distributions-from-non-normal-data">7. Sampling distributions from non-normal data</a></li>
+  <li><a href="#optional---sampling-distributions-of-the-maximum" id="toc-optional---sampling-distributions-of-the-maximum" class="nav-link" data-scroll-target="#optional---sampling-distributions-of-the-maximum">6. OPTIONAL - Sampling distributions of the maximum</a></li>
+  <li><a href="#optional---sampling-distributions-from-non-normal-data" id="toc-optional---sampling-distributions-from-non-normal-data" class="nav-link" data-scroll-target="#optional---sampling-distributions-from-non-normal-data">7. OPTIONAL - Sampling distributions from non-normal data</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8. Summary</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
@@ -542,7 +542,7 @@ Data skills - revision on sampling and populations
 </div>
 <p>We can get an informal sense of sampling variability by clicking to rerun this code a few times, but R code allows us to do much better, we can tweak the code to rerun this analysis hundreds or thousands of times to explicitly quantify the variability we see.</p>
 <p>To do this, we’ll need a code element called a loop which looks something like this</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>num_simulation <span class="ot">=</span> <span class="dv">10</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">10</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop to perform simulations</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
@@ -594,8 +594,8 @@ Data skills - revision on sampling and populations
 <div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mean_values <span class="ot">=</span> <span class="fu">numeric</span>(num_simulations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and secondly, within the loop, we need to add the estimated mean to our new <code>mean_values</code> variable.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    mean_values[i] <span class="ot">=</span> <span class="fu">mean</span>(sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute and store the mean of the data sample</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mean_values[i] <span class="ot">=</span> <span class="fu">mean</span>(sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>mean_values</code> can store many numbers altogether in a list or vector. Each individual element can be accessed using the square bracket notation. For example <code>mean_values[5]</code> would access the fifth value in the list. The code above will store each value in to the <code>i</code>th position in the list so that we keep them all.</p>
 <p>The final code should look like this:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My loop</span></span>
@@ -836,8 +836,8 @@ Check Your Understanding
 </div>
 </div>
 </section>
-<section id="sampling-distributions-of-the-maximum" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="sampling-distributions-of-the-maximum">6. Sampling distributions of the maximum</h2>
+<section id="optional---sampling-distributions-of-the-maximum" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="optional---sampling-distributions-of-the-maximum">6. OPTIONAL - Sampling distributions of the maximum</h2>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -963,8 +963,8 @@ Check Your Understanding
 </div>
 </div>
 </section>
-<section id="sampling-distributions-from-non-normal-data" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="sampling-distributions-from-non-normal-data">7. Sampling distributions from non-normal data</h2>
+<section id="optional---sampling-distributions-from-non-normal-data" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="optional---sampling-distributions-from-non-normal-data">7. OPTIONAL - Sampling distributions from non-normal data</h2>
 <p>Throughout this course, we have seen many data variables that are not normally distributed. Examples include dice rolls, reaction times and the intrusive memories from last week. These are interesting datasets but don’t follow some of the nice assumptions that we can use with normally distributed data.</p>
 <p>Now that we have our loops to compute sampling distributions, we can explore how much of a problem non normally distributed data is for our estimates.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
