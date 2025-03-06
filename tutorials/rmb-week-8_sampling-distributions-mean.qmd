@@ -196,7 +196,7 @@ We can get an informal sense of sampling variability by clicking to rerun this c
 To do this, we'll need a code element called a loop which looks something like this 
 
 ```R
-num_simulation = 10
+num_simulations = 10
 
 # Loop to perform simulations
 for (i in 1:num_simulations) {
@@ -282,8 +282,8 @@ mean_values = numeric(num_simulations)
 and secondly, within the loop, we need to add the estimated mean to our new `mean_values` variable.
 
 ```R
-# Create a numeric variable to store the means
-    mean_values[i] = mean(sample)
+# Compute and store the mean of the data sample
+mean_values[i] = mean(sample)
 ```
 
 `mean_values` can store many numbers altogether in a list or vector. Each individual element can be accessed using the square bracket notation. For example `mean_values[5]` would access the fifth value in the list. The code above will store each value in to the `i`th position in the list so that we keep them all.
@@ -497,7 +497,7 @@ This is a useful way to visualise how accurate our sample mean estimates are lik
 :::
 ::::
 
-## 6. Sampling distributions of the maximum {.unnumbered}
+## 6. OPTIONAL - Sampling distributions of the maximum {.unnumbered}
 
 ::: {.callout-note appearance="simple"}
 # Key step
@@ -639,7 +639,7 @@ hist(min_values, main = "Sampling Distribution of Minimums", xlim=c(130, 200),
 ::::
 
 
-## 7. Sampling distributions from non-normal data {.unnumbered}
+## 7. OPTIONAL - Sampling distributions from non-normal data {.unnumbered}
 
 Throughout this course, we have seen many data variables that are not normally distributed. Examples include dice rolls, reaction times and the intrusive memories from last week. These are interesting datasets but don't follow some of the nice assumptions that we can use with normally distributed data.
 
