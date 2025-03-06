@@ -449,8 +449,41 @@ Key step
 <p>We can use <code>rnorm()</code> within the Rj code window as usual. Here I’m simulating 20 data points from a distribution with a mean of 1 and a standard deviation of 2. Try running the same code in your window.</p>
 <p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img1.png" class="img-fluid"></p>
 <p>These 20 simulated numbers could now represent a data sample for a variable in an analysis. The difference is we have absolute confidence about the ‘truth’ of the population statistics underlying this data sample.</p>
-<p>You may notice that you do get 20 numbers, but that you get a different 20 numbers than I did! This is as <code>rnorm()</code> works hard to generate random numbers that are different each time. You can verify this by running your code multiple times, even though the code stays the same you will get a different data sample each time. Remember that the code and the underlying distribution remain the always the same but the data sample is changing.</p>
+<p>You may notice that you do get 20 numbers, but that you get a different 20 numbers than I did! This is as <code>rnorm()</code> works hard to generate random numbers that are different each time.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can verify the random nature of the simulated data by running your code multiple times.</p>
+<p>Even though the code stays the same you will get a different data sample each time. Remember that the code and the underlying distribution remain the always the same but the data sample is changing.</p>
+</div>
+</div>
 <p>This is actually a good thing for us. Real experiments and data collection always have an element of random luck and we want our simulations to reflect this as well.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data skills - revision on sampling and populations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sampling is a fundamental process in statistics where a subset of individuals from a population is selected to estimate characteristics of the whole population. This is built from the assumption that the subset of individuals in our sample is representative of that population.</p>
+<p>Some samples will be more representative than others. We can do a lot of practical work and planning to get the best possible sample for our research but there is always some random chance in who ends up in a data sample and who does not.</p>
+<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_samples.png" class="img-fluid" width="350"></p>
+<p>There are two main reasons why a sample might not be representative.</p>
+<p><strong>Bias</strong> if the data collection has included some bias (intentional or accidental) towards a subgroup of our population then it is very likely that this will lead to an unrepresentative sample. This is not something we can solve with statistics. Good reseach design, consideration of ethics and thorough planning is the only way to avoid systematic biases.</p>
+<p><strong>Luck</strong> even if we have a unbiased data collection approach, two samples that draw from the sample population can still be different due to random chance. This will always be true when we are restricted to looking at a subset of the full population - fortunately, this is something we can quantify with statistics. We’ll explore how in this session.</p>
+<p><strong>The code we write this week will simulate drawing a subset of individuals from a population. Each iteration of the code could be considered as a separate replication of the same experiment.</strong></p>
+</div>
+</div>
 </section>
 <section id="estimating-the-samping-distribution-of-the-mean" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="estimating-the-samping-distribution-of-the-mean">3. Estimating the samping distribution of the mean</h2>
@@ -472,7 +505,7 @@ Key step
 <p>Running this code will show the mean and standard deviation of each individual data sample, try running this a few times. Notice that the values are sometimes close to our ‘population’ estimates of mean = 1 and standard deviation = 2 but also sometimes quite far away.</p>
 <p>Try tweaking your code to answer these questions</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -481,7 +514,7 @@ Key step
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Update your code to use this data simulation</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -490,7 +523,7 @@ Key step
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -499,7 +532,7 @@ Key step
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Update your code to use this data simulation</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -624,7 +657,7 @@ Key step
 <p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img9.png" class="img-fluid"></p>
 <p>You can tweak the titles and axis labels to be sometime informative to you, and you can change the colours to be anything you like. Try customising the plot - update the labels and colours as you prefer them.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -633,7 +666,7 @@ Click for names of colours in R
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can use the colour names defined here to customise your histogram.</p>
 <p><img src="../images/rmb-week-8_computer-practical/42-colors-names.png" class="img-fluid"></p>

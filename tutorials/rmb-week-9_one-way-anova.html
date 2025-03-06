@@ -245,6 +245,12 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">1. The Dataset</a></li>
   <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">2. The Challenge</a></li>
+  <li><a href="#analysis-of-variance-in-jamovi" id="toc-analysis-of-variance-in-jamovi" class="nav-link" data-scroll-target="#analysis-of-variance-in-jamovi">3. Analysis of Variance in Jamovi</a></li>
+  <li><a href="#post-hoc-tests" id="toc-post-hoc-tests" class="nav-link" data-scroll-target="#post-hoc-tests">4. Post-hoc Tests</a></li>
+  <li><a href="#checking-assumptions" id="toc-checking-assumptions" class="nav-link" data-scroll-target="#checking-assumptions">5. Checking assumptions</a></li>
+  <li><a href="#control-condition" id="toc-control-condition" class="nav-link" data-scroll-target="#control-condition">6. Control Condition</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8. Summary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -257,7 +263,7 @@ div.csl-indent {
 
 <section id="week-9-one-way-analysis-of-variance-anova" class="level1 unnumbered">
 <h1 class="unnumbered">Week 9 : One Way Analysis of Variance (ANOVA)</h1>
-<p>This week we will explore how to check the assumptions of hypothesis tests and make sure that we’re using the right tests. We will introduce the idea of transforming data to squeeze the data into the shape of a normal distribution.</p>
+<p>This week we will explore how to run ANOVA analyses to compare means between two or more groups. This is an important analysis as many experimental and scientific contexts cannot be simiplified down to two groups for a t-test, and running many t-tests would increase our chances of false positive findings..</p>
 <table class="caption-top table">
 <caption>Learning objectives for this session</caption>
 <colgroup>
@@ -273,15 +279,19 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td></td>
-<td style="text-align: left;">Assumptions of parametric tests</td>
+<td style="text-align: left;">One-Way ANOVA</td>
 </tr>
 <tr class="even">
 <td></td>
-<td style="text-align: left;">Log transforms and Box-Cox transforms</td>
+<td style="text-align: left;">Log transforms</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td style="text-align: left;">Histograms</td>
+<td style="text-align: left;">Assumptions of ANOVA</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">Estimated Marginal Means</td>
 </tr>
 </tbody>
 </table>
@@ -299,11 +309,11 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td></td>
-<td style="text-align: left;">Compute data transformations using Jamovi</td>
+<td style="text-align: left;">Run and explore ANOVA analyses in Jamovi</td>
 </tr>
 <tr class="even">
 <td></td>
-<td style="text-align: left;">Run non-parametric alternative tests in Jamovi</td>
+<td style="text-align: left;">Compute data transformations using Jamovi</td>
 </tr>
 </tbody>
 </table>
@@ -321,10 +331,23 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td></td>
-<td style="text-align: left;">Replicate part of a published analysis</td>
+<td style="text-align: left;">Work with a published dataset</td>
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Content Info
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is the same dataset that we used in week 7.</p>
+</div>
+</div>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -355,6 +378,30 @@ Content Info
 <blockquote class="blockquote">
 <p>Playing tetris will after a trumatic event will reduce number of subsequent intrusive memories</p>
 </blockquote>
+</section>
+<section id="analysis-of-variance-in-jamovi" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="analysis-of-variance-in-jamovi">3. Analysis of Variance in Jamovi</h2>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png" class="img-fluid"></p>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img2.png" class="img-fluid"></p>
+</section>
+<section id="post-hoc-tests" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="post-hoc-tests">4. Post-hoc Tests</h2>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img5.png" class="img-fluid"></p>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img4.png" class="img-fluid"></p>
+</section>
+<section id="checking-assumptions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="checking-assumptions">5. Checking assumptions</h2>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img3.png" class="img-fluid"></p>
+</section>
+<section id="control-condition" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="control-condition">6. Control Condition</h2>
+<p>Run yourself with Control variable - do you see a difference?</p>
+</section>
+<section id="summary" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="summary">8. Summary</h2>
+</section>
+<section id="references" class="level2 unnumbered">
+
 
 
 
