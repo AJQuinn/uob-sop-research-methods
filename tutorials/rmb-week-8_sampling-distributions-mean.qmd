@@ -103,11 +103,37 @@ We can use `rnorm()` within the Rj code window as usual. Here I'm simulating 20 
 
 These 20 simulated numbers could now represent a data sample for a variable in an analysis. The difference is we have absolute confidence about the 'truth' of the population statistics underlying this data sample.
 
-You may notice that you do get 20 numbers, but that you get a different 20 numbers than I did! This is as `rnorm()` works hard to generate random numbers that are different each time. You can verify this by running your code multiple times, even though the code stays the same you will get a different data sample each time. Remember that the code and the underlying distribution remain the always the same but the data sample is changing.
+You may notice that you do get 20 numbers, but that you get a different 20 numbers than I did! This is as `rnorm()` works hard to generate random numbers that are different each time. 
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+You can verify the random nature of the simulated data by running your code multiple times.
+
+Even though the code stays the same you will get a different data sample each time. Remember that the code and the underlying distribution remain the always the same but the data sample is changing.
+
+:::
 
 This is actually a good thing for us. Real experiments and data collection always have an element of random luck and we want our simulations to reflect this as well.
 
+:::: callout-tip
+## Data skills - revision on sampling and populations
 
+Sampling is a fundamental process in statistics where a subset of individuals from a population is selected to estimate characteristics of the whole population. This is built from the assumption that the subset of individuals in our sample is representative of that population. 
+
+Some samples will be more representative than others. We can do a lot of practical work and planning to get the best possible sample for our research but there is always some random chance in who ends up in a data sample and who does not.
+
+![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_samples.png){width=350px}
+
+There are two main reasons why a sample might not be representative.
+
+**Bias** if the data collection has included some bias (intentional or accidental) towards a subgroup of our population then it is very likely that this will lead to an unrepresentative sample. This is not something we can solve with statistics. Good reseach design, consideration of ethics and thorough planning is the only way to avoid systematic biases.
+
+**Luck** even if we have a unbiased data collection approach, two samples that draw from the sample population can still be different due to random chance. This will always be true when we are restricted to looking at a subset of the full population - fortunately, this is something we can quantify with statistics. We'll explore how in this session.
+
+**The code we write this week will simulate drawing a subset of individuals from a population. Each iteration of the code could be considered as a separate replication of the same experiment.**
+
+:::
 
 ## 3. Estimating the samping distribution of the mean {.unnumbered}
 

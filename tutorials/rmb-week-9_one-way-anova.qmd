@@ -10,26 +10,34 @@ library(webexercises)
 
 # Week 9 : One Way Analysis of Variance (ANOVA) {.unnumbered}
 
-This week we will explore how to check the assumptions of hypothesis tests and make sure that we're using the right tests. We will introduce the idea of transforming data to squeeze the data into the shape of a normal distribution.
+This week we will explore how to run ANOVA analyses to compare means between two or more groups. This is an important analysis as many experimental and scientific contexts cannot be simiplified down to two groups for a t-test, and running many t-tests would increase our chances of false positive findings..
 
 |  ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods          |
 |-----|:-------------------------------------------|
-|            | Assumptions of parametric tests                  |
-|            | Log transforms and Box-Cox transforms                  |
-|            | Histograms                           |
+|            | One-Way ANOVA                  |
+|            | Log transforms                  |
+|            | Assumptions of ANOVA                           |
+|            | Estimated Marginal Means                           |
 
 : Learning objectives for this session
 
 |    ![](../images/logos/rm-logo_data-skills.png){width=50px}      | Data Skills       |
 |-----|:-------------------------------------------|
+|          | Run and explore ANOVA analyses in Jamovi              |
 |          | Compute data transformations using Jamovi              |
-|          | Run non-parametric alternative tests in Jamovi              |
 
 
 |      ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
 |-----|:-------------------------------------------|
-|          | Replicate part of a published analysis       |
+|          | Work with a published dataset       |
 
+
+::: {.callout-note appearance="simple"}
+# Content Info
+
+This is the same dataset that we used in week 7.
+
+:::
 
 ::: {.callout-note appearance="simple"}
 # Content Info
@@ -61,3 +69,34 @@ This week - we will explore two of the four conditions to test the following hyp
 > Playing tetris will after a trumatic event will reduce number of subsequent intrusive memories 
 
 
+## 3. Analysis of Variance in Jamovi {.unnumbered}
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png)
+
+
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img2.png)
+
+
+
+## 4. Post-hoc Tests {.unnumbered}
+
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img5.png)
+
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img4.png)
+
+## 5. Checking assumptions {.unnumbered}
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img3.png)
+
+## 6. Control Condition {.unnumbered}
+
+Run yourself with Control variable - do you see a difference?
+
+
+## 8. Summary {.unnumbered}
+
+
+## References {.unnumbered}
