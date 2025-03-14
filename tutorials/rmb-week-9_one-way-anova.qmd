@@ -32,6 +32,7 @@ This week we will explore how to run ANOVA analyses to compare means between two
 |          | Work with a published dataset       |
 
 
+
 ::: {.callout-note appearance="simple"}
 # Content Info
 
@@ -66,34 +67,288 @@ Crucially, participants were allocated to one of four conditions in the time imm
 
 This week - we will explore two of the four conditions to test the following hypothesis:
 
-> Playing tetris will after a trumatic event will reduce number of subsequent intrusive memories 
+> Engaging in computer game and reactivation tasks after a trumatic event will reduce number of subsequent intrusive memories 
 
+This is similar to the hypothesis from week 7, but now we have allowed for several conditions in the experiment rather than just two.
+
+If we find evidence for a difference in our omnibus ANOVA test we can explore post-hoc comparisons to describe the exact difference that is present.
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Open Jamovi and load in this weeks data file before going any further.
+
+:::
 
 ## 3. Analysis of Variance in Jamovi {.unnumbered}
+
+At this point - you can probably figure out how to run the basics of an ANOVA analysis in Jamovi. There are a lot of similarities with the t-test analyses we have run.
+
+To run the ANOVA, open the ANOVA -> ANOVA menu from the top ribbon.
+
+::: {.callout-warning appearance="simple"}
+# Jamovi Note!
+
+Make sure you open the 'ANOVA' menu not the 'One-way ANOVA' menu. We will run a One-way ANOVA but will use the full ANOVA menu as it contains the full set of features and analyses that we will need. The One-way ANOVA menu is a streamlined option for very simple analyses.
+
+:::
+
+Once you have the menu open, click `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary` across to the Dependent Variable box and `Condition` across to the 'Fixed Factors'. The first ANOVA results table will appear in the results.
+
+Very simple! but remember that it takes some additional work to check over and interpret the results from an ANOVA.
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png)
+
+Let's understand the results table in detail. First let's quickly review the theory:
+
+In an ANOVA analysis we're comparing the sum-of-squared error between two different models - one model has all groups with the same mean and the second model gives each group its individual mean. From this we can compute three different sets of sum-sqaures.
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img-from-lecture.png)
+
+
+- **Sum-Square Error Total** - the overall variability assuming that all groups have the same mean
+- **Sum-Square Error Within** - the variability assuming that each group has its own mean
+- **Sum-Square Error Between** - the change variability attributable to giving each group its own mean
+
+The rationale is that if the groups have distinct means then **Sum-Square Within** will be much smaller than **Sum-Square Total**. This difference is quantified with **Sum-Square Between**.
+
+These values are listed in the ANOVA table. The 'Sum of Squares' for Condition is the **Sum-Square Between** and the 'Sum of Squares' for Residuals is **Sum-Square Within**. (This terminology can get a little complex...).
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Use the ANOVA table to complete this statement reporting the results of the ANOVA. Fill in the spaces provided.
+
+The Sum-Square Error Between is `r fitb(115)` and the Sum-Square Error Within is `r fitb(686)`.
+
+## Hint
+
+The ANOVA table from above...
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png)
+
+:::
+
+:::
+
+The next step is to compute the **Mean-Squares**. We need this additional step as the Sum-Squares will are senstive to the sample size and number of groups - we have to make a correction for this. The **Mean-Squares** are computed with two fractions.
+
+$$
+\text{Mean-Square Error Within} = \frac{\text{Sum-Square Error Within}}{\text{Number of Participants} - \text{Number of Groups}}
+$$
+
+$$
+\text{Mean-Square Error Between} = \frac{\text{Sum-Square Error Between}}{\text{Number of Groups} - 1}
+$$
+
+The ingredients for these fractions are already in our ANOVA table. The top of the fraction is the Sum of Squares we've seen earlier. The values on the bottom of the fraction are actually precomputed for us as the Degrees of Freedom. 
+
+The degrees of freedom for Condition (df between) is $\text{Number of Groups} - 1$. In our case we have four groups so the value is 3. The degrees of freedom for Residuals (df within) is $\text{Number of Participants} - \text{Number of Groups}$. We have 72 participants and 4 groups so the value is 68.
+
+So, working across the ANOVA table in rows - we can see that the value of the Mean-Square Errors in third column is simply the first column divided by the second.
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Use the ANOVA table to complete this statement reporting the results of the ANOVA. Fill in the spaces provided.
+
+The Mean-Square Error Between is:
+
+$\frac{\text{Sum-Square Error Between}}{\text{Number of Groups} - 1}$ = $\frac{\text{Sum-Square Error Between}}{\text{df between}}$ = $\frac{115}{3}$ = `r fitb(38.3)`
+
+
+The Mean-Square Error Within is:
+
+$\frac{\text{Sum-Square Error Within}}{\text{Number of Participants} - \text{Number of Groups}}$ = $\frac{\text{Sum-Square Error Between}}{\text{df within}}$ = $\frac{686}{68}$ = `r fitb(10.1)`
+
+## Hint
+
+The ANOVA table from above...
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png)
+
+:::
+:::
+
+We now have the ingredients for our ANOVA! The F-statistics for the ANOVA is 
+
+$$
+\text{F} = \frac{\text{Mean-Square Error Between}}{\text{Mean-Square Error Within}}
+$$
+
+This is the ratio of our two Mean-Square fractions from above.
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+
+::: panel-tabset
+## Questions
+
+Use the ANOVA table to complete this statement reporting the results of the ANOVA. Fill in the spaces provided.
+
+The F statistic is:
+
+$\frac{\text{Mean-Square Error Between}}{\text{Mean-Square Error Within}}$ = $\frac{38.3}{10.1}$ = `r fitb(3.79)`
+
+## Hint
+
+The ANOVA table from above...
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png)
+
+:::
+:::
+
+There are a lot of values in the ANOVA table but the relationship between them is straightforward when you know the logic behind it.
+
+To report a one-way ANOVA to APA format you can follow this broad template.
+
+> A one-way ANOVA was conducted to compare the effect of **[independent variable]** on **[dependent variable]**. There was a statistically significant difference in **[dependent variable]** between groups, F(**[df between]**, **[df within]**) = **[F value]**, p = **[p value]**.
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Use the ANOVA table to complete this statement reporting the results of the ANOVA. Fill in the spaces provided.
+
+A one-way ANOVA was conducted to compare the effect of `r mcq(c(answer = "number of intrusive memories in the week after the experiment", "the task completed after watching the film"))` on `r mcq(c("number of intrusive memories in the week after the experiment", answer = "the task completed after watching the film"))`. There was `r mcq(c(answer = "a statistically significant", "no significant"))` difference in `r mcq(c(answer = "number of intrusive memories", "post film task"))` between groups, F(`r fitb(3)`, `r fitb(68)`) = `r fitb(3.79)`, p = `r fitb(0.014)`.
+
+## Hint
+
+The ANOVA table from above...
 
 ![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png)
 
 
+:::
+:::
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Open a new ANOVA analysis and run a one-way ANOVA to test the control condition asking whether there was a difference between groups in intrusive memories in the time before the experiment started.
+
+The variable `Days_Zero_Image_Based_Intrusions_in_Intrusion_Diary`
+
+:::
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Use the ANOVA table from your new control analysis. Fill in the spaces provided.
+
+A one-way ANOVA was conducted to compare the effect of `r mcq(c("number of intrusive memories in the time before the experiment", answer = "the task completed after watching the film"))` on `r mcq(c(answer = "number of intrusive memories in the time before the experiment", "the task completed after watching the film"))`. There was `r mcq(c("a statistically significant", answer = "no significant"))` difference in the `r mcq(c(answer = "number of intrusive memories", "the task completed after watching the film"))` between groups, F(`r fitb(3)`, `r fitb(68)`) = `r fitb(0.163)`, p = `r fitb(0.921)`.
+
+## Hint
+
+The ANOVA table from the control analysis.
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img2b.png)
+
+
+:::
+:::
+
+## 4. Effect size for ANOVA {.unnumbered}
+
+There are several possible effect sizes we can use for ANOVA analyses. We will use $\eta^2$ (pronouced eta-squared) for one-way ANOVA. The Learning Statistics with Jamovi textbook has a nice summary of how to interpret $\eta^2$.
+
+> The interpretation of $\eta^2$ is equally straightforward. It refers to the proportion of the variability in the outcome variable that can be explained in terms of the predictor. A value of 0 means that there is no relationship at all between the two, whereas a value of 1 means that the relationship is perfect. Better yet, the  value is very closely related to $R^2$ and has an equivalent interpretation
+>
+> - Slightly abridged quote from [Learning Statistics with Jamovi](https://davidfoxcroft.github.io/lsj-book/13-Comparing-several-means-one-way-ANOVA.html#effect-size)
+
+Very straightforward indeed, we can think of $\eta^2$ as an $R^2$ for the ANOVA. It is also straightforward to compute - just check the box under 'Effect Sizes'.
 
 ![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img2.png)
 
+There are two other options for ANOVA effect sizes:
+
+- partial $\eta^2$ will be useful for more complex ANOVA designs you will work with in other modules.
+- $\omega^2$ is an unbiased estimator that could be used in place of $\eta^2$. Some sources recommend that we use $\omega^2$ rather than $\eta^2$ [@Albers2018_when]. You could use either and might encounter either in the literature.
 
 
-## 4. Post-hoc Tests {.unnumbered}
+## 5. Post-hoc Tests {.unnumbered}
 
+An ANOVA analysis returns a significant effect that indicates that there is a difference between the group means but doesn't tell us anything about which groups are actually different. 
+
+If, and only if, the overall ANOVA returns a significant result - we can use post-hoc tests to explore what the specific differences actually are. This is a critical step for the interpretation of our results. 
+
+In the example above we saw that the experimental task that participants complete after watching the film does change the mean number of intrusive memories that the participants experience. The ANOVA table doesn't say more than this - as far as we know from this analysis it is possible that playing Tetris may have increased or decreased the number of intrusive memories.
+
+Post-hoc tests are the answer for this - and post hoc tests are based on 'Estimated Marginal Means'. These sound more complex than they are. Estimated marginal means are adjusted means (and associated standard errors etc) that account for the assumptions of a statistical model and for the effects of any other variables in a model.
+
+So, for an ANOVA the estimated means are adjusted for the assumption of **homogeneity of variance** - that each group has the same variance. We do not have any other variables to adjust for in this analysis but this is relevant for future Analysis of Co-Variance (ANCOVA) models that you may encounter in future modules.
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Find the 'Estimated Marginal Means' drop down menu and add 'Condition' to the Terms box to compute the estimated marginal mean for each group within Condition. Make sure to include the plots and tables in the ouputs (though the x axis labels for this particular plot aren't very good...).
 
 ![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img5.png)
 
+:::
+
+The table gives us our four marginal means summarising the mean of each group alongside a 95% confidence interval for that estimate and the Standard Error for each mean.
+
+
+
+The chart gives us a more human readable summary of the means with the associated confidence intervals.
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - which conditions do you think are likely to be significantly different?
+
+The `No-Task Control` and `Reactivation+Tetris` conditions have the largest difference in mean, with `Tetris Only` and `Reactivation Only` somewhere in between.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - why are the standard errors for each mean all the same?
+
+Remember that these are the means computed **under the assumptions of the ANOVA**, not the normal means we see in the descriptive statistics.
+
+This ANOVA assumes **homogeneity of variance** and the marginal mean can take this into account. If we computed the descriptive statistics the usual way we would see the individual estimate of the standard error for each group.
+
+:::
+
+So, lets run our post-hoc tests!
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Find the 'Post-Hoc Tests' drop down menu and add 'Condition' to the right hand box to compute the post hoc comparison between each pair of groups within Condition. 
+
+Make sure to include 'Tukey' correction and add the Cohen's d effect size.
 
 ![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img4.png)
 
-## 5. Checking assumptions {.unnumbered}
+:::
+
+SO - NEXT STEPS HERE
+
+## 6. Checking assumptions {.unnumbered}
 
 ![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img3.png)
 
-## 6. Control Condition {.unnumbered}
+## 7. ANOVA on log transformed data {.unnumbered}
 
-Run yourself with Control variable - do you see a difference?
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img6.png)
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img7.png)
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img8.png)
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img9.png)
+
 
 
 ## 8. Summary {.unnumbered}

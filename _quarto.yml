@@ -32,7 +32,7 @@ website:
       - text: Week 8 - Sampling Distributions of Means
         href: tutorials/rmb-week-8_sampling-distributions-mean.qmd
       - text: Week 9 - One-way ANOVA 
-        href: tutorials/rmb_week-9_one-way-anova.qmd
+        href: tutorials/rmb-week-9_one-way-anova.qmd
       - text: Week 10 - Sampling Distributions of t-values
         href: tutorials/rmb-week-10_sampling-distributions-tvalues.qmd
     - section: Support
