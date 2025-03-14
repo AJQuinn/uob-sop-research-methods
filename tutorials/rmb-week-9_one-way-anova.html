@@ -709,18 +709,259 @@ Key step
 <p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img4.png" class="img-fluid"></p>
 </div>
 </div>
-<p>SO - NEXT STEPS HERE</p>
+<p>The Comparison columns lists the six pairwise comparisons that can be assembled from our four conditions. As before, the standard errors (SE column) are the same for all of the comparisons. Remember that these results are based on the estimated marginal means rather than the standard means we would use outside an ANOVA.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - which comparisons show a significant difference?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <code>No-Task Control</code> and <code>Reactivation+Tetris</code> conditions show a significant difference t(68) = 3.044, p-tukey = 0.017.</p>
+<p>The <code>Reactivation+Tetris</code> and <code>Reactivation Only</code> conditions show a significant difference t(68) = -2.781, p-tukey = 0.034.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - which direction are the significant differences? ie which condition is larger?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We can use the estimated marginal means tables to be sure of these results.</p>
+<p>The <code>No-Task Control</code> group (M=5.11) had more intrusive memories than the <code>Reactivation+Tetris</code> group (M=1.89).</p>
+<p>The <code>Reactivation+Tetris</code> group (M=1.89) had fewer intrusive memories than the <code>Reactivation Only</code> group (M=4.83).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - How do the results change if we use no correction to the p-values rather than Tukey correction?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can add the uncorrected p-value to the output table in the Post Hoc tests menu.</p>
+<p>The Tukey correction aims to account for the multiple comparisons that we are making. It <strong>increases</strong> the p-values to make it less likely that we would consider a difference to be significant.</p>
+<p>Compare the <code>p</code> column with the <code>p-tukey</code> column. The uncorrected values are smaller - the <code>Reactivation+Tetris</code> to <code>Tetris Only</code> comparison is close to being significant in the uncorrected values.</p>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img10.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
 </section>
 <section id="checking-assumptions" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="checking-assumptions">6. Checking assumptions</h2>
+<p>As ever - the ANOVA makes certain assumptions about the data so that we can perform our statistics. These assumptions are similar to what we saw with t-tests and should all be in place for our ANOVA results to make a valid generalisation to the wide population.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>Match the ANOVA assumption to its definition.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Assumption</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independence</td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Interval or Ratio data observations</option><option value="">data must be reasonably normally distributed</option><option value="">groups should each have equal variance</option><option value="answer">data observations must be unrelated</option><option value="">predicting factors must be divided into separate groups</option></select></td>
+</tr>
+<tr class="even">
+<td>Normal distributions</td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Interval or Ratio data observations</option><option value="answer">data must be reasonably normally distributed</option><option value="">groups should each have equal variance</option><option value="answer">data observations must be unrelated</option><option value="">predicting factors must be divided into separate groups</option></select></td>
+</tr>
+<tr class="odd">
+<td>Homogeneity of variance</td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Interval or Ratio data observations</option><option value="answer">data must be reasonably normally distributed</option><option value="answer">groups should each have equal variance</option><option value="">data observations must be unrelated</option><option value="">predicting factors must be divided into separate groups</option></select></td>
+</tr>
+<tr class="even">
+<td>Categorical factors</td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Interval or Ratio data observations</option><option value="answer">data must be reasonably normally distributed</option><option value="">groups should each have equal variance</option><option value="">data observations must be unrelated</option><option value="answer">predicting factors must be divided into separate groups</option></select></td>
+</tr>
+<tr class="odd">
+<td>Data type</td>
+<td><select class="webex-select"><option value="blank"></option><option value="answer">Interval or Ratio data observations</option><option value="answer">data must be reasonably normally distributed</option><option value="">groups should each have equal variance</option><option value="">data observations must be unrelated</option><option value="">predicting factors must be divided into separate groups</option></select></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p>Take a look at your lecture notes from week 8!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>It is very straighforward to check these assumptions in Jamovi - find the ‘Assumption Checks’ menu and select all three options to run the Shapiro-Wilk test, Levene’s Test and the QQ plot.</p>
 <p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img3.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - is the assumption of independence met?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Yes, this is a between subjects design in which each participant only contributes a single data point to this study. ANOVA analysis for repeated measures designs are possible - you might encounter these in a future module.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - is the assumption of homogeneity of variance met?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No, Levene’s test is significant indicating that the groups do not have equal variance.</p>
+<p>We can explore this further by running descriptive statistics on the groups. We can see that the standard deviation of the <code>Reactivation+Tetris</code> group looks to be much smaller than the others. This is likely where the difference is coming from.</p>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img11.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - is the for normally distributed data met?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No, Shapiro-Wilk’s test is significant indicating that the data is not normally distributed. This is confirmed by the QQ plot in which the top end of the data depart from the centre diagonal line.</p>
+<p>The estimated marginal means plot from your earlier analysis can help explain why this is. Notice that the data points in that plot have a positive skew - ie a small number of participants seem to have a lot of intrusive memories.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - is the assumption of categorical factors met?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Yes, our <code>Conditions</code> variable is categorical. It contains our four groups without any implied order.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - is the assumed data type correct?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Yes, our <code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code> variable is ratio data. It contains numerical data in which zero means an absence of intrusive memories.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="anova-on-log-transformed-data" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="anova-on-log-transformed-data">7. ANOVA on log transformed data</h2>
-<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img6.png" class="img-fluid"> <img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img7.png" class="img-fluid"> <img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img8.png" class="img-fluid"> <img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img9.png" class="img-fluid"></p>
+<p>Looks like our data do not meet the parametric assumptions of a standard ANOVA analysis. Its often a good idea to check assumptions early in the data analysis process…</p>
+<p>There are non-parametric ANOVA analyses available - you could now run the Kruskall Wallis test on the data to perform a non parametric one way ANOVA.</p>
+<p>Let’s try a data transformation here though, the full parametric ANOVA is very flexible so it would be good to use it if we can.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Hint - ANOVA Table</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-3" role="tab" aria-controls="tabset-7-3" aria-selected="false">Hint - Assumption Checks</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-4" role="tab" aria-controls="tabset-7-4" aria-selected="false">Hint - Estimated Marginal Means</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-5" role="tab" aria-controls="tabset-7-5" aria-selected="false">Hint - Post Hoc Tests</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>Compute a new data variable using the log transform on the <code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code> - review week 7 section 7 if you need reminder on how to do this.</p>
+<p>Use the results to complete this reporting of the ANOVA results.</p>
+<blockquote class="blockquote">
+<p>A Shaprio-Wilk test showed a significant departure from a normal distribution, W=0.877, p&lt;0.001. The data were transformed using a log transform.</p>
+<p>A second Shaprio-Wilk test showed that the log-transformed data is <select class="webex-select"><option value="blank"></option><option value="">normally distributed</option><option value="answer">not normally distributed</option></select>, W=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.984&quot;,&quot;.984&quot;]">, p=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.502&quot;,&quot;.502&quot;]">. Levene’s test on the transformed data shows that <select class="webex-select"><option value="blank"></option><option value="answer">we can assume</option><option value="">we can not assume</option></select> homogeneity of variance across the groups, F(<input class="webex-solveme nospaces" size="1" data-answer="[&quot;3&quot;]">, <input class="webex-solveme nospaces" size="2" data-answer="[&quot;68&quot;]">) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.566&quot;,&quot;.566&quot;]">, p=<input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.64&quot;,&quot;.64&quot;]"></p>
+<p>A one-way ANOVA was conducted to on the transformed data to compare the effect of the <select class="webex-select"><option value="blank"></option><option value="">number of intrusive memories in the week after the experiment</option><option value="answer">task completed after watching the film</option></select> on the <select class="webex-select"><option value="blank"></option><option value="answer">number of intrusive memories in the week after the experiment</option><option value="">task completed after watching the film</option></select>. There was <select class="webex-select"><option value="blank"></option><option value="answer">a statistically significant</option><option value="">no significant</option></select> difference in <select class="webex-select"><option value="blank"></option><option value="answer">number of intrusive memories</option><option value="">post film task</option></select> between groups, F(<input class="webex-solveme nospaces" size="1" data-answer="[&quot;3&quot;]">, <input class="webex-solveme nospaces" size="2" data-answer="[&quot;68&quot;]">) = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;5.74&quot;]">, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.001&quot;,&quot;.001&quot;]">, <span class="math inline">\(\eta^2\)</span> = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.202&quot;,&quot;.202&quot;]">.</p>
+<p>Post hoc comparisons with Tukey correction were conducted to identify which pairs of conditions showed significant differences in their estimated marginal means. Three pairwise comparisons showed a significant difference. Note that we are reporting the log-transformed means with the post-hoc test, not the original means.</p>
+<p>The ‘No-Task Control’ group (M=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.691&quot;,&quot;.691&quot;]">) had more instrusive memories than the ‘Reactivation+Tetris’ group (M=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.389&quot;,&quot;.389&quot;]">), t(<input class="webex-solveme nospaces" size="2" data-answer="[&quot;68&quot;]">) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;3.474&quot;]">, p=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.005&quot;,&quot;.005&quot;]">, Cohen’s d=<input class="webex-solveme nospaces" size="6" data-answer="[&quot;1.1581&quot;]"></p>
+<p>The ‘Reactivation+Tetris’ group (M=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.389&quot;,&quot;.389&quot;]">) had fewer instrusive memories than the ‘Tetris Only’ group (M=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.626&quot;,&quot;.626&quot;]">), t(<input class="webex-solveme nospaces" size="2" data-answer="[&quot;68&quot;]">) = <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-2.736&quot;]">, p=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.039&quot;,&quot;.039&quot;]">, Cohen’s d=<input class="webex-solveme nospaces" size="7" data-answer="[&quot;-0.9119&quot;,&quot;-.9119&quot;]">.</p>
+<p>The ‘Reactivation+Tetris’ group (M=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.389&quot;,&quot;.389&quot;]">) had fewer instrusive memories than the ‘Reactivation Only’ group (M=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.707&quot;,&quot;.707&quot;]">), t(<input class="webex-solveme nospaces" size="2" data-answer="[&quot;68&quot;]">) = <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-3.668&quot;]">, p=<input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.003&quot;,&quot;.003&quot;]">, Cohen’s d=<input class="webex-solveme nospaces" size="7" data-answer="[&quot;-1.2228&quot;]">.</p>
+</blockquote>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img6.png" class="img-fluid"></p>
+</div>
+<div id="tabset-7-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-3-tab">
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img7.png" class="img-fluid"></p>
+</div>
+<div id="tabset-7-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-4-tab">
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img9.png" class="img-fluid"></p>
+</div>
+<div id="tabset-7-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-5-tab">
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img8.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="summary" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="summary">8. Summary</h2>
+<p>ANOVA is a flexible and powerful method for comparing the means of more than two groups whilst accounting for the exploding number of multiple comparisons we get from more complex experimental designs. ANOVA takes a bit more work to run, check and interpret than a t-test but the results from a single ANOVA analysis contain a huge amount of critical information about our data!</p>
 </section>
 <section id="references" class="level2 unnumbered">
 
