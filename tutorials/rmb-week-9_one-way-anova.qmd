@@ -335,23 +335,166 @@ Make sure to include 'Tukey' correction and add the Cohen's d effect size.
 
 :::
 
-SO - NEXT STEPS HERE
+The Comparison columns lists the six pairwise comparisons that can be assembled from our four conditions. As before, the standard errors (SE column) are the same for all of the comparisons. Remember that these results are based on the estimated marginal means rather than the standard means we would use outside an ANOVA.
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - which comparisons show a significant difference?
+
+The `No-Task Control` and `Reactivation+Tetris` conditions show a significant difference t(68) = 3.044, p-tukey = 0.017.
+
+The `Reactivation+Tetris` and `Reactivation Only` conditions show a significant difference t(68) = -2.781, p-tukey = 0.034.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - which direction are the significant differences? ie which condition is larger?
+
+We can use the estimated marginal means tables to be sure of these results.
+
+The `No-Task Control` group (M=5.11) had more intrusive memories than the `Reactivation+Tetris` group (M=1.89). 
+
+The `Reactivation+Tetris` group (M=1.89) had fewer intrusive memories than the `Reactivation Only` group (M=4.83).
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - How do the results change if we use no correction to the p-values rather than Tukey correction?
+
+You can add the uncorrected p-value to the output table in the Post Hoc tests menu.
+
+The Tukey correction aims to account for the multiple comparisons that we are making. It **increases** the p-values to make it less likely that we would consider a difference to be significant.
+
+Compare the `p` column with the `p-tukey` column. The uncorrected values are smaller - the `Reactivation+Tetris` to `Tetris Only` comparison is close to being significant in the uncorrected values.
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img10.png)
+
+:::
+
 
 ## 6. Checking assumptions {.unnumbered}
 
+As ever - the ANOVA makes certain assumptions about the data so that we can perform our statistics. These assumptions are similar to what we saw with t-tests and should all be in place for our ANOVA results to make a valid generalisation to the wide population.
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Match the ANOVA assumption to its definition.
+
+| Assumption | Definition |
+| -------|------------|
+| Independence | `r mcq(c("Interval or Ratio data observations", "data must be reasonably normally distributed", "groups should each have equal variance", answer="data observations must be unrelated", "predicting factors must be divided into separate groups"))` |
+| Normal distributions | `r mcq(c("Interval or Ratio data observations", answer = "data must be reasonably normally distributed", "groups should each have equal variance", answer="data observations must be unrelated", "predicting factors must be divided into separate groups"))` |
+| Homogeneity of variance | `r mcq(c("Interval or Ratio data observations", answer = "data must be reasonably normally distributed", answer = "groups should each have equal variance", "data observations must be unrelated", "predicting factors must be divided into separate groups"))` |
+| Categorical factors | `r mcq(c("Interval or Ratio data observations", answer = "data must be reasonably normally distributed",  "groups should each have equal variance", "data observations must be unrelated", answer = "predicting factors must be divided into separate groups"))` |
+| Data type | `r mcq(c(answer = "Interval or Ratio data observations", answer = "data must be reasonably normally distributed",  "groups should each have equal variance", "data observations must be unrelated", "predicting factors must be divided into separate groups"))` |
+
+## Hint
+
+Take a look at your lecture notes from week 8!
+
+:::
+:::
+
+It is very straighforward to check these assumptions in Jamovi - find the 'Assumption Checks' menu and select all three options to run the Shapiro-Wilk test, Levene's Test and the QQ plot.
+
 ![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img3.png)
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - is the assumption of independence met?
+
+Yes, this is a between subjects design in which each participant only contributes a single data point to this study. ANOVA analysis for repeated measures designs are possible - you might encounter these in a future module.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - is the assumption of homogeneity of variance met?
+
+No, Levene's test is significant indicating that the groups do not have equal variance.
+
+We can explore this further by running descriptive statistics on the groups. We can see that the standard deviation of the `Reactivation+Tetris` group looks to be much smaller than the others. This is likely where the difference is coming from.
+
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img11.png)
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - is the for normally distributed data met?
+
+No, Shapiro-Wilk's test is significant indicating that the data is not normally distributed. This is confirmed by the QQ plot in which the top end of the data depart from the centre diagonal line.
+
+The estimated marginal means plot from your earlier analysis can help explain why this is. Notice that the data points in that plot have a positive skew - ie a small number of participants seem to have a lot of intrusive memories.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - is the assumption of categorical factors met?
+
+Yes, our `Conditions` variable is categorical. It contains our four groups without any implied order.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - is the assumed data type correct?
+
+Yes, our `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary` variable is ratio data. It contains numerical data in which zero means an absence of intrusive memories.
+
+:::
 
 ## 7. ANOVA on log transformed data {.unnumbered}
 
+Looks like our data do not meet the parametric assumptions of a standard ANOVA analysis. Its often a good idea to check assumptions early in the data analysis process...
 
+There are non-parametric ANOVA analyses available - you could now run the Kruskall Wallis test on the data to perform a non parametric one way ANOVA.
+
+Let's try a data transformation here though, the full parametric ANOVA is very flexible so it would be good to use it if we can.
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Compute a new data variable using the log transform on the `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary` - review week 7 section 7 if you need reminder on how to do this.
+
+Use the results to complete this reporting of the ANOVA results.
+
+> A Shaprio-Wilk test showed a significant departure from a normal distribution, W=0.877, p<0.001. The data were transformed using a log transform.
+>
+> A second Shaprio-Wilk test showed that the log-transformed data is `r mcq(c("normally distributed", answer = "not normally distributed"))`, W=`r fitb(0.984)`, p=`r fitb(0.502)`. Levene's test on the transformed data shows that `r mcq(c(answer = "we can assume", "we can not assume"))` homogeneity of variance across the groups, F(`r fitb(3)`, `r fitb(68)`) = `r fitb(0.566)`, p=`r fitb(0.640)`
+>
+> A one-way ANOVA was conducted to on the transformed data to compare the effect of the `r mcq(c("number of intrusive memories in the week after the experiment", answer = "task completed after watching the film"))` on the `r mcq(c(answer = "number of intrusive memories in the week after the experiment", "task completed after watching the film"))`. There was `r mcq(c(answer = "a statistically significant", "no significant"))` difference in `r mcq(c(answer = "number of intrusive memories", "post film task"))` between groups, F(`r fitb(3)`, `r fitb(68)`) = `r fitb(5.74)`, p = `r fitb(0.001)`, $\eta^2$ = `r fitb(0.202)`.
+>
+> Post hoc comparisons with Tukey correction were conducted to identify which pairs of conditions showed significant differences in their estimated marginal means. Three pairwise comparisons showed a significant difference. Note that we are reporting the log-transformed means with the post-hoc test, not the original means.
+>
+> The 'No-Task Control' group (M=`r fitb(0.691)`) had more instrusive memories than the 'Reactivation+Tetris' group (M=`r fitb(.389)`), t(`r fitb(68)`) = `r fitb(3.474)`, p=`r fitb(0.005)`, Cohen's d=`r fitb(1.1581)`
+> 
+> The 'Reactivation+Tetris' group (M=`r fitb(.389)`) had fewer instrusive memories than the 'Tetris Only' group (M=`r fitb(.626)`), t(`r fitb(68)`) = `r fitb(-2.736)`, p=`r fitb(0.039)`, Cohen's d=`r fitb(-0.9119)`.
+> 
+> The 'Reactivation+Tetris' group (M=`r fitb(.389)`) had fewer instrusive memories than the 'Reactivation Only' group (M=`r fitb(.707)`), t(`r fitb(68)`) = `r fitb(-3.668)`, p=`r fitb(0.003)`, Cohen's d=`r fitb(-1.2228)`.
+
+## Hint - ANOVA Table
 ![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img6.png)
+
+## Hint - Assumption Checks
 ![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img7.png)
-![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img8.png)
+
+## Hint - Estimated Marginal Means
 ![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img9.png)
 
+## Hint - Post Hoc Tests
+![](../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img8.png)
+
+
+:::
+:::
 
 
 ## 8. Summary {.unnumbered}
 
+ANOVA is a flexible and powerful method for comparing the means of more than two groups whilst accounting for the exploding number of multiple comparisons we get from more complex experimental designs. ANOVA takes a bit more work to run, check and interpret than a t-test but the results from a single ANOVA analysis contain a huge amount of critical information about our data! 
 
 ## References {.unnumbered}
