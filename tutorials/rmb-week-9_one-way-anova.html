@@ -50,6 +50,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../tutorials/rmb-week-10_sampling-distributions-tvalues.html" rel="next">
+<link href="../tutorials/rmb-week-8_sampling-distributions-mean.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -87,6 +89,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 </head>
@@ -123,7 +154,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmb_week-1_new-data-and-descriptives.html">Research Methods B</a></li><li class="breadcrumb-item"><a href="../tutorials/rmb-week-9_one-way-anova.html">Week 9 - One-way ANOVA</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -196,7 +227,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/rmb_week-9_one-way-anova.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb-week-9_one-way-anova.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Week 9 - One-way ANOVA</span></a>
   </div>
 </li>
@@ -246,9 +277,10 @@ div.csl-indent {
   <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">1. The Dataset</a></li>
   <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">2. The Challenge</a></li>
   <li><a href="#analysis-of-variance-in-jamovi" id="toc-analysis-of-variance-in-jamovi" class="nav-link" data-scroll-target="#analysis-of-variance-in-jamovi">3. Analysis of Variance in Jamovi</a></li>
-  <li><a href="#post-hoc-tests" id="toc-post-hoc-tests" class="nav-link" data-scroll-target="#post-hoc-tests">4. Post-hoc Tests</a></li>
-  <li><a href="#checking-assumptions" id="toc-checking-assumptions" class="nav-link" data-scroll-target="#checking-assumptions">5. Checking assumptions</a></li>
-  <li><a href="#control-condition" id="toc-control-condition" class="nav-link" data-scroll-target="#control-condition">6. Control Condition</a></li>
+  <li><a href="#effect-size-for-anova" id="toc-effect-size-for-anova" class="nav-link" data-scroll-target="#effect-size-for-anova">4. Effect size for ANOVA</a></li>
+  <li><a href="#post-hoc-tests" id="toc-post-hoc-tests" class="nav-link" data-scroll-target="#post-hoc-tests">5. Post-hoc Tests</a></li>
+  <li><a href="#checking-assumptions" id="toc-checking-assumptions" class="nav-link" data-scroll-target="#checking-assumptions">6. Checking assumptions</a></li>
+  <li><a href="#anova-on-log-transformed-data" id="toc-anova-on-log-transformed-data" class="nav-link" data-scroll-target="#anova-on-log-transformed-data">7. ANOVA on log transformed data</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8. Summary</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
@@ -256,7 +288,7 @@ div.csl-indent {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmb_week-1_new-data-and-descriptives.html">Research Methods B</a></li><li class="breadcrumb-item"><a href="../tutorials/rmb-week-9_one-way-anova.html">Week 9 - One-way ANOVA</a></li></ol></nav></header>
 
 
 
@@ -376,26 +408,316 @@ Content Info
 <h2 class="unnumbered anchored" data-anchor-id="the-challenge">2. The Challenge</h2>
 <p>This week - we will explore two of the four conditions to test the following hypothesis:</p>
 <blockquote class="blockquote">
-<p>Playing tetris will after a trumatic event will reduce number of subsequent intrusive memories</p>
+<p>Engaging in computer game and reactivation tasks after a trumatic event will reduce number of subsequent intrusive memories</p>
 </blockquote>
+<p>This is similar to the hypothesis from week 7, but now we have allowed for several conditions in the experiment rather than just two.</p>
+<p>If we find evidence for a difference in our omnibus ANOVA test we can explore post-hoc comparisons to describe the exact difference that is present.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open Jamovi and load in this weeks data file before going any further.</p>
+</div>
+</div>
 </section>
 <section id="analysis-of-variance-in-jamovi" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="analysis-of-variance-in-jamovi">3. Analysis of Variance in Jamovi</h2>
+<p>At this point - you can probably figure out how to run the basics of an ANOVA analysis in Jamovi. There are a lot of similarities with the t-test analyses we have run.</p>
+<p>To run the ANOVA, open the ANOVA -&gt; ANOVA menu from the top ribbon.</p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jamovi Note!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure you open the ‘ANOVA’ menu not the ‘One-way ANOVA’ menu. We will run a One-way ANOVA but will use the full ANOVA menu as it contains the full set of features and analyses that we will need. The One-way ANOVA menu is a streamlined option for very simple analyses.</p>
+</div>
+</div>
+<p>Once you have the menu open, click <code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code> across to the Dependent Variable box and <code>Condition</code> across to the ‘Fixed Factors’. The first ANOVA results table will appear in the results.</p>
+<p>Very simple! but remember that it takes some additional work to check over and interpret the results from an ANOVA.</p>
 <p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png" class="img-fluid"></p>
+<p>Let’s understand the results table in detail. First let’s quickly review the theory:</p>
+<p>In an ANOVA analysis we’re comparing the sum-of-squared error between two different models - one model has all groups with the same mean and the second model gives each group its individual mean. From this we can compute three different sets of sum-sqaures.</p>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img-from-lecture.png" class="img-fluid"></p>
+<ul>
+<li><strong>Sum-Square Error Total</strong> - the overall variability assuming that all groups have the same mean</li>
+<li><strong>Sum-Square Error Within</strong> - the variability assuming that each group has its own mean</li>
+<li><strong>Sum-Square Error Between</strong> - the change variability attributable to giving each group its own mean</li>
+</ul>
+<p>The rationale is that if the groups have distinct means then <strong>Sum-Square Within</strong> will be much smaller than <strong>Sum-Square Total</strong>. This difference is quantified with <strong>Sum-Square Between</strong>.</p>
+<p>These values are listed in the ANOVA table. The ‘Sum of Squares’ for Condition is the <strong>Sum-Square Between</strong> and the ‘Sum of Squares’ for Residuals is <strong>Sum-Square Within</strong>. (This terminology can get a little complex…).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Use the ANOVA table to complete this statement reporting the results of the ANOVA. Fill in the spaces provided.</p>
+<p>The Sum-Square Error Between is <input class="webex-solveme nospaces" size="3" data-answer="[&quot;115&quot;]"> and the Sum-Square Error Within is <input class="webex-solveme nospaces" size="3" data-answer="[&quot;686&quot;]">.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>The ANOVA table from above…</p>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The next step is to compute the <strong>Mean-Squares</strong>. We need this additional step as the Sum-Squares will are senstive to the sample size and number of groups - we have to make a correction for this. The <strong>Mean-Squares</strong> are computed with two fractions.</p>
+<p><span class="math display">\[
+\text{Mean-Square Error Within} = \frac{\text{Sum-Square Error Within}}{\text{Number of Participants} - \text{Number of Groups}}
+\]</span></p>
+<p><span class="math display">\[
+\text{Mean-Square Error Between} = \frac{\text{Sum-Square Error Between}}{\text{Number of Groups} - 1}
+\]</span></p>
+<p>The ingredients for these fractions are already in our ANOVA table. The top of the fraction is the Sum of Squares we’ve seen earlier. The values on the bottom of the fraction are actually precomputed for us as the Degrees of Freedom.</p>
+<p>The degrees of freedom for Condition (df between) is <span class="math inline">\(\text{Number of Groups} - 1\)</span>. In our case we have four groups so the value is 3. The degrees of freedom for Residuals (df within) is <span class="math inline">\(\text{Number of Participants} - \text{Number of Groups}\)</span>. We have 72 participants and 4 groups so the value is 68.</p>
+<p>So, working across the ANOVA table in rows - we can see that the value of the Mean-Square Errors in third column is simply the first column divided by the second.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Use the ANOVA table to complete this statement reporting the results of the ANOVA. Fill in the spaces provided.</p>
+<p>The Mean-Square Error Between is:</p>
+<p><span class="math inline">\(\frac{\text{Sum-Square Error Between}}{\text{Number of Groups} - 1}\)</span> = <span class="math inline">\(\frac{\text{Sum-Square Error Between}}{\text{df between}}\)</span> = <span class="math inline">\(\frac{115}{3}\)</span> = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;38.3&quot;]"></p>
+<p>The Mean-Square Error Within is:</p>
+<p><span class="math inline">\(\frac{\text{Sum-Square Error Within}}{\text{Number of Participants} - \text{Number of Groups}}\)</span> = <span class="math inline">\(\frac{\text{Sum-Square Error Between}}{\text{df within}}\)</span> = <span class="math inline">\(\frac{686}{68}\)</span> = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;10.1&quot;]"></p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>The ANOVA table from above…</p>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We now have the ingredients for our ANOVA! The F-statistics for the ANOVA is</p>
+<p><span class="math display">\[
+\text{F} = \frac{\text{Mean-Square Error Between}}{\text{Mean-Square Error Within}}
+\]</span></p>
+<p>This is the ratio of our two Mean-Square fractions from above.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Use the ANOVA table to complete this statement reporting the results of the ANOVA. Fill in the spaces provided.</p>
+<p>The F statistic is:</p>
+<p><span class="math inline">\(\frac{\text{Mean-Square Error Between}}{\text{Mean-Square Error Within}}\)</span> = <span class="math inline">\(\frac{38.3}{10.1}\)</span> = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;3.79&quot;]"></p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>The ANOVA table from above…</p>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>There are a lot of values in the ANOVA table but the relationship between them is straightforward when you know the logic behind it.</p>
+<p>To report a one-way ANOVA to APA format you can follow this broad template.</p>
+<blockquote class="blockquote">
+<p>A one-way ANOVA was conducted to compare the effect of <strong>[independent variable]</strong> on <strong>[dependent variable]</strong>. There was a statistically significant difference in <strong>[dependent variable]</strong> between groups, F(<strong>[df between]</strong>, <strong>[df within]</strong>) = <strong>[F value]</strong>, p = <strong>[p value]</strong>.</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Use the ANOVA table to complete this statement reporting the results of the ANOVA. Fill in the spaces provided.</p>
+<p>A one-way ANOVA was conducted to compare the effect of <select class="webex-select"><option value="blank"></option><option value="answer">number of intrusive memories in the week after the experiment</option><option value="">the task completed after watching the film</option></select> on <select class="webex-select"><option value="blank"></option><option value="">number of intrusive memories in the week after the experiment</option><option value="answer">the task completed after watching the film</option></select>. There was <select class="webex-select"><option value="blank"></option><option value="answer">a statistically significant</option><option value="">no significant</option></select> difference in <select class="webex-select"><option value="blank"></option><option value="answer">number of intrusive memories</option><option value="">post film task</option></select> between groups, F(<input class="webex-solveme nospaces" size="1" data-answer="[&quot;3&quot;]">, <input class="webex-solveme nospaces" size="2" data-answer="[&quot;68&quot;]">) = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;3.79&quot;]">, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.014&quot;,&quot;.014&quot;]">.</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>The ANOVA table from above…</p>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img1.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open a new ANOVA analysis and run a one-way ANOVA to test the control condition asking whether there was a difference between groups in intrusive memories in the time before the experiment started.</p>
+<p>The variable <code>Days_Zero_Image_Based_Intrusions_in_Intrusion_Diary</code></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>Use the ANOVA table from your new control analysis. Fill in the spaces provided.</p>
+<p>A one-way ANOVA was conducted to compare the effect of <select class="webex-select"><option value="blank"></option><option value="">number of intrusive memories in the time before the experiment</option><option value="answer">the task completed after watching the film</option></select> on <select class="webex-select"><option value="blank"></option><option value="answer">number of intrusive memories in the time before the experiment</option><option value="">the task completed after watching the film</option></select>. There was <select class="webex-select"><option value="blank"></option><option value="">a statistically significant</option><option value="answer">no significant</option></select> difference in the <select class="webex-select"><option value="blank"></option><option value="answer">number of intrusive memories</option><option value="">the task completed after watching the film</option></select> between groups, F(<input class="webex-solveme nospaces" size="1" data-answer="[&quot;3&quot;]">, <input class="webex-solveme nospaces" size="2" data-answer="[&quot;68&quot;]">) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.163&quot;,&quot;.163&quot;]">, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.921&quot;,&quot;.921&quot;]">.</p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p>The ANOVA table from the control analysis.</p>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img2b.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="effect-size-for-anova" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="effect-size-for-anova">4. Effect size for ANOVA</h2>
+<p>There are several possible effect sizes we can use for ANOVA analyses. We will use <span class="math inline">\(\eta^2\)</span> (pronouced eta-squared) for one-way ANOVA. The Learning Statistics with Jamovi textbook has a nice summary of how to interpret <span class="math inline">\(\eta^2\)</span>.</p>
+<blockquote class="blockquote">
+<p>The interpretation of <span class="math inline">\(\eta^2\)</span> is equally straightforward. It refers to the proportion of the variability in the outcome variable that can be explained in terms of the predictor. A value of 0 means that there is no relationship at all between the two, whereas a value of 1 means that the relationship is perfect. Better yet, the value is very closely related to <span class="math inline">\(R^2\)</span> and has an equivalent interpretation</p>
+<ul>
+<li>Slightly abridged quote from <a href="https://davidfoxcroft.github.io/lsj-book/13-Comparing-several-means-one-way-ANOVA.html#effect-size">Learning Statistics with Jamovi</a></li>
+</ul>
+</blockquote>
+<p>Very straightforward indeed, we can think of <span class="math inline">\(\eta^2\)</span> as an <span class="math inline">\(R^2\)</span> for the ANOVA. It is also straightforward to compute - just check the box under ‘Effect Sizes’.</p>
 <p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img2.png" class="img-fluid"></p>
+<p>There are two other options for ANOVA effect sizes:</p>
+<ul>
+<li>partial <span class="math inline">\(\eta^2\)</span> will be useful for more complex ANOVA designs you will work with in other modules.</li>
+<li><span class="math inline">\(\omega^2\)</span> is an unbiased estimator that could be used in place of <span class="math inline">\(\eta^2\)</span>. Some sources recommend that we use <span class="math inline">\(\omega^2\)</span> rather than <span class="math inline">\(\eta^2\)</span> <span class="citation" data-cites="Albers2018_when">(<a href="#ref-Albers2018_when" role="doc-biblioref">Albers and Lakens 2018</a>)</span>. You could use either and might encounter either in the literature.</li>
+</ul>
 </section>
 <section id="post-hoc-tests" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="post-hoc-tests">4. Post-hoc Tests</h2>
+<h2 class="unnumbered anchored" data-anchor-id="post-hoc-tests">5. Post-hoc Tests</h2>
+<p>An ANOVA analysis returns a significant effect that indicates that there is a difference between the group means but doesn’t tell us anything about which groups are actually different.</p>
+<p>If, and only if, the overall ANOVA returns a significant result - we can use post-hoc tests to explore what the specific differences actually are. This is a critical step for the interpretation of our results.</p>
+<p>In the example above we saw that the experimental task that participants complete after watching the film does change the mean number of intrusive memories that the participants experience. The ANOVA table doesn’t say more than this - as far as we know from this analysis it is possible that playing Tetris may have increased or decreased the number of intrusive memories.</p>
+<p>Post-hoc tests are the answer for this - and post hoc tests are based on ‘Estimated Marginal Means’. These sound more complex than they are. Estimated marginal means are adjusted means (and associated standard errors etc) that account for the assumptions of a statistical model and for the effects of any other variables in a model.</p>
+<p>So, for an ANOVA the estimated means are adjusted for the assumption of <strong>homogeneity of variance</strong> - that each group has the same variance. We do not have any other variables to adjust for in this analysis but this is relevant for future Analysis of Co-Variance (ANCOVA) models that you may encounter in future modules.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the ‘Estimated Marginal Means’ drop down menu and add ‘Condition’ to the Terms box to compute the estimated marginal mean for each group within Condition. Make sure to include the plots and tables in the ouputs (though the x axis labels for this particular plot aren’t very good…).</p>
 <p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img5.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The table gives us our four marginal means summarising the mean of each group alongside a 95% confidence interval for that estimate and the Standard Error for each mean.</p>
+<p>The chart gives us a more human readable summary of the means with the associated confidence intervals.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - which conditions do you think are likely to be significantly different?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <code>No-Task Control</code> and <code>Reactivation+Tetris</code> conditions have the largest difference in mean, with <code>Tetris Only</code> and <code>Reactivation Only</code> somewhere in between.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - why are the standard errors for each mean all the same?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Remember that these are the means computed <strong>under the assumptions of the ANOVA</strong>, not the normal means we see in the descriptive statistics.</p>
+<p>This ANOVA assumes <strong>homogeneity of variance</strong> and the marginal mean can take this into account. If we computed the descriptive statistics the usual way we would see the individual estimate of the standard error for each group.</p>
+</div>
+</div>
+</div>
+<p>So, lets run our post-hoc tests!</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the ‘Post-Hoc Tests’ drop down menu and add ‘Condition’ to the right hand box to compute the post hoc comparison between each pair of groups within Condition.</p>
+<p>Make sure to include ‘Tukey’ correction and add the Cohen’s d effect size.</p>
 <p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img4.png" class="img-fluid"></p>
+</div>
+</div>
+<p>SO - NEXT STEPS HERE</p>
 </section>
 <section id="checking-assumptions" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="checking-assumptions">5. Checking assumptions</h2>
+<h2 class="unnumbered anchored" data-anchor-id="checking-assumptions">6. Checking assumptions</h2>
 <p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img3.png" class="img-fluid"></p>
 </section>
-<section id="control-condition" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="control-condition">6. Control Condition</h2>
-<p>Run yourself with Control variable - do you see a difference?</p>
+<section id="anova-on-log-transformed-data" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="anova-on-log-transformed-data">7. ANOVA on log transformed data</h2>
+<p><img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img6.png" class="img-fluid"> <img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img7.png" class="img-fluid"> <img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img8.png" class="img-fluid"> <img src="../images/rmb-week-9_computer-practical/rmb-week-9_computer-practical_img9.png" class="img-fluid"></p>
 </section>
 <section id="summary" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="summary">8. Summary</h2>
@@ -409,6 +731,9 @@ Content Info
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Albers2018_when" class="csl-entry" role="listitem">
+Albers, Casper, and Daniël Lakens. 2018. <span>“When Power Analyses Based on Pilot Data Are Biased: Inaccurate Effect Size Estimators and Follow-up Bias.”</span> <em>Journal of Experimental Social Psychology</em> 74 (January): 187–95. <a href="https://doi.org/10.1016/j.jesp.2017.09.004">https://doi.org/10.1016/j.jesp.2017.09.004</a>.
+</div>
 <div id="ref-Holmes2009_CanPlaying" class="csl-entry" role="listitem">
 Holmes, Emily A., Ella L. James, Thomas Coode-Bate, and Catherine Deeprose. 2009. <span>“Can Playing the Computer Game <span>‘Tetris’</span> Reduce the Build-up of Flashbacks for Trauma? A Proposal from Cognitive Science.”</span> Edited by Vaughan Bell. <em>PLoS ONE</em> 4 (1): e4153. <a href="https://doi.org/10.1371/journal.pone.0004153">https://doi.org/10.1371/journal.pone.0004153</a>.
 </div>
@@ -1039,6 +1364,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../tutorials/rmb-week-8_sampling-distributions-mean.html" class="pagination-link" aria-label="Week 8 - Sampling Distributions of Means">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 8 - Sampling Distributions of Means</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../tutorials/rmb-week-10_sampling-distributions-tvalues.html" class="pagination-link" aria-label="Week 10 - Sampling Distributions of t-values">
+        <span class="nav-page-text">Week 10 - Sampling Distributions of t-values</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
