@@ -220,7 +220,7 @@ To report a one-way ANOVA to APA format you can follow this broad template.
 
 Use the ANOVA table to complete this statement reporting the results of the ANOVA. Fill in the spaces provided.
 
-A one-way ANOVA was conducted to compare the effect of `r mcq(c(answer = "number of intrusive memories in the week after the experiment", "the task completed after watching the film"))` on `r mcq(c("number of intrusive memories in the week after the experiment", answer = "the task completed after watching the film"))`. There was `r mcq(c(answer = "a statistically significant", "no significant"))` difference in `r mcq(c(answer = "number of intrusive memories", "post film task"))` between groups, F(`r fitb(3)`, `r fitb(68)`) = `r fitb(3.79)`, p = `r fitb(0.014)`.
+A one-way ANOVA was conducted to compare the effect of the `r mcq(c("number of intrusive memories in the week after the experiment", answer = "task completed after watching the film"))` on the `r mcq(c(answer = "number of intrusive memories in the week after the experiment", "task completed after watching the film"))` . There was `r mcq(c(answer = "a statistically significant", "no significant"))` difference in `r mcq(c(answer = "number of intrusive memories", "post film task"))` between groups, F(`r fitb(3)`, `r fitb(68)`) = `r fitb(3.79)`, p = `r fitb(0.014)`.
 
 ## Hint
 
