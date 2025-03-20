@@ -15,16 +15,15 @@ The sampling distribution is central to how we can move from t-values to p-value
 |  ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods          |
 |-----|:-------------------------------------------|
 |            | Sampling Distributions                  |
-|            | t-values                  |
-|            | p-values                           |
+
 
 : Learning objectives for this session
 
 |    ![](../images/logos/rm-logo_data-skills.png){width=50px}      | Data Skills       |
 |-----|:-------------------------------------------|
-|          | Computing a one sample t-test in R              |
 |          | Simulating data in R              |
 |          | Writing loops in R              |
+|          | Creating histograms in R              |
 
 
 |      ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
@@ -36,7 +35,7 @@ The sampling distribution is central to how we can move from t-values to p-value
 
 TLDR: There is no data to download! we're going to make the data ourselves.
 
-The dataset this week is very simple - we're going to create it ourselves using R. At this point, we know a lot about the types of questions that we can ask with t-tests and we know a lot about the data processing around it. We can check our understanding of different aspects of these statistical tests by simulating data samples that have known properties (eg mean and standard deviation) and checking if the outcome of the t-test is what we would expect.
+The dataset this week is very simple - we're going to create it ourselves using R. At this point, we know a lot about the types of hypotheses that we can ask when comparing the averages of groups within a dataset. We can check our understanding of different aspects of these statistical tests by simulating data samples that have known properties (eg mean and standard deviation) and checking if the outcome of the t-test is what we would expect.
 
 This way we can numerically validate the tests we're running and take a look under the hood and see what sort of processes Jamovi and R are using to compute the tests for us.
 
@@ -497,7 +496,16 @@ This is a useful way to visualise how accurate our sample mean estimates are lik
 :::
 ::::
 
-## 6. OPTIONAL - Sampling distributions of the maximum {.unnumbered}
+## 6. Standard Error of the Mean {.unnumbered}
+
+The standard error of the mean is a very useful metric which tells us how our estimate of the mean is. We compute it using a formula most of the time if the parametric assumptions hold - but the best way to compute this is directly from the sampling distribution we have just created!
+
+Once we have a sampling distribution for the mean, the standard error of the mean is simply the standard deviation of that samping distribution. Simple.
+
+
+
+
+## 7. OPTIONAL - Sampling distributions of the maximum {.unnumbered}
 
 ::: {.callout-note appearance="simple"}
 # Key step
@@ -639,7 +647,7 @@ hist(min_values, main = "Sampling Distribution of Minimums", xlim=c(130, 200),
 ::::
 
 
-## 7. OPTIONAL - Sampling distributions from non-normal data {.unnumbered}
+## 8. OPTIONAL - Sampling distributions from non-normal data {.unnumbered}
 
 Throughout this course, we have seen many data variables that are not normally distributed. Examples include dice rolls, reaction times and the intrusive memories from last week. These are interesting datasets but don't follow some of the nice assumptions that we can use with normally distributed data.
 
@@ -708,7 +716,7 @@ Secondly, this is why the normal distribution is so important. The Central Limit
 
 The learning statistics with jamovi textbook as an [excellent description of central limit theorem](https://davidfoxcroft.github.io/lsj-book/08-Estimating-unknown-quantities-from-a-sample.html#sec-The-central-limit-theorem) if you want more information.
 
-## 8. Summary {.unnumbered}
+## 9. Summary {.unnumbered}
 
 We've done a lot of work to consolidate our skills on filtering data and computing one sample t-tests! You should now be able to compute these tests in Jamovi and create reproducible R code.
 

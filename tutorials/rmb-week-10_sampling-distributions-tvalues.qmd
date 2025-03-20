@@ -10,6 +10,7 @@ library(webexercises)
 
 # Week 10 : Simulating Sampling Distributions for t-values {.unnumbered}
 
+
 The sampling distribution is central to how we can move from t-values to p-values - yet it is one of the trickier parts of this course. The lectures and pre-lecture materials frequently deal with computer simulations to show the properties of the tests we're using, so this week you will write your own simulation to help understand the sampling distribution!
 
 |  ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods          |
@@ -52,38 +53,116 @@ There is a lot of code in this session - don't be afraid to ask for help from yo
 Today, we'll first introduce some concepts and functions in R to simulate a data sample and compute our own one sample t-test. With that in hand, we will set up code to run thousands of tests in one go to help us to better understand sampling distributions.
 
 
+## 3. Code for a one sample t-test {.unnumbered}
 
-
-## 6. Sampling distributions for one sample t-tests {.unnumbered}
-
-
-So far we've looked at sampling distributions of the mean but we can do the same thing with t-tests to get a sense of how varaible a t statistic might be under different circumstances. This also gives us some important insights into how t and p values are related.
-
-To do this we'll need to make a couple of additions to our code.
-
-
-
-::: {.callout-note appearance="simple"}
-# Key step
-
-Open a new Rj window before starting this segment. The code changes will be large and you may want to refer back to the previous parts for revision later.
-
-:::
-
-The first thing we'll need is to compute a t value for a one sample t-test from our data vector from this definition:
+The first thing we'll need is to compute a t value for a one sample t-test given a dataset. We can work from this definition you'll remember from the lectures.
 
 $$
 t = \frac{\text{The sample mean} - \text{Comparison Value}}{\text{The standard error of the mean}}
 $$
 
-We need to use this code to compute the three ingredients and the t-test itself. Copy this code into your new Rj window and take a moment to understand each line. 
+and
+
+$$
+\text{The standard error of the mean} = \frac{\text{The sample standard deviation}}{\sqrt{n}}
+$$
+
+Let's think about what we'll need to do to compute our t-test. Reading through the definitions, we'll need some basic arithmatic (`+`, `-` and `/`) need to use the following R functions that we have worked with in previous weeks.
+
+| Function | Definition |
+|------|--------------------|
+| `mean()` | Compute the average of the numbers in a data variable |
+| `sd()` | Compute the standard deviation of the numbers in a data variable |
+| `sqrt()` | Compute the square root of a number |
+
+With these components, we can compute the t-value for
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Match the components of the one sample t-test to the R code that computes them. We can assume that our data is in a variable named `sample` and the number of data points is in a variable named `n`. The comparison value that we want to compare our mean to is in a variable named `comparison_value`.
+
+| Assumption | Definition |
+| -----|------------|
+| `sample_mean = ` | `r mcq(c("sample_standard_deviation / sqrt(n)", answer = "mean(sample)", "(sample_mean - comparison_value) / sample_standard_error", "sd(sample)"))` |
+| `sample_standard_deviation = ` | `r mcq(c("sample_standard_deviation / sqrt(n)", "mean(sample)", "(sample_mean - comparison_value) / sample_standard_error", answer = "sd(sample)"))` |
+| `sample_standard_error = ` | `r mcq(c(answer = "sample_standard_deviation / sqrt(n)", "mean(sample)", "(sample_mean - comparison_value) / sample_standard_error", "sd(sample)"))` |
+| `t_value = ` | `r mcq(c("sample_standard_deviation / sqrt(n)", "mean(sample)", answer = "(sample_mean - comparison_value) / sample_standard_error", "sd(sample)"))` |
+
+## Hint
+
+Carefully compare the options to the equations for a t-test and R function definitions above.
+
+:::
+:::
+
+Now we have our ingredients, let's run a t-test!
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Open Jamovi, install the Rj add-on and open a new Rj window before we go any further
+
+:::
+
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Take this code template and copy it across to an Rj window. Can you complete the code to compute a one-sample t-test to quantify how different the mean of `sample` is from the `comparison_value` of zero.
+
+Copy this code into your Rj window (you can overwrite the previous code if you like), and fill in the blanks indicated by  `__YOUR_CODE_HERE__` (you should delete `__YOUR_CODE_HERE__` and replace it with your answer).
 
 ```R
+
 # Number of participants
-n = 20
+n = 25
 
 # Generate a random sample
-sample = rnorm(n, mean = 0, sd = 1)
+sample = rnorm(n, mean=0, sd=1)
+
+# Calculate the sample mean and standard deviation
+sample_mean = __YOUR_CODE_HERE__
+sample_sd = __YOUR_CODE_HERE__
+
+# Calculate the sample error of the mean 
+sample_standard_error = __YOUR_CODE_HERE__
+
+# Define comparison value
+comparison_value = 0
+
+# Compute t-value
+t_value = __YOUR_CODE_HERE__
+
+print(t_value)
+
+```
+## Hint
+
+All the answers are in previous sections, pay particular attention to the code examples in the previous 'Check your understanding' exercise.
+
+Chat with one of your tutors if you get stuck.
+
+## Solution
+
+The final code should look like this
+
+```R
+
+# Number of participants
+n = 25
+
+# Generate a random sample
+sample = rnorm(n, mean=0, sd=1)
 
 # Calculate the sample mean and standard deviation
 sample_mean = mean(sample)
@@ -97,74 +176,76 @@ comparison_value = 0
 
 # Compute t-value
 t_value = (sample_mean - comparison_value) / sample_standard_error
+
 print(t_value)
+
 ```
 
- Note that we're simulating data with a `mean` of zero and using a `comparison_value` of zero as well. This is our Null Model - the t-values we get from this code are ones that might appear if there is no true effect in the data.
+Try running the code to make sure that it prints out a t-value. If you get some red text, it means something has gone wrong. Check your answers and chat with one of the tutors.
 
-![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img15.png)
+:::
+::::
 
+So, now we have some working code to compute our own t-values. This is going to be very useful in this session.
 
-As before, you can run this code a few times to see the variability in the final t-value. Remember this this is a null model - most of the t-values are close to zero, but some are quite large...
+We have checked that the code runs, but it would be good to make sure that we're all actually getting the same answers from the code. This is difficult at the moment as our random number generator will be producing different numbers every time (as it should!). This is normally a good thing but in a teaching setting it can make things difficult.
 
+We can solve this issue by setting a "Random Seed" in our code. A random seed is a starting point for generating a sequence of random numbers. Think of it as the initial value that sets the stage for randomness. When you set a random seed, you ensure that the sequence of random numbers generated can be generated the same way each time. This is really critical for Reproducibility and Consistency when checking code..
 
-<!--# #############################################  -->
-
-:::: callout-tip
-## Check Your Understanding
-
-::: panel-tabset
-## Question
-
-For the final part of new code, we need to combine our t-test with the loop from the previous section.
-
-Copy this code into your Rj window (you can overwrite the previous code if you like), and fill in the blanks indicated by  `__YOUR_CODE_HERE__` (you should delete `__YOUR_CODE_HERE__` and replace it with your answer).
-
-If you get it right you will see a histogram of sampling distribution of t values.
+In R, you can set a random seed using the `set.seed()` function with a number that defines the 'initial conditions' for the random numbers that we will generate. For example, we could use
 
 ```R
-# My loop
-num_simulations = 1000
-
-# Create a numeric variable to store the means
-t_values = numeric(num_simulations)
-
-# Run the loop
-for (i in 1:num_simulations) {
-    # Number of participants
-    n = __YOUR_CODE_HERE__
-
-    # Generate a random sample
-    sample = __YOUR_CODE_HERE__
-
-    # Calculate the sample mean and standard deviation
-    sample_mean = __YOUR_CODE_HERE__
-    sample_sd = __YOUR_CODE_HERE__
-
-    # Calculate the sample error of the mean 
-    sample_standard_error = __YOUR_CODE_HERE__
-
-    # Define comparison value
-    comparison_value = __YOUR_CODE_HERE__
-
-    # Compute t-value
-    t_value[i] = __YOUR_CODE_HERE__
-}
-
-# Plot the sampling distribution of t-values
-hist(t_values, main = "Sampling Distribution of t-values", xlim=c(-4, 4),
-     xlab = "Sample t-value", col = "skyblue", border = "white")
-
+set.seed(123)
 ```
-## Hint
 
-All the answers are in previous sections, pay particular attention to the code defining the t-test in section 5.
+To tell R to generate random numbers using a specific set of initial conditions. We'll get the same sequence of numbers each time we generate a data sample. This means that if we all add the same random seed to the code, we should get the same t-value every time. 
 
-Chat with one of your tutors if you get stuck.
+Let's try adding the random seed to the code.
 
-## Solution
+![](../images/rmb-week-10_computer-practical/rmb-week-10_computer-practical_img0.png)
 
-Well done if you got this correct. The final code should look like this:
+We should all get the value `-0.176` as the answer. Now we can be certain that we're all getting the right answers.
+
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+Adapt your code to compute the t-value for the following conditions. Use a random seed of `123` throughout.
+
+
+1. A data sample of 100 participants with mean of zero and standard deviation of one with a comparison value of zero: t = `r fitb(0.9904)`
+
+2. A data sample of 100 participants with mean of three and standard deviation of one with a comparison value of zero: t = `r fitb(33.86)`
+
+3. A data sample of 10 participants with mean of three and standard deviation of one with a comparison value of two: t = `r fitb(3.563)`
+
+4. A data sample of 10 participants with mean of three and standard deviation of three with a comparison value of two: t = `r fitb(1.353)`
+
+:::
+::::
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+After completing the exercise, reset your code to the following conditions
+
+- `n = 25`
+- `rnorm(n, mean=0, sd=1)`
+- `comparison_value = 0`
+
+:::
+
+## 4. Sampling distributions for one sample t-tests {.unnumbered}
+
+
+
+Note that we're simulating data with a `mean` of zero and using a `comparison_value` of zero as well. This is our Null Model - the t-values we get from this code are ones that might appear if there is no true effect in the data.
+
+
+
 
 ```R
 # My loop
@@ -204,8 +285,7 @@ hist(t_values, main = "Sampling Distribution of t-values", xlim=c(-4, 4),
 ![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img16.png)
 
 
-:::
-::::
+
 
 After this exercise, you can now compute the null model for a one sample t-test yourself. With this code you can run an analysis to explore how likely it is to observe different t-values when we assume the null hypothesis is true.
 
@@ -255,7 +335,23 @@ To conduct a hypothesis test from real data, we would compute the t-statistic as
 
 
 
-## 7. Why do we test the null distribution? {.unnumbered}
+
+## 5. The null model {.unnumbered}
+
+
+
+
+## 6. Computing a p-value {.unnumbered}
+
+
+
+
+
+
+## 7. Why do we test the null hypothesis? {.unnumbered}
+
+
+
 
 
 Finally, let's consider why we test against the null distribution of no effect. This is fairly straightforward from the code we have written so far.
@@ -316,3 +412,9 @@ This is very useful, but the issue that is we have had to assume what the real e
 There are an infinite number of possible sampling distributions when there is a real effect! It isn't possible to know which distribution we should be comparing with without making some massive assumptions about the exact size, variability and direction of effect that we expect to see. This simply isn't possible in practice.
 
 In contrast, the null case is very closely controlled and easier to work with. The interpretation is trickier but rejecting the null hypothesis is a tractable problem that we can do a good job of solving.
+
+
+## 8. Summary
+
+
+## References
