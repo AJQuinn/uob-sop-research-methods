@@ -265,9 +265,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#estimating-the-samping-distribution-of-the-mean" id="toc-estimating-the-samping-distribution-of-the-mean" class="nav-link" data-scroll-target="#estimating-the-samping-distribution-of-the-mean">3. Estimating the samping distribution of the mean</a></li>
   <li><a href="#visualising-the-samping-distribution-of-the-mean" id="toc-visualising-the-samping-distribution-of-the-mean" class="nav-link" data-scroll-target="#visualising-the-samping-distribution-of-the-mean">4. Visualising the samping distribution of the mean</a></li>
   <li><a href="#understanding-the-sampling-distribution-of-the-mean" id="toc-understanding-the-sampling-distribution-of-the-mean" class="nav-link" data-scroll-target="#understanding-the-sampling-distribution-of-the-mean">5. Understanding the sampling distribution of the mean</a></li>
-  <li><a href="#optional---sampling-distributions-of-the-maximum" id="toc-optional---sampling-distributions-of-the-maximum" class="nav-link" data-scroll-target="#optional---sampling-distributions-of-the-maximum">6. OPTIONAL - Sampling distributions of the maximum</a></li>
-  <li><a href="#optional---sampling-distributions-from-non-normal-data" id="toc-optional---sampling-distributions-from-non-normal-data" class="nav-link" data-scroll-target="#optional---sampling-distributions-from-non-normal-data">7. OPTIONAL - Sampling distributions from non-normal data</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8. Summary</a></li>
+  <li><a href="#standard-error-of-the-mean" id="toc-standard-error-of-the-mean" class="nav-link" data-scroll-target="#standard-error-of-the-mean">6. Standard Error of the Mean</a></li>
+  <li><a href="#optional---sampling-distributions-of-the-maximum" id="toc-optional---sampling-distributions-of-the-maximum" class="nav-link" data-scroll-target="#optional---sampling-distributions-of-the-maximum">7. OPTIONAL - Sampling distributions of the maximum</a></li>
+  <li><a href="#optional---sampling-distributions-from-non-normal-data" id="toc-optional---sampling-distributions-from-non-normal-data" class="nav-link" data-scroll-target="#optional---sampling-distributions-from-non-normal-data">8. OPTIONAL - Sampling distributions from non-normal data</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">9. Summary</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -299,14 +300,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td></td>
 <td style="text-align: left;">Sampling Distributions</td>
 </tr>
-<tr class="even">
-<td></td>
-<td style="text-align: left;">t-values</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">p-values</td>
-</tr>
 </tbody>
 </table>
 <table class="caption-top table">
@@ -323,15 +316,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td></td>
-<td style="text-align: left;">Computing a one sample t-test in R</td>
+<td style="text-align: left;">Simulating data in R</td>
 </tr>
 <tr class="even">
 <td></td>
-<td style="text-align: left;">Simulating data in R</td>
+<td style="text-align: left;">Writing loops in R</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td style="text-align: left;">Writing loops in R</td>
+<td style="text-align: left;">Creating histograms in R</td>
 </tr>
 </tbody>
 </table>
@@ -356,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-dataset" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="the-dataset">1. The Dataset</h2>
 <p>TLDR: There is no data to download! we’re going to make the data ourselves.</p>
-<p>The dataset this week is very simple - we’re going to create it ourselves using R. At this point, we know a lot about the types of questions that we can ask with t-tests and we know a lot about the data processing around it. We can check our understanding of different aspects of these statistical tests by simulating data samples that have known properties (eg mean and standard deviation) and checking if the outcome of the t-test is what we would expect.</p>
+<p>The dataset this week is very simple - we’re going to create it ourselves using R. At this point, we know a lot about the types of hypotheses that we can ask when comparing the averages of groups within a dataset. We can check our understanding of different aspects of these statistical tests by simulating data samples that have known properties (eg mean and standard deviation) and checking if the outcome of the t-test is what we would expect.</p>
 <p>This way we can numerically validate the tests we’re running and take a look under the hood and see what sort of processes Jamovi and R are using to compute the tests for us.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -836,8 +829,13 @@ Check Your Understanding
 </div>
 </div>
 </section>
+<section id="standard-error-of-the-mean" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="standard-error-of-the-mean">6. Standard Error of the Mean</h2>
+<p>The standard error of the mean is a very useful metric which tells us how our estimate of the mean is. We compute it using a formula most of the time if the parametric assumptions hold - but the best way to compute this is directly from the sampling distribution we have just created!</p>
+<p>Once we have a sampling distribution for the mean, the standard error of the mean is simply the standard deviation of that samping distribution. Simple.</p>
+</section>
 <section id="optional---sampling-distributions-of-the-maximum" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="optional---sampling-distributions-of-the-maximum">6. OPTIONAL - Sampling distributions of the maximum</h2>
+<h2 class="unnumbered anchored" data-anchor-id="optional---sampling-distributions-of-the-maximum">7. OPTIONAL - Sampling distributions of the maximum</h2>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -964,7 +962,7 @@ Check Your Understanding
 </div>
 </section>
 <section id="optional---sampling-distributions-from-non-normal-data" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="optional---sampling-distributions-from-non-normal-data">7. OPTIONAL - Sampling distributions from non-normal data</h2>
+<h2 class="unnumbered anchored" data-anchor-id="optional---sampling-distributions-from-non-normal-data">8. OPTIONAL - Sampling distributions from non-normal data</h2>
 <p>Throughout this course, we have seen many data variables that are not normally distributed. Examples include dice rolls, reaction times and the intrusive memories from last week. These are interesting datasets but don’t follow some of the nice assumptions that we can use with normally distributed data.</p>
 <p>Now that we have our loops to compute sampling distributions, we can explore how much of a problem non normally distributed data is for our estimates.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
@@ -1016,7 +1014,7 @@ Key step
 <p>The learning statistics with jamovi textbook as an <a href="https://davidfoxcroft.github.io/lsj-book/08-Estimating-unknown-quantities-from-a-sample.html#sec-The-central-limit-theorem">excellent description of central limit theorem</a> if you want more information.</p>
 </section>
 <section id="summary" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="summary">8. Summary</h2>
+<h2 class="unnumbered anchored" data-anchor-id="summary">9. Summary</h2>
 <p>We’ve done a lot of work to consolidate our skills on filtering data and computing one sample t-tests! You should now be able to compute these tests in Jamovi and create reproducible R code.</p>
 </section>
 <section id="references" class="level2 unnumbered">
