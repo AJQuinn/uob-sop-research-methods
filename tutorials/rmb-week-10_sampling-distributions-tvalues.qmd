@@ -521,10 +521,13 @@ If you have `set.seed(123)` at the top of your script you should have exactly th
 
 The results are telling us that we have a p-value of 0.019. This is less than our conventional threshold of 0.05 so we would consider a t-value of 2.3 to be statistically significant.
 
-We can always assume that the null distribution of t-values is symmetrical. This is a key point that means we can simplify some things. A couple of points
+Our code is only checking the right sided tail of the null distribution. This is ok as we can assume that the null distribution of t-values is symmetrical. This is a key point that means we can simplify some things.
 
-- This is a One-Tailed test, as we are only considering one side of the distribution in our p-value calculation. A two-tailed test is simple though, simply divide the p-value by 2 as the lower tail will have 
+- This is a One-Tailed test, as we are only considering one side of the distribution in our p-value calculation. A two-tailed test is simple though, simply divide the p-value by 2 as the lower tail should have an identical shape. For example if our code says that a result has a one-tailed p-value of `0.08` then the two-tailed p-value is `0.04`.
 
+- We can treat postive and negative t-values the same in a two tailed test. A t-value of +1.3 and -1.3 will have the same p-value.
+
+- Our code is only checking the high end of the distribution (values to the right of the red line). p-value for a negative t-value is simple to compute though. It is just one with the computed p-value subtracted from it. eg if we have a t-value of -1, our code will say that `0.837` (or 83.7%) of the null values are larger - we can simply subtract it from one to get the correct p-value `1 - 0.837 = 0.163`.
 
 :::: callout-tip
 ## Check Your Understanding - Data Quiz
@@ -536,28 +539,41 @@ What is the p-value for the following values of `observed_t_value`?
 
 | `observed_t_value` | Tail of test | p-value |
 | ---------| -----------| ------------|
-| 1 | One-Tailed | `r fitb()` |
-
-
+| 1 | One-Tailed | `r fitb(0.151)` |
+| 5 | One-Tailed | `r fitb(0.001)` |
+| 2.5 | Two-Tailed | `r fitb(0.05)` |
+| -1.4 | One-Tailed | `r fitb(0.085)` |
+| -0.5 | Two-Tailed | `r fitb(0.191)` |
 
 ## Hint
 
-Carefully compare the options to the equations for a t-test and R function definitions above.
+Carefull read the key points from the bullet points above about converting values. Talk with your tutor if you get stuck.
 
 :::
 :::
 
-## 7. Why do we test the null hypothesis? {.unnumbered}
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Take a moment to feel good about yourself if you have made it this far. These are not straightforward concepts and take time to get used to. Seriously well done!
+
+If you're here but still finding it tough, don't worry - speak with one of your workshop tutors and they can help to explain things to you.
+
+:::
+
+
+## 7. OPTIONAL: Why do we test the null hypothesis? {.unnumbered}
 
 
 
-
-
-Finally, let's consider why we test against the null distribution of no effect. This is fairly straightforward from the code we have written so far.
+Finally, let's consider why we test against the null distribution of no effect. This is a weird concept but is fairly straightforward to see why we have to do it based onfrom the code we have written so far.
 
 We can absolutely compute a sampling distribution for a case where there is a real difference between the mean and the comparison value. For example, this code simulates data with a mean of 1 and compares that to a comparison value of 0. Note that the `rnorm()` function inputs have changed.
 
 ```R
+set.seed(123)
+
 # My loop
 num_simulations = 1000
 
@@ -586,18 +602,28 @@ for (i in 1:num_simulations) {
     t_values[i] = (sample_mean - comparison_value) / sample_standard_error
 }
 
+observed_t_value = 2.3
+percentile <- sum(t_values >= observed_t_value) / length(t_values)
+
+print('My t-value')
+print(observed_t_value)
+print('My p-value')
+print(percentile)
+
 # Plot the sampling distribution of t-values
 hist(t_values, breaks=24, main = "Sampling Distribution of t-values", xlim=c(-10, 10),
      xlab = "Sample t-value", col = "skyblue", border = "white")
+     
+abline(v = observed_t_value, col = "red", lwd=5)
 ```
 
 The result is a sampling distribution which is not centred around mean.
 
-![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img20.png)
+![](../images/rmb-week-10_computer-practical/rmb-week-10_computer-practical_img4.png)
 
-This distribution tells us that with 20 participants, a mean of 1 and a standard deviation of 1 - we are mostly likely to get a -value of 5 but that t-value could be as small as 2 or as large as 9 for extreme data samples.
+This distribution tells us that with 20 participants, a mean of 1 and a standard deviation of 1 - we are mostly likely to get a t-value of 5 but that t-value could be as small as 2 or as large as 9 for extreme data samples.
 
-This is very useful, but the issue that is we have had to assume what the real effect is. We get radically different sampling distributions if we change that effect around.
+This is very useful, but the issue that is we have had to assume what the real effect is. We get radically different sampling distributions if we change that effect around. Take a look at these examples.
 
 #### Mean of 0.5 and standard deviation of 1 with 20 participants compared to zero.
 ![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19a.png){width=450px}
@@ -607,6 +633,8 @@ This is very useful, but the issue that is we have had to assume what the real e
 
 #### Mean of 1.5 and standard deviation of 1 with 20 participants compared to zero.
 ![](../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19c.png){width=450px}
+
+The distributions move around so much that the percentile value of the same t-value would be completely incomparable. A t-value of 5 is hugely unlikey in some cases and very frequent in others. **If we have to assume that there is a specific effect the result would be extremely senstive to exactly what that assumption is**. In contrast there is only one distribution to work with if we assume there is no effect.
 
 There are an infinite number of possible sampling distributions when there is a real effect! It isn't possible to know which distribution we should be comparing with without making some massive assumptions about the exact size, variability and direction of effect that we expect to see. This simply isn't possible in practice.
 
