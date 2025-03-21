@@ -525,8 +525,6 @@ Our code is only checking the right sided tail of the null distribution. This is
 
 - This is a One-Tailed test, as we are only considering one side of the distribution in our p-value calculation. A two-tailed test is simple though, simply divide the p-value by 2 as the lower tail should have an identical shape. For example if our code says that a result has a one-tailed p-value of `0.08` then the two-tailed p-value is `0.04`.
 
-- We can treat postive and negative t-values the same in a two tailed test. A t-value of +1.3 and -1.3 will have the same p-value.
-
 - Our code is only checking the high end of the distribution (values to the right of the red line). p-value for a negative t-value is simple to compute though. It is just one with the computed p-value subtracted from it. eg if we have a t-value of -1, our code will say that `0.837` (or 83.7%) of the null values are larger - we can simply subtract it from one to get the correct p-value `1 - 0.837 = 0.163`.
 
 :::: callout-tip
@@ -643,5 +641,6 @@ In contrast, the null case is very closely controlled and easier to work with. T
 
 ## 8. Summary
 
+It is worth repeating - well done for completing this session. It can be hard work developing the code to explore sampling distributions, t-values and p-values but it is a fantastic way to gain a more intuitive understanding of how and why we do things the way we do.
 
 ## References
