@@ -911,7 +911,6 @@ Jamovi Issue
 <p>Our code is only checking the right sided tail of the null distribution. This is ok as we can assume that the null distribution of t-values is symmetrical. This is a key point that means we can simplify some things.</p>
 <ul>
 <li><p>This is a One-Tailed test, as we are only considering one side of the distribution in our p-value calculation. A two-tailed test is simple though, simply divide the p-value by 2 as the lower tail should have an identical shape. For example if our code says that a result has a one-tailed p-value of <code>0.08</code> then the two-tailed p-value is <code>0.04</code>.</p></li>
-<li><p>We can treat postive and negative t-values the same in a two tailed test. A t-value of +1.3 and -1.3 will have the same p-value.</p></li>
 <li><p>Our code is only checking the high end of the distribution (values to the right of the red line). p-value for a negative t-value is simple to compute though. It is just one with the computed p-value subtracted from it. eg if we have a t-value of -1, our code will say that <code>0.837</code> (or 83.7%) of the null values are larger - we can simply subtract it from one to get the correct p-value <code>1 - 0.837 = 0.163</code>.</p></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1062,6 +1061,7 @@ Key step
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">8. Summary</h2>
+<p>It is worth repeating - well done for completing this session. It can be hard work developing the code to explore sampling distributions, t-values and p-values but it is a fantastic way to gain a more intuitive understanding of how and why we do things the way we do.</p>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
