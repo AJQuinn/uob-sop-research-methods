@@ -533,7 +533,7 @@ Our code is only checking the right sided tail of the null distribution. This is
 ::: panel-tabset
 ## Questions
 
-What is the p-value for the following values of `observed_t_value`?
+What is the p-value for the following values of `observed_t_value`? Make sure you have `set.seed(123)` set at the top of your script or the values will differ from mine!
 
 | `observed_t_value` | Tail of test | p-value |
 | ---------| -----------| ------------|
