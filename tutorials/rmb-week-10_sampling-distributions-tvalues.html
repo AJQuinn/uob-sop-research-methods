@@ -294,7 +294,7 @@ window.Quarto = {
   <li><a href="#sampling-distributions-for-one-sample-t-tests" id="toc-sampling-distributions-for-one-sample-t-tests" class="nav-link" data-scroll-target="#sampling-distributions-for-one-sample-t-tests">4. Sampling distributions for one sample t-tests</a></li>
   <li><a href="#the-null-model" id="toc-the-null-model" class="nav-link" data-scroll-target="#the-null-model">5. The null model</a></li>
   <li><a href="#computing-a-p-value" id="toc-computing-a-p-value" class="nav-link" data-scroll-target="#computing-a-p-value">6. Computing a p-value</a></li>
-  <li><a href="#why-do-we-test-the-null-hypothesis" id="toc-why-do-we-test-the-null-hypothesis" class="nav-link" data-scroll-target="#why-do-we-test-the-null-hypothesis">7. Why do we test the null hypothesis?</a></li>
+  <li><a href="#optional-why-do-we-test-the-null-hypothesis" id="toc-optional-why-do-we-test-the-null-hypothesis" class="nav-link" data-scroll-target="#optional-why-do-we-test-the-null-hypothesis">7. OPTIONAL: Why do we test the null hypothesis?</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8. Summary</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
@@ -628,7 +628,7 @@ Key step
 <div class="callout-body-container callout-body">
 <p>After completing the exercise, reset your code to the following conditions</p>
 <ul>
-<li><code>n = 25</code></li>
+<li><code>n = 20</code></li>
 <li><code>rnorm(n, mean=0, sd=1)</code></li>
 <li><code>comparison_value = 0</code></li>
 </ul>
@@ -715,53 +715,335 @@ Key step
 </div>
 <p>In all of these analyses we are absolutely assuming that the null hypothesis of no difference is true. With this assumptions, our sampling distribution shows that we get more extreme t-values (around +/- 4) by chance when working with smaller data samples. By contrast for larger data samples these same values occur extremely rarely.</p>
 <p>When data are perfectly normally distributed (parametric assumptions are met), Jamovi and R can compute these null distributions for us using a shortcut without simulating lots of data samples but the result is the same.</p>
-<p>To conduct a hypothesis test from real data, we would compute the t-statistic as normal and can then compare the observed value to this sampling distribution that assumes no difference and has the same sample size. If the t-value we’ve observed from the real data would be extremely unlikely to have occured if the null is true, then we can reject that hypothesis.</p>
 </section>
 <section id="the-null-model" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="the-null-model">5. The null model</h2>
+<p>We introduced the idea of a null model in the lectures. This is a model of what the outcome of our statistics would look like if the data have a random and unbiased structure. The null model is closely linked to the null hypothesis - it describes the probability to observing a particular outcome from our statistics under the assumption that the null hypothesis is true.</p>
+<p>The sampling distributions we have computed above are exactly null models. We have</p>
+<ol type="1">
+<li>Defined population parameters in which we know for sure that the mean is zero</li>
+<li>Sampled data observations from that population</li>
+<li>Computed the one sample t-test between the data sample and zero</li>
+<li>Stored the t-value for every single resampling</li>
+<li>Visualised the distribution of t-values with a histrogram</li>
+</ol>
+<p>The critical point here is that the null distribution is very stable. We can make confident predictions about what the null distribution of t-values will look like when there is no effect. Let’s try some examples:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>How does the distribution of t-values change when we make these changes? Importantly, we know that there is no effect (no difference between the population mean and the comparison value) in all of these examples.</p>
+<p>Remember that we are using random sampling so run each example a few times to get a sense of the result.</p>
+<p>How does the t-value distribution change when:</p>
+<ul>
+<li><p>…we increase the standard deviation of the population parameters? <select class="webex-select"><option value="blank"></option><option value="">The mean increases</option><option value="">the variance increases</option><option value="answer">it stays pretty much the same</option><option value="">the variance decreases</option><option value="">the mean decreases</option></select></p></li>
+<li><p>…we decrease the standard deviation of the population parameters? <select class="webex-select"><option value="blank"></option><option value="">The mean increases</option><option value="">the variance increases</option><option value="answer">it stays pretty much the same</option><option value="">the variance decreases</option><option value="">the mean decreases</option></select></p></li>
+<li><p>…we change the mean and comparison value (keeping both values the same)? <select class="webex-select"><option value="blank"></option><option value="">The mean increases</option><option value="">the variance increases</option><option value="answer">it stays pretty much the same</option><option value="">the variance decreases</option><option value="">the mean decreases</option></select></p></li>
+</ul>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>Read through your code carefully to find the component that you should change.</p>
+<p>Talk with your tutor if you’re stuck.</p>
+<p>(We’ll look at changing the means more in a later section…)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>So, the null model for our t-tests is the sampling distribution of t-values when we know there is no effect. Critically this null module is super stable! We can make a lot of changes to the population parameters and precise values being compared and the distribution remains largely the same. We saw in the previous section that sample size can change the tails of the distribution a bit, but most of the rest doesn’t make a big difference.</p>
+<p>This is a critical point that enables us to complete our statistical assessment. Now that we can be really confident about the probability of observing a particular t-value under the assumption that there is no effect - we’re ready to compute a p-value for our hypothesis test.</p>
 </section>
 <section id="computing-a-p-value" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="computing-a-p-value">6. Computing a p-value</h2>
+<p>Remember the definition of the p-value from the lectures, this is a bit fiddely but will hopefully make some more sense now that you’re more familiar with the null model. Take a look at the lecture materials from week 5 if you need a refresher.</p>
+<blockquote class="blockquote">
+<p>The p-value tells us the probability of obtaining test results at least as extreme as the&nbsp;result actually observed, under the assumption that the&nbsp;null hypothesis&nbsp;is correct.</p>
+</blockquote>
+<p>We now have all the ingredients to compute this value. We need</p>
+<ul>
+<li>A null model distribution telling us how likely we are to observe particular t-values when we assume the null hypothesis is correct</li>
+<li>The t-value from a particular data sample</li>
+<li>A statistical significance threshold</li>
+</ul>
+<p>To conduct a hypothesis test, we need to compare an individual t-value from a test to the null distribution of t-value that we have just computed. Remember that the null distrbution is very stable - if we know the sample size then we can use the same null distribution for any t-test!</p>
+<p>Let’s put this into practice.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before going any further, reset your code to the following conditions</p>
+<ul>
+<li><code>n = 20</code></li>
+<li><code>rnorm(n, mean=0, sd=1)</code></li>
+<li><code>comparison_value = 0</code></li>
+</ul>
+</div>
+</div>
+<p>We can visualise where one single t-value is on a histogram by using a convenient R function named <code>abline()</code> which can be used to plot straight lines on a figure. We can use <code>abline()</code> as follows:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This has specified three input arguments.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 79%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Input</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>v</code></td>
+<td>A value at which to plot a Vertical line</td>
+</tr>
+<tr class="even">
+<td><code>col</code></td>
+<td>Optional input to choose a colour</td>
+</tr>
+<tr class="odd">
+<td><code>lwd</code></td>
+<td>Optional input to specify the width of the line <code>lwd=1</code> is a thin line and <code>lwd=5</code> would be very thick.</td>
+</tr>
+</tbody>
+</table>
+<p>We can add this to the bottom of our code to see where a t-value of <code>1</code> (defined by <code>v=1</code> in the function) would appear on the null distribution. Try changing the value of <code>v</code> a few times to see the difference.</p>
+<p><img src="../images/rmb-week-10_computer-practical/rmb-week-10_computer-practical_img1.png" class="img-fluid"></p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jamovi Issue
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is likely that Jamovi will present two plots when you run this code rather than one. If this happens you will have one plot for the histogram and a second for the same histogram with the vertical line (example in the image above).</p>
+<p>I’m not sure why this happens but it is a mostly harmless quirk of Rj - please ignore the first plot!</p>
+</div>
+</div>
+<p>The p-value describes the probabilty of observing a t-value as least as large as the one from our test. This is equivalent to ‘cutting’ the null distribution at the specific t-value and calculating how likely it is to see a result that is more extreme than the point of the cut.</p>
+<p>For example, from the lecture notes, here we have a parametric null distribution of t-values (parametric meaning that it wasn’t computed from simulations) that is cut at a position that means we have a 5% chance of observing a value at least as extreme as the cut.</p>
+<p><img src="../images/rmb-week-10_computer-practical/rmb-week-10_computer-practical_img2.png" class="img-fluid" width="450"></p>
+<p>We can do the same to compute the probability of observing a value to the left or to the right of the vertical line we’ve added to our plot. We can use some simple maths to compute exactly this value</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the percentile of the value 1</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>observed_value <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>percentile <span class="ot">=</span> <span class="fu">sum</span>(t_values <span class="sc">&gt;=</span> observed_value) <span class="sc">/</span> <span class="fu">length</span>(t_values)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(percentile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This code does the following steps:</p>
+<ul>
+<li><code>sum(t_values &lt;= observed_t_value)</code> counts how many values in the data are less than or equal to the specified value.</li>
+<li><code>length(t_values)</code> gives the total number of values in the data.</li>
+<li>Dividing the count by the total number of values converts the result into a decimal indicating the proportion of values in <code>t_values</code> that are larger than or equal to <code>observed_t_value</code>.</li>
+</ul>
+<p>The final value of <code>percentile</code> is then our p-value, which exactly matches the definition from the lecture.</p>
+<blockquote class="blockquote">
+<p>The p-value tells us the probability of obtaining test results at least as extreme as the&nbsp;result actually observed, under the assumption that the&nbsp;null hypothesis&nbsp;is correct.</p>
+</blockquote>
+<p>Let’s put all of this together in our code.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># My loop</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>t_values <span class="ot">=</span> <span class="fu">numeric</span>(num_simulations)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the loop</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of participants</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate a random sample</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">=</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">4</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample mean and standard deviation</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    sample_mean <span class="ot">=</span> <span class="fu">mean</span>(sample)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    sample_sd <span class="ot">=</span> <span class="fu">sd</span>(sample)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample error of the mean </span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    sample_standard_error <span class="ot">=</span> sample_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define comparison value</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    comparison_value <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute t-value</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    t_values[i] <span class="ot">=</span> (sample_mean <span class="sc">-</span> comparison_value) <span class="sc">/</span> sample_standard_error</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>observed_t_value <span class="ot">=</span> <span class="fl">2.3</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>percentile <span class="ot">&lt;-</span> <span class="fu">sum</span>(t_values <span class="sc">&gt;=</span> observed_t_value) <span class="sc">/</span> <span class="fu">length</span>(t_values)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'My t-value'</span>)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(observed_t_value)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'My p-value'</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(percentile)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the sampling distribution of t-values</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(t_values, <span class="at">breaks=</span><span class="dv">24</span>, <span class="at">main =</span> <span class="st">"Sampling Distribution of t-values"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>),</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Sample t-value"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> observed_value, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, we’ve added some code to specify a t-value from some data that we need to compute a p-value for (<code>observed_t_value = 2.3</code>), we compute and print the associated p-value and create the histogram with a red line indicating the position of <code>observed_t_value</code>.</p>
+<p>The result should look like this (ignoring this odd double plot…)</p>
+<p><img src="../images/rmb-week-10_computer-practical/rmb-week-10_computer-practical_img3.png" class="img-fluid"></p>
+<p>If you have <code>set.seed(123)</code> at the top of your script you should have exactly the same values that I do.</p>
+<p>The results are telling us that we have a p-value of 0.019. This is less than our conventional threshold of 0.05 so we would consider a t-value of 2.3 to be statistically significant.</p>
+<p>Our code is only checking the right sided tail of the null distribution. This is ok as we can assume that the null distribution of t-values is symmetrical. This is a key point that means we can simplify some things.</p>
+<ul>
+<li><p>This is a One-Tailed test, as we are only considering one side of the distribution in our p-value calculation. A two-tailed test is simple though, simply divide the p-value by 2 as the lower tail should have an identical shape. For example if our code says that a result has a one-tailed p-value of <code>0.08</code> then the two-tailed p-value is <code>0.04</code>.</p></li>
+<li><p>We can treat postive and negative t-values the same in a two tailed test. A t-value of +1.3 and -1.3 will have the same p-value.</p></li>
+<li><p>Our code is only checking the high end of the distribution (values to the right of the red line). p-value for a negative t-value is simple to compute though. It is just one with the computed p-value subtracted from it. eg if we have a t-value of -1, our code will say that <code>0.837</code> (or 83.7%) of the null values are larger - we can simply subtract it from one to get the correct p-value <code>1 - 0.837 = 0.163</code>.</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>What is the p-value for the following values of <code>observed_t_value</code>?</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 34%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><code>observed_t_value</code></th>
+<th>Tail of test</th>
+<th>p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>One-Tailed</td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.151&quot;,&quot;.151&quot;]"></td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>One-Tailed</td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.001&quot;,&quot;.001&quot;]"></td>
+</tr>
+<tr class="odd">
+<td>2.5</td>
+<td>Two-Tailed</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.05&quot;,&quot;.05&quot;]"></td>
+</tr>
+<tr class="even">
+<td>-1.4</td>
+<td>One-Tailed</td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.085&quot;,&quot;.085&quot;]"></td>
+</tr>
+<tr class="odd">
+<td>-0.5</td>
+<td>Two-Tailed</td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.191&quot;,&quot;.191&quot;]"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p>Carefull read the key points from the bullet points above about converting values. Talk with your tutor if you get stuck.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Take a moment to feel good about yourself if you have made it this far. These are not straightforward concepts and take time to get used to. Seriously well done!</p>
+<p>If you’re here but still finding it tough, don’t worry - speak with one of your workshop tutors and they can help to explain things to you.</p>
+</div>
+</div>
 </section>
-<section id="why-do-we-test-the-null-hypothesis" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="why-do-we-test-the-null-hypothesis">7. Why do we test the null hypothesis?</h2>
-<p>Finally, let’s consider why we test against the null distribution of no effect. This is fairly straightforward from the code we have written so far.</p>
+<section id="optional-why-do-we-test-the-null-hypothesis" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="optional-why-do-we-test-the-null-hypothesis">7. OPTIONAL: Why do we test the null hypothesis?</h2>
+<p>Finally, let’s consider why we test against the null distribution of no effect. This is a weird concept but is fairly straightforward to see why we have to do it based onfrom the code we have written so far.</p>
 <p>We can absolutely compute a sampling distribution for a case where there is a real difference between the mean and the comparison value. For example, this code simulates data with a mean of 1 and compares that to a comparison value of 0. Note that the <code>rnorm()</code> function inputs have changed.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My loop</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">1000</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>t_values <span class="ot">=</span> <span class="fu">numeric</span>(num_simulations)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the loop</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of participants</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">=</span> <span class="dv">20</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate a random sample</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">=</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample mean and standard deviation</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    sample_mean <span class="ot">=</span> <span class="fu">mean</span>(sample)</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    sample_sd <span class="ot">=</span> <span class="fu">sd</span>(sample)</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample error of the mean </span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    sample_standard_error <span class="ot">=</span> sample_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define comparison value</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    comparison_value <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute t-value</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    t_values[i] <span class="ot">=</span> (sample_mean <span class="sc">-</span> comparison_value) <span class="sc">/</span> sample_standard_error</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the sampling distribution of t-values</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(t_values, <span class="at">breaks=</span><span class="dv">24</span>, <span class="at">main =</span> <span class="st">"Sampling Distribution of t-values"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>),</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Sample t-value"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># My loop</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a numeric variable to store the means</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>t_values <span class="ot">=</span> <span class="fu">numeric</span>(num_simulations)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the loop</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of participants</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate a random sample</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">=</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample mean and standard deviation</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    sample_mean <span class="ot">=</span> <span class="fu">mean</span>(sample)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    sample_sd <span class="ot">=</span> <span class="fu">sd</span>(sample)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the sample error of the mean </span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    sample_standard_error <span class="ot">=</span> sample_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define comparison value</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    comparison_value <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute t-value</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    t_values[i] <span class="ot">=</span> (sample_mean <span class="sc">-</span> comparison_value) <span class="sc">/</span> sample_standard_error</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>observed_t_value <span class="ot">=</span> <span class="fl">2.3</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>percentile <span class="ot">&lt;-</span> <span class="fu">sum</span>(t_values <span class="sc">&gt;=</span> observed_t_value) <span class="sc">/</span> <span class="fu">length</span>(t_values)</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'My t-value'</span>)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(observed_t_value)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'My p-value'</span>)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(percentile)</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the sampling distribution of t-values</span></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(t_values, <span class="at">breaks=</span><span class="dv">24</span>, <span class="at">main =</span> <span class="st">"Sampling Distribution of t-values"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>),</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Sample t-value"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> observed_t_value, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The result is a sampling distribution which is not centred around mean.</p>
-<p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img20.png" class="img-fluid"></p>
-<p>This distribution tells us that with 20 participants, a mean of 1 and a standard deviation of 1 - we are mostly likely to get a -value of 5 but that t-value could be as small as 2 or as large as 9 for extreme data samples.</p>
-<p>This is very useful, but the issue that is we have had to assume what the real effect is. We get radically different sampling distributions if we change that effect around.</p>
+<p><img src="../images/rmb-week-10_computer-practical/rmb-week-10_computer-practical_img4.png" class="img-fluid"></p>
+<p>This distribution tells us that with 20 participants, a mean of 1 and a standard deviation of 1 - we are mostly likely to get a t-value of 5 but that t-value could be as small as 2 or as large as 9 for extreme data samples.</p>
+<p>This is very useful, but the issue that is we have had to assume what the real effect is. We get radically different sampling distributions if we change that effect around. Take a look at these examples.</p>
 <section id="mean-of-0.5-and-standard-deviation-of-1-with-20-participants-compared-to-zero." class="level4">
 <h4 class="anchored" data-anchor-id="mean-of-0.5-and-standard-deviation-of-1-with-20-participants-compared-to-zero.">Mean of 0.5 and standard deviation of 1 with 20 participants compared to zero.</h4>
 <p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19a.png" class="img-fluid" width="450"></p>
@@ -773,6 +1055,7 @@ Key step
 <section id="mean-of-1.5-and-standard-deviation-of-1-with-20-participants-compared-to-zero." class="level4">
 <h4 class="anchored" data-anchor-id="mean-of-1.5-and-standard-deviation-of-1-with-20-participants-compared-to-zero.">Mean of 1.5 and standard deviation of 1 with 20 participants compared to zero.</h4>
 <p><img src="../images/rmb-week-8_computer-practical/rmb-week-8_computer-practical_img19c.png" class="img-fluid" width="450"></p>
+<p>The distributions move around so much that the percentile value of the same t-value would be completely incomparable. A t-value of 5 is hugely unlikey in some cases and very frequent in others. <strong>If we have to assume that there is a specific effect the result would be extremely senstive to exactly what that assumption is</strong>. In contrast there is only one distribution to work with if we assume there is no effect.</p>
 <p>There are an infinite number of possible sampling distributions when there is a real effect! It isn’t possible to know which distribution we should be comparing with without making some massive assumptions about the exact size, variability and direction of effect that we expect to see. This simply isn’t possible in practice.</p>
 <p>In contrast, the null case is very closely controlled and easier to work with. The interpretation is trickier but rejecting the null hypothesis is a tractable problem that we can do a good job of solving.</p>
 </section>
