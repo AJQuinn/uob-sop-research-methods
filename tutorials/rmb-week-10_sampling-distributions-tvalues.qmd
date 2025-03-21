@@ -232,7 +232,7 @@ Adapt your code to compute the t-value for the following conditions. Use a rando
 
 After completing the exercise, reset your code to the following conditions
 
-- `n = 25`
+- `n = 20`
 - `rnorm(n, mean=0, sd=1)`
 - `comparison_value = 0`
 
@@ -331,22 +331,221 @@ In all of these analyses we are absolutely assuming that the null hypothesis of 
 
 When data are perfectly normally distributed (parametric assumptions are met), Jamovi and R can compute these null distributions for us using a shortcut without simulating lots of data samples but the result is the same.
 
-To conduct a hypothesis test from real data, we would compute the t-statistic as normal and can then compare the observed value to this sampling distribution that assumes no difference and has the same sample size. If the t-value we've observed from the real data would be extremely unlikely to have occured if the null is true, then we can reject that hypothesis.
-
-
-
 
 ## 5. The null model {.unnumbered}
 
+We introduced the idea of a null model in the lectures. This is a model of what the outcome of our statistics would look like if the data have a random and unbiased structure. The null model is closely linked to the null hypothesis - it describes the probability to observing a particular outcome from our statistics under the assumption that the null hypothesis is true.
 
+The sampling distributions we have computed above are exactly null models. We have 
+
+1. Defined population parameters in which we know for sure that the mean is zero
+2. Sampled data observations from that population
+3. Computed the one sample t-test between the data sample and zero
+4. Stored the t-value for every single resampling
+5. Visualised the distribution of t-values with a histrogram
+
+The critical point here is that the null distribution is very stable. We can make confident predictions about what the null distribution of t-values will look like when there is no effect. Let's try some examples:
+
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+How does the distribution of t-values change when we make these changes? Importantly, we know that there is no effect (no difference between the population mean and the comparison value) in all of these examples.
+
+Remember that we are using random sampling so run each example a few times to get a sense of the result.
+
+How does the t-value distribution change when:
+
+- ...we increase the standard deviation of the population parameters?  `r mcq(c("The mean increases", "the variance increases", answer = "it stays pretty much the same", "the variance decreases", "the mean decreases"))`
+
+- ...we decrease the standard deviation of the population parameters?  `r mcq(c("The mean increases", "the variance increases", answer = "it stays pretty much the same", "the variance decreases", "the mean decreases"))`
+
+- ...we change the mean and comparison value (keeping both values the same)?  `r mcq(c("The mean increases", "the variance increases", answer = "it stays pretty much the same", "the variance decreases", "the mean decreases"))`
+
+## Hint
+
+Read through your code carefully to find the component that you should change.
+
+Talk with your tutor if you're stuck.
+
+(We'll look at changing the means more in a later section...)
+
+:::
+::::
+
+So, the null model for our t-tests is the sampling distribution of t-values when we know there is no effect. Critically this null module is super stable! We can make a lot of changes to the population parameters and precise values being compared and the distribution remains largely the same. We saw in the previous section that sample size can change the tails of the distribution a bit, but most of the rest doesn't make a big difference. 
+
+This is a critical point that enables us to complete our statistical assessment. Now that we can be really confident about the probability of observing a particular t-value under the assumption that there is no effect - we're ready to compute a p-value for our hypothesis test.
 
 
 ## 6. Computing a p-value {.unnumbered}
 
 
+Remember the definition of the p-value from the lectures, this is a bit fiddely but will hopefully make some more sense now that you're more familiar with the null model. Take a look at the lecture materials from week 5 if you need a refresher.
+
+> The p-value tells us the probability of obtaining test results at least as extreme as the result actually observed, under the assumption that the null hypothesis is correct.
+
+We now have all the ingredients to compute this value. We need
+
+- A null model distribution telling us how likely we are to observe particular t-values when we assume the null hypothesis is correct
+- The t-value from a particular data sample
+- A statistical significance threshold
+
+To conduct a hypothesis test, we need to compare an individual t-value from a test to the null distribution of t-value that we have just computed. Remember that the null distrbution is very stable - if we know the sample size then we can use the same null distribution for any t-test!
+
+Let's put this into practice.
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Before going any further, reset your code to the following conditions
+
+- `n = 20`
+- `rnorm(n, mean=0, sd=1)`
+- `comparison_value = 0`
+
+:::
+
+We can visualise where one single t-value is on a histogram by using a convenient R function named `abline()` which can be used to plot straight lines on a figure. We can use `abline()` as follows:
+
+```R
+abline(v = 1, col = "red", lwd = 2)
+```
+
+This has specified three input arguments.
+
+| Input | Description |
+|-----| -------------------|
+| `v` | A value at which to plot a Vertical line |
+| `col` | Optional input to choose a colour |
+| `lwd` | Optional input to specify the width of the line `lwd=1` is a thin line and `lwd=5` would be very thick. |
+
+
+We can add this to the bottom of our code to see where a t-value of `1` (defined by `v=1` in the function) would appear on the null distribution. Try changing the value of `v` a few times to see the difference.
+
+![](../images/rmb-week-10_computer-practical/rmb-week-10_computer-practical_img1.png)
+
+::: {.callout-warning appearance="simple"}
+# Jamovi Issue
+
+It is likely that Jamovi will present two plots when you run this code rather than one. If this happens you will have one plot for the histogram and a second for the same histogram with the vertical line (example in the image above).
+
+I'm not sure why this happens but it is a mostly harmless quirk of Rj - please ignore the first plot!
+
+:::
+
+The p-value describes the probabilty of observing a t-value as least as large as the one from our test. This is equivalent to 'cutting' the null distribution at the specific t-value and calculating how likely it is to see a result that is more extreme than the point of the cut.
+
+For example, from the lecture notes, here we have a parametric null distribution of t-values (parametric meaning that it wasn't computed from simulations) that is cut at a position that means we have a 5% chance of observing a value at least as extreme as the cut.
+
+![](../images/rmb-week-10_computer-practical/rmb-week-10_computer-practical_img2.png){width=450px}
+
+We can do the same to compute the probability of observing a value to the left or to the right of the vertical line we've added to our plot. We can use some simple maths to compute exactly this value
+
+```R
+# Compute the percentile of the value 1
+observed_value = 1
+percentile = sum(t_values >= observed_value) / length(t_values)
+print(percentile)
+```
+
+This code does the following steps:
+
+- `sum(t_values <= observed_t_value)` counts how many values in the data are less than or equal to the specified value.
+- `length(t_values)` gives the total number of values in the data.
+- Dividing the count by the total number of values converts the result into a decimal indicating the proportion of values in `t_values` that are larger than or equal to `observed_t_value`.
+
+The final value of `percentile` is then our p-value, which exactly matches the definition from the lecture.
+
+> The p-value tells us the probability of obtaining test results at least as extreme as the result actually observed, under the assumption that the null hypothesis is correct.
+
+Let's put all of this together in our code.
+
+```R
+set.seed(123)
+
+# My loop
+num_simulations = 1000
+
+# Create a numeric variable to store the means
+t_values = numeric(num_simulations)
+
+# Run the loop
+for (i in 1:num_simulations) {
+    # Number of participants
+    n = 20
+
+    # Generate a random sample
+    sample = rnorm(n, mean = 2, sd = 4)
+
+    # Calculate the sample mean and standard deviation
+    sample_mean = mean(sample)
+    sample_sd = sd(sample)
+
+    # Calculate the sample error of the mean 
+    sample_standard_error = sample_sd / sqrt(n)
+
+    # Define comparison value
+    comparison_value = 2
+
+    # Compute t-value
+    t_values[i] = (sample_mean - comparison_value) / sample_standard_error
+}
+
+observed_t_value = 2.3
+percentile <- sum(t_values >= observed_t_value) / length(t_values)
+
+print('My t-value')
+print(observed_t_value)
+print('My p-value')
+print(percentile)
+
+
+# Plot the sampling distribution of t-values
+hist(t_values, breaks=24, main = "Sampling Distribution of t-values", xlim=c(-10, 10),
+     xlab = "Sample t-value", col = "skyblue", border = "white")
+     
+abline(v = observed_value, col = "red", lwd=5)
+```
+
+Here, we've added some code to specify a t-value from some data that we need to compute a p-value for (`observed_t_value = 2.3`), we compute and print the associated p-value and create the histogram with a red line indicating the position of `observed_t_value`.
+
+The result should look like this (ignoring this odd double plot...)
+
+![](../images/rmb-week-10_computer-practical/rmb-week-10_computer-practical_img3.png)
+
+If you have `set.seed(123)` at the top of your script you should have exactly the same values that I do. 
+
+The results are telling us that we have a p-value of 0.019. This is less than our conventional threshold of 0.05 so we would consider a t-value of 2.3 to be statistically significant.
+
+We can always assume that the null distribution of t-values is symmetrical. This is a key point that means we can simplify some things. A couple of points
+
+- This is a One-Tailed test, as we are only considering one side of the distribution in our p-value calculation. A two-tailed test is simple though, simply divide the p-value by 2 as the lower tail will have 
+
+
+:::: callout-tip
+## Check Your Understanding - Data Quiz
+
+::: panel-tabset
+## Questions
+
+What is the p-value for the following values of `observed_t_value`?
+
+| `observed_t_value` | Tail of test | p-value |
+| ---------| -----------| ------------|
+| 1 | One-Tailed | `r fitb()` |
 
 
 
+## Hint
+
+Carefully compare the options to the equations for a t-test and R function definitions above.
+
+:::
+:::
 
 ## 7. Why do we test the null hypothesis? {.unnumbered}
 

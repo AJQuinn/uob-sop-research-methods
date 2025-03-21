@@ -1,8 +1,14 @@
 # Research Methods Computer Practicals {.unnumbered}
 
-## Research Methods B
 
--   [Week 1 : Descriptive Statistics, Data Processing and R](tutorials/rmb_week-1_descriptives-and-rj.qmd)
+-   [Week 1 : Exploring new data and computing descriptives](tutorials/rmb_week-1_new-data-and-descriptives.qmd)
+-   [Week 2 : Computing reproducible statistics using Rj](tutorials/rmb_week-2_intro-to-Rj.qmd)
+-   [Week 3 : One-Sample t-tests](tutorials/rmb_week-3_one-sample-t-tests.qmd)
+-   [Week 4 : Two-Sample t-tests](tutorials/rmb_week-4_two-sample-t-tests.qmd)
+-   [Week 5 : p-values and effect sizes](tutorials/rmb_week-5_pvalue-effect-size.qmd)
+-   [Week 7 : Testing data distributions and Non-parametric alternative tests](tutorials/rmb_week-7_non-parametrics.qmd)
+-   [Week 8 : Simulating Sampling Distributions](tutorials/rmb-week-8_sampling-distributions-mean.qmd)
+-   [Week 9 : One Way Analysis of Variance (ANOVA)](tutorials/rmb-week-9_one-way-anova.qmd)
+-   [Week 10 : Simulating Sampling Distributions for t-values](tutorials/rmb-week-10_sampling-distributions-tvalues.qmd)
 
-toc: true
-toc-depth: 2
+
