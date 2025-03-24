@@ -924,7 +924,7 @@ Check Your Understanding - Data Quiz
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Hint</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>What is the p-value for the following values of <code>observed_t_value</code>? Make sure you have <code>set.seed(123)</code> set at the top of your script or the values will differ from mine!</p>
@@ -948,14 +948,14 @@ Check Your Understanding - Data Quiz
 <td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.151&quot;,&quot;.151&quot;]"></td>
 </tr>
 <tr class="even">
-<td>5</td>
+<td>3</td>
 <td>One-Tailed</td>
 <td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.001&quot;,&quot;.001&quot;]"></td>
 </tr>
 <tr class="odd">
 <td>2.5</td>
 <td>Two-Tailed</td>
-<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.05&quot;,&quot;.05&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.005&quot;,&quot;.005&quot;]"></td>
 </tr>
 <tr class="even">
 <td>-1.4</td>
@@ -965,13 +965,63 @@ Check Your Understanding - Data Quiz
 <tr class="odd">
 <td>-0.5</td>
 <td>Two-Tailed</td>
-<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.191&quot;,&quot;.191&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.1575&quot;,&quot;.1575&quot;]"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
-<p>Carefull read the key points from the bullet points above about converting values. Talk with your tutor if you get stuck.</p>
+<p>Carefully read the key points from the bullet points above about converting values. Talk with your tutor if you get stuck.</p>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 25%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><code>observed_t_value</code></th>
+<th>Tail of test</th>
+<th>p-value</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>One-Tailed</td>
+<td><code>0.151</code></td>
+<td>Take the result directly from the script</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>One-Tailed</td>
+<td><code>0.001</code></td>
+<td>Take the result directly from the script</td>
+</tr>
+<tr class="odd">
+<td>2.5</td>
+<td>Two-Tailed</td>
+<td><code>0.01 / 2 = 0.005</code></td>
+<td>Divide the result from the script by 2.</td>
+</tr>
+<tr class="even">
+<td>-1.4</td>
+<td>One-Tailed</td>
+<td><code>1 - 0.915 = 0.085</code></td>
+<td>Subtract the result from 1</td>
+</tr>
+<tr class="odd">
+<td>-0.5</td>
+<td>Two-Tailed</td>
+<td><code>(1 - 0.685) / 2 = 0.1575</code></td>
+<td>Subtract the result from 1 AND then divide by 2</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
