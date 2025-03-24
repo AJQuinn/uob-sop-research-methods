@@ -850,7 +850,7 @@ Jamovi Issue
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(percentile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This code does the following steps:</p>
 <ul>
-<li><code>sum(t_values &lt;= observed_t_value)</code> counts how many values in the data are less than or equal to the specified value.</li>
+<li><code>sum(t_values &gt;= observed_t_value)</code> counts how many values in the data are larger than or equal to the specified value.</li>
 <li><code>length(t_values)</code> gives the total number of values in the data.</li>
 <li>Dividing the count by the total number of values converts the result into a decimal indicating the proportion of values in <code>t_values</code> that are larger than or equal to <code>observed_t_value</code>.</li>
 </ul>
@@ -902,7 +902,7 @@ Jamovi Issue
 <span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(t_values, <span class="at">breaks=</span><span class="dv">24</span>, <span class="at">main =</span> <span class="st">"Sampling Distribution of t-values"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>),</span>
 <span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Sample t-value"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span>
 <span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> observed_value, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> observed_t_value, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here, we’ve added some code to specify a t-value from some data that we need to compute a p-value for (<code>observed_t_value = 2.3</code>), we compute and print the associated p-value and create the histogram with a red line indicating the position of <code>observed_t_value</code>.</p>
 <p>The result should look like this (ignoring this odd double plot…)</p>
 <p><img src="../images/rmb-week-10_computer-practical/rmb-week-10_computer-practical_img3.png" class="img-fluid"></p>
