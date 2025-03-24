@@ -454,7 +454,7 @@ print(percentile)
 
 This code does the following steps:
 
-- `sum(t_values <= observed_t_value)` counts how many values in the data are less than or equal to the specified value.
+- `sum(t_values >= observed_t_value)` counts how many values in the data are larger than or equal to the specified value.
 - `length(t_values)` gives the total number of values in the data.
 - Dividing the count by the total number of values converts the result into a decimal indicating the proportion of values in `t_values` that are larger than or equal to `observed_t_value`.
 
@@ -508,7 +508,7 @@ print(percentile)
 hist(t_values, breaks=24, main = "Sampling Distribution of t-values", xlim=c(-10, 10),
      xlab = "Sample t-value", col = "skyblue", border = "white")
      
-abline(v = observed_value, col = "red", lwd=5)
+abline(v = observed_t_value, col = "red", lwd=5)
 ```
 
 Here, we've added some code to specify a t-value from some data that we need to compute a p-value for (`observed_t_value = 2.3`), we compute and print the associated p-value and create the histogram with a red line indicating the position of `observed_t_value`.

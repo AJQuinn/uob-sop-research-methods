@@ -11,4 +11,3 @@
 -   [Week 9 : One Way Analysis of Variance (ANOVA)](tutorials/rmb-week-9_one-way-anova.qmd)
 -   [Week 10 : Simulating Sampling Distributions for t-values](tutorials/rmb-week-10_sampling-distributions-tvalues.qmd)
 
-
