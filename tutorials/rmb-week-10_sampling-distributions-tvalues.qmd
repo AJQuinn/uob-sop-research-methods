@@ -538,14 +538,24 @@ What is the p-value for the following values of `observed_t_value`? Make sure yo
 | `observed_t_value` | Tail of test | p-value |
 | ---------| -----------| ------------|
 | 1 | One-Tailed | `r fitb(0.151)` |
-| 5 | One-Tailed | `r fitb(0.001)` |
-| 2.5 | Two-Tailed | `r fitb(0.05)` |
+| 3 | One-Tailed | `r fitb(0.001)` |
+| 2.5 | Two-Tailed | `r fitb(0.005)` |
 | -1.4 | One-Tailed | `r fitb(0.085)` |
-| -0.5 | Two-Tailed | `r fitb(0.191)` |
+| -0.5 | Two-Tailed | `r fitb(0.1575)` |
 
 ## Hint
 
-Carefull read the key points from the bullet points above about converting values. Talk with your tutor if you get stuck.
+Carefully read the key points from the bullet points above about converting values. Talk with your tutor if you get stuck.
+
+## Solution
+
+| `observed_t_value` | Tail of test | p-value | Explanation |
+| --------| -----------| ----------------| ----------------------------|
+| 1 | One-Tailed | `0.151` | Take the result directly from the script |
+| 3 | One-Tailed | `0.001` | Take the result directly from the script |
+| 2.5 | Two-Tailed | `0.01 / 2 = 0.005` | Divide the result from the script by 2. |
+| -1.4 | One-Tailed | `1 - 0.915 = 0.085` | Subtract the result from 1 |
+| -0.5 | Two-Tailed | `(1 - 0.685) / 2 = 0.1575` | Subtract the result from 1 AND then divide by 2 |
 
 :::
 :::
