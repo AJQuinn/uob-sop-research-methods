@@ -1,0 +1,282 @@
+---
+engine: knitr
+---
+
+```{r}
+#| echo: false
+library(webexercises)
+```
+
+
+# Week 11 : Putting it all together - replicating Power Poses! {.unnumbered}
+
+This week we will explore some data replicating a famous but contentious experiment. We will combine your skills from across the course to explore different aspects of the study.
+
+|  ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}  | Quantitative Methods          |
+|-----|:-------------------------------------------|
+|            | Revision of t-tests                 |
+
+
+: Learning objectives for this session
+
+|    ![](../images/logos/rm-logo_data-skills.png){width=50px}      | Data Skills       |
+|-----|:-------------------------------------------|
+|            | Revision of reproducible analyses                 |
+
+
+|      ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
+|-----|:-------------------------------------------|
+|            | Working with published scientific data                  |
+
+|      ![](../images/logos/rm-logo_ethics.png){width=50px}      | Ethics                                               |
+|-----|:-------------------------------------------|
+|            | Questionable research practices                   |
+|            | Constructive criticism                   |
+
+
+## 1. The Dataset {.unnumbered}
+
+We will be working with a replication of a vary famous study showing that our body posture can have far reaching impacts on our attitudes and even our physiology! amazing...
+
+From the abstract of the original paper:
+
+Carney, D. R., Cuddy, A. J. C., & Yap, A. J. (2010). Power Posing: Brief Nonverbal Displays Affect Neuroendocrine Levels and Risk Tolerance. Psychological Science, 21(10), 1363-1368. https://doi.org/10.1177/0956797610383437
+
+> Humans and other animals express power through open, expansive postures, and they express powerlessness through closed, contractive postures. But can these postures actually cause power? The results of this study confirmed our prediction that posing in high-power nonverbal displays (as opposed to low-power nonverbal displays) would cause neuroendocrine and behavioral changes for both male and female participants: High-power posers experienced elevations in testosterone, decreases in cortisol, and increased feelings of power and tolerance for risk; low-power posers exhibited the opposite pattern. In short, posing in displays of power caused advantaged and adaptive psychological, physiological, and behavioral changes, and these findings suggest that embodiment extends beyond mere thinking and feeling, to physiology and subsequent behavioral choices. That a person can, by assuming two simple 1-min poses, embody power and instantly become more powerful has real-world, actionable implications.
+[@Carney2010_power]
+
+This is a compelling result! Perhaps not so suprising that power poses would change our mood - but to cause a change hormones is amazing. 
+
+The authors quickly became famous with this result. The second author Amy Cuddy gave high profile talks (TED talk with 74 million views: [Video](https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are?utm_campaign=tedspread&utm_medium=referral&utm_source=tedcomshare) & [transcript](https://web.archive.org/web/20150408202457/http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are/transcript?language=en)), wrote books and appeared widely in the media as a result of this work.
+
+![Amy Cuddy at Pop Tech 2011 - Photo by Erik Hersman.](../images/rmb-week-11_computer-practical/1024px-Power_pose_by_Amy_Cuddy_at_PopTech_2011.jpg){width=450px}
+
+
+These results attracted several replications attempts and the following debate became so intense that it was attracting attention in the mainstream media - including articles summarising the story in the New York Times magazine [@Dominus2017_revolution] and the British Psychological Society [@BPS2021_decade]. It even has it's own Wikipedia page [@wiki:Power_posing].
+
+We'll be focusing on one of these replications that tried to faithfully repeat the original methodology [@Ranehill2015_assessing] with a large, independent data sample.
+
+
+## 2. The Challenge. {.unnumbered}
+
+We will look at how the replication might have been planned, analyse the data and make a shareable version of the analysis.
+
+We will also use this story to think about some ethical issues around good scientific practices and how we can encourage collaborative and constructive scientific debate.
+
+
+## 3. Understanding Power Posing and planning a replication. {.unnumbered}
+
+Let's understand the original experiment in a bit more detail. Read through the introduction and methods section of the paper and try to answer the following questions.
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Read the introduction (you can focus on the hypotheses) and methods section of [@Carney2010_power] and answer the following questions.
+
+### Introduction
+
+The authors predict that high-power poses will lead to `r mcq(c(answer = 'increases', 'decreases'))` in testosterone.
+
+The authors predict that high-power poses will lead to `r mcq(c('increases', answer = 'decreases'))` in the stress hormone cortisol.
+
+The authors predict that high-power poses will lead to `r mcq(c(answer = 'increases', 'decreases'))` in subjective feelings of power.
+
+The authors predict that high-power poses will lead to `r mcq(c(answer = 'increases', 'decreases'))` in tolerance to risk.
+
+
+### Methods Section
+
+What is the design of this study? `r mcq(c(answer = 'Between subjects', 'Within subjects'))`.
+
+How were participants assigned to groups? `r mcq(c('In order of recruitment', answer = 'Randomly', 'Based on their preference'))`.
+
+What is the independent variable (or grouping factor)? `r mcq(c(answer='Gambling', 'Cortisol', answer='Pose', 'Testosterone', 'electrocardiography'))`?
+
+Which of these is NOT a dependent variable of interest? `r mcq(c(answer='Gambling', 'Cortisol', 'Testosterone', answer = 'electrocardiography'))`?
+
+Are participants told the true purpose of the study? `r mcq(c('Yes', answer='No'))`
+
+Did the experimentors know which condition the participant they were testing was in? `r mcq(c(answer = 'Yes', 'No'))`
+
+:::
+::::
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Read the results section of [@Carney2010_power]. Identify the reported statistics for the high-power/low-power pose groups for the following effects: Testosterone, Cortisol and Feelings of Power.
+
+Enter the reported effect sizes (`r` values) in the table below and use [this online tool](https://www.escal.site/){target="_blank"} to convert them to Cohen'd D values.
+
+Finally - use jPower in Jamovi to estimate the sample size you would need to have 90% power to detect this effect again with an type 1 error rate of 0.05. We covered this in [Week 5 Section 7](rmb_week-5_pvalue-effect-size.html#use-an-effect-size-for-a-sensitivity-power-analysis)
+
+| Hypothesis Test | Reported Effect Size (r) | Converted Effect Size (Cohen's d) | Sample size per group for 90% power |
+|-----|-----| --------| --------|
+| Testosterone | `r fitb(0.34)` | `r fitb(0.723)` | `r fitb(42)` |
+| Cortisol | `r fitb(0.43)` | `r fitb(0.953)` | `r fitb(25)` |
+| Feelings of power | `r fitb(0.44)` | `r fitb(0.980)` | `r fitb(23)` |
+
+
+## Hint
+
+[@Carney2010_power] report the following in their results.
+
+> As hypothesized, high-power poses caused an increase in testosterone compared with low-power poses, which caused a decrease in testosterone, F(1, 39) = 4.29, p < .05; r = .34 (Fig. 3). Also as hypothesized, high-power poses caused a decrease in cortisol compared with low-power poses, which caused an increase in cortisol, F(1, 38) = 7.45, p < .02; r = .43
+>Finally, high-power posers reported feeling significantly more “powerful” and “in charge” (M = 2.57, SD = 0.81) than low-power posers did (M = 1.83, SD = 0.81), F(1, 41) = 9.53, p < .01; r = .44. 
+
+[@Carney2010_power] reported ANOVAs with `r` values as effect sizes - but remember that we can convert the effect sizes to Cohen's d using the online tool.
+
+## Solution
+
+
+| Hypothesis Test | Reported Effect Size (r) | Converted Effect Size (Cohen's d) | Sample size per group for 90% power |
+|-----|-----| --------| --------|
+| Testosterone | `0.34` | `0.723` | `42` |
+| Cortisol | `0.43` | `0.953` | `25` |
+| Feelings of power | `0.44` | `0.980` | `23` |
+
+:::
+::::
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - The replication study has a planned sample size of 100 - is this enough to have a 90% chance of detecting the effect if is is there?
+
+Yes, this should be plenty. The smallest reported effect in the original paper is for Testosterone, which suggests that two groups of 42 participants should be sufficient.
+
+:::
+
+
+## 4. Analysing the replication data. {.unnumbered}
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Make sure you have downloaded the dataset and loaded it into Jamovi before starting this section.
+
+Take a moment to have a look through the dataset paying particular attention to the 'Variables' tab.
+
+:::
+
+Next, we're going to look at the dataset from [@Ranehill2015_assessing] from the replication study. The research team were very careful to closely replicate the original methods.
+
+There were a small number of changes in the replication compared to the original study:
+
+- Whereas participants in Carney et al.’s study held each position for 1 min, we extended this time to 3 min. 
+- Second, Carney et al. manually configured participants’ positions before leaving the room, whereas participants in our study received instructions on a computer. As in Carney et al.’s study, participants were recorded while posing; the recordings verified that participants complied with task instructions. Because the instructions were given via computer, the experimenter was blind to experimental condition, which negated potential experimenter effects. 
+- Third, the filler task in our study involved constructing words from letters and spaces; in Carney et al.’s study, the task was to form impressions of faces. 
+- Finally, we did not use deception, but informed participants briefly in the consent form that the study investigated whether physical position influences hormone levels and behavior (the instructions and consent form are in the Supplemental Material). 
+
+These are reasonable changes that aim to improve the orignal design (blinded experimentors, longer pose duration) without making substantial changes to its purpose.
+
+Let's take a look at the data. 
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+In the original study, [@Carney2010_power] reported that:
+
+> High-power posers reported feeling significantly more “powerful” and “in charge” (M = 2.57, SD = 0.81) than low-power posers did (M = 1.83, SD = 0.81), F(1, 41) = 9.53, p < .01; r = .44. 
+
+Can you replicate this analysis using the `powerful` and `hp_condition` (1 is 'high power pose' and 0 is 'low power pose') variables in the replication dataset from [@Ranehill2015_assessing]? [@Carney2010_power] used an ANOVA but you should use a t-test.
+
+Use the results to fill in the gaps in the reporting below.
+
+> High-power posers reported feeling significantly more “powerful” (M = `r fitb(0.223)`, SD = `r fitb(0.753)`) than low-power posers did (M = `r fitb(1.978)`, SD = `r fitb(0.663)`), t(`r fitb(193)`) = `r fitb(-2.40)`, p = `r fitb(0.017)`; Cohen's d = `r fitb(-0.344)`. 
+
+## Hint
+
+![](../images/rmb-week-11_computer-practical/rmb-week-11_computer-practical_img1.png){width=450px}
+
+
+## Solution
+
+> High-power posers reported feeling significantly more “powerful” (M = 0.223, SD = 0.753) than low-power posers did (M = 1.978, SD = 0.663), t(193) = -2.40, p = 0.017; Cohen's d = -0.344. 
+
+:::
+::::
+
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - Compare your results above to those reported in the replication paper - do they match up?
+
+No! oddly they do not... [@Ranehill2015_assessing] report the following:
+
+> Using two-tailed t tests, we replicated Carney et al.’s finding that participants in the high-power condition self-reported, on average, higher feelings of power than did participants in the low-power condition (mean difference = 0.245, 95% confidence interval, or CI = [0.044, 0.446]), t(193) = 2.399, p = .017, Cohen’s d = 0.344. This suggests that the power-posing manipulation worked.
+
+Most of the reported values are the same, but but notice that the sign of the t-value is different! 
+
+:::
+
+::: {.callout-note appearance="simple" collapse="true"}
+# Key step - open after answering the previous question
+
+Something strange has happened - it seems like [@Ranehill2015_assessing] must have computed the t-test the other way around. eg they have done low power minus high power - whereas we are computing high power minus low power.
+
+This is a bit annoying but straightforward to fix. Compute a new variable to reverse the values in `hp_condition` eg computing `1 - hp_condition`.
+
+We covered computing variables in [Week 4 Section 3](rmb_week-4_two-sample-t-tests.html#computing-overall-accuracy).
+
+Repeat the t-test using the new variable as a grouping factor.
+
+:::
+
+
+
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Can you replicate the core findings from [@Carney2010_power] using the data from [@Ranehill2015_assessing]?
+
+Run t-tests to analyse the following variables - make sure to use your new variable as a grouping factor. Use the variables `testosterone_diff`, `cortisol_diff` and `num_risky_gain_pc` as dependent variables.
+
+| Variable | t-value | p-value | Effect size | Replicates [@Carney2010_power]? |
+| ------- | ----- | ----- | ----- | ----- |
+| Testosterone | |  |  |  |
+| Cortisol | |  |  |  |
+| Risk Taking (Gain) | |  |  |  |
+
+## Hint
+
+## Solution
+
+:::
+::::
+
+## 5. Preparing a reproducible analysis. {.unnumbered}
+
+
+## 7. Interpreting the results. {.unnumbered}
+
+
+## 6. Ethics & Collaboration. {.unnumbered}
+
+
+The debate about this result became so intense that it began to seriously impact the lives of the authors of the original studies. In particular, the second author Amy Cuddy had a growing media presence appearing on television, giving Ted talks and writing books. She attracted 
+
+
+## 8. Summary. {.unnumbered}
+
+

@@ -504,7 +504,7 @@ The effect size `-0.0286` is tiny! the Rank Biserial correlation is even smaller
 :::
 
 
-## 7. Use an effect size for a sensitivity & power analysis {.unnumbered}
+## 7. Use an effect size for a sensitivity & power analysis
 
 
 One core application for effect sizes is that we can use the results to inform our sample size planning for future studies. we can do this with four linked pieces of information

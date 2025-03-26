@@ -167,7 +167,7 @@ Add a Histogram to your descriptive plots - we can see that AI confidence looks 
 :::
 
 
-## 3. Computing overall accuracy {.unnumbered}
+## 3. Computing overall accuracy
 
 The descriptive statistics gave us a good overview of the dataset and we can start working towards testing our hypotheses.
 
