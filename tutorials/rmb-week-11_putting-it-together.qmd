@@ -223,6 +223,8 @@ No! oddly they do not... [@Ranehill2015_assessing] report the following:
 
 Most of the reported values are the same, but but notice that the sign of the t-value is different! 
 
+We can confirm that this is a weird variable issue by checking hte descriptive statistics. The direction of our effect is definitely the same as what is reported in the paper. 
+
 :::
 
 ::: {.callout-note appearance="simple" collapse="true"}
