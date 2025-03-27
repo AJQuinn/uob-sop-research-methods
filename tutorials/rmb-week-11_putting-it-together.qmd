@@ -198,7 +198,7 @@ Can you replicate this analysis using the `powerful` and `hp_condition` (1 is 'h
 
 Use the results to fill in the gaps in the reporting below.
 
-> High-power posers reported feeling significantly more “powerful” (M = `r fitb(0.223)`, SD = `r fitb(0.753)`) than low-power posers did (M = `r fitb(1.978)`, SD = `r fitb(0.663)`), t(`r fitb(193)`) = `r fitb(-2.40)`, p = `r fitb(0.017)`; Cohen's d = `r fitb(-0.344)`. 
+> The results `r mcq(c(answer="replicate", "do not replicate"))` the original finding about subjective feeling. High-power posers  (M = `r fitb(0.223)`, SD = `r fitb(0.753)`) reported feeling `r mcq(c('less powerful than', 'just as powerful as', answer = 'more powerful than'))` low-power posers did (M = `r fitb(1.978)`, SD = `r fitb(0.663)`), t(`r fitb(193)`) = `r fitb(-2.40)`, p = `r fitb(0.017)`; Cohen's d = `r fitb(-0.344)`. 
 
 ## Hint
 
