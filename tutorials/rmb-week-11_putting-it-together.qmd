@@ -52,7 +52,7 @@ The authors quickly became famous with this result. The second author Amy Cuddy 
 ![Amy Cuddy at Pop Tech 2011 - Photo by Erik Hersman.](../images/rmb-week-11_computer-practical/1024px-Power_pose_by_Amy_Cuddy_at_PopTech_2011.jpg){width=450px}
 
 
-These results attracted several replications attempts and the following debate became so intense that it was attracting attention in the mainstream media - including articles summarising the story in the New York Times magazine [@Dominus2017_revolution] and the British Psychological Society [@BPS2021_decade]. It even has it's own Wikipedia page [@wiki:Power_posing].
+These results attracted several replications attempts and the following debate became so intense that it was attracting attention in the mainstream media - including articles summarising the story in the New York Times magazine [@Dominus2017_revolution] and the British Psychological Society [@BPS2021_decade]. It even has it's own Wikipedia page [@wiki:Power_posing] and lead to some very awkward photos of british politicians [@Wheeler2018_whenisit]. 
 
 We'll be focusing on one of these replications that tried to faithfully repeat the original methodology [@Ranehill2015_assessing] with a large, independent data sample.
 
@@ -66,7 +66,7 @@ We will also use this story to think about some ethical issues around good scien
 
 ## 3. Understanding Power Posing and planning a replication. {.unnumbered}
 
-Let's understand the original experiment in a bit more detail. Read through the introduction and methods section of the paper and try to answer the following questions.
+Let's understand the original experiment in a bit more detail. Read through the introduction and methods section of [@Carney2010_power] and answer the following questions.
 
 <!--# #############################################  -->
 
@@ -230,14 +230,15 @@ Most of the reported values are the same, but but notice that the sign of the t-
 
 Something strange has happened - it seems like [@Ranehill2015_assessing] must have computed the t-test the other way around. eg they have done low power minus high power - whereas we are computing high power minus low power.
 
-This is a bit annoying but straightforward to fix. Compute a new variable to reverse the values in `hp_condition` eg computing `1 - hp_condition`.
+This is a bit annoying but straightforward to fix. Create a new Transformed variable from `hp_condition` by computing `1 - hp_condition`. 
 
-We covered computing variables in [Week 4 Section 3](rmb_week-4_two-sample-t-tests.html#computing-overall-accuracy).
+**Note : Make sure you use 'Transform' and not 'Compute' for your variable. 'Compute' will not retain the right data type.**
+
+We covered transforming variables in [Week 7 Section 7](rmb_week-7_non-parametrics.html#transforming-non-normally-distributed-data).
 
 Repeat the t-test using the new variable as a grouping factor.
 
 :::
-
 
 
 <!--# #############################################  -->
@@ -250,33 +251,159 @@ Repeat the t-test using the new variable as a grouping factor.
 
 Can you replicate the core findings from [@Carney2010_power] using the data from [@Ranehill2015_assessing]?
 
-Run t-tests to analyse the following variables - make sure to use your new variable as a grouping factor. Use the variables `testosterone_diff`, `cortisol_diff` and `num_risky_gain_pc` as dependent variables.
+Run t-tests to analyse the following variables - **make sure to use your new variable as a grouping factor**. Use the variables `testosterone_diff`, `cortisol_diff` and `num_risky_gain_pc` as dependent variables.
 
 | Variable | t-value | p-value | Effect size | Replicates [@Carney2010_power]? |
 | ------- | ----- | ----- | ----- | ----- |
-| Testosterone | |  |  |  |
-| Cortisol | |  |  |  |
-| Risk Taking (Gain) | |  |  |  |
+| Testosterone | `r fitb(-1.40)` | `r fitb(0.162)` | `r fitb(-0.200)` | `r mcq(c("Yes", answer="No"))` |
+| Cortisol | `r fitb(-1.10)` | `r fitb(0.272)` | `r fitb(-0.157)` | `r mcq(c("Yes", answer="No"))` |
+| Risk Taking (Gain) |`r fitb(-1.24)`  | `r fitb(0.215)` | `r fitb(-0.176)` | `r mcq(c("Yes", answer="No"))` |
 
 ## Hint
 
+![](../images/rmb-week-11_computer-practical/rmb-week-11_computer-practical_img2.png)
+
 ## Solution
+
+| Variable | t-value | p-value | Effect size | Replicates [@Carney2010_power]? |
+| ------- | ----- | ----- | ----- | ----- |
+| Testosterone | `-1.40` | `0.162` | `-0.200` | No |
+| Cortisol | `-1.10` | `0.272` | `-0.157` | No |
+| Risk Taking (Gain) | `-1.24`  | `0.215` | `-0.176` | No |
 
 :::
 ::::
 
-## 5. Preparing a reproducible analysis. {.unnumbered}
+## 5. Assumption Checking. {.unnumbered}
+
+We have the results of the replication! but before going any further we should be sure that the assumptions of our test are met.
 
 
-## 7. Interpreting the results. {.unnumbered}
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Check the assumptions of the high-power vs low-power t-tests for the following variables: `powerful`, `testosterone_diff`, `cortisol_diff` and `num_risky_gain_pc`.
+
+Are the assumptions of Normality and Homogeneity of Variance confirmed or violated?
+
+| Variable | Normality | Homogeneity of Variance | Preferred Test |
+| ------- | ----- | ----- | ----- | ----- |
+| Powerful | `r mcq(c("Confirmed", answer="Violated"))` | `r mcq(c(answer = "Confirmed", "Violated"))` | `r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
+| Testosterone | `r mcq(c("Confirmed", answer="Violated"))` | `r mcq(c("Confirmed", answer = "Violated"))` | `r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
+| Cortisol | `r mcq(c("Confirmed", answer="Violated"))` | `r mcq(c("Confirmed", answer = "Violated"))` |`r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
+| Risk Taking (Gain) | `r mcq(c("Confirmed", answer="Violated"))`  | `r mcq(c("Confirmed", answer = "Violated"))` | `r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
+
+## Hint
+
+![](../images/rmb-week-11_computer-practical/rmb-week-11_computer-practical_img3.png)
+
+## Solution
+
+| Variable | Normality | Homogeneity of Variance | Preferred Test |
+| ------- | ----- | ----- | ----- | ----- |
+| Powerful | Violated | Confirmed | Mann-Whitney U |
+| Testosterone | Violated  | Violated | Mann-Whitney U |
+| Cortisol | Violated  | Violated | Mann-Whitney U |
+| Risk Taking (Gain) | Violated  | Violated | Mann-Whitney U |
+
+:::
+::::
+
+[@Ranehill2015_assessing] do something unusual with their assumption checking. The don't explicitly check whether the assumptions are met or not, rather they report both parametric and non-parametric statistics for all their tests (Non-parametric tests are reported in supplemental materials) and state that the conclusions would be the same irrespective of which test is would have been chosen (please do not do this in your reports!).
+
+## 6. Interpreting the results. {.unnumbered}
+
+It can be challenging to interpret the results of a null replication. If both the original study and replication show the same finding then things are much more straightforward....
+
+To interpret a failed replication we have to consider two possibilities:
+
+1. The original study was a false positive and the replication is a correct rejection.
+2. The original study was a true positive and the replication is a false negative.
+
+One of our experiments is not accurate.
+
+It is very very difficult to separate these options with 100% confidence... Often a second replication is the way to converge on an answer, and perhaps a third and fourth would be better still.
+
+One thing we do know is that if the effect size from the original study were accurate, then the replication should have had enough participants to see it again.
+
+The same is not true the other way around. Take a look at the figures below: 
+
+:::{.border}
+
+![](../images/rmb-week-11_computer-practical/3-risk.png)
+
+![Original and replication effect size with 95% confidence intervals for that effect size. Figures by Data Colada: [https://datacolada.org/37#identifier_0_910](https://datacolada.org/37#identifier_0_910)](../images/rmb-week-11_computer-practical/4-hormones.png)
+
+:::
+
+The replication confidence interval is much smaller than the original and even crosses zero for all three key variables. This strongly indicates a very tiny or zero effect. 
+
+The replication effect is so small that, if it is accurate, then the original study with its smaller sample would only have a 5.9% chance of detecting it. ([Analysis by Data Colada](https://datacolada.org/37#identifier_0_910)).
 
 
-## 6. Ethics & Collaboration. {.unnumbered}
+So which study do we trust? Ultimately that your decision as an individual scientist. Consider what you know about both studies and evaulate which you find more compelling.
+
+In this case, there is a substantial consensus in the field that the original effects on hormones was likely a false positive, though the increase in the subjective feelings of power after a power pose replicates well. The replications have several advantages including larger sample sizes, blinded and objective experimentors, and longer pose durations. 
+
+The original authors have engaged in the debate and made several points in defense of their work. The original study was famous by the time the replication was carried out - perhaps the participants had heard of the original study. Similarly, the replication study participants were told what was being measured in advance which might have effected their feelings during hte study. Finally, the original study was in hte USA and hte replication in Switzerland - perhaps there is a cultural component to power posing?
+
+## 7. Ethics & Collaboration. {.unnumbered}
+
+The original paper attracted huge scientific and media interest 
+
+- 61 news outlets
+- 33 blogs
+- 2 policy sources
+- 110 X users
+- 1 peer review site
+- 11 Facebook pages
+- 8 Wikipedia pages
+- 1 Redditor
+- 11 YouTube creators
+- 1 Bluesky user
+
+data from [Altmetric, see here for full summary](https://sage.altmetric.com/details/101804851#timeline).
+
+This was a mix of constructive debate, harsh criticism and genuine interest. Unfortunately a section of this debate became aggressive and personal towards Amy Cuddy to the extent that it had a serious impact on her life, health and career.
+
+> In addition to her fame and influence, Cuddy’s critics seemed obsessed with profits from her book and her fees for speaking engagements. Dollar amounts frequently emerged in conversations where academics discussed the research, and recently, one of her most vocal critics said her speaking engagement fees made him feel “ill.”  One Ivy League professor tweeted, “You can listen to her speak about her irreplicable results for $25-$40,000.” In reality, her book and speaking topics have little to do with the power posing studies.
+>
+>Many of the negative comments were personal in nature and aimed at Cuddy directly. “They were comparing me to Harvey Weinstein,” Cuddy says, recalling a post to the PsychMAP Facebook group which the site owners were eventually persuaded to remove. As if that’s not bad enough, Cuddy also received death threats via direct messages on social media.  “I became an untouchable in my field,” she adds, describing how colleagues were shunned for merely friending her on Facebook. 
+>
+> Although Cuddy says Harvard wanted her to stay, she left her full-time position, because she no longer felt safe doing her work (she remains a faculty member at Harvard Business School in Executive Education). “My dean wanted me to stay, but I later told him, I couldn’t stay, because I couldn’t endure this abuse. It was relentless,” says Cuddy. Her experiences inspired her new book (still a work in progress) entitled, Bullies, Bystanders and Bravehearts aimed at helping others who find themselves facing similar experiences.
+>
+> Exerpts from [@Elsesser2024_thedebate].
 
 
-The debate about this result became so intense that it began to seriously impact the lives of the authors of the original studies. In particular, the second author Amy Cuddy had a growing media presence appearing on television, giving Ted talks and writing books. She attracted 
+> This has led to a follow-up discussion [...] consisting of two general camps: those who think Cuddy is being treated unfairly, and those who believe that complaints about bullying or harassment are a distraction from the most serious problem here, which is the elevation of shoddy research to a place of such profitable prominence.
+>
+> Except from [@Singal2017_howshould]
 
+There is perhaps a tension here between our ethical obligation to act with integrity in research and our obligation for act with respect [@BPSguidelines]. Or perhaps some people are just bullies.
+
+Have a read through these sources and take a moment to do a quick web search for yourself.
+
+Share what you think about this situation on the padlet board below. what do you think of the situation surrounding this debate? how can we do better in future?
+
+```{=html}
+<div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4"><p style="padding:0;margin:0"><iframe src="https://bham.padlet.org/embed/ce3arjdicfwv0geh" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe></p><div style="display:flex;align-items:center;justify-content:end;margin:0;height:28px"><a href="https://padlet.com?ref=embed" style="display:block;flex-grow:0;margin:0;border:none;padding:0;text-decoration:none" target="_blank"><div style="display:flex;align-items:center;"><img src="https://padlet.net/embeds/made_with_padlet_2022.png" width="114" height="28" style="padding:0;margin:0;background:0 0;border:none;box-shadow:none" alt="Made with Padlet"></div></a></div></div>
+```
+
+Taking and receiving criticsm is a huge part of progressive constructive science but can be challenging to do well.
 
 ## 8. Summary. {.unnumbered}
 
+Replication is the gold standard for scientific progress but it is rarely as straightforward as we'd like it to be! 
 
+A wide range of issues can arise - including statistical approaches, experimental design and sometimes interpersonal conflict. We have to navigate all of these points with high ethical standards for the scientific community to progress.
+
+
+Thank you for your time this semester - I hope you have enjoyed these computer practical sessions!
+
+
+## References

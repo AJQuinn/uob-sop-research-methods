@@ -350,7 +350,7 @@ Yes, all factors apart from Hopelessless showed a statistically significant incr
 
 
 
-## 7. Transforming non-normally distributed data {.unnumbered}
+## 7. Transforming non-normally distributed data
 
 There are times when we might not want to use a non-parametric test, for example if we specifically want to interpret the mean of the data rather than the median or if we're running many similar tests and we don't want to be switching back and forth between parametric and non-parametric tests.
 
