@@ -50,6 +50,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../copilot.html" rel="next">
+<link href="../tutorials/rmb-week-10_sampling-distributions-tvalues.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -123,7 +125,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmb_week-1_new-data-and-descriptives.html">Research Methods B</a></li><li class="breadcrumb-item"><a href="../tutorials/rmb-week-11_putting-it-together.html">Week 11 - Putting it all together</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -206,6 +208,12 @@ div.csl-indent {
  <span class="menu-text">Week 10 - Sampling Distributions of t-values</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-11_putting-it-together.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 11 - Putting it all together</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -247,16 +255,17 @@ div.csl-indent {
   <li><a href="#the-challenge." id="toc-the-challenge." class="nav-link" data-scroll-target="#the-challenge.">2. The Challenge.</a></li>
   <li><a href="#understanding-power-posing-and-planning-a-replication." id="toc-understanding-power-posing-and-planning-a-replication." class="nav-link" data-scroll-target="#understanding-power-posing-and-planning-a-replication.">3. Understanding Power Posing and planning a replication.</a></li>
   <li><a href="#analysing-the-replication-data." id="toc-analysing-the-replication-data." class="nav-link" data-scroll-target="#analysing-the-replication-data.">4. Analysing the replication data.</a></li>
-  <li><a href="#preparing-a-reproducible-analysis." id="toc-preparing-a-reproducible-analysis." class="nav-link" data-scroll-target="#preparing-a-reproducible-analysis.">5. Preparing a reproducible analysis.</a></li>
-  <li><a href="#interpreting-the-results." id="toc-interpreting-the-results." class="nav-link" data-scroll-target="#interpreting-the-results.">7. Interpreting the results.</a></li>
-  <li><a href="#ethics-collaboration." id="toc-ethics-collaboration." class="nav-link" data-scroll-target="#ethics-collaboration.">6. Ethics &amp; Collaboration.</a></li>
+  <li><a href="#assumption-checking." id="toc-assumption-checking." class="nav-link" data-scroll-target="#assumption-checking.">5. Assumption Checking.</a></li>
+  <li><a href="#interpreting-the-results." id="toc-interpreting-the-results." class="nav-link" data-scroll-target="#interpreting-the-results.">6. Interpreting the results.</a></li>
+  <li><a href="#ethics-collaboration." id="toc-ethics-collaboration." class="nav-link" data-scroll-target="#ethics-collaboration.">7. Ethics &amp; Collaboration.</a></li>
   <li><a href="#summary." id="toc-summary." class="nav-link" data-scroll-target="#summary.">8. Summary.</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmb_week-1_new-data-and-descriptives.html">Research Methods B</a></li><li class="breadcrumb-item"><a href="../tutorials/rmb-week-11_putting-it-together.html">Week 11 - Putting it all together</a></li></ol></nav></header>
 
 
 
@@ -357,7 +366,7 @@ div.csl-indent {
 <figcaption>Amy Cuddy at Pop Tech 2011 - Photo by Erik Hersman.</figcaption>
 </figure>
 </div>
-<p>These results attracted several replications attempts and the following debate became so intense that it was attracting attention in the mainstream media - including articles summarising the story in the New York Times magazine <span class="citation" data-cites="Dominus2017_revolution">(<a href="#ref-Dominus2017_revolution" role="doc-biblioref">Dominus 2017</a>)</span> and the British Psychological Society <span class="citation" data-cites="BPS2021_decade">(<a href="#ref-BPS2021_decade" role="doc-biblioref">Loncar 2021</a>)</span>. It even has it’s own Wikipedia page <span class="citation" data-cites="wiki:Power_posing">(<a href="#ref-wiki:Power_posing" role="doc-biblioref">Wikipedia 2025</a>)</span>.</p>
+<p>These results attracted several replications attempts and the following debate became so intense that it was attracting attention in the mainstream media - including articles summarising the story in the New York Times magazine <span class="citation" data-cites="Dominus2017_revolution">(<a href="#ref-Dominus2017_revolution" role="doc-biblioref">Dominus 2017</a>)</span> and the British Psychological Society <span class="citation" data-cites="BPS2021_decade">(<a href="#ref-BPS2021_decade" role="doc-biblioref">Loncar 2021</a>)</span>. It even has it’s own Wikipedia page <span class="citation" data-cites="wiki:Power_posing">(<a href="#ref-wiki:Power_posing" role="doc-biblioref">Wikipedia 2025</a>)</span> and lead to some very awkward photos of british politicians <span class="citation" data-cites="Wheeler2018_whenisit">(<a href="#ref-Wheeler2018_whenisit" role="doc-biblioref">Wheeler 2018</a>)</span>.</p>
 <p>We’ll be focusing on one of these replications that tried to faithfully repeat the original methodology <span class="citation" data-cites="Ranehill2015_assessing">(<a href="#ref-Ranehill2015_assessing" role="doc-biblioref">Ranehill et al. 2015</a>)</span> with a large, independent data sample.</p>
 </section>
 <section id="the-challenge." class="level2 unnumbered">
@@ -367,7 +376,7 @@ div.csl-indent {
 </section>
 <section id="understanding-power-posing-and-planning-a-replication." class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="understanding-power-posing-and-planning-a-replication.">3. Understanding Power Posing and planning a replication.</h2>
-<p>Let’s understand the original experiment in a bit more detail. Read through the introduction and methods section of the paper and try to answer the following questions.</p>
+<p>Let’s understand the original experiment in a bit more detail. Read through the introduction and methods section of <span class="citation" data-cites="Carney2010_power">(<a href="#ref-Carney2010_power" role="doc-biblioref">Carney, Cuddy, and Yap 2010</a>)</span> and answer the following questions.</p>
 <!--# #############################################  -->
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -622,8 +631,9 @@ Key step - open after answering the previous question
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Something strange has happened - it seems like <span class="citation" data-cites="Ranehill2015_assessing">(<a href="#ref-Ranehill2015_assessing" role="doc-biblioref">Ranehill et al. 2015</a>)</span> must have computed the t-test the other way around. eg they have done low power minus high power - whereas we are computing high power minus low power.</p>
-<p>This is a bit annoying but straightforward to fix. Compute a new variable to reverse the values in <code>hp_condition</code> eg computing <code>1 - hp_condition</code>.</p>
-<p>We covered computing variables in <a href="rmb_week-4_two-sample-t-tests.html#computing-overall-accuracy">Week 4 Section 3</a>.</p>
+<p>This is a bit annoying but straightforward to fix. Create a new Transformed variable from <code>hp_condition</code> by computing <code>1 - hp_condition</code>.</p>
+<p><strong>Note : Make sure you use ‘Transform’ and not ‘Compute’ for your variable. ‘Compute’ will not retain the right data type.</strong></p>
+<p>We covered transforming variables in <a href="rmb_week-7_non-parametrics.html#transforming-non-normally-distributed-data">Week 7 Section 7</a>.</p>
 <p>Repeat the t-test using the new variable as a grouping factor.</p>
 </div>
 </div>
@@ -644,7 +654,7 @@ Check Your Understanding
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <p>Can you replicate the core findings from <span class="citation" data-cites="Carney2010_power">(<a href="#ref-Carney2010_power" role="doc-biblioref">Carney, Cuddy, and Yap 2010</a>)</span> using the data from <span class="citation" data-cites="Ranehill2015_assessing">(<a href="#ref-Ranehill2015_assessing" role="doc-biblioref">Ranehill et al. 2015</a>)</span>?</p>
-<p>Run t-tests to analyse the following variables - make sure to use your new variable as a grouping factor. Use the variables <code>testosterone_diff</code>, <code>cortisol_diff</code> and <code>num_risky_gain_pc</code> as dependent variables.</p>
+<p>Run t-tests to analyse the following variables - <strong>make sure to use your new variable as a grouping factor</strong>. Use the variables <code>testosterone_diff</code>, <code>cortisol_diff</code> and <code>num_risky_gain_pc</code> as dependent variables.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -665,50 +675,267 @@ Check Your Understanding
 <tbody>
 <tr class="odd">
 <td>Testosterone</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;-1.4&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.162&quot;,&quot;.162&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;-0.2&quot;,&quot;-.2&quot;]"></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></td>
 </tr>
 <tr class="even">
 <td>Cortisol</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;-1.1&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.272&quot;,&quot;.272&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.157&quot;,&quot;-.157&quot;]"></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></td>
 </tr>
 <tr class="odd">
 <td>Risk Taking (Gain)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;-1.24&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.215&quot;,&quot;.215&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.176&quot;,&quot;-.176&quot;]"></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-
+<p><img src="../images/rmb-week-11_computer-practical/rmb-week-11_computer-practical_img2.png" class="img-fluid"></p>
 </div>
 <div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
-
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>t-value</th>
+<th>p-value</th>
+<th>Effect size</th>
+<th>Replicates <span class="citation" data-cites="Carney2010_power">(<a href="#ref-Carney2010_power" role="doc-biblioref">Carney, Cuddy, and Yap 2010</a>)</span>?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Testosterone</td>
+<td><code>-1.40</code></td>
+<td><code>0.162</code></td>
+<td><code>-0.200</code></td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Cortisol</td>
+<td><code>-1.10</code></td>
+<td><code>0.272</code></td>
+<td><code>-0.157</code></td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>Risk Taking (Gain)</td>
+<td><code>-1.24</code></td>
+<td><code>0.215</code></td>
+<td><code>-0.176</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="preparing-a-reproducible-analysis." class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="preparing-a-reproducible-analysis.">5. Preparing a reproducible analysis.</h2>
+<section id="assumption-checking." class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="assumption-checking.">5. Assumption Checking.</h2>
+<p>We have the results of the replication! but before going any further we should be sure that the assumptions of our test are met.</p>
+<!--# #############################################  -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>Check the assumptions of the high-power vs low-power t-tests for the following variables: <code>powerful</code>, <code>testosterone_diff</code>, <code>cortisol_diff</code> and <code>num_risky_gain_pc</code>.</p>
+<p>Are the assumptions of Normality and Homogeneity of Variance confirmed or violated?</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Normality</th>
+<th>Homogeneity of Variance</th>
+<th>Preferred Test</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Powerful</td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Confirmed</option><option value="answer">Violated</option></select></td>
+<td><select class="webex-select"><option value="blank"></option><option value="answer">Confirmed</option><option value="">Violated</option></select></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Student’s t</option><option value="">Welch’s t</option><option value="answer">Mann-Whitney U</option></select></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Testosterone</td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Confirmed</option><option value="answer">Violated</option></select></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Confirmed</option><option value="answer">Violated</option></select></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Student’s t</option><option value="">Welch’s t</option><option value="answer">Mann-Whitney U</option></select></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Cortisol</td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Confirmed</option><option value="answer">Violated</option></select></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Confirmed</option><option value="answer">Violated</option></select></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Student’s t</option><option value="">Welch’s t</option><option value="answer">Mann-Whitney U</option></select></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Risk Taking (Gain)</td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Confirmed</option><option value="answer">Violated</option></select></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Confirmed</option><option value="answer">Violated</option></select></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Student’s t</option><option value="">Welch’s t</option><option value="answer">Mann-Whitney U</option></select></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p><img src="../images/rmb-week-11_computer-practical/rmb-week-11_computer-practical_img3.png" class="img-fluid"></p>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Normality</th>
+<th>Homogeneity of Variance</th>
+<th>Preferred Test</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Powerful</td>
+<td>Violated</td>
+<td>Confirmed</td>
+<td>Mann-Whitney U</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Testosterone</td>
+<td>Violated</td>
+<td>Violated</td>
+<td>Mann-Whitney U</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Cortisol</td>
+<td>Violated</td>
+<td>Violated</td>
+<td>Mann-Whitney U</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Risk Taking (Gain)</td>
+<td>Violated</td>
+<td>Violated</td>
+<td>Mann-Whitney U</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><span class="citation" data-cites="Ranehill2015_assessing">(<a href="#ref-Ranehill2015_assessing" role="doc-biblioref">Ranehill et al. 2015</a>)</span> do something unusual with their assumption checking. The don’t explicitly check whether the assumptions are met or not, rather they report both parametric and non-parametric statistics for all their tests (Non-parametric tests are reported in supplemental materials) and state that the conclusions would be the same irrespective of which test is would have been chosen (please do not do this in your reports!).</p>
 </section>
 <section id="interpreting-the-results." class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="interpreting-the-results.">7. Interpreting the results.</h2>
+<h2 class="unnumbered anchored" data-anchor-id="interpreting-the-results.">6. Interpreting the results.</h2>
+<p>It can be challenging to interpret the results of a null replication. If both the original study and replication show the same finding then things are much more straightforward….</p>
+<p>To interpret a failed replication we have to consider two possibilities:</p>
+<ol type="1">
+<li>The original study was a false positive and the replication is a correct rejection.</li>
+<li>The original study was a true positive and the replication is a false negative.</li>
+</ol>
+<p>One of our experiments is not accurate.</p>
+<p>It is very very difficult to separate these options with 100% confidence… Often a second replication is the way to converge on an answer, and perhaps a third and fourth would be better still.</p>
+<p>One thing we do know is that if the effect size from the original study were accurate, then the replication should have had enough participants to see it again.</p>
+<p>The same is not true the other way around. Take a look at the figures below:</p>
+<div class="border">
+<p><img src="../images/rmb-week-11_computer-practical/3-risk.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/rmb-week-11_computer-practical/4-hormones.png" class="img-fluid figure-img"></p>
+<figcaption>Original and replication effect size with 95% confidence intervals for that effect size. Figures by Data Colada: <a href="https://datacolada.org/37#identifier_0_910">https://datacolada.org/37#identifier_0_910</a></figcaption>
+</figure>
+</div>
+</div>
+<p>The replication confidence interval is much smaller than the original and even crosses zero for all three key variables. This strongly indicates a very tiny or zero effect.</p>
+<p>The replication effect is so small that, if it is accurate, then the original study with its smaller sample would only have a 5.9% chance of detecting it. (<a href="https://datacolada.org/37#identifier_0_910">Analysis by Data Colada</a>).</p>
+<p>So which study do we trust? Ultimately that your decision as an individual scientist. Consider what you know about both studies and evaulate which you find more compelling.</p>
+<p>In this case, there is a substantial consensus in the field that the original effects on hormones was likely a false positive, though the increase in the subjective feelings of power after a power pose replicates well. The replications have several advantages including larger sample sizes, blinded and objective experimentors, and longer pose durations.</p>
+<p>The original authors have engaged in the debate and made several points in defense of their work. The original study was famous by the time the replication was carried out - perhaps the participants had heard of the original study. Similarly, the replication study participants were told what was being measured in advance which might have effected their feelings during hte study. Finally, the original study was in hte USA and hte replication in Switzerland - perhaps there is a cultural component to power posing?</p>
 </section>
 <section id="ethics-collaboration." class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="ethics-collaboration.">6. Ethics &amp; Collaboration.</h2>
-<p>The debate about this result became so intense that it began to seriously impact the lives of the authors of the original studies. In particular, the second author Amy Cuddy had a growing media presence appearing on television, giving Ted talks and writing books. She attracted</p>
+<h2 class="unnumbered anchored" data-anchor-id="ethics-collaboration.">7. Ethics &amp; Collaboration.</h2>
+<p>The original paper attracted huge scientific and media interest</p>
+<ul>
+<li>61 news outlets</li>
+<li>33 blogs</li>
+<li>2 policy sources</li>
+<li>110 X users</li>
+<li>1 peer review site</li>
+<li>11 Facebook pages</li>
+<li>8 Wikipedia pages</li>
+<li>1 Redditor</li>
+<li>11 YouTube creators</li>
+<li>1 Bluesky user</li>
+</ul>
+<p>data from <a href="https://sage.altmetric.com/details/101804851#timeline">Altmetric, see here for full summary</a>.</p>
+<p>This was a mix of constructive debate, harsh criticism and genuine interest. Unfortunately a section of this debate became aggressive and personal towards Amy Cuddy to the extent that it had a serious impact on her life, health and career.</p>
+<blockquote class="blockquote">
+<p>In addition to her fame and influence, Cuddy’s critics seemed obsessed with profits from her book and her fees for speaking engagements. Dollar amounts frequently emerged in conversations where academics discussed the research, and recently, one of her most vocal critics said her speaking engagement fees made him feel “ill.” One Ivy League professor tweeted, “You can listen to her speak about her irreplicable results for $25-$40,000.” In reality, her book and speaking topics have little to do with the power posing studies.</p>
+<p>Many of the negative comments were personal in nature and aimed at Cuddy directly. “They were comparing me to Harvey Weinstein,” Cuddy says, recalling a post to the PsychMAP Facebook group which the site owners were eventually persuaded to remove. As if that’s not bad enough, Cuddy also received death threats via direct messages on social media. “I became an untouchable in my field,” she adds, describing how colleagues were shunned for merely friending her on Facebook.</p>
+<p>Although Cuddy says Harvard wanted her to stay, she left her full-time position, because she no longer felt safe doing her work (she remains a faculty member at Harvard Business School in Executive Education). “My dean wanted me to stay, but I later told him, I couldn’t stay, because I couldn’t endure this abuse. It was relentless,” says Cuddy. Her experiences inspired her new book (still a work in progress) entitled, Bullies, Bystanders and Bravehearts aimed at helping others who find themselves facing similar experiences.</p>
+<p>Exerpts from <span class="citation" data-cites="Elsesser2024_thedebate">(<a href="#ref-Elsesser2024_thedebate" role="doc-biblioref">Elsesser 2024</a>)</span>.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>This has led to a follow-up discussion […] consisting of two general camps: those who think Cuddy is being treated unfairly, and those who believe that complaints about bullying or harassment are a distraction from the most serious problem here, which is the elevation of shoddy research to a place of such profitable prominence.</p>
+<p>Except from <span class="citation" data-cites="Singal2017_howshould">(<a href="#ref-Singal2017_howshould" role="doc-biblioref">Singal 2017</a>)</span></p>
+</blockquote>
+<p>There is perhaps a tension here between our ethical obligation to act with integrity in research and our obligation for act with respect <span class="citation" data-cites="BPSguidelines">(<a href="#ref-BPSguidelines" role="doc-biblioref">BPS, n.d.</a>)</span>. Or perhaps some people are just bullies.</p>
+<p>Have a read through these sources and take a moment to do a quick web search for yourself.</p>
+<p>Share what you think about this situation on the padlet board below. what do you think of the situation surrounding this debate? how can we do better in future?</p>
+<div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4"><p style="padding:0;margin:0"><iframe src="https://bham.padlet.org/embed/ce3arjdicfwv0geh" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe></p><div style="display:flex;align-items:center;justify-content:end;margin:0;height:28px"><a href="https://padlet.com?ref=embed" style="display:block;flex-grow:0;margin:0;border:none;padding:0;text-decoration:none" target="_blank"><div style="display:flex;align-items:center;"><img src="https://padlet.net/embeds/made_with_padlet_2022.png" width="114" height="28" style="padding:0;margin:0;background:0 0;border:none;box-shadow:none" alt="Made with Padlet"></div></a></div></div>
+<p>Taking and receiving criticsm is a huge part of progressive constructive science but can be challenging to do well.</p>
 </section>
 <section id="summary." class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="summary.">8. Summary.</h2>
+<p>Replication is the gold standard for scientific progress but it is rarely as straightforward as we’d like it to be!</p>
+<p>A wide range of issues can arise - including statistical approaches, experimental design and sometimes interpersonal conflict. We have to navigate all of these points with high ethical standards for the scientific community to progress.</p>
+<p>Thank you for your time this semester - I hope you have enjoyed these computer practical sessions!</p>
+</section>
+<section id="references" class="level2">
 
 
 
@@ -716,18 +943,30 @@ Check Your Understanding
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">8. Summary.</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-BPSguidelines" class="csl-entry" role="listitem">
+BPS. n.d. <em>Code of Ethics and Conduct - BPS Explore</em>. <a href="https://explore.bps.org.uk/content/report-guideline/bpsrep.2021.inf94">https://explore.bps.org.uk/content/report-guideline/bpsrep.2021.inf94</a>.
+</div>
 <div id="ref-Carney2010_power" class="csl-entry" role="listitem">
 Carney, Dana R., Amy J. C. Cuddy, and Andy J. Yap. 2010. <span>“Power Posing: Brief Nonverbal Displays Affect Neuroendocrine Levels and Risk Tolerance.”</span> <em>Psychological Science</em> 21 (10): 1363–68. <a href="https://doi.org/10.1177/0956797610383437">https://doi.org/10.1177/0956797610383437</a>.
 </div>
 <div id="ref-Dominus2017_revolution" class="csl-entry" role="listitem">
 Dominus, Susan. 2017. <span>“When the Revolution Came for Amy Cuddy.”</span> <em>The New York Times</em>. The New York Times. <a href="https://www.nytimes.com/2017/10/18/magazine/when-the-revolution-came-for-amy-cuddy.html">https://www.nytimes.com/2017/10/18/magazine/when-the-revolution-came-for-amy-cuddy.html</a>.
 </div>
+<div id="ref-Elsesser2024_thedebate" class="csl-entry" role="listitem">
+Elsesser, Kim. 2024. <span>“The Debate on Power Posing Continues: Here’s Where We Stand.”</span> <em>Forbes</em>. Forbes Magazine. <a href="https://www.forbes.com/sites/kimelsesser/2020/10/02/the-debate-on-power-posing-continues-heres-where-we-stand/">https://www.forbes.com/sites/kimelsesser/2020/10/02/the-debate-on-power-posing-continues-heres-where-we-stand/</a>.
+</div>
 <div id="ref-BPS2021_decade" class="csl-entry" role="listitem">
 Loncar, Tom. 2021. <em>BPS</em>. The British Psychological Society. <a href="https://www.bps.org.uk/psychologist/decade-power-posing-where-do-we-stand">https://www.bps.org.uk/psychologist/decade-power-posing-where-do-we-stand</a>.
 </div>
 <div id="ref-Ranehill2015_assessing" class="csl-entry" role="listitem">
 Ranehill, Eva, Anna Dreber, Magnus Johannesson, Susanne Leiberg, Sunhae Sul, and Roberto A. Weber. 2015. <span>“Assessing the Robustness of Power Posing: No Effect on Hormones and Risk Tolerance in a Large Sample of Men and Women.”</span> <em>Psychological Science</em> 26 (5): 653–56. <a href="https://doi.org/10.1177/0956797614553946">https://doi.org/10.1177/0956797614553946</a>.
+</div>
+<div id="ref-Singal2017_howshould" class="csl-entry" role="listitem">
+Singal, Jesse. 2017. <span>“How Should We Talk about Amy Cuddy, Death Threats, and the Replication Crisis?”</span> <em>The Cut</em>. The Cut. <a href="https://web.archive.org/web/20240509073115/https://www.thecut.com/2017/04/amy-cuddy-death-threats.html">https://web.archive.org/web/20240509073115/https://www.thecut.com/2017/04/amy-cuddy-death-threats.html</a>.
+</div>
+<div id="ref-Wheeler2018_whenisit" class="csl-entry" role="listitem">
+Wheeler, Brian. 2018. <span>“When Is It OK to Do a <span>‘Power Pose’</span>?”</span> <em>BBC News</em>. BBC. <a href="https://www.bbc.co.uk/news/uk-politics-43960452">https://www.bbc.co.uk/news/uk-politics-43960452</a>.
 </div>
 <div id="ref-wiki:Power_posing" class="csl-entry" role="listitem">
 Wikipedia. 2025. <span>“<span class="nocase">Power posing</span> — <span>W</span>ikipedia<span>,</span> the Free Encyclopedia.”</span> <a href="http://en.wikipedia.org/w/index.php?title=Power%20posing&amp;oldid=1270473243" class="uri">http://en.wikipedia.org/w/index.php?title=Power%20posing&amp;oldid=1270473243</a>.
@@ -1356,6 +1595,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../tutorials/rmb-week-10_sampling-distributions-tvalues.html" class="pagination-link" aria-label="Week 10 - Sampling Distributions of t-values">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 10 - Sampling Distributions of t-values</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../copilot.html" class="pagination-link" aria-label="Using Copilot at UoB">
+        <span class="nav-page-text">Using Copilot at UoB</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
