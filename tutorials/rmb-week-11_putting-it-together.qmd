@@ -281,7 +281,7 @@ Read through the results of the original paper [@Carney2010_power] - does the se
 
 | Variable | t-value | p-value | Effect size | Replicates [@Carney2010_power]? |
 | ------- | ----- | ----- | ----- | ----- |
-| Feelings of power | `r fitb(2.40)` | `r fitb(0.017)` | `r fitb(-0.344)` | `r mcq(c(answer = "Yes", "No"))` |
+| Feelings of power | `r fitb(2.40)` | `r fitb(0.017)` | `r fitb(0.344)` | `r mcq(c(answer = "Yes", "No"))` |
 | Risk Taking (Gain) |`r fitb(-1.24)`  | `r fitb(0.215)` | `r fitb(-0.176)` | `r mcq(c("Yes", answer="No"))` |
 | Testosterone | `r fitb(-1.40)` | `r fitb(0.162)` | `r fitb(-0.200)` | `r mcq(c("Yes", answer="No"))` |
 | Cortisol | `r fitb(-1.10)` | `r fitb(0.272)` | `r fitb(-0.157)` | `r mcq(c("Yes", answer="No"))` |
@@ -321,10 +321,10 @@ Are the assumptions of Normality and Homogeneity of Variance confirmed or violat
 
 | Variable | Normality | Homogeneity of Variance | Preferred Test |
 | ------- | ----- | ----- | ----- | ----- |
-| Powerful | `r mcq(c("Confirmed", answer="Violated"))` | `r mcq(c(answer = "Confirmed", "Violated"))` | `r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
-| Testosterone | `r mcq(c("Confirmed", answer="Violated"))` | `r mcq(c("Confirmed", answer = "Violated"))` | `r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
-| Cortisol | `r mcq(c("Confirmed", answer="Violated"))` | `r mcq(c("Confirmed", answer = "Violated"))` |`r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
-| Risk Taking (Gain) | `r mcq(c("Confirmed", answer="Violated"))`  | `r mcq(c("Confirmed", answer = "Violated"))` | `r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
+| Powerful | `r mcq(c("Confirmed", answer="Violated"))` | `r mcq(c("Confirmed", answer = "Violated"))` | `r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
+| Testosterone | `r mcq(c("Confirmed", answer="Violated"))` | `r mcq(c(answer = "Confirmed", "Violated"))` | `r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
+| Cortisol | `r mcq(c("Confirmed", answer="Violated"))` | `r mcq(c(answer = "Confirmed", "Violated"))` |`r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
+| Risk Taking (Gain) | `r mcq(c("Confirmed", answer="Violated"))`  | `r mcq(c(answer = "Confirmed", "Violated"))` | `r mcq(c("Student's t", "Welch's t", answer = "Mann-Whitney U"))` |
 
 ## Hint
 
@@ -334,10 +334,10 @@ Are the assumptions of Normality and Homogeneity of Variance confirmed or violat
 
 | Variable | Normality | Homogeneity of Variance | Preferred Test |
 | ------- | ----- | ----- | ----- | ----- |
-| Powerful | Violated | Confirmed | Mann-Whitney U |
-| Testosterone | Violated  | Violated | Mann-Whitney U |
-| Cortisol | Violated  | Violated | Mann-Whitney U |
-| Risk Taking (Gain) | Violated  | Violated | Mann-Whitney U |
+| Powerful | Violated | Violated | Mann-Whitney U |
+| Testosterone | Violated  | Confirmed | Mann-Whitney U |
+| Cortisol | Violated  | Confirmed | Mann-Whitney U |
+| Risk Taking (Gain) | Violated  | Confirmed | Mann-Whitney U |
 
 :::
 ::::
