@@ -583,7 +583,7 @@ Check Your Understanding
 <p>Can you replicate this analysis using the <code>powerful</code> and <code>hp_condition</code> (1 is ‘high power pose’ and 0 is ‘low power pose’) variables in the replication dataset from <span class="citation" data-cites="Ranehill2015_assessing">(<a href="#ref-Ranehill2015_assessing" role="doc-biblioref">Ranehill et al. 2015</a>)</span>? <span class="citation" data-cites="Carney2010_power">(<a href="#ref-Carney2010_power" role="doc-biblioref">Carney, Cuddy, and Yap 2010</a>)</span> used an ANOVA but you should use a t-test.</p>
 <p>Use the results to fill in the gaps in the reporting below.</p>
 <blockquote class="blockquote">
-<p>The results <select class="webex-select"><option value="blank"></option><option value="answer">replicate</option><option value="">do not replicate</option></select> the original finding about subjective feeling. High-power posers (M = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.223&quot;,&quot;.223&quot;]">, SD = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.753&quot;,&quot;.753&quot;]">) reported feeling <select class="webex-select"><option value="blank"></option><option value="">less powerful than</option><option value="">just as powerful as</option><option value="answer">more powerful than</option></select> low-power posers did (M = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;1.978&quot;]">, SD = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.663&quot;,&quot;.663&quot;]">), t(<input class="webex-solveme nospaces" size="3" data-answer="[&quot;193&quot;]">) = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;-2.4&quot;]">, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.017&quot;,&quot;.017&quot;]">; Cohen’s d = <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.344&quot;,&quot;-.344&quot;]">.</p>
+<p>The results <select class="webex-select"><option value="blank"></option><option value="answer">replicate</option><option value="">do not replicate</option></select> the original finding about subjective feeling. High-power posers (M = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;2.22&quot;]">, SD = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.753&quot;,&quot;.753&quot;]">) reported feeling <select class="webex-select"><option value="blank"></option><option value="">less powerful than</option><option value="">just as powerful as</option><option value="answer">more powerful than</option></select> low-power posers did (M = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;1.978&quot;]">, SD = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.663&quot;,&quot;.663&quot;]">), t(<input class="webex-solveme nospaces" size="3" data-answer="[&quot;193&quot;]">) = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;-2.4&quot;]">, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.017&quot;,&quot;.017&quot;]">; Cohen’s d = <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.344&quot;,&quot;-.344&quot;]">.</p>
 </blockquote>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
@@ -591,7 +591,7 @@ Check Your Understanding
 </div>
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <blockquote class="blockquote">
-<p>High-power posers reported feeling significantly more “powerful” (M = 0.223, SD = 0.753) than low-power posers did (M = 1.978, SD = 0.663), t(193) = -2.40, p = 0.017; Cohen’s d = -0.344.</p>
+<p>High-power posers reported feeling significantly more “powerful” (M = 2.22, SD = 0.753) than low-power posers did (M = 1.978, SD = 0.663), t(193) = -2.40, p = 0.017; Cohen’s d = -0.344.</p>
 </blockquote>
 </div>
 </div>
@@ -604,7 +604,7 @@ Check Your Understanding
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - Compare your results above to those reported in the replication paper - do they match up?
+<i class="bi bi-question-lg"></i> Data Skills - Compare your results above to those reported in the replication paper - are there any differences?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -631,11 +631,18 @@ Key step - open after answering the previous question
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Something strange has happened - it seems like <span class="citation" data-cites="Ranehill2015_assessing">(<a href="#ref-Ranehill2015_assessing" role="doc-biblioref">Ranehill et al. 2015</a>)</span> must have computed the t-test the other way around. eg they have done low power minus high power - whereas we are computing high power minus low power.</p>
-<p>This is a bit annoying but straightforward to fix. Create a new Transformed variable from <code>hp_condition</code> by computing <code>1 - hp_condition</code>.</p>
-<p><strong>Note : Make sure you use ‘Transform’ and not ‘Compute’ for your variable. ‘Compute’ will not retain the right data type.</strong></p>
-<p>We covered transforming variables in <a href="rmb_week-7_non-parametrics.html#transforming-non-normally-distributed-data">Week 7 Section 7</a>.</p>
-<p>Repeat the t-test using the new variable as a grouping factor.</p>
+<p>Something strange has happened - it seems like <span class="citation" data-cites="Ranehill2015_assessing">(<a href="#ref-Ranehill2015_assessing" role="doc-biblioref">Ranehill et al. 2015</a>)</span> must have computed the t-test the other way around compared to our analysis. They have a positive t-value and ours is negative.</p>
+<p>Remember that the <strong>direction</strong> of a t-test (ie whether the t-statistics is positive or negative) doesn’t effect the p-values but does change the interpretation of the result a little.</p>
+<p>This is because the order of subtraction makes a difference to the answer - if we do <code>2 + 3</code> or <code>3 + 2</code> we get the same answer however <code>2 - 3</code> and <code>3 - 2</code> are <strong>not</strong> the same.</p>
+<p>The means of our groups are <code>1.98</code> for low power and <code>2.22</code> for high power poses. <span class="citation" data-cites="Ranehill2015_assessing">(<a href="#ref-Ranehill2015_assessing" role="doc-biblioref">Ranehill et al. 2015</a>)</span> report a positive t-value of <code>2.399</code> - so they must have run the equivalent of high power minus low power (<code>2.22 - 1.98</code>) and have a positive t-value indicating that the mean for high power is <strong>larger</strong>.</p>
+<p>In contrast, our negative t-value indicates we have run low power minus high power (<code>1.98 - 2.22</code>) and have a negative t-value indicating that the mean for low power is <strong>smaller</strong>.</p>
+<p>The order of the conditions in the t-test is controlled from the data varaible view. Double click on <code>hp_condition</code> in the ‘Variables’ tab, or on the column header of the ‘Data’ tab. We should need a ‘Nominal’ variable with two ‘Levels’ - <code>0</code> and <code>1</code>. The conditions in the t-test are sorted in the order of this ‘Levels’ list.</p>
+<p>You can reorder the levels to put <code>1</code> first and <code>0</code> second - which should update your t-test live to match <span class="citation" data-cites="Ranehill2015_assessing">(<a href="#ref-Ranehill2015_assessing" role="doc-biblioref">Ranehill et al. 2015</a>)</span>’s result.</p>
+<p><img src="../images/rmb-week-11_computer-practical/rmb-week-11_computer-practical_img4.png" class="img-fluid" width="450"></p>
+<p>We could make this even easier to remember by changing the names of the Levels to something more memorable. This is often a good idea when data has used an abstract numerical coding. Statistics is about precision and anything we can do to make the interpretation easier is a good thing.</p>
+<p><img src="../images/rmb-week-11_computer-practical/rmb-week-11_computer-practical_img5.png" class="img-fluid" width="450"></p>
+<p>Your adapted result should match the following:</p>
+<p><img src="../images/rmb-week-11_computer-practical/rmb-week-11_computer-practical_img6.png" class="img-fluid" width="450"></p>
 </div>
 </div>
 </div>
@@ -655,7 +662,9 @@ Check Your Understanding
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <p>Can you replicate the core findings from <span class="citation" data-cites="Carney2010_power">(<a href="#ref-Carney2010_power" role="doc-biblioref">Carney, Cuddy, and Yap 2010</a>)</span> using the data from <span class="citation" data-cites="Ranehill2015_assessing">(<a href="#ref-Ranehill2015_assessing" role="doc-biblioref">Ranehill et al. 2015</a>)</span>?</p>
-<p>Run t-tests to analyse the following variables - <strong>make sure to use your new variable as a grouping factor</strong>. Use the variables <code>testosterone_diff</code>, <code>cortisol_diff</code> and <code>num_risky_gain_pc</code> as dependent variables.</p>
+<p><strong>Make sure you have completed the ‘Key step’ above before starting this exercise!</strong></p>
+<p>Run t-tests to analyse the effect of high vs low power posing on the following variables: <code>powerful</code>, <code>testosterone_diff</code>, <code>cortisol_diff</code> and <code>num_risky_gain_pc</code> as dependent variables.</p>
+<p>Read through the results of the original paper <span class="citation" data-cites="Carney2010_power">(<a href="#ref-Carney2010_power" role="doc-biblioref">Carney, Cuddy, and Yap 2010</a>)</span> - does the second study confirm the findings of the original?</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -675,6 +684,20 @@ Check Your Understanding
 </thead>
 <tbody>
 <tr class="odd">
+<td>Feelings of power</td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;2.4&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.017&quot;,&quot;.017&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.344&quot;,&quot;-.344&quot;]"></td>
+<td><select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></td>
+</tr>
+<tr class="even">
+<td>Risk Taking (Gain)</td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;-1.24&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.215&quot;,&quot;.215&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.176&quot;,&quot;-.176&quot;]"></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></td>
+</tr>
+<tr class="odd">
 <td>Testosterone</td>
 <td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;-1.4&quot;]"></td>
 <td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.162&quot;,&quot;.162&quot;]"></td>
@@ -686,13 +709,6 @@ Check Your Understanding
 <td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;-1.1&quot;]"></td>
 <td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.272&quot;,&quot;.272&quot;]"></td>
 <td><input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.157&quot;,&quot;-.157&quot;]"></td>
-<td><select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></td>
-</tr>
-<tr class="odd">
-<td>Risk Taking (Gain)</td>
-<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;-1.24&quot;]"></td>
-<td><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.215&quot;,&quot;.215&quot;]"></td>
-<td><input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.176&quot;,&quot;-.176&quot;]"></td>
 <td><select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></td>
 </tr>
 </tbody>
@@ -721,6 +737,20 @@ Check Your Understanding
 </thead>
 <tbody>
 <tr class="odd">
+<td>Feelings of power</td>
+<td><code>2.40</code></td>
+<td><code>0.017</code></td>
+<td><code>-0.344</code></td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Risk Taking (Gain)</td>
+<td><code>-1.24</code></td>
+<td><code>0.215</code></td>
+<td><code>-0.176</code></td>
+<td>No</td>
+</tr>
+<tr class="odd">
 <td>Testosterone</td>
 <td><code>-1.40</code></td>
 <td><code>0.162</code></td>
@@ -732,13 +762,6 @@ Check Your Understanding
 <td><code>-1.10</code></td>
 <td><code>0.272</code></td>
 <td><code>-0.157</code></td>
-<td>No</td>
-</tr>
-<tr class="odd">
-<td>Risk Taking (Gain)</td>
-<td><code>-1.24</code></td>
-<td><code>0.215</code></td>
-<td><code>-0.176</code></td>
 <td>No</td>
 </tr>
 </tbody>
