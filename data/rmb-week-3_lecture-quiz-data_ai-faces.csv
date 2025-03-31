@@ -1,0 +1,125 @@
+"","First Name","DataUse","AIConfidenceBefore","EmoConfidenceBefore","MemoryConfidenceBefore","Face1_Real","Face2_Real","Face3_AI","Face4_AI","Face5_AI","Face6_AI","Face7_Real","Face8_Real","Face9_Real","Face10_Real","Face11_AI","Face12_AI","Quiz1","Quiz2","Quiz3","AIConfidenceAfter","EmoConfidenceAfter","MemoryConfidenceAfter"
+"1","Anonymous","Yes, I'm happy for my data to be included","7.0","2.0","5.0",1,1,1,0,0,1,0,1,1,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","6.0","1.0","3.0"
+"2","Anonymous","Yes, I'm happy for my data to be included","1.0","1.0","3.0",1,1,0,1,1,1,1,1,0,1,1,1,"One sample t-test","Correlation","One-tailed, confidence before > confidence after","5.0","1.0","3.0"
+"3","Anonymous","Yes, I'm happy for my data to be included","9.0","5.0","2.0",1,0,1,1,0,0,0,1,0,1,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","5.0","4.0","2.0"
+"4","Anonymous","Yes, I'm happy for my data to be included","5.0","3.0","7.0",1,0,1,1,0,1,1,1,1,1,1,1,"Paired sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","4.0","3.0","7.0"
+"5","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","2.0",1,1,0,1,0,0,0,1,0,1,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","8.0","2.0","2.0"
+"6","Anonymous","Yes, I'm happy for my data to be included","6.0","1.0","1.0",1,1,0,1,1,0,1,1,1,1,1,0,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","7.0","1.0","2.0"
+"7","Anonymous","Yes, I'm happy for my data to be included","4.0","3.0","4.0",1,1,0,1,1,1,1,0,0,0,1,1,"Paired sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","8.0","5.0","5.0"
+"8","Anonymous","Yes, I'm happy for my data to be included","4.0","1.0","3.0",0,0,0,1,1,1,1,0,0,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","6.0","1.0","4.0"
+"9","Anonymous","Yes, I'm happy for my data to be included","6.0","3.0","2.0",1,1,0,1,0,1,1,1,0,1,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","5.0","3.0","2.0"
+"10","Anonymous","Yes, I'm happy for my data to be included","3.0","4.0","2.0",1,0,0,0,0,0,1,0,1,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","8.0","4.0","3.0"
+"11","Anonymous","Yes, I'm happy for my data to be included","7.0",NA,"4.0",1,0,0,0,1,1,0,1,0,0,1,1,"Paired sample t-test","Paired sample t-test","Two-tailed, confidence before == confidence after","5.0","1.0","2.0"
+"12","Anonymous","Yes, I'm happy for my data to be included",NA,NA,"3.0",1,1,0,1,1,1,0,0,0,1,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","2.0",NA,"3.0"
+"13","Anonymous","Yes, I'm happy for my data to be included","1.0","1.0","2.0",1,1,0,1,0,1,1,1,1,1,1,1,"One sample t-test","Correlation","One-tailed, confidence before > confidence after","4.0","8.0",NA
+"14","Anonymous","Yes, I'm happy for my data to be included","4.0",NA,NA,0,0,0,1,1,1,0,1,0,0,1,1,"Paired sample t-test","Paired sample t-test",NA,NA,NA,NA
+"15","Anonymous","Yes, I'm happy for my data to be included","3.0","1.0","2.0",0,0,0,1,0,1,1,1,1,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","5.0","3.0","2.0"
+"16","Anonymous","Yes, I'm happy for my data to be included","6.0","3.0","4.0",0,0,1,1,0,1,0,0,0,0,1,1,"Paired sample t-test","Paired sample t-test",NA,NA,NA,NA
+"17","Anonymous","Yes, I'm happy for my data to be included","5.0",NA,"6.0",1,1,1,1,0,1,1,1,0,0,1,1,"Chi-Square","Paired sample t-test","One-tailed, confidence before > confidence after","2.0","2.0","5.0"
+"18","Anonymous","Yes, I'm happy for my data to be included","1.0","1.0","2.0",1,1,1,1,1,1,1,0,0,1,1,1,"One sample t-test","One sample t-test","One-tailed, confidence before > confidence after","2.0","1.0","2.0"
+"19","Anonymous","Yes, I'm happy for my data to be included","5.0","2.0","3.0",1,0,0,0,0,1,1,0,0,0,0,0,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","10.0","2.0","3.0"
+"20","Anonymous","Yes, I'm happy for my data to be included","4.0","1.0","4.0",1,1,0,1,0,0,0,1,0,1,1,NA,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","8.0",NA,"4.0"
+"21","Anonymous","Yes, I'm happy for my data to be included","6.0","4.0","8.0",1,0,1,1,1,1,0,0,0,1,0,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after",NA,NA,NA
+"22","Anonymous","Yes, I'm happy for my data to be included","5.0","2.0",NA,1,0,0,1,0,0,1,0,0,1,1,0,"One sample t-test","Paired sample t-test","One-tailed, confidence before < confidence after","9.0","2.0","1.0"
+"23","Anonymous","Yes, I'm happy for my data to be included","3.0","1.0","1.0",0,1,1,1,0,1,1,1,1,1,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","2.0","1.0","1.0"
+"24","Anonymous","Yes, I'm happy for my data to be included","8.0","2.0","7.0",1,1,1,1,1,0,0,0,0,1,1,0,"Paired sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","10.0","3.0","8.0"
+"25","Anonymous","Yes, I'm happy for my data to be included","8.0","3.0","8.0",0,0,1,1,0,1,1,0,0,0,1,0,"Paired sample t-test",NA,NA,NA,NA,NA
+"26","Anonymous","Yes, I'm happy for my data to be included","3.0","2.0","2.0",1,1,1,1,1,1,0,1,1,1,1,1,"One sample t-test","Chi Square","One-tailed, confidence before > confidence after","2.0","2.0","2.0"
+"27","Anonymous","Yes, I'm happy for my data to be included","2.0",NA,"4.0",1,0,0,1,0,1,NA,0,NA,NA,1,1,NA,NA,NA,"6.0","3.0","5.0"
+"28","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","5.0",NA,1,0,0,1,1,0,0,0,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","7.0","3.0","4.0"
+"29","Anonymous","Yes, I'm happy for my data to be included","7.0","3.0","4.0",1,1,1,1,0,1,NA,1,0,1,1,1,"One sample t-test","Paired sample t-test",NA,"5.0","3.0","4.0"
+"30","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","2.0",1,0,1,1,1,1,1,0,0,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","5.0","3.0","2.0"
+"31","Anonymous","Yes, I'm happy for my data to be included","2.0","1.0",NA,1,0,1,1,0,1,1,1,1,1,1,1,"One sample t-test","Correlation","Two-tailed, confidence before =/= confidence after","4.0",NA,"2.0"
+"32","Anonymous","Yes, I'm happy for my data to be included","6.0",NA,"5.0",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"33","Anonymous","Yes, I'm happy for my data to be included","8.0","2.0","3.0",1,0,0,1,1,1,1,0,0,0,1,1,"One sample t-test","Chi Square",NA,NA,NA,NA
+"34","Anonymous","Yes, I'm happy for my data to be included","3.0","4.0","5.0",0,1,0,1,0,1,1,1,0,1,1,1,"Paired sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","3.0","3.0","5.0"
+"35","Anonymous","Yes, I'm happy for my data to be included","5.0","2.0","3.0",0,0,1,0,1,1,0,1,0,1,0,0,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","7.0","2.0","5.0"
+"36","Anonymous","Yes, I'm happy for my data to be included","3.0","2.0","2.0",1,0,1,1,0,1,1,0,0,0,1,1,"Chi-Square",NA,NA,"5.0","2.0","2.0"
+"37","Anonymous","Yes, I'm happy for my data to be included",NA,NA,NA,1,1,0,1,0,0,0,0,1,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","6.0","4.0","3.0"
+"38","Anonymous","Yes, I'm happy for my data to be included","3.0","2.0",NA,1,0,0,1,1,1,1,1,1,0,1,1,NA,"Paired sample t-test","One-tailed, confidence before > confidence after","3.0","3.0",NA
+"39","Anonymous","Yes, I'm happy for my data to be included","5.0","4.0","8.0",1,0,0,1,1,1,0,0,0,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","3.0","6.0","5.0"
+"40","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","3.0",1,0,0,1,1,1,1,0,0,0,1,NA,NA,NA,NA,NA,NA,NA
+"41","Anonymous","Yes, I'm happy for my data to be included","3.0","2.0","5.0",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"42","Anonymous","Yes, I'm happy for my data to be included","5.0","2.0","2.0",1,1,1,1,0,1,0,1,1,1,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after",NA,NA,NA
+"43","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","3.0",1,0,0,1,0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"44","Anonymous","Yes, I'm happy for my data to be included","5.0","4.0","3.0",1,1,0,1,0,1,1,1,0,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","3.0","5.0","3.0"
+"45","Anonymous","Yes, I'm happy for my data to be included",NA,NA,NA,1,0,1,1,0,1,1,0,0,1,0,0,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","6.0","3.0","3.0"
+"46","Anonymous","Yes, I'm happy for my data to be included","4.0","3.0","5.0",1,1,1,1,1,1,1,1,0,1,1,1,"Paired sample t-test",NA,NA,"2.0","3.0","4.0"
+"47","Anonymous","Yes, I'm happy for my data to be included","8.0","2.0","6.0",1,0,0,1,1,0,0,0,0,1,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","9.0","3.0","6.0"
+"48","Anonymous","Yes, I'm happy for my data to be included","3.0","3.0","9.0",1,1,0,1,1,1,0,0,0,0,1,1,"One sample t-test","Correlation","One-tailed, confidence before > confidence after","7.0","3.0","9.0"
+"49","Anonymous","Yes, I'm happy for my data to be included","4.0","1.0","3.0",1,1,1,1,1,1,1,0,0,1,1,1,"One sample t-test","Paired sample t-test","Two-tailed, confidence before =/= confidence after","2.0",NA,"3.0"
+"50","Anonymous","Yes, I'm happy for my data to be included","5.0","2.0",NA,0,1,0,1,0,0,1,1,1,0,1,1,"One sample t-test","Correlation","One-tailed, confidence before > confidence after","6.0","2.0","2.0"
+"51","Anonymous","Yes, I'm happy for my data to be included","8.0","1.0","3.0",1,0,1,1,0,1,0,0,1,0,1,1,"One sample t-test",NA,NA,"9.0",NA,NA
+"52","Anonymous","Yes, I'm happy for my data to be included","6.0","3.0","4.0",1,0,0,1,0,1,0,1,0,1,1,0,"Paired sample t-test","Correlation","Two-tailed, confidence before =/= confidence after","10.0","4.0","4.0"
+"53","Anonymous","Yes, I'm happy for my data to be included","5.0","3.0","3.0",1,0,1,1,0,1,1,1,0,1,1,0,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","7.0","3.0","3.0"
+"54","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","2.0",NA,0,1,0,1,NA,1,0,0,0,1,0,NA,"Paired sample t-test","One-tailed, confidence before > confidence after","5.0","2.0","2.0"
+"55","Anonymous","Yes, I'm happy for my data to be included","5.0","4.0","3.0",0,0,1,1,1,1,1,1,1,NA,1,1,NA,"Paired sample t-test","One-tailed, confidence before > confidence after","4.0","3.0","4.0"
+"56","Anonymous","Yes, I'm happy for my data to be included","1.0","1.0","4.0",1,0,0,0,1,1,1,1,0,1,1,0,"Chi-Square","Paired sample t-test","One-tailed, confidence before > confidence after","7.0","1.0","4.0"
+"57","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","2.0",1,1,0,0,0,1,1,0,1,0,1,0,"Paired sample t-test",NA,NA,"8.0","3.0","2.0"
+"58","Anonymous","Yes, I'm happy for my data to be included","1.0","2.0","3.0",1,1,0,1,1,1,1,1,0,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","3.0","3.0","3.0"
+"59","Anonymous","Yes, I'm happy for my data to be included","5.0","1.0","1.0",1,1,0,1,0,0,0,1,1,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after",NA,NA,NA
+"60","Anonymous","Yes, I'm happy for my data to be included",NA,NA,NA,1,1,0,1,0,1,0,0,0,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before < confidence after","7.0","4.0","2.0"
+"61","Anonymous","Yes, I'm happy for my data to be included",NA,NA,NA,1,1,0,1,1,1,1,1,0,1,1,0,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","5.0","3.0","2.0"
+"62","Anonymous","Yes, I'm happy for my data to be included","3.0","6.0","2.0",1,0,1,1,0,1,1,1,0,0,1,0,"One sample t-test","Paired sample t-test","Two-tailed, confidence before =/= confidence after","8.0","6.0","2.0"
+"63","Anonymous","Yes, I'm happy for my data to be included","9.0",NA,"4.0",1,0,1,1,0,1,NA,1,1,0,1,0,"One sample t-test","Paired sample t-test","Two-tailed, confidence before =/= confidence after","6.0","2.0","5.0"
+"64","Anonymous","Yes, I'm happy for my data to be included",NA,NA,NA,NA,1,NA,NA,NA,NA,1,NA,NA,NA,1,NA,"One sample t-test","Correlation","One-tailed, confidence before > confidence after",NA,NA,NA
+"65","Anonymous","Yes, I'm happy for my data to be included","4.0","1.0","1.0",1,1,0,1,0,1,0,1,0,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after",NA,NA,NA
+"66","Anonymous","Yes, I'm happy for my data to be included","3.0",NA,"3.0",1,1,0,1,0,1,1,1,1,1,NA,1,"Paired sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","4.0",NA,"3.0"
+"67","Anonymous","Yes, I'm happy for my data to be included","3.0","4.0","6.0",1,1,1,1,1,1,0,1,1,1,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","3.0","4.0","6.0"
+"68","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","2.0",0,0,0,1,0,NA,0,NA,NA,0,NA,0,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","8.0","2.0","3.0"
+"69","Anonymous","Yes, I'm happy for my data to be included","3.0","1.0","1.0",1,1,1,1,1,1,1,1,1,1,1,1,NA,"Paired sample t-test","One-tailed, confidence before > confidence after","1.0","1.0","1.0"
+"70","Anonymous","Yes, I'm happy for my data to be included","2.0","1.0","3.0",1,0,1,1,0,1,1,0,1,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","4.0","1.0","2.0"
+"71","Anonymous","Yes, I'm happy for my data to be included","7.0","3.0",NA,1,0,1,0,0,1,1,1,0,0,1,0,"One sample t-test","Correlation","One-tailed, confidence before > confidence after","9.0","3.0","1.0"
+"72","Anonymous","Yes, I'm happy for my data to be included","7.0","2.0","4.0",1,0,0,1,0,0,NA,1,1,0,1,1,"One sample t-test","One sample t-test","One-tailed, confidence before > confidence after","5.0","3.0","2.0"
+"73","Anonymous","Yes, I'm happy for my data to be included","3.0","1.0","2.0",1,1,0,1,1,1,1,1,0,1,1,1,"Chi-Square",NA,NA,NA,NA,NA
+"74","Anonymous","Yes, I'm happy for my data to be included","1.0","3.0","3.0",1,1,1,1,1,1,1,0,1,1,1,1,"Paired sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","1.0","3.0","7.0"
+"75","Anonymous","Yes, I'm happy for my data to be included","1.0","3.0","5.0",1,0,0,1,1,NA,NA,0,0,NA,1,NA,"One sample t-test",NA,NA,NA,NA,NA
+"76","Anonymous","Yes, I'm happy for my data to be included",NA,NA,NA,1,1,0,1,0,1,0,0,0,0,1,NA,NA,NA,NA,NA,NA,NA
+"77","Anonymous","Yes, I'm happy for my data to be included","1.0",NA,"1.0",1,1,0,0,0,1,0,0,0,0,1,1,"Paired sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","8.0",NA,NA
+"78","Anonymous","Yes, I'm happy for my data to be included","3.0",NA,NA,1,1,0,0,1,1,0,0,0,0,0,0,"Paired sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","10.0","1.0","1.0"
+"79","Anonymous","Yes, I'm happy for my data to be included","5.0","1.0","2.0",1,0,1,1,1,1,NA,0,0,0,1,1,NA,NA,"One-tailed, confidence before > confidence after","2.0","1.0","1.0"
+"80","Anonymous","Yes, I'm happy for my data to be included",NA,NA,NA,1,1,0,1,0,1,0,0,0,1,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before < confidence after",NA,NA,NA
+"81","Anonymous","Yes, I'm happy for my data to be included","6.0","2.0","6.0",1,0,1,1,0,1,1,1,0,0,1,1,"Paired sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","4.0","2.0","6.0"
+"82","Anonymous","Yes, I'm happy for my data to be included","8.0","3.0",NA,1,1,0,1,1,1,0,1,0,1,1,0,"One sample t-test","Chi Square","One-tailed, confidence before > confidence after","4.0","2.0",NA
+"83","Anonymous","Yes, I'm happy for my data to be included",NA,NA,NA,1,1,1,1,0,1,1,1,1,NA,1,1,"One sample t-test",NA,NA,NA,NA,NA
+"84","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","3.0",1,0,1,1,0,1,0,1,0,NA,1,0,"One sample t-test",NA,NA,"8.0","2.0","3.0"
+"85","Anonymous","Yes, I'm happy for my data to be included","3.0","1.0","2.0",0,0,1,1,0,1,1,1,1,1,1,NA,NA,NA,NA,NA,NA,NA
+"86","Anonymous","Yes, I'm happy for my data to be included","8.0","4.0","4.0",0,1,1,0,1,0,0,0,0,0,0,0,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","9.0","4.0","7.0"
+"87","Anonymous","Yes, I'm happy for my data to be included","6.0","3.0","4.0",1,0,0,1,0,1,0,0,1,0,0,0,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","10.0","2.0","5.0"
+"88","Anonymous","Yes, I'm happy for my data to be included",NA,NA,NA,1,1,1,1,0,0,0,1,0,0,1,1,"One sample t-test","Correlation",NA,"7.0","2.0","2.0"
+"89","Anonymous","Yes, I'm happy for my data to be included","5.0","3.0","2.0",0,1,1,1,0,0,NA,0,1,0,1,0,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","6.0","3.0","2.0"
+"90","Anonymous","Yes, I'm happy for my data to be included","6.0","1.0","5.0",1,0,1,1,0,1,1,1,0,1,1,1,"One sample t-test","Paired sample t-test",NA,"4.0","1.0","5.0"
+"91","Anonymous","Yes, I'm happy for my data to be included","4.0","1.0","1.0",1,1,0,0,1,1,1,0,0,1,1,1,NA,NA,NA,NA,NA,NA
+"92","Anonymous","Yes, I'm happy for my data to be included","6.0","9.0","6.0",NA,0,1,0,0,0,1,1,0,1,0,NA,"One sample t-test",NA,"One-tailed, confidence before < confidence after",NA,NA,NA
+"93","Anonymous","Yes, I'm happy for my data to be included","3.0",NA,"2.0",1,1,1,1,0,1,1,1,0,0,1,1,"Chi-Square","Paired sample t-test","One-tailed, confidence before > confidence after","5.0","1.0","2.0"
+"94","Anonymous","Yes, I'm happy for my data to be included","8.0","3.0","2.0",0,1,1,1,0,1,1,0,0,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after",NA,NA,NA
+"95","Anonymous","Yes, I'm happy for my data to be included","5.0","3.0","2.0",1,1,0,0,0,1,0,1,0,0,1,0,"One sample t-test",NA,NA,"8.0","3.0","2.0"
+"96","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","2.0",1,1,0,0,0,0,1,1,1,1,1,1,NA,NA,NA,NA,NA,NA
+"97","Anonymous","Yes, I'm happy for my data to be included","5.0","1.0","7.0",1,0,0,1,0,1,1,0,0,NA,NA,NA,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","9.0","1.0","6.0"
+"98","Anonymous","Yes, I'm happy for my data to be included","5.0","4.0","3.0",0,1,0,1,1,1,1,1,1,NA,1,1,"One sample t-test",NA,NA,"5.0","3.0","3.0"
+"99","Anonymous","Yes, I'm happy for my data to be included","2.0","3.0","2.0",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"100","Anonymous","Yes, I'm happy for my data to be included","3.0","1.0","1.0",1,0,0,1,0,1,1,0,0,1,1,0,"One sample t-test","Paired sample t-test",NA,NA,NA,NA
+"101","Anonymous","Yes, I'm happy for my data to be included","8.0","1.0","2.0",NA,NA,NA,NA,NA,1,NA,NA,NA,0,1,NA,NA,NA,NA,NA,NA,NA
+"102","Anonymous","Yes, I'm happy for my data to be included","9.0","9.0","10.0",1,0,0,1,0,1,1,1,0,0,1,1,"One sample t-test",NA,"One-tailed, confidence before < confidence after",NA,NA,NA
+"103","Anonymous","Yes, I'm happy for my data to be included","3.0","2.0","1.0",1,0,0,NA,NA,NA,NA,NA,0,0,1,0,NA,NA,NA,NA,NA,NA
+"104","Anonymous","Yes, I'm happy for my data to be included","4.0","3.0","3.0",1,0,1,1,0,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"105","Anonymous","Yes, I'm happy for my data to be included","4.0",NA,"1.0",1,0,0,1,0,1,1,1,0,1,1,0,NA,NA,NA,NA,NA,NA
+"106","Anonymous","Yes, I'm happy for my data to be included","7.0","3.0","2.0",1,0,1,1,0,1,1,0,0,NA,NA,NA,"One sample t-test","Paired sample t-test","Two-tailed, confidence before == confidence after","7.0","4.0","2.0"
+"107","Anonymous","Yes, I'm happy for my data to be included","7.0","4.0","2.0",0,1,0,1,0,1,0,0,0,0,1,1,"Paired sample t-test","One sample t-test",NA,NA,NA,NA
+"108","Anonymous","Yes, I'm happy for my data to be included","5.0","3.0","6.0",1,1,1,1,1,1,1,1,1,1,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","1.0","3.0","4.0"
+"109","Anonymous","Yes, I'm happy for my data to be included","5.0","3.0","2.0",1,1,1,1,1,1,0,1,0,1,1,0,"One sample t-test",NA,NA,NA,NA,NA
+"110","Anonymous","Yes, I'm happy for my data to be included","3.0","5.0","5.0",1,1,0,1,1,1,0,1,1,0,0,1,"One sample t-test",NA,NA,"4.0","4.0","5.0"
+"111","Anonymous","Yes, I'm happy for my data to be included","8.0","3.0","7.0",1,0,0,1,0,NA,1,0,0,0,1,1,NA,NA,NA,"10.0","3.0","6.0"
+"112","Anonymous","Yes, I'm happy for my data to be included","3.0","1.0","1.0",1,0,1,NA,0,0,0,NA,NA,1,1,NA,NA,NA,NA,"7.0","2.0","2.0"
+"113","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","3.0",1,1,0,1,1,1,0,0,0,0,1,NA,"One sample t-test",NA,NA,NA,NA,NA
+"114","Anonymous","Yes, I'm happy for my data to be included","10.0","10.0","8.0",1,0,1,1,1,1,1,1,1,0,1,0,"One sample t-test","Correlation","One-tailed, confidence before > confidence after","8.0","4.0","8.0"
+"115","Anonymous","Yes, I'm happy for my data to be included","2.0","1.0","4.0",1,1,1,1,0,1,1,1,1,1,1,1,"Paired sample t-test","Paired sample t-test","One-tailed, confidence before > confidence after","2.0","1.0","4.0"
+"116","Anonymous","Yes, I'm happy for my data to be included","7.0","3.0",NA,1,1,1,1,0,1,0,0,1,0,1,1,"One sample t-test","Paired sample t-test","One-tailed, confidence before < confidence after","5.0","3.0",NA
+"117","Anonymous","Yes, I'm happy for my data to be included",NA,"3.0","3.0",1,NA,1,1,NA,1,0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"118","Anonymous","Yes, I'm happy for my data to be included","2.0","3.0","5.0",1,1,0,1,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"119","Anonymous","Yes, I'm happy for my data to be included","3.0","1.0","3.0",0,1,1,1,1,NA,1,1,0,1,1,1,"One sample t-test",NA,NA,NA,NA,NA
+"120","Anonymous","Yes, I'm happy for my data to be included","2.0",NA,"2.0",1,0,0,1,1,1,1,1,0,1,1,0,"One sample t-test",NA,NA,NA,NA,NA
+"121","Anonymous","Yes, I'm happy for my data to be included","2.0","2.0","1.0",1,0,1,1,1,1,0,1,0,1,1,1,NA,NA,NA,NA,NA,NA
+"122","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","2.0",0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"One-tailed, confidence before > confidence after",NA,NA,NA
+"123","Anonymous","Yes, I'm happy for my data to be included","4.0","2.0","9.0",1,0,0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"124","Anonymous","Yes, I'm happy for my data to be included","3.0","2.0",NA,1,1,0,1,1,1,0,0,0,0,1,1,"One sample t-test","Paired sample t-test",NA,NA,NA,NA

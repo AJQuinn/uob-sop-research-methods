@@ -198,7 +198,7 @@ Can you replicate this analysis using the `powerful` and `hp_condition` (1 is 'h
 
 Use the results to fill in the gaps in the reporting below.
 
-> The results `r mcq(c(answer="replicate", "do not replicate"))` the original finding about subjective feeling. High-power posers  (M = `r fitb(0.223)`, SD = `r fitb(0.753)`) reported feeling `r mcq(c('less powerful than', 'just as powerful as', answer = 'more powerful than'))` low-power posers did (M = `r fitb(1.978)`, SD = `r fitb(0.663)`), t(`r fitb(193)`) = `r fitb(-2.40)`, p = `r fitb(0.017)`; Cohen's d = `r fitb(-0.344)`. 
+> The results `r mcq(c(answer="replicate", "do not replicate"))` the original finding about subjective feeling. High-power posers  (M = `r fitb(2.22)`, SD = `r fitb(0.753)`) reported feeling `r mcq(c('less powerful than', 'just as powerful as', answer = 'more powerful than'))` low-power posers did (M = `r fitb(1.978)`, SD = `r fitb(0.663)`), t(`r fitb(193)`) = `r fitb(-2.40)`, p = `r fitb(0.017)`; Cohen's d = `r fitb(-0.344)`. 
 
 ## Hint
 
@@ -207,7 +207,7 @@ Use the results to fill in the gaps in the reporting below.
 
 ## Solution
 
-> High-power posers reported feeling significantly more “powerful” (M = 0.223, SD = 0.753) than low-power posers did (M = 1.978, SD = 0.663), t(193) = -2.40, p = 0.017; Cohen's d = -0.344. 
+> High-power posers reported feeling significantly more “powerful” (M = 2.22, SD = 0.753) than low-power posers did (M = 1.978, SD = 0.663), t(193) = -2.40, p = 0.017; Cohen's d = -0.344. 
 
 :::
 ::::
@@ -215,7 +215,7 @@ Use the results to fill in the gaps in the reporting below.
 
 
 ::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - Compare your results above to those reported in the replication paper - do they match up?
+## <i class="bi bi-question-lg"></i> Data Skills - Compare your results above to those reported in the replication paper - are there any differences?
 
 No! oddly they do not... [@Ranehill2015_assessing] report the following:
 
@@ -227,18 +227,38 @@ We can confirm that this is a weird variable issue by checking hte descriptive s
 
 :::
 
+
+
+
+
 ::: {.callout-note appearance="simple" collapse="true"}
 # Key step - open after answering the previous question
 
-Something strange has happened - it seems like [@Ranehill2015_assessing] must have computed the t-test the other way around. eg they have done low power minus high power - whereas we are computing high power minus low power.
+Something strange has happened - it seems like [@Ranehill2015_assessing] must have computed the t-test the other way around compared to our analysis. They have a positive t-value and ours is negative.
 
-This is a bit annoying but straightforward to fix. Create a new Transformed variable from `hp_condition` by computing `1 - hp_condition`. 
 
-**Note : Make sure you use 'Transform' and not 'Compute' for your variable. 'Compute' will not retain the right data type.**
+Remember that the **direction** of a t-test (ie whether the t-statistics is positive or negative) doesn't effect the p-values but does change the interpretation of the result a little. 
 
-We covered transforming variables in [Week 7 Section 7](rmb_week-7_non-parametrics.html#transforming-non-normally-distributed-data).
+This is because the order of subtraction makes a difference to the answer - if we do `2 + 3` or `3 + 2` we get the same answer however `2 - 3` and `3 - 2` are **not** the same.
 
-Repeat the t-test using the new variable as a grouping factor.
+The means of our groups are `1.98` for low power and `2.22` for high power poses. [@Ranehill2015_assessing] report a positive t-value of `2.399` - so they must have run the equivalent of high power minus low power (`2.22 - 1.98`) and have a positive t-value indicating that the mean for high power is **larger**.
+
+In contrast, our negative t-value indicates we have run low power minus high power (`1.98 - 2.22`) and have a negative t-value indicating that the mean for low power is **smaller**.
+
+The order of the conditions in the t-test is controlled from the data varaible view. Double click on `hp_condition` in the 'Variables' tab, or on the column header of the 'Data' tab. We should need a 'Nominal' variable with two 'Levels' - `0` and `1`. The conditions in the t-test are sorted in the order of this 'Levels' list.
+
+You can reorder the levels to put `1` first and `0` second - which should update your t-test live to match [@Ranehill2015_assessing]'s result.
+
+![](../images/rmb-week-11_computer-practical/rmb-week-11_computer-practical_img4.png){width=450px}
+
+We could make this even easier to remember by changing the names of the Levels to something more memorable. This is often a good idea when data has used an abstract numerical coding. Statistics is about precision and anything we can do to make the interpretation easier is a good thing.
+
+![](../images/rmb-week-11_computer-practical/rmb-week-11_computer-practical_img5.png){width=450px}
+
+
+Your adapted result should match the following:
+
+![](../images/rmb-week-11_computer-practical/rmb-week-11_computer-practical_img6.png){width=450px}
 
 :::
 
@@ -253,13 +273,18 @@ Repeat the t-test using the new variable as a grouping factor.
 
 Can you replicate the core findings from [@Carney2010_power] using the data from [@Ranehill2015_assessing]?
 
-Run t-tests to analyse the following variables - **make sure to use your new variable as a grouping factor**. Use the variables `testosterone_diff`, `cortisol_diff` and `num_risky_gain_pc` as dependent variables.
+**Make sure you have completed the 'Key step' above before starting this exercise!**
+
+Run t-tests to analyse the effect of high vs low power posing on the following variables: `powerful`, `testosterone_diff`, `cortisol_diff` and `num_risky_gain_pc` as dependent variables. 
+
+Read through the results of the original paper [@Carney2010_power] - does the second study confirm the findings of the original?
 
 | Variable | t-value | p-value | Effect size | Replicates [@Carney2010_power]? |
 | ------- | ----- | ----- | ----- | ----- |
+| Feelings of power | `r fitb(2.40)` | `r fitb(0.017)` | `r fitb(-0.344)` | `r mcq(c(answer = "Yes", "No"))` |
+| Risk Taking (Gain) |`r fitb(-1.24)`  | `r fitb(0.215)` | `r fitb(-0.176)` | `r mcq(c("Yes", answer="No"))` |
 | Testosterone | `r fitb(-1.40)` | `r fitb(0.162)` | `r fitb(-0.200)` | `r mcq(c("Yes", answer="No"))` |
 | Cortisol | `r fitb(-1.10)` | `r fitb(0.272)` | `r fitb(-0.157)` | `r mcq(c("Yes", answer="No"))` |
-| Risk Taking (Gain) |`r fitb(-1.24)`  | `r fitb(0.215)` | `r fitb(-0.176)` | `r mcq(c("Yes", answer="No"))` |
 
 ## Hint
 
@@ -269,9 +294,10 @@ Run t-tests to analyse the following variables - **make sure to use your new var
 
 | Variable | t-value | p-value | Effect size | Replicates [@Carney2010_power]? |
 | ------- | ----- | ----- | ----- | ----- |
+| Feelings of power | `2.40` | `0.017` | `-0.344` | Yes |
+| Risk Taking (Gain) | `-1.24`  | `0.215` | `-0.176` | No |
 | Testosterone | `-1.40` | `0.162` | `-0.200` | No |
 | Cortisol | `-1.10` | `0.272` | `-0.157` | No |
-| Risk Taking (Gain) | `-1.24`  | `0.215` | `-0.176` | No |
 
 :::
 ::::
