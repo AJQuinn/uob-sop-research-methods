@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>intro – Research Methods</title>
+<title>rma_week-8_introduction-to-jamovi – Research Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,61 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-75e13e533f83396d33ef467c830deb73.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../tutorials/rmb_week-1_new-data-and-descriptives.html" rel="next">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-75e13e533f83396d33ef467c830deb73.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="../include/webex.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -114,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Research Methods</span>
     </a>
   </div>
@@ -125,7 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -139,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rma_week-8_introduction-to-jamovi.html">Research Methods A</a></li><li class="breadcrumb-item"><a href="../tutorials/rma_week-8_introduction-to-jamovi.html">Week 8 - Introduction to Jamovi</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -170,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rma_week-8_introduction-to-jamovi.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rma_week-8_introduction-to-jamovi.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Week 8 - Introduction to Jamovi</span></a>
   </div>
 </li>
@@ -187,61 +153,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-1_new-data-and-descriptives.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-1_new-data-and-descriptives.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1 - New data and descriptives</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-2_intro-to-Rj.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-2_intro-to-Rj.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 2 - Introducing R and Rj</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-3_one-sample-t-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-3_one-sample-t-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 3 - One-Sample T-tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-4_two-sample-t-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-4_two-sample-t-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4 - Two-Sample T-tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-5_pvalue-effect-size.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-5_pvalue-effect-size.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 5 - p-values and Effect Sizes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb_week-7_non-parametrics.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb_week-7_non-parametrics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 7 - Non-parametric tests and data transformation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb-week-8_sampling-distributions-mean.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb-week-8_sampling-distributions-mean.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 8 - Sampling Distributions of Means</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb-week-9_one-way-anova.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb-week-9_one-way-anova.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 9 - One-way ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb-week-10_sampling-distributions-tvalues.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb-week-10_sampling-distributions-tvalues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 10 - Sampling Distributions of t-values</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/rmb-week-11_putting-it-together.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmb-week-11_putting-it-together.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 11 - Putting it all together</span></a>
   </div>
 </li>
@@ -258,13 +224,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./copilot.html" class="sidebar-item-text sidebar-link">
+  <a href="../copilot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using Copilot at UoB</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorials/frequently-asked-questions.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/frequently-asked-questions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FAQs</span></a>
   </div>
 </li>
@@ -280,28 +246,405 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#week-8-introduction-to-jamovi" id="toc-week-8-introduction-to-jamovi" class="nav-link active" data-scroll-target="#week-8-introduction-to-jamovi">Week 8 : Introduction to Jamovi</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">1. The Dataset</a></li>
+  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">2. The Challenge</a></li>
+  <li><a href="#jamovi-basics" id="toc-jamovi-basics" class="nav-link" data-scroll-target="#jamovi-basics">3. Jamovi Basics</a></li>
+  <li><a href="#how-to-open-an-excel-file-in-jamovi" id="toc-how-to-open-an-excel-file-in-jamovi" class="nav-link" data-scroll-target="#how-to-open-an-excel-file-in-jamovi">4. How to open an excel file in Jamovi</a></li>
+  <li><a href="#how-to-save-your-work-in-jamovi" id="toc-how-to-save-your-work-in-jamovi" class="nav-link" data-scroll-target="#how-to-save-your-work-in-jamovi">5. How to save your work in Jamovi</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">6. Exercises</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rma_week-8_introduction-to-jamovi.html">Research Methods A</a></li><li class="breadcrumb-item"><a href="../tutorials/rma_week-8_introduction-to-jamovi.html">Week 8 - Introduction to Jamovi</a></li></ol></nav></header>
 
 
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>This is a book created from markdown and executable code.</p>
-<p>See <span class="citation" data-cites="knuth84">(<a href="#ref-knuth84" role="doc-biblioref"><strong>knuth84?</strong></a>)</span> for additional discussion of literate programming.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<section id="week-8-introduction-to-jamovi" class="level1 unnumbered">
+<h1 class="unnumbered">Week 8 : Introduction to Jamovi</h1>
+<p>This week you will be introduced to Jamovi. You will use Jamovi throughout your degree for statistical analysis, so it is very important to get familiar with it!</p>
+<p>JAMOVI has inbuilt functions which can be used to investigate and manipulate data, and to perform majority of statistical tests used in psychological research. Each task you perform in JAMOVI will generate an output which will support your research decisions, such as choosing a statistical test or deciding whether to reject a hypothesis.</p>
+<p>JAMOVI will already be on the computers on Campus but if you want to use it at home too you will need to download and install it on to your personal laptop or desktop PC. The software is free and we recommend that you install it at home because you will need to use it a lot over the next three years, including for many of your assignments. As you can see on the JAMOVI website, there are versions for WindowsOS, MacOS and ChromeOS: <a href="https://www.jamovi.org/download.html" class="uri">https://www.jamovi.org/download.html</a></p>
+<p>You can find instructions for how to install JAMOVI on your personal laptop or desktop PC here: <a href="https://docs.jamovi.org/_pages/um_1_installation.html" class="uri">https://docs.jamovi.org/_pages/um_1_installation.html</a></p>
+<p>There is also a Cloud version here: <a href="https://www.jamovi.org/cloud.html" class="uri">https://www.jamovi.org/cloud.html</a></p>
+<p>You will also be able to find a lot of information about how to use JAMOVI on their website and all of this is free to access. You should explore their website but this page could be particularly useful because it is a comprehensive User Guide: <a href="https://www.jamovi.org/user-manual.html" class="uri">https://www.jamovi.org/user-manual.html</a></p>
+<section id="learning-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_quantitative-methods.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Quantitative Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Measures of central tendency</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">Measures of dispersion and spread</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Measures of skew and normality</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_data-skills.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Data Skills</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Working with the Jamovi editor</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">Computing descriptive statistics in Jamovi</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Plot basic graphs in Jamovi</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_open-science.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Open Science</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Working with openly available research data</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Today’s session
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Today you will just be familiarising yourself with the Jamovi interface and its layout / basic functions. Next week we will move on to using Jamovi for statistical analysis of data – so make sure you are comfortable with the layout and using the basic functions this week!</p>
+</div>
+</div>
+</section>
+<section id="the-dataset" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="the-dataset">1. The Dataset</h2>
+<p>We will be exploring the dataset <em>employees data</em> that you can find on the CANVAS page under <strong>Week 8</strong> of the computer labs folder of <strong>Research Methods A</strong></p>
+</section>
+<section id="the-challenge" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="the-challenge">2. The Challenge</h2>
+<p>We have a dataset of employees in a big data table. This raw data needs to be summarised and visualised so that we can turn this massive block of numbers into something intuitive.</p>
+<p>We can generate a concise overview of the main characteristics of the data by computing and visualising a few key features from the data.</p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Opening Jamovi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We’ll be working with Jamovi throughout this practical.</p>
+<p><strong>Working on campus?</strong> You can open Jamovi through AppsAnywhere, either open the desktop application through the start menu on a campus computer or <a href="https://apps.bham.ac.uk/">Birmingham’s AppsAnywhere website</a>.</p>
+<p>Take a look at these <a href="../tutorials/frequently-asked-questions.html">frequently asked questions</a> or ask your tutor if you get stuck.</p>
+<p><strong>Working on your own computer?</strong> You can <a href="https://www.jamovi.org/">install Jamovi (for free!) folling these instructions</a>. Install the ‘Desktop’ application - not the ‘Cloud’ version.</p>
+</div>
+</div>
+</section>
+<section id="jamovi-basics" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="jamovi-basics">3. Jamovi Basics</h2>
+<p>The instructions for installing and licensing JAMOVI on your personal computer are available above. To access JAMOVI once installed or when using Campus computers you will be able to find it in the start menu at the bottom left corner of your desktop (sometimes this will be in another location on your personal laptop or personal desktop PC – you know your device best!)</p>
+<p>Once open, you will see the following screen. Note that if you are working with a later version of JAMOVI, the screen may look a little different e.g.&nbsp;in version ‘2.3.28 solid’ there is a tab called “Variables” before “Data” at the top of the screen. As researchers we work with statistical software which updates occasionally. Most of the changes are often cosmetic but sometimes options and functions move or are improved. You should be prepared to familiarise yourself with the changes each time they happen and JAMOVI update their user guides regularly to account for updates.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data Skills - Jamovi interface
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img1.png" class="img-fluid" width="600"></p>
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img2.png" class="img-fluid" width="600"></p>
+</div>
+</div>
+</section>
+<section id="how-to-open-an-excel-file-in-jamovi" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-to-open-an-excel-file-in-jamovi">4. How to open an excel file in Jamovi</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s start by loading the dataset into Jamovi. You can download the file <code>Employees data.xlsx</code> from canvas.</p>
+<p>In Jamovi, click the 3 horizontal lines in the top left corner, click file, and click open. Find your data file and click to open.</p>
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img3.png" class="img-fluid" width="600"></p>
+<p>Click on the data tab and then on set-up to see the variable information</p>
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img4.png" class="img-fluid" width="600"></p>
+<p>Try clicking on different column names to change the information you are presented with.</p>
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img5.png" class="img-fluid" width="600"></p>
+<p>Try changing the labels for gender from 0 and 1 to something meaningful.</p>
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img6.png" class="img-fluid" width="600"></p>
+</div>
+</div>
+<p>When you start to do things in JAMOVI another screen will also come up to the right of the data view. This is the Output screen which keeps track of what you are doing and all of your results. When you have undertaken some analysis you can click on the results from this screen and cut and paste them into your reports.</p>
+</section>
+<section id="how-to-save-your-work-in-jamovi" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-to-save-your-work-in-jamovi">5. How to save your work in Jamovi</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step - Saving data in Jamovi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In JAMOVI Click on the 3 horizontal lines in the top left corner to File &gt; Save as.</p>
+<p>Give the file an appropriate name and click on ‘Browse’ to decide where you want to save it – then just click on ‘Save’</p>
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img7.png" class="img-fluid" width="600"></p>
+</div>
+</div>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">6. Exercises</h2>
+<p>Now it is time for you to explore the data. If you are unsure about any of these, please talk to the staff in your computer practical session.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - What do each row and column represent?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The rows represent participants and the columns represent the different variables</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - How many variables are there in this data set?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There are 8 variables in this data set</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - What are the variables called?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The variable are called gender, bdate, educ, jobcat, salary, salbegin, prevexp, minority</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - How many levels are there to each variable?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Gender: 2 Educ: Jobcat: 3 Minority: 2</p>
+<p>Only the variables that are categorical have levels as these are the only variables that represent groups.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Ethical Consideration - How could you ask a question about gender identity in a more inclusive way?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You could ask participants to state their gender without putting constraints on this. You could ask what gender participants identify as</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - What type of variables (ordinal, scale (continuous), nominal) are there in the dataset?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Gender: Nominal</p>
+<p>Bdate: ID</p>
+<p>Educ: Nominal</p>
+<p>Jobcat: Nominal</p>
+<p>Salary: Scale (continuous)</p>
+<p>Salbegin: Scale (continuous)</p>
+<p>Prevexp: Scale (continuous)</p>
+<p>Minority: Nominal</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - Your variables are not always imported as the correct variable type. In this case Bdate has been imported as ID which isn’t one of our variable types. What should you change this to?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Nominal</p>
+<p>Please change this on your dataset.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When conducting statistical analysis for your research, you need to ensure that your variables are set to the right type. Otherwise, your analysis may not work correctly.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - What does the variable ‘Minority’ mean? Is it useful? Is there any information in the dataset to tell us what the numbers mean?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The variable gives us information about whether the participant is part of a minority group. It isn’t very useful without labels. There is no information in the dataset that would allow us to discern what the numbers mean either.</p>
+</div>
+</div>
+</div>
+<p>Please add labels to your ‘Minority’ variable where 0 = Not a minority and 1 = Minority</p>
+<p>For the next few exercises you need to run some short analysis to get some descriptive statistics. Go to Analyse -&gt; Exploration -&gt; Descriptive statistics. Put Education and Job Category into the right-hand box. See the results appear in the right-hand window.</p>
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img8.png" class="img-fluid" width="600"></p>
+<p>Now try putting gender in the ‘split by’ box and see what happens to the output</p>
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img10.png" class="img-fluid" width="600"></p>
+<p>Add labels to the variable JobCat where 1 = Manual, 2 = Office and 3 = Corporate. Go to Analyse -&gt; Exploration -&gt; Descriptive statistics. Put Salary into the right-hand box and Press OK. Look at the output</p>
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img11.png" class="img-fluid" width="600"></p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - What is the mean salary?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>34420</p>
+</div>
+</div>
+</div>
+<p>Now do the same again but split by JobCat.</p>
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img12.png" class="img-fluid" width="600"></p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - What are the mean salaries for each group?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Group 1: 27839 Group 2: 30939 Group 3: 63978</p>
+</div>
+</div>
+</div>
+<p>On the same screen click ‘plot’ and then tick the box for histogram and bar plot. You’ll see the graphs appear in the screen to the right. Have a play around with the different options and see what you can produce.</p>
+<p><img src="../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img13.png" class="img-fluid" width="600"></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -910,6 +1253,15 @@ window.onload = function() {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../tutorials/rmb_week-1_new-data-and-descriptives.html" class="pagination-link" aria-label="Week 1 - New data and descriptives">
+        <span class="nav-page-text">Week 1 - New data and descriptives</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
