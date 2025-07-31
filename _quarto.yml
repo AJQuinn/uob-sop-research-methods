@@ -15,6 +15,10 @@ website:
     style: docked
     search: true
     contents:
+    - section: Research Methods A
+      contents:
+      - text: Week 8 - Introduction to Jamovi
+        href: tutorials/rma_week-8_introduction-to-jamovi.qmd
     - section: Research Methods B
       contents:
       - text: Week 1 - New data and descriptives
