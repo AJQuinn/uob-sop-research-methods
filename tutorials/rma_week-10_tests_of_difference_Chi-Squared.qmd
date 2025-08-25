@@ -1,0 +1,212 @@
+# Week 10 : Tests of difference: Chi-Squared {.unnumbered}
+
+This week you will be learning about 
+
+
+### Learning Objectives
+
++-----------+----------------------------------------------------------+
+|           | Quantitative Methods                                     |
++===========+:=========================================================+
+|           | Hypothesis testing                                       |
++-----------+----------------------------------------------------------+
+
++-----------+----------------------------------------------------------+
+|           | Data Skills                                              |
++===========+:=========================================================+
+|           | Working with the Jamovi editor                           |
++-----------+----------------------------------------------------------+
+|           | Performing a Chi-Squared test in Jamovi.                 |
++-----------+----------------------------------------------------------+
+
++-----------+----------------------------------------------------------+
+|           | Open Science                                             |
++===========+:=========================================================+
+|           | Working with openly available research data              |
++-----------+----------------------------------------------------------+
+
+::: {.callout-note appearance="simple"}
+# Today's session
+
+Today you will just be familiarising yourself with the Chi-Squared test of difference. The Chi-Squared test is a non-parametric test of difference. It is used when...
+* You want to know about differences between groups 
+    + Are there more females than males studying Psychology?
+* You want to know whether there is an association between two categorical variables 
+    + Is there an association between gender and smoking?
+* Your groups are independent
+    + Each observation only contributes to one cell of the analysis (e.g. gender)
+* You have categorical data (otherwise known as on the nominal level of measurement)
+    + Frequency or number of observations in a number of categories e.g. 10 male vs 50 females enrolled in Psychology
+* Your data violates parametric assumptions 
+    + Your data is not normally distributed 
+:::
+
+## How to perform a chi-square in Jamovi
+### Worked example- are males more likely to smoke than females?
+The table underneath contains information about smoking status distributed by gender. This information can be entered in to Jamovi providing that appropriate variables are constructed. In this example there are three variables, namely ‘smoking status’, ‘gender’, and ‘frequency’. In Point 2 illustrates these variables in Jamovi ‘Variable view’. Point 3 illustrates these variables and the associated data in Jamovi ‘Data view’
+
++-----------+-------------------------+--------------------------------+
+|           | Smokes                  |                 Does not smoke |
++===========+:========================+================================+
+|  Male     | 25                      |                 128            |
++-----------+-------------------------+--------------------------------+
+|  Female   | 12                      |                 85             |
++-----------+-------------------------+--------------------------------+
+
+* To learn how to perform a Chi-square test you may open the example data in this week’s Canvas folder and work through the steps detailed below – to open the file, simply double click on it. If you have Jamovi installed on your computer, then it will automatically open
+* Check that all relevant details are included in variable view – click on ‘variables’ in the top tool bar (it should look like the screen below). You should add your own labels here too. Also check that the values are specified for ‘gender’ and ‘smokes’.
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img1.png){width="600px"}
+
+* To edit your variables, simply double tap on the variable of choice in the 'variable view' or tap on 'edit' in the tool bar 
+* You will see all the details about the variable, which you can change. 
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img2.png){width="600px"}
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img3.png){width="600px"}
+
+* Click on ‘data’ and check that a row defines each cell of your frequency table (i.e. you should have 1 row for females who smoke, 1 for females who do not smoke, 1 for males who smoke and 1 for males who do not smoke). The total observed frequency of each category should be in the corresponding frequency column.
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img4.png){width="600px"}
+
+* Now you are ready to perform the Chi squared test. Click on: Frequencies > Independent Samples
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img5.png){width="600px"}
+
+* Add 'Gender' to the rows box, 'Smokes' to the Columns box, and 'Frequency' to the counts box
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img6.png){width="600px"}
+
+* Click on statistics and tick the Chi Squared test 
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img7.png){width="600px"}
+
+* Next, select the cells button and select expected counts AND row, column and total 
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img8.png){width="600px"}
+
+* You can also play around with plots to visualise your data
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img9.png){width="600px"}
+
+* On the right-hand side, you will see your results
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img10.png){width="600px"}
+
+### How to report these results in APA format 
+A Pearson Chi-Square was used to identify whether gender influenced smoking frequency.  Results of the chi-square showed no significant difference in smoking frequency between genders (χ² (1) = .742, p = .389). 
+
+::: {.callout-note appearance="simple"}
+# Note
+
+You can find the χ symbol on word by going to Insert > Symbol. You might need to look under More Symbols if you haven’t used this symbol before. 
+:::
+
+## Exercises 
+A chi-square analysis was carried out to investigate the relationship between gender and smoking frequency, the Jamovi output showing the results of the analysis is shown below.
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img11.png){width="600px"}
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - What are the observed frequencies for men and women who did and did not smoke?
+
+The rows represent participants and the columns represent the different variables
+:::
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question 
+
+What are the observed frequencies for males and females who did and did not smoke?
+
+|                  | Did smoke        | Did not smoke    |  
+|------------------|------------------|------------------|
+| Male             | `r fitb(50)`     | `r fitb(128)`    | 
+| Female           | `r fitb(12)`     | `r fitb(140)`    | 
+
+
+
+## Solution
+
+|                  | Did smoke        | Did not smoke    |  
+|------------------|------------------|------------------|
+| Male             | `50`             | `128`            | 
+| Female           | `12`             | `140`            | 
+:::
+::::
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question 
+
+How would you report the results of the chi-square analysis in APA format?
+
+<input type="text" id="answer-box" name="answer" style="width: 500px;">
+
+
+
+## Solution
+
+A Pearson Chi-Square was used to identify whether gender influenced smoking frequency.  Results of the chi-square showed a significant difference in smoking frequency between genders (χ² (1) = 21.9, p < .001). 
+:::
+::::
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - Are the results of the chi-square significant?
+
+Yes p < 0.05
+:::
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question 
+
+What do these results show? 
+
+<input type="text" id="answer-box" name="answer" style="width: 500px;">
+
+## Hint
+
+Think about the question we were trying to answer and what the results actually mean in real terms. Is there a difference between the groups? If there is, which group has a higher frequency of smokers?
+
+## Solution
+
+As the results were statistically significant, there is an association between smoking frequency and gender, with males being more likely to be a smoker than women. 
+:::
+::::
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question 
+
+The table underneath shows how often men and women play football. Enter this data into Jamovi following the same format as in the previous example. a. What are the results of the chi-square? b. Are the results significant? c. What do the results mean and what can you conclude?
+
+|                  | Play football    | Do not play football|  
+|------------------|------------------|---------------------|
+| Male             | `60`             | `70`                | 
+| Female           | `45`             | `80`                | 
+
+## Hint 
+
+Take a look at the Jamovi output 
+
+![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img12.png){width="600px"}
+
+## Solution
+
+a. χ² (1) = 2.71, p = .100
+
+b. No
+
+c. The results of the chi-square show no significant association between gender and whether or not you play football.  Neither gender is significantly more likely to play football. 
+
+:::
+::::

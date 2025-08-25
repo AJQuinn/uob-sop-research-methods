@@ -19,6 +19,10 @@ website:
       contents:
       - text: Week 8 - Introduction to Jamovi
         href: tutorials/rma_week-8_introduction-to-jamovi.qmd
+      - text: Week 9 - Correlations, Graphs and Exporting
+        href: tutorials/rma_week-9_correlations-graphs-and-exporting.qmd
+      - text: Week 10 - Tests of Difference Chi-Squared
+        href: tutorials/rma_week-10_tests_of_difference_Chi-Squared.qmd
     - section: Research Methods B
       contents:
       - text: Week 1 - New data and descriptives
