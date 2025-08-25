@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>frequently-asked-questions – Research Methods</title>
+<title>rma_week-9_correlations-graphs-and-exporting – Research Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../copilot.html" rel="prev">
+<link href="../tutorials/rma_week-10_tests_of_difference_Chi-Squared.html" rel="next">
+<link href="../tutorials/rma_week-8_introduction-to-jamovi.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -105,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../copilot.html">Support</a></li><li class="breadcrumb-item"><a href="../tutorials/frequently-asked-questions.html">FAQs</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rma_week-8_introduction-to-jamovi.html">Research Methods A</a></li><li class="breadcrumb-item"><a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html">Week 9 - Correlations, Graphs and Exporting</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -142,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Week 9 - Correlations, Graphs and Exporting</span></a>
   </div>
 </li>
@@ -242,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/frequently-asked-questions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tutorials/frequently-asked-questions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FAQs</span></a>
   </div>
 </li>
@@ -258,43 +259,494 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#frequently-asked-questions" id="toc-frequently-asked-questions" class="nav-link active" data-scroll-target="#frequently-asked-questions">Frequently Asked Questions</a>
+  <li><a href="#week-9-correlations-graphs-and-exporting" id="toc-week-9-correlations-graphs-and-exporting" class="nav-link active" data-scroll-target="#week-9-correlations-graphs-and-exporting">Week 9 : Correlations, graphs and exporting</a>
   <ul class="collapse">
-  <li><a href="#i-cant-find-jamovirstudio-on-my-campus-computer." id="toc-i-cant-find-jamovirstudio-on-my-campus-computer." class="nav-link" data-scroll-target="#i-cant-find-jamovirstudio-on-my-campus-computer.">I can’t find Jamovi/Rstudio on my campus computer.</a></li>
-  <li><a href="#i-cant-find-appsanywhere-on-my-campus-computer." id="toc-i-cant-find-appsanywhere-on-my-campus-computer." class="nav-link" data-scroll-target="#i-cant-find-appsanywhere-on-my-campus-computer.">I can’t find AppsAnywhere on my campus computer.</a></li>
-  <li><a href="#how-do-i-use-appsanywhere" id="toc-how-do-i-use-appsanywhere" class="nav-link" data-scroll-target="#how-do-i-use-appsanywhere">How do I use AppsAnywhere?</a></li>
-  <li><a href="#appsanywhere-keeps-asking-me-about-validation." id="toc-appsanywhere-keeps-asking-me-about-validation." class="nav-link" data-scroll-target="#appsanywhere-keeps-asking-me-about-validation.">AppsAnywhere keeps asking me about ‘Validation’.</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#one--and-two-tailed-tests" id="toc-one--and-two-tailed-tests" class="nav-link" data-scroll-target="#one--and-two-tailed-tests">One- and two-tailed tests</a></li>
+  <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">1. The Dataset</a></li>
+  <li><a href="#pearsons-correlation-coefficent" id="toc-pearsons-correlation-coefficent" class="nav-link" data-scroll-target="#pearsons-correlation-coefficent">2. Pearson’s Correlation Coefficent</a></li>
+  <li><a href="#jamovi-basics" id="toc-jamovi-basics" class="nav-link" data-scroll-target="#jamovi-basics">3. Jamovi Basics</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">4. Exercises</a>
+  <ul class="collapse">
+  <li><a href="#task-1" id="toc-task-1" class="nav-link" data-scroll-target="#task-1">Task 1</a></li>
+  <li><a href="#task-1---results" id="toc-task-1---results" class="nav-link" data-scroll-target="#task-1---results">Task 1 - Results</a></li>
+  <li><a href="#example-of-how-to-report-these-results" id="toc-example-of-how-to-report-these-results" class="nav-link" data-scroll-target="#example-of-how-to-report-these-results">Example of how to report these results</a></li>
+  <li><a href="#task-2---create-a-graphical-representation-in-jamovi" id="toc-task-2---create-a-graphical-representation-in-jamovi" class="nav-link" data-scroll-target="#task-2---create-a-graphical-representation-in-jamovi">Task 2 - Create a graphical representation in Jamovi</a></li>
+  <li><a href="#task-3---histograms" id="toc-task-3---histograms" class="nav-link" data-scroll-target="#task-3---histograms">Task 3 - Histograms</a></li>
+  <li><a href="#task-4---copypaste-jamovi-results-into-other-applications" id="toc-task-4---copypaste-jamovi-results-into-other-applications" class="nav-link" data-scroll-target="#task-4---copypaste-jamovi-results-into-other-applications">Task 4 - Copy/paste Jamovi results into other applications</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../copilot.html">Support</a></li><li class="breadcrumb-item"><a href="../tutorials/frequently-asked-questions.html">FAQs</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rma_week-8_introduction-to-jamovi.html">Research Methods A</a></li><li class="breadcrumb-item"><a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html">Week 9 - Correlations, Graphs and Exporting</a></li></ol></nav></header>
 
 
 
 
-<section id="frequently-asked-questions" class="level1 unnumbered">
-<h1 class="unnumbered">Frequently Asked Questions</h1>
-<section id="i-cant-find-jamovirstudio-on-my-campus-computer." class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="i-cant-find-jamovirstudio-on-my-campus-computer.">I can’t find Jamovi/Rstudio on my campus computer.</h2>
-<p>First check the start menu, if you can find both Jamovi and Rstudio then just open both from there and get started. Any programme that is not in the start menu can be opened using AppsAnywhere. This is available in the start menu of every campus computer – general information about AppsAnywhere can be found on <a href="https://itservicedesk.bham.ac.uk/itportal?id=uob_kb_article&amp;sysparm_article=kb16361">this IT services page</a></p>
+<section id="week-9-correlations-graphs-and-exporting" class="level1 unnumbered">
+<h1 class="unnumbered">Week 9 : Correlations, graphs and exporting</h1>
+<section id="learning-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: left;">Quantitative Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Hypothesis testing</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">Confidence intervals and critical values</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Measures of skew and normality</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 30%">
+<col style="width: 49%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>===========</td>
+<td>Data Skills :========================================================= Working with the Jamovi editor</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Performing a correlation in Jamovi</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Produce graphs in Jamovi</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Copy/paste Jamovi output into other applications</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Report different statistical tests</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Make decisions about which statistical test to use based on hypotheses and data</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: left;">Open Science</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Working with openly available research data</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Today’s session
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Today you will be using Jamovi to perform a correlational analysis.</p>
+</div>
+</div>
+<p>When we want to test a research hypothesis, we obtain random samples of behaviour/data. We set up a null hypothesis H0: that the samples were drawn from populations with the same means (so that there will be no difference between them). We then obtain some samples and calculate the differences between the means of these samples, under the assumption that H0 is true (i.e.&nbsp;we obtained these means when the population means are equal).</p>
+<ul>
+<li>EXAMPLE: We want to test whether students drink more than the general population. To do this we collect data on the number of drinks per person in a club in one night, for two groups: students and general population. We then calculate the differences in the mean number of drinks for each of our groups. We assume that these means will be equal (null hypothesis). We are looking to disprove this hypothesis by finding differences in the means.</li>
+</ul>
+<p>We then calculate the probability of getting a mean difference that is at least as large as the one we actually obtained between the means of our samples. This probability is our confidence interval. With a t-test, for example, we usually aim to say that we are 95% confident that our data were drawn from two populations with different means (i.e.&nbsp;there is a significant difference between the populations). To do this, we use the critical value – usually p&lt;0.05. In this case, we are saying that the probability that we would obtain the significant difference in data that we did would occur less than 5% or 5 in 100 times, if the null were true! That’s a very small chance. We can also use smaller, stricter p values like p&lt;0.01 (we would see the differences we found less than 1% of the time, if the null were true).</p>
+<ul>
+<li>EXAMPLE: We calculate the differences in the mean number of drinks for our student and general population groups. We find that students drink on average 2.5 more drinks than the general population, and that this difference is significant. We use a critical value of 5% and a confidence interval of 95% (these add up to 100%). That is, we can say that we are 95% confident that our data were drawn from two populations that actually have different means, and this conclusion will only be a mistake (due to chance) 5% of the time.</li>
+</ul>
+<p>If the data do not lead us to reject the null hypothesis, the interpretation is more problematic – do we “accept” the null, or “retain” it, or just withhold judgement”? • We can definitely never claim to have “proved” the null hypothesis (as you cannot 100% prove a null statement)! A non-significant result is an inconclusive one – we have insufficient data to choose which hypothesis (null or alternative) is the most accurate.</p>
 </section>
-<section id="i-cant-find-appsanywhere-on-my-campus-computer." class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="i-cant-find-appsanywhere-on-my-campus-computer.">I can’t find AppsAnywhere on my campus computer.</h2>
-<p>This should be available as an icon on the desktop, or from within the start menu. If not, they you can try the web interface - https://apps.bham.ac.uk/ . The website may ask you to confirm that AppsAnywhere is installed on your device – you can click ‘I have it already’ if using a campus computer.</p>
+<section id="one--and-two-tailed-tests" class="level2">
+<h2 class="anchored" data-anchor-id="one--and-two-tailed-tests">One- and two-tailed tests</h2>
+<ul>
+<li><p>If we are going to reject either the lowest or highest 5%, then we use a one-tailed (or directional) test</p></li>
+<li><p>If we want to conduct a two-tailed, non-directional test of significance, then to use an overall critical value of 5% we need to reject both the lowest and highest 2.5%, making 5% altogether</p></li>
+<li><p>If you are certain of the direction of your effect, you can use a one-tailed test – but generally, we use two-tailed tests (as it’s rare that we know what direction our effect will be in!)</p></li>
+</ul>
 </section>
-<section id="how-do-i-use-appsanywhere" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="how-do-i-use-appsanywhere">How do I use AppsAnywhere?</h2>
-<p>Once you have access to AppsAnywhere, you may have to log-in using your UoB credentials. The homepage of AppsAnywhere contains a search bar and will look something like this:</p>
-<p><img src="../images/faqs/appsanywhere.png" class="img-fluid"></p>
-<p>You can search for Jamovi and Rstudio in the search bar and click ‘Launch’ to run them. If this is the first time you’re running the app it may take a few minutes to get started. This is as AppsAnywhere is downloading and installing the programme on your computer.</p>
+<section id="the-dataset" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="the-dataset">1. The Dataset</h2>
+<p>We will be exploring the dataset <em>correlation data</em> that you can find on the CANVAS page under <strong>Week 9</strong> of the computer labs folder of <strong>Research Methods A</strong></p>
+<p>There are <strong>five</strong> variables in the dataset * Age * Ice_Cream - number of ice creams sold * Temp - temperature * Motivation * Stress</p>
+<p>There are 20 days where these two variables were recorded. These are represented by the rows in the ‘data view’. We will correlate the variables ‘Temp’ and ‘Ice_Cream’</p>
 </section>
-<section id="appsanywhere-keeps-asking-me-about-validation." class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="appsanywhere-keeps-asking-me-about-validation.">AppsAnywhere keeps asking me about ‘Validation’.</h2>
-<p>AppyAnywhere needs to be able to link to your desktop computer to run properly, the validation process ensures that this is working properly. Normally all you need to do is click to start validation and answer ‘Open AppsAnywhere Launcher’ when prompted by the browser.</p>
+<section id="pearsons-correlation-coefficent" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="pearsons-correlation-coefficent">2. Pearson’s Correlation Coefficent</h2>
+<p>The Pearson’s Product Moment correlation is a parametric test that measures the size and significance of a relationship between two variables. In this test, the experimental data must meet certain assumptions of parametric tests. Some of these assumptions include data continuity and a normal distribution. We will discuss how to assess whether the distribution is normal in the next semester. For now, let’s assume it is normal.</p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Opening Jamovi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We’ll be working with Jamovi throughout this practical.</p>
+<p><strong>Working on campus?</strong> You can open Jamovi through AppsAnywhere, either open the desktop application through the start menu on a campus computer or <a href="https://apps.bham.ac.uk/">Birmingham’s AppsAnywhere website</a>.</p>
+<p>Take a look at these <a href="../tutorials/frequently-asked-questions.html">frequently asked questions</a> or ask your tutor if you get stuck.</p>
+<p><strong>Working on your own computer?</strong> You can <a href="https://www.jamovi.org/">install Jamovi (for free!) folling these instructions</a>. Install the ‘Desktop’ application - not the ‘Cloud’ version.</p>
+</div>
+</div>
+</section>
+<section id="jamovi-basics" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="jamovi-basics">3. Jamovi Basics</h2>
+<p>The instructions for installing and licensing JAMOVI on your personal computer are available above. To access JAMOVI once installed or when using Campus computers you will be able to find it in the start menu at the bottom left corner of your desktop (sometimes this will be in another location on your personal laptop or personal desktop PC – you know your device best!)</p>
+<p>Once open, you will see the following screen. Note that if you are working with a later version of JAMOVI, the screen may look a little different e.g.&nbsp;in version ‘2.3.28 solid’ there is a tab called “Variables” before “Data” at the top of the screen. As researchers we work with statistical software which updates occasionally. Most of the changes are often cosmetic but sometimes options and functions move or are improved. You should be prepared to familiarise yourself with the changes each time they happen and JAMOVI update their user guides regularly to account for updates.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s start by loading the dataset into Jamovi. You can download the file <code>Correlation_data.xlsx</code> from canvas.</p>
+</div>
+</div>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">4. Exercises</h2>
+<p>Now it is time for you to explore the data. If you are unsure about any of these, please talk to the staff in your computer practical session.</p>
+<section id="task-1" class="level3">
+<h3 class="anchored" data-anchor-id="task-1">Task 1</h3>
+<ul>
+<li>To correlate the two variables click on ‘Analysis’ from the top tabs &gt; Regression &gt; Correlation Matrix</li>
+</ul>
+<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img1.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>Transfer ‘Ice_Cream’ and ‘Temp’ to the variables box by clicking them and pressing on the arrow button, double-clicking, or dragging them over to the box.</p></li>
+<li><p>For this example, make sure that the ‘Pearson’ and ‘Report significance’ boxes are ticked. Note that Pearson is the version we use if our data meet parametric assumptions (e.g.&nbsp;interval or scale data, normal distribution, free from outliers etc.). If your data didn’t meet parametric assumptions, you would use Spearman instead because this test is more resilient to violations of the assumptions.</p></li>
+<li><p>Select ‘correlated’ under hypothesis</p></li>
+</ul>
+</section>
+<section id="task-1---results" class="level3">
+<h3 class="anchored" data-anchor-id="task-1---results">Task 1 - Results</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Use the correlation output to complete this statement reporting the results of the correlation. Fill in the spaces provided.</p>
+<p>The correlation between temperature and the number of ice cream sold over 20 days is <code>r mcq(c("not significant", answer = "strongly significant"))</code> (<em>r</em> (<code>r fitb(18)</code>) = <code>r fitb(.893)</code>, <em>p</em> &lt; <code>r fitb(.001)</code>). There were <code>r fitb(20)</code> observations.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>The correlation matrix…</p>
+<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img2.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What does this result tell you? Have a think about how you would interpret the result?</p>
+</div>
+</div>
+</section>
+<section id="example-of-how-to-report-these-results" class="level3">
+<h3 class="anchored" data-anchor-id="example-of-how-to-report-these-results">Example of how to report these results</h3>
+<p>“A Pearson’s correlation was conducted to see if there was a significant relationship between temperature and the number of ice creams sold. This revealed that there was a very strong significant positive relationship between temperature and ice cream sales, r (18)= .893, p &lt; .001. Specifically, as temperatures increased, so too did ice cream scales. Therefore, we can accept the hypothesis that there would be a significant positive relationship between temperature and ice cream scales.”</p>
+<p>Note, a correlation can be positive (like this one was) or negative (e.g.&nbsp;the r value could have read -.893 instead). If it had been negative, this would have meant that as temperature increased, ice cream sales decreased. It is very important to get the direction of the relationship right because if you get it wrong it completely changes the findings!</p>
+<p>It is generally accepted that r values can be interpreted in the following ways (these numbers can be either positive or negative!): 0-0.19 = Very weak, 0.20–0.39 = Weak, 0.40–0.59 = Moderate, 0.60–0.79 = Strong, 0.80–1 = Very strong. It is extremely uncommon to have an r value of 1 because this means it is a perfect correlation (e.g.&nbsp;when you correlate temperature with itself because they are the same).</p>
+</section>
+<section id="task-2---create-a-graphical-representation-in-jamovi" class="level3">
+<h3 class="anchored" data-anchor-id="task-2---create-a-graphical-representation-in-jamovi">Task 2 - Create a graphical representation in Jamovi</h3>
+<p>This correlation can be illustrated graphically. This eases the understanding of the relationship between the variables. We can illustrate the relationship using the Jamovi Scatterplot function.</p>
+<ul>
+<li>Click on Analyse &gt; Exploration &gt; Scatterplot</li>
+</ul>
+<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img3.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>Move Ice_Cream and Temp across</p></li>
+<li><p>Click on linear under ‘Regression Line’</p></li>
+<li><p>A scatterplot should appear in the window to the right</p></li>
+</ul>
+<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img4.png" class="img-fluid" width="600"></p>
+<p>You can clearly see that as the temperature increases, the number of ice cream sold also raises. We know that this relationship is significant from the results of the Pearson’s Correlation.</p>
+</section>
+<section id="task-3---histograms" class="level3">
+<h3 class="anchored" data-anchor-id="task-3---histograms">Task 3 - Histograms</h3>
+<p>A histogram is a graph showing the frequency of different scores. Histograms are frequently used in psychological research. Histograms are useful to check whether the data is normally distributed.</p>
+<ul>
+<li>Go to Exploration &gt; Descriptives &gt; to generate a basic histogram of the MOTIVATION variable. Transfer MOTIVATION to the Variables box, remember to tick the Histogram box under ‘Histograms’ – A Histogram should appear in the window to the right</li>
+</ul>
+<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img5.png" class="img-fluid" width="600"></p>
+<ul>
+<li>Do the same for Stress_1</li>
+</ul>
+<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img6.png" class="img-fluid" width="600"></p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - Do you think the Motivation and Stress_1 data are normally distributed or is the data skewed?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To check this, look at your histograms. Can you see a classic “bell curve” shape (normally distributed data), or is some of the data pushed up at one end of the graph (skewed data)?</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - Are there any outliers in the age data?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>To check this, you will need to create a “Boxplot”.</li>
+<li>Click on the Boxplot box under ‘Boxplots’ and then create a boxplot for AGE by moving AGE into the variable box.</li>
+<li>A boxplot should appear in the window to the right</li>
+<li>Look at the graph, you will see the boxplot and above it there is a point on its own. This means that one participant’s age is an outlier because they are a lot older than the rest of the sample. Check back in data view to see this in the data. If age was important to your study and this participants age could confound your results, you would need to remove their data.</li>
+<li>Important Note: ALWAYS keep the original JAMOVI data file in case you change your mind. Save the original and then when you make changes to your data set save this with a different name e.g.&nbsp;“Correlation data original”, “Correlation data outliers removed”.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="task-4---copypaste-jamovi-results-into-other-applications" class="level3">
+<h3 class="anchored" data-anchor-id="task-4---copypaste-jamovi-results-into-other-applications">Task 4 - Copy/paste Jamovi results into other applications</h3>
+<p>You need to know how to copy results of statistical analyses into the appendices of reports in the future. Note that the only tables or figures which should ever go in the main part of the report are ones which help to illustrate your argument and they must fully adhere to APA format.</p>
+<p>It is also never enough to just say ‘see table 1’. You have to interpret what tables and figures show in the text. For example, “Figure 1 shows a scatterplot depicting the correlation between temperature and ice cream sales”.</p>
+<section id="copying-a-graph-or-table-into-a-word-document" class="level4">
+<h4 class="anchored" data-anchor-id="copying-a-graph-or-table-into-a-word-document">Copying a graph or table into a Word document</h4>
+<ul>
+<li>Click on the bottom right search icon <img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img7.png" class="img-fluid" width="40"></li>
+<li>Search for Snipping tool</li>
+<li>Click on ‘New’ top left</li>
+<li>Highlight the area of the graph or table that you want to copy</li>
+<li>Click ‘EDIT’ and scroll down to copy</li>
+<li>Click “Paste” in the Word Document</li>
+</ul>
+<p>More information about APA formatting can be found <a href="https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_tables_and_figures.html">here</a></p>
+</section>
+<section id="consolidate-your-knowledge-descriptive-statistics" class="level4">
+<h4 class="anchored" data-anchor-id="consolidate-your-knowledge-descriptive-statistics">Consolidate your knowledge: Descriptive Statistics</h4>
+<ul>
+<li><p>Download and open the JAMOVI data file <em>stroke_survival_data</em> that you can find on Canvas. We want to generate some descriptive statistics on this dataset. This is a real dataset from several hospitals.</p></li>
+<li><p>Firstly, make sure all the variables are set at the right measurement level</p>
+<ul>
+<li>Click on the DATA tab</li>
+<li>Click on ‘Setup’</li>
+<li>Click on each individual variable name on the data to check the details.</li>
+</ul></li>
+<li><p>From the ‘Analysis’ tab click on ‘Exploration’ and then ‘Descriptives’ and then</p></li>
+<li><p>Choose two Continuous variables to explore. These will be your Variable Names in the table below. For example, if you chose age in years as a scale variable this would be entered where it says Variable 1 (both times).</p></li>
+<li><p>Split your output by the two categorical variables of your choice. These categorical variables will provide your Factors in the table below. For example and gender was one of your two categorical variables you would list factor 1 as men and factor 2 as women and then report the data for men and the data for women.</p>
+<ul>
+<li>HINT: Enter a nominal variable into the “Split by” box. This will split your output by the categories within these variables</li>
+</ul></li>
+<li><p>Make sure your output includes a histogram.</p></li>
+<li><p>You will see your results automatically in the window to the right.</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Question</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Using the results you just generated, fill out the following table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Factors</th>
+<th>Number of data points (N)</th>
+<th>Mean (M or x)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Variable 1</td>
+<td>Factor 1</td>
+<td>N</td>
+<td>M or x</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Factor 2</td>
+<td>N</td>
+<td>M or x</td>
+</tr>
+<tr class="odd">
+<td>Variable 1</td>
+<td>Factor 1</td>
+<td>N</td>
+<td>M or x</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Factor 2</td>
+<td>N</td>
+<td>M or x</td>
+</tr>
+<tr class="odd">
+<td>Variable 2</td>
+<td>Factor 1</td>
+<td>N</td>
+<td>M or x</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Factor 2</td>
+<td>N</td>
+<td>M or x</td>
+</tr>
+<tr class="odd">
+<td>Variable 2</td>
+<td>Factor 1</td>
+<td>N</td>
+<td>M or x</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Factor 2</td>
+<td>N</td>
+<td>M or x</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="consolidate-your-knowledge-analysis-practice" class="level4">
+<h4 class="anchored" data-anchor-id="consolidate-your-knowledge-analysis-practice">Consolidate your knowledge: Analysis Practice!</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Correlate three variables of your choice. In the text box below write out: * Why are you correlating these variables? Why is this relationship interesting? Justify your analysis. * What do the results tell you? Write out and interpret the results. <input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Here’s the start of how to report correlations (see last week for more information): <img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img8.png" class="img-fluid" width="600"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>Open the survey_data file. This is a real dataset from a psychological study.</li>
+<li>Look over the dataset. What has been recorded? What is the dataset exploring?</li>
+<li>Split your dataset by one variable of your choice.
+<ul>
+<li>HINT: Use the “Split By” function.</li>
+</ul></li>
+<li>Now explore the data using Descriptives and Correlations. Choose some variables that you find interesting, and generate Descriptives and Correlations. What do your results show you? What do they mean?</li>
+</ul>
+<p>Write your results here. <input type="text" id="answer-box" name="answer" style="width: 600px;"></p>
+</section>
+<section id="reorganise-the-data-into-a-new-jamovi-sheet" class="level4">
+<h4 class="anchored" data-anchor-id="reorganise-the-data-into-a-new-jamovi-sheet">Reorganise the data into a new Jamovi sheet</h4>
+<p>Now we will re-organise the data into a new JAMOVI sheet so we can compare scores at a later date based on a categorical variable of your choice.</p>
+<ul>
+<li>Choose a categorical variable that you are interested in
+<ul>
+<li>E.g. You might want to know, is there a difference in optimism scores (scale) between smokers and non-smokers (categorical)?</li>
+</ul></li>
+<li>Sort the dataset by this variable
+<ul>
+<li>HINT: Use the “Split By” function to compare groups. Your data will now be organised by this categorical variable.</li>
+</ul></li>
+<li>Choose three non-categorical variables of interest. Copy all of the data from each one of these variable columns for ONE of your categories (e.g.&nbsp;female) into the new spreadsheet.
+<ul>
+<li>E.g. if you’re interested in optimism scores, copy the data for optimism in females into a new variable column</li>
+<li>Give your new variables appropriate names, e.g.&nbsp;if you copied the “Total Optimism” scores for females, rename the variable “Tot_Opt_F”, for example</li>
+<li>Repeat for your other category/categories (e.g.&nbsp;copy all the male data, and rename the variables)</li>
+</ul></li>
+<li>Now you have re-organised your data…</li>
+</ul>
 
 
+</section>
+</section>
 </section>
 </section>
 
@@ -906,11 +1358,14 @@ window.onload = function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../copilot.html" class="pagination-link" aria-label="Using Copilot at UoB">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Using Copilot at UoB</span>
+      <a href="../tutorials/rma_week-8_introduction-to-jamovi.html" class="pagination-link" aria-label="Week 8 - Introduction to Jamovi">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 8 - Introduction to Jamovi</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../tutorials/rma_week-10_tests_of_difference_Chi-Squared.html" class="pagination-link" aria-label="Week 10 - Tests of Difference Chi-Squared">
+        <span class="nav-page-text">Week 10 - Tests of Difference Chi-Squared</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
