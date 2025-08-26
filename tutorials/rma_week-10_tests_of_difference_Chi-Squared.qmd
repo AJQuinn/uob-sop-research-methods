@@ -1,3 +1,12 @@
+---
+engine: knitr
+---
+
+```{r}
+#| echo: false
+library(webexercises)
+```
+
 # Week 10 : Tests of difference: Chi-Squared {.unnumbered}
 
 This week you will be learning about 
@@ -5,30 +14,29 @@ This week you will be learning about
 
 ### Learning Objectives
 
-+-----------+----------------------------------------------------------+
-|           | Quantitative Methods                                     |
-+===========+:=========================================================+
-|           | Hypothesis testing                                       |
-+-----------+----------------------------------------------------------+
 
-+-----------+----------------------------------------------------------+
-|           | Data Skills                                              |
-+===========+:=========================================================+
-|           | Working with the Jamovi editor                           |
-+-----------+----------------------------------------------------------+
-|           | Performing a Chi-Squared test in Jamovi.                 |
-+-----------+----------------------------------------------------------+
+|   ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}         | Quantitative Methods                                    |
+|-----|:-------------------------------------------|
+|            | Hypthesis testing                            |
 
-+-----------+----------------------------------------------------------+
-|           | Open Science                                             |
-+===========+:=========================================================+
-|           | Working with openly available research data              |
-+-----------+----------------------------------------------------------+
+
+|    ![](../images/logos/rm-logo_data-skills.png){width=50px}      | Data Skills                                              |
+|-----|:-------------------------------------------|
+|          | Working with the Jamovi editor   |
+|          | Performing a chi-squared test in Jamovi     |
+|          | Plot basic graphs in Jamovi                 |
+
+|    ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
+|-----|:-------------------------------------------|
+|          | Working with openly available research data |
+
+
 
 ::: {.callout-note appearance="simple"}
 # Today's session
 
 Today you will just be familiarising yourself with the Chi-Squared test of difference. The Chi-Squared test is a non-parametric test of difference. It is used when...
+
 * You want to know about differences between groups 
     + Are there more females than males studying Psychology?
 * You want to know whether there is an association between two categorical variables 
@@ -46,7 +54,7 @@ Today you will just be familiarising yourself with the Chi-Squared test of diffe
 The table underneath contains information about smoking status distributed by gender. This information can be entered in to Jamovi providing that appropriate variables are constructed. In this example there are three variables, namely ‘smoking status’, ‘gender’, and ‘frequency’. In Point 2 illustrates these variables in Jamovi ‘Variable view’. Point 3 illustrates these variables and the associated data in Jamovi ‘Data view’
 
 +-----------+-------------------------+--------------------------------+
-|           | Smokes                  |                 Does not smoke |
+|           | Smokes                  |   Does not smoke               |
 +===========+:========================+================================+
 |  Male     | 25                      |                 128            |
 +-----------+-------------------------+--------------------------------+
@@ -187,7 +195,13 @@ As the results were statistically significant, there is an association between s
 ::: panel-tabset
 ## Question 
 
-The table underneath shows how often men and women play football. Enter this data into Jamovi following the same format as in the previous example. a. What are the results of the chi-square? b. Are the results significant? c. What do the results mean and what can you conclude?
+The table underneath shows how often men and women play football. Enter this data into Jamovi following the same format as in the previous example. 
+
+a. What are the results of the chi-square? 
+
+b. Are the results significant? 
+
+c. What do the results mean and what can you conclude?
 
 |                  | Play football    | Do not play football|  
 |------------------|------------------|---------------------|
