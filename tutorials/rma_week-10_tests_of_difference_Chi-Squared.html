@@ -285,30 +285,30 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 81%">
+<col style="width: 10%">
+<col style="width: 89%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th><img src="../images/logos/rm-logo_quantitative-methods.png" class="img-fluid" width="50"></th>
 <th style="text-align: left;">Quantitative Methods</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td></td>
-<td style="text-align: left;">Hypothesis testing</td>
+<td style="text-align: left;">Hypthesis testing</td>
 </tr>
 </tbody>
 </table>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 81%">
+<col style="width: 10%">
+<col style="width: 89%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th><img src="../images/logos/rm-logo_data-skills.png" class="img-fluid" width="50"></th>
 <th style="text-align: left;">Data Skills</th>
 </tr>
 </thead>
@@ -319,18 +319,22 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td></td>
-<td style="text-align: left;">Performing a Chi-Squared test in Jamovi.</td>
+<td style="text-align: left;">Performing a chi-squared test in Jamovi</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Plot basic graphs in Jamovi</td>
 </tr>
 </tbody>
 </table>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 81%">
+<col style="width: 10%">
+<col style="width: 89%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th><img src="../images/logos/rm-logo_open-science.png" class="img-fluid" width="50"></th>
 <th style="text-align: left;">Open Science</th>
 </tr>
 </thead>
@@ -351,7 +355,29 @@ Today’s session
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Today you will just be familiarising yourself with the Chi-Squared test of difference. The Chi-Squared test is a non-parametric test of difference. It is used when… * You want to know about differences between groups + Are there more females than males studying Psychology? * You want to know whether there is an association between two categorical variables + Is there an association between gender and smoking? * Your groups are independent + Each observation only contributes to one cell of the analysis (e.g.&nbsp;gender) * You have categorical data (otherwise known as on the nominal level of measurement) + Frequency or number of observations in a number of categories e.g.&nbsp;10 male vs 50 females enrolled in Psychology * Your data violates parametric assumptions + Your data is not normally distributed</p>
+<p>Today you will just be familiarising yourself with the Chi-Squared test of difference. The Chi-Squared test is a non-parametric test of difference. It is used when…</p>
+<ul>
+<li>You want to know about differences between groups
+<ul>
+<li>Are there more females than males studying Psychology?</li>
+</ul></li>
+<li>You want to know whether there is an association between two categorical variables
+<ul>
+<li>Is there an association between gender and smoking?</li>
+</ul></li>
+<li>Your groups are independent
+<ul>
+<li>Each observation only contributes to one cell of the analysis (e.g.&nbsp;gender)</li>
+</ul></li>
+<li>You have categorical data (otherwise known as on the nominal level of measurement)
+<ul>
+<li>Frequency or number of observations in a number of categories e.g.&nbsp;10 male vs 50 females enrolled in Psychology</li>
+</ul></li>
+<li>Your data violates parametric assumptions
+<ul>
+<li>Your data is not normally distributed</li>
+</ul></li>
+</ul>
 </div>
 </div>
 </section>
@@ -370,7 +396,7 @@ Today’s session
 <tr class="header">
 <th></th>
 <th style="text-align: left;">Smokes</th>
-<th><pre><code>            Does not smoke</code></pre></th>
+<th>Does not smoke</th>
 </tr>
 </thead>
 <tbody>
@@ -480,6 +506,11 @@ Check Your Understanding
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>What are the observed frequencies for males and females who did and did not smoke?</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -490,13 +521,13 @@ Check Your Understanding
 <tbody>
 <tr class="odd">
 <td>Male</td>
-<td><code>r fitb(50)</code></td>
-<td><code>r fitb(128)</code></td>
+<td><input class="webex-solveme nospaces" size="2" data-answer="[&quot;50&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;128&quot;]"></td>
 </tr>
 <tr class="even">
 <td>Female</td>
-<td><code>r fitb(12)</code></td>
-<td><code>r fitb(140)</code></td>
+<td><input class="webex-solveme nospaces" size="2" data-answer="[&quot;12&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;140&quot;]"></td>
 </tr>
 </tbody>
 </table>
@@ -609,7 +640,12 @@ Check Your Understanding
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<p>The table underneath shows how often men and women play football. Enter this data into Jamovi following the same format as in the previous example. a. What are the results of the chi-square? b. Are the results significant? c.&nbsp;What do the results mean and what can you conclude?</p>
+<p>The table underneath shows how often men and women play football. Enter this data into Jamovi following the same format as in the previous example.</p>
+<ol type="a">
+<li><p>What are the results of the chi-square?</p></li>
+<li><p>Are the results significant?</p></li>
+<li><p>What do the results mean and what can you conclude?</p></li>
+</ol>
 <table class="caption-top table">
 <thead>
 <tr class="header">
