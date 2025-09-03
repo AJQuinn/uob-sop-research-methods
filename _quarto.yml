@@ -3,17 +3,24 @@ project:
   output-dir: docs
 bibliography: references.bib
 website:
-  title: Research Methods
+  title: Quantitative Methods Handbook
   page-navigation: true
+
   navbar:
     background: primary
     search: true
+    tools:
+      - icon: github
+        href: https://github.com/AJQuinn/uob-sop-research-methods
     left:
     - text: Home
       href: index.qmd
+
   sidebar:
-    style: docked
+    style: floating
     search: true
+    collapse-level: 1
+    reader-mode: true
     contents:
     - section: Research Methods A
       contents:
@@ -53,6 +60,7 @@ website:
         href: support/frequently-asked-questions.qmd
       - text: Faculty
         href: support/faculty.qmd
+
 format:
   html:
     toc: true

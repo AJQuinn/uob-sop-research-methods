@@ -1,5 +1,24 @@
-# Research Methods Computer Practicals {.unnumbered}
+# Research Methods - Handbook for Quantitative Methods {.unnumbered}
 
+Welcome to outr interactive textbook for quantitative research methods!
+
+::: {.callout-note}
+For students at the University of Birmingham, these pages are embedded throughout your canvas courses. **The pages on this website are a subset of the course material**.
+
+Canvas should be used as your primary resource as it contains the complete overview, timelines, materials and assessments for your module.
+
+:::
+
+
+## Research Methods A
+
+-   [Week 8 : Introduction to Jamovi](tutorials/rma_week-8_introduction-to-jamovi.qmd)
+-   [Week 9 : Correlations, Graphs and Exporting](tutorials/rma_week-9_correlations-graphs-and-exporting.qmd)
+-   [Week 10 : Tests of Differece: Chi Squared](tutorials/rma_week-10_tests_of_difference_Chi-squared.qmd)
+
+
+
+## Research Methods B
 
 -   [Week 1 : Exploring new data and computing descriptives](tutorials/rmb_week-1_new-data-and-descriptives.qmd)
 -   [Week 2 : Computing reproducible statistics using Rj](tutorials/rmb_week-2_intro-to-Rj.qmd)
@@ -12,3 +31,5 @@
 -   [Week 10 : Simulating Sampling Distributions for t-values](tutorials/rmb-week-10_sampling-distributions-tvalues.qmd)
 -   [Week 11 : Putting it all together - replicating Power Poses](tutorials/rmb-week-11_putting-it-together.qmd)
 
+
+## Research Methods C

@@ -1,6 +1,6 @@
 # Using Copilot at University of Birmingham
 
-Microsoft Copilot is now available to use for University of Birmingham members. See the [University documentation pages to get access](https://intranet.birmingham.ac.uk/student/news/public/oct-dec-2024/microsoft-copilot-genai-now-available-for-students.aspx)
+[Microsoft Copilot](https://copilot.microsoft.com/) is now available to use for University of Birmingham members. See the [University documentation pages for guidelines on ethical use of Generative AI](https://intranet.birmingham.ac.uk/student/libraries/asc/student-guidance-gai.aspx).
 
 You are welcome to use Copilot to support your learning of statistics and coding throughout the Research Methods B computer practical sessions. In particular, Copilot can be a useful way to get a second perspective on different technical concepts, to help generate data analysis code or to understand where data analysis code might have gone wrong.
 

@@ -53,7 +53,7 @@ Now, we're going to learn how to use Jamovi and R to make this process more repe
 ::: {.callout-warning appearance="simple"}
 # Opening Jamovi
 
-We'll be working with Jamovi throughout this practical. 
+We'll be working with Jamovi throughout this practical.
 
 **Working on campus?** You can open Jamovi through AppsAnywhere, either open the desktop application through the start menu on a campus computer or [Birmingham's AppsAnywhere website](https://apps.bham.ac.uk/).
 
@@ -65,7 +65,7 @@ Take a look at these [frequently asked questions](frequently-asked-questions.qmd
 
 ## 3. Install the Rj Add-On in Jamovi {.unnumbered}
 
-We'll be working with the Rj Add-On for Jamovi this week. 
+We'll be working with the Rj Add-On for Jamovi this week.
 
 ::: {.callout-note appearance="simple"}
 # Key step
@@ -358,8 +358,8 @@ We can end up specifying a lot of these options. Sometimes it can be a good idea
 This code computes descriptive statistics including the skewness, interquartile range and mode.
 
 ``` r
-jmv::descriptives(data, 
-  vars='age', 
+jmv::descriptives(data,
+  vars='age',
   skew=TRUE,
   iqr=TRUE,
   mode=TRUE,
@@ -394,8 +394,8 @@ Be careful with the spelling of each argument!
 The final code should be:
 
 ``` r
-jmv::descriptives(data, 
-  vars='Openness', 
+jmv::descriptives(data,
+  vars='Openness',
   range=TRUE,
   box=TRUE
   )

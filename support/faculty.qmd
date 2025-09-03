@@ -43,14 +43,23 @@ You can edit the website directly using [github's in-browser editor](https://doc
 
 ### Building your own local version of the page
 
-- Install R
-- Install Quarto CLI
-- Install VS Code
+These are the steps to build a local version of the website that you can update and change.
+
+- [Install R](https://cran.r-project.org/)
+- [Install Quarto CLI](https://quarto.org/docs/get-started/)
+- [Install VS Code](https://code.visualstudio.com/Download)
 - Install & verify Quarto Add-On in VS Code
+    - [Quarto docs](https://quarto.org/docs/tools/vscode/index.html)
+    - [VS Code Add On](https://marketplace.visualstudio.com/items?itemName=quarto.quarto)
 - Download code from github and open folder in VS Code
-- Open R
-- `install.packages('renv')`
-- `renv::install()`  # Takes about 6 minutes..
+    - [github desktop](https://desktop.github.com/download/)
+    - [textbook source code](https://github.com/AJQuinn/uob-sop-research-methods)
+- Open Project folder in VS Code
+- Start R and isntall virtual environment
+    - `install.packages('renv')`
+    - `renv::install()`  # Takes about 6 minutes..
+- You can the render and preview pages in VS Code
+    - [quarto docs on render and preview](https://quarto.org/docs/tools/vscode/index.html#render-and-preview)
 
 
 ## Format Library
