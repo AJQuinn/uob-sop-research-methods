@@ -1,0 +1,25 @@
+# Frequently Asked Questions {.unnumbered}
+
+
+## I can’t find Jamovi/Rstudio on my campus computer. {.unnumbered}
+
+First check the start menu, if you can find both Jamovi and Rstudio then just open both from there and get started.
+Any programme that is not in the start menu can be opened using AppsAnywhere. This is available in the start menu of every campus computer – general information about AppsAnywhere can be found on [this IT services page](https://itservicedesk.bham.ac.uk/itportal?id=uob_kb_article&sysparm_article=kb16361)
+
+
+## I can’t find AppsAnywhere on my campus computer. {.unnumbered}
+
+This should be available as an icon on the desktop, or from within the start menu. If not, they you can try the web interface -  https://apps.bham.ac.uk/ .  The website may ask you to confirm that AppsAnywhere is installed on your device – you can click ‘I have it already’ if using a campus computer.
+
+## How do I use AppsAnywhere? {.unnumbered}
+
+Once you have access to AppsAnywhere, you may have to log-in using your UoB credentials. The homepage of AppsAnywhere contains a search bar and will look something like this:
+
+ ![](../images/faqs/appsanywhere.png) 
+
+You can search for Jamovi and Rstudio in the search bar and click ‘Launch’ to run them. If this is the first time you’re running the app it may take a few minutes to get started. This is as AppsAnywhere is downloading and installing the programme on your computer.
+
+
+## AppsAnywhere keeps asking me about ‘Validation’. {.unnumbered}
+
+AppyAnywhere needs to be able to link to your desktop computer to run properly, the validation process ensures that this is working properly. Normally all you need to do is click to start validation and answer ‘Open AppsAnywhere Launcher’ when prompted by the browser.

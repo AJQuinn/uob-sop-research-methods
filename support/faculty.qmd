@@ -1,0 +1,327 @@
+---
+engine: knitr
+---
+
+```{r}
+#| echo: false
+library(webexercises)
+```
+
+
+# Faculty Pages
+
+
+## Software
+
+These pages are built using the following tools:
+
+### 1. Quarto
+
+[Quarto](https://quarto.org/) is an open-source scientific and technical publishing system that lets us publish reproducible web pages from plain text pages.
+
+Quarto defines and builds the website structure in a way that automatically builds links and interactive elements. The github page is already configured to do this automatically when changes are made.
+
+Quarto defines lots of page organisation options [on its documentation](https://quarto.org/docs/authoring/markdown-basics.html)
+
+### 2. Markdown
+
+Quarto works with a slight tweak of Markdown - Markdown is a lightweight language for creating formatted text. The [Markdown guide](https://www.markdownguide.org/basic-syntax/) contains a list of syntax options that define how text is formatted.
+
+You can use all markdown within Quarto.
+
+### 3. Webexercises
+
+[webexercises](https://psyteachr.github.io/webexercises/) is a very lightweight R package that instructors easily create interactive web pages that students can use in self-guided learning.
+
+## Writing and changing content
+
+
+### Editing in the web
+
+
+You can edit the website directly using [github's in-browser editor](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-your-repository)
+
+### Building your own local version of the page
+
+- Install R
+- Install Quarto CLI
+- Install VS Code
+- Install & verify Quarto Add-On in VS Code
+- Download code from github and open folder in VS Code
+- Open R
+- `install.packages('renv')`
+- `renv::install()`  # Takes about 6 minutes..
+
+
+## Format Library
+
+### Images
+
+Any images must be included in the github repository within the 'images' subfolder - though they may be organised in any way within that folder.
+
+We can then include the images with the following markdown
+
+The code:
+```{html}
+![](../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img0.png)
+```
+
+The result:
+![](../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img0.png)
+
+Full documentation on including images is on the [figures page of the quarto documentation](https://quarto.org/docs/authoring/figures.html)
+
+The most important option is including additional arguments in braces  - `{}` - for scaling and resizing the image to suit your needs. eg, images can be scales by pixels, percentage of page width or inches/cm.
+
+```{html}
+![Elephant](elephant.png){width=300}
+![Elephant](elephant.png){width=80%}
+![Elephant](elephant.png){width=4in}
+```
+
+### References
+
+Any papers that you want to cite should be included in bibtex format in `references.bib` on github.
+
+This tool will easily generate valid bibtext from a doi link: [doi2bib.org](https://www.doi2bib.org/)
+
+For example, if we add the following bibtext reference to `references.bib`:
+
+```
+@article{Holmes2009_CanPlaying,
+  title = {Can Playing the Computer Game “Tetris” Reduce the Build-Up of Flashbacks for Trauma? A Proposal from Cognitive Science},
+  volume = {4},
+  ISSN = {1932-6203},
+  url = {http://dx.doi.org/10.1371/journal.pone.0004153},
+  DOI = {10.1371/journal.pone.0004153},
+  number = {1},
+  journal = {PLoS ONE},
+  publisher = {Public Library of Science (PLoS)},
+  author = {Holmes,  Emily A. and James,  Ella L. and Coode-Bate,  Thomas and Deeprose,  Catherine},
+  editor = {Bell,  Vaughan},
+  year = {2009},
+  month = jan,
+  pages = {e4153}
+}
+```
+
+We can then create a citation by enclosing the article tag in square brackets and the @ sign - eg `[@Holmes2009_CanPlaying]`
+
+The code:
+```{html}
+One unexpected and intriguing proposal in the last few decades suggests that carrying out very engaging visuo-spatial tasks with a neutral emotion in the immediate aftermath of a traumatic event may help reduce later flashbacks [@Holmes2009_CanPlaying]
+```
+
+The result:
+One unexpected and intriguing proposal in the last few decades suggests that carrying out very engaging visuo-spatial tasks with a neutral emotion in the immediate aftermath of a traumatic event may help reduce later flashbacks [@Holmes2009_CanPlaying]
+
+Any referenced materials will be listed at the bottom of the page automatically.
+
+
+### Callout blocks
+
+Callouts are an excellent way to draw extra attention to certain concepts, or to more clearly indicate that certain content is supplemental or applicable to only some scenarios.
+
+The Quarto documentation is the main source of info on [callout blocks](https://quarto.org/docs/authoring/callouts.html)
+
+The research methods pages mainly use two types of callout
+
+#### Content Info
+
+Content information provides context about the content.
+
+The code:
+```{html}
+::: {.callout-note appearance="simple"}
+# Content Info
+
+This is the same dataset that we used in week 7.
+
+:::
+```
+
+The result:
+
+::: {.callout-note appearance="simple"}
+# Content Info
+
+This is the same dataset that we used in week 7.
+
+:::
+
+#### Key step
+
+Key steps are practical actions that students must complete before progressing to the next section
+
+The code:
+```{html}
+::: {.callout-note appearance="simple"}
+# Key step
+
+Open a new ANOVA analysis and run a one-way ANOVA to test the control condition asking whether there was a difference between groups in intrusive memories in the time before the experiment started.
+
+The variable `Days_Zero_Image_Based_Intrusions_in_Intrusion_Diary`
+
+:::
+```
+
+The result:
+
+::: {.callout-note appearance="simple"}
+# Key step
+
+Open a new ANOVA analysis and run a one-way ANOVA to test the control condition asking whether there was a difference between groups in intrusive memories in the time before the experiment started.
+
+The variable `Days_Zero_Image_Based_Intrusions_in_Intrusion_Diary`
+
+:::
+
+
+### Data Skills
+
+Data skills blocks are slightly modified callout blocks that ask a question with a non-numerical answer that the student should try to explore.
+
+The format is similar to the callout blocks above but using a `callout-caution` style to change the colour and specifying `collapse="true"` to hide and show the answer.
+
+The code
+```{html}
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - Is the dataset complete? do we have all information from everyone?
+
+No, unfortunately some data is missing from some participants. You can see empty cells in quite a few places across the dataset. This means that some analyses may have an N of less than 2402 for analyses using some of these variables.
+:::
+```
+
+The Result:
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - Is the dataset complete? do we have all information from everyone?
+
+No, unfortunately some data is missing from some participants. You can see empty cells in quite a few places across the dataset. This means that some analyses may have an N of less than 2402 for analyses using some of these variables.
+:::
+
+The question is on the line starting with the following:
+
+```{html}
+## <i class="bi bi-question-lg"></i> Data Skills -
+```
+
+The html adds a question mark icon and probably shouldn't be changed.
+
+### Equations
+
+Equations can be added using `latex`/`MathJax` format enclosed in `$$` signs. For example:
+
+The code:
+```{html}
+$$
+t = \frac{18.6 - 0}{9.96} = 1.867
+$$
+```
+
+The result:
+
+$$
+t = \frac{18.6 - 0}{9.96} = 1.867
+$$
+
+
+We can also do this in-line with a single dollar sign. For example the code `$X^2$` creates $X^2$.
+
+
+#### Check your understanding
+
+The big one! 'Check your understanding' boxes are larger quiz elements that pose a bigger challenge and might take some minutes to solve.
+
+These are large elements with several components. **In general, you can copy the section below and just change the content underneath the Question/Hint/Answer subheadings**
+
+The subheading content can contain any other elements as normal - eg images, references and equations.
+
+
+The code:
+```{html}
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Here is my question
+
+## Hint
+
+Here is a hint!
+
+## Solution
+
+Here is the answer - perhaps with an image.
+
+![](../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img5.png){width="400px"}
+
+:::
+::::
+```
+
+The result:
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Here is my question
+
+## Hint
+
+Here is a hint!
+
+## Solution
+
+Here is the answer - perhaps with an image.
+
+![](../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img5.png){width="400px"}
+
+:::
+::::
+
+
+#### Interactive Quizzes
+
+The [webexercises](https://psyteachr.github.io/webexercises/articles/webexercises.html) page is the source documentation for interactive quiz elements. We tend to use the following:
+
+
+##### Fill in the blanks
+
+These elements prompt the student to enter a precise value. This uses an R function called `fitb` which takes the correct response as the input.
+
+The code:
+```{R, eval = FALSE}
+the p-value is `r fitb(0.151)`
+```
+
+The result:
+
+the p-value is `r fitb(0.151)`
+
+Note that the backticks ``r` at the start and '\`' at the end must be exactly in place.
+
+
+##### Multiple Choice Dropdown
+
+The multiple choice dropdown uses a similar format
+
+The code:
+```{R, code-block-bg: #31BAE9, eval = FALSE}
+#| code-overflow: wrap
+The study used a `r mcq(c(answer = 'Between subjects', 'Within subjects'))` design.
+```
+
+The result:
+
+The study used a `r mcq(c(answer = 'Between subjects', 'Within subjects'))` design.
+
+The `mcq` function takes an input as an R collection `c()` containing all of the options and the correct answer tagged with `answer = `.
+
+
+
