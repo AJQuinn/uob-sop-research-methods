@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>rma_week-9_correlations-graphs-and-exporting – Research Methods</title>
+<title>faculty – Research Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +85,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../tutorials/rma_week-10_tests_of_difference_Chi-Squared.html" rel="next">
-<link href="../tutorials/rma_week-8_introduction-to-jamovi.html" rel="prev">
+<link href="../support/frequently-asked-questions.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -70,6 +124,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 </head>
@@ -106,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rma_week-8_introduction-to-jamovi.html">Research Methods A</a></li><li class="breadcrumb-item"><a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html">Week 9 - Correlations, Graphs and Exporting</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../support/copilot.html">Support</a></li><li class="breadcrumb-item"><a href="../support/faculty.html">Faculty</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 9 - Correlations, Graphs and Exporting</span></a>
   </div>
 </li>
@@ -249,7 +332,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../support/faculty.html" class="sidebar-item-text sidebar-link">
+  <a href="../support/faculty.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Faculty</span></a>
   </div>
 </li>
@@ -265,189 +348,172 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#week-9-correlations-graphs-and-exporting" id="toc-week-9-correlations-graphs-and-exporting" class="nav-link active" data-scroll-target="#week-9-correlations-graphs-and-exporting">Week 9 : Correlations, graphs and exporting</a>
+  <li><a href="#faculty-pages" id="toc-faculty-pages" class="nav-link active" data-scroll-target="#faculty-pages">Faculty Pages</a>
   <ul class="collapse">
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#one--and-two-tailed-tests" id="toc-one--and-two-tailed-tests" class="nav-link" data-scroll-target="#one--and-two-tailed-tests">One- and two-tailed tests</a></li>
-  <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">1. The Dataset</a></li>
-  <li><a href="#pearsons-correlation-coefficent" id="toc-pearsons-correlation-coefficent" class="nav-link" data-scroll-target="#pearsons-correlation-coefficent">2. Pearson’s Correlation Coefficent</a></li>
-  <li><a href="#jamovi-basics" id="toc-jamovi-basics" class="nav-link" data-scroll-target="#jamovi-basics">3. Jamovi Basics</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">4. Exercises</a>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a>
   <ul class="collapse">
-  <li><a href="#task-1" id="toc-task-1" class="nav-link" data-scroll-target="#task-1">Task 1</a></li>
-  <li><a href="#task-1---results" id="toc-task-1---results" class="nav-link" data-scroll-target="#task-1---results">Task 1 - Results</a></li>
-  <li><a href="#example-of-how-to-report-these-results" id="toc-example-of-how-to-report-these-results" class="nav-link" data-scroll-target="#example-of-how-to-report-these-results">Example of how to report these results</a></li>
-  <li><a href="#task-2---create-a-graphical-representation-in-jamovi" id="toc-task-2---create-a-graphical-representation-in-jamovi" class="nav-link" data-scroll-target="#task-2---create-a-graphical-representation-in-jamovi">Task 2 - Create a graphical representation in Jamovi</a></li>
-  <li><a href="#task-3---histograms" id="toc-task-3---histograms" class="nav-link" data-scroll-target="#task-3---histograms">Task 3 - Histograms</a></li>
-  <li><a href="#task-4---copypaste-jamovi-results-into-other-applications" id="toc-task-4---copypaste-jamovi-results-into-other-applications" class="nav-link" data-scroll-target="#task-4---copypaste-jamovi-results-into-other-applications">Task 4 - Copy/paste Jamovi results into other applications</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">1. Quarto</a></li>
+  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">2. Markdown</a></li>
+  <li><a href="#webexercises" id="toc-webexercises" class="nav-link" data-scroll-target="#webexercises">3. Webexercises</a></li>
+  </ul></li>
+  <li><a href="#writing-and-changing-content" id="toc-writing-and-changing-content" class="nav-link" data-scroll-target="#writing-and-changing-content">Writing and changing content</a>
+  <ul class="collapse">
+  <li><a href="#editing-in-the-web" id="toc-editing-in-the-web" class="nav-link" data-scroll-target="#editing-in-the-web">Editing in the web</a></li>
+  <li><a href="#building-your-own-local-version-of-the-page" id="toc-building-your-own-local-version-of-the-page" class="nav-link" data-scroll-target="#building-your-own-local-version-of-the-page">Building your own local version of the page</a></li>
+  </ul></li>
+  <li><a href="#format-library" id="toc-format-library" class="nav-link" data-scroll-target="#format-library">Format Library</a>
+  <ul class="collapse">
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images">Images</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#callout-blocks" id="toc-callout-blocks" class="nav-link" data-scroll-target="#callout-blocks">Callout blocks</a></li>
+  <li><a href="#data-skills" id="toc-data-skills" class="nav-link" data-scroll-target="#data-skills">Data Skills</a></li>
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a></li>
   </ul></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rma_week-8_introduction-to-jamovi.html">Research Methods A</a></li><li class="breadcrumb-item"><a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html">Week 9 - Correlations, Graphs and Exporting</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../support/copilot.html">Support</a></li><li class="breadcrumb-item"><a href="../support/faculty.html">Faculty</a></li></ol></nav></header>
 
 
 
 
-<section id="week-9-correlations-graphs-and-exporting" class="level1 unnumbered">
-<h1 class="unnumbered">Week 9 : Correlations, graphs and exporting</h1>
-<section id="learning-objectives" class="level3">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 89%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><img src="../images/logos/rm-logo_quantitative-methods.png" class="img-fluid" width="50"></th>
-<th style="text-align: left;">Quantitative Methods</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">Hypthesis testing</td>
-</tr>
-<tr class="even">
-<td></td>
-<td style="text-align: left;">Confidence intervals and critical values</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">Measures of skew and normality</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 89%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><img src="../images/logos/rm-logo_data-skills.png" class="img-fluid" width="50"></th>
-<th style="text-align: left;">Data Skills</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">Working with the Jamovi editor</td>
-</tr>
-<tr class="even">
-<td></td>
-<td style="text-align: left;">Performing a correlation in Jamovi</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">Plot basic graphs in Jamovi</td>
-</tr>
-<tr class="even">
-<td></td>
-<td style="text-align: left;">Report different statistical tests</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">Make decisions about which statistical test to use based on hypotheses and data</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 89%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><img src="../images/logos/rm-logo_open-science.png" class="img-fluid" width="50"></th>
-<th style="text-align: left;">Open Science</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">Working with openly available research data</td>
-</tr>
-<tr class="even">
-<td></td>
-<td style="text-align: left;">Copy/paste Jamovi output into other applications</td>
-</tr>
-</tbody>
-</table>
+<section id="faculty-pages" class="level1">
+<h1>Faculty Pages</h1>
+<section id="software" class="level2">
+<h2 class="anchored" data-anchor-id="software">Software</h2>
+<p>These pages are built using the following tools:</p>
+<section id="quarto" class="level3">
+<h3 class="anchored" data-anchor-id="quarto">1. Quarto</h3>
+<p><a href="https://quarto.org/">Quarto</a> is an open-source scientific and technical publishing system that lets us publish reproducible web pages from plain text pages.</p>
+<p>Quarto defines and builds the website structure in a way that automatically builds links and interactive elements. The github page is already configured to do this automatically when changes are made.</p>
+<p>Quarto defines lots of page organisation options <a href="https://quarto.org/docs/authoring/markdown-basics.html">on its documentation</a></p>
+</section>
+<section id="markdown" class="level3">
+<h3 class="anchored" data-anchor-id="markdown">2. Markdown</h3>
+<p>Quarto works with a slight tweak of Markdown - Markdown is a lightweight language for creating formatted text. The <a href="https://www.markdownguide.org/basic-syntax/">Markdown guide</a> contains a list of syntax options that define how text is formatted.</p>
+<p>You can use all markdown within Quarto.</p>
+</section>
+<section id="webexercises" class="level3">
+<h3 class="anchored" data-anchor-id="webexercises">3. Webexercises</h3>
+<p><a href="https://psyteachr.github.io/webexercises/">webexercises</a> is a very lightweight R package that instructors easily create interactive web pages that students can use in self-guided learning.</p>
+</section>
+</section>
+<section id="writing-and-changing-content" class="level2">
+<h2 class="anchored" data-anchor-id="writing-and-changing-content">Writing and changing content</h2>
+<section id="editing-in-the-web" class="level3">
+<h3 class="anchored" data-anchor-id="editing-in-the-web">Editing in the web</h3>
+<p>You can edit the website directly using <a href="https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-your-repository">github’s in-browser editor</a></p>
+</section>
+<section id="building-your-own-local-version-of-the-page" class="level3">
+<h3 class="anchored" data-anchor-id="building-your-own-local-version-of-the-page">Building your own local version of the page</h3>
+<ul>
+<li>Install R</li>
+<li>Install Quarto CLI</li>
+<li>Install VS Code</li>
+<li>Install &amp; verify Quarto Add-On in VS Code</li>
+<li>Download code from github and open folder in VS Code</li>
+<li>Open R</li>
+<li><code>install.packages('renv')</code></li>
+<li><code>renv::install()</code> #&nbsp;Takes about 6 minutes..</li>
+</ul>
+</section>
+</section>
+<section id="format-library" class="level2">
+<h2 class="anchored" data-anchor-id="format-library">Format Library</h2>
+<section id="images" class="level3">
+<h3 class="anchored" data-anchor-id="images">Images</h3>
+<p>Any images must be included in the github repository within the ‘images’ subfolder - though they may be organised in any way within that folder.</p>
+<p>We can then include the images with the following markdown</p>
+<p>The code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>![](../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img0.png)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The result: <img src="../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img0.png" class="img-fluid"></p>
+<p>Full documentation on including images is on the <a href="https://quarto.org/docs/authoring/figures.html">figures page of the quarto documentation</a></p>
+<p>The most important option is including additional arguments in braces - <code>{}</code> - for scaling and resizing the image to suit your needs. eg, images can be scales by pixels, percentage of page width or inches/cm.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>![Elephant](elephant.png){width=300}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>![Elephant](elephant.png){width=80%}</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>![Elephant](elephant.png){width=4in}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<p>Any papers that you want to cite should be included in bibtex format in <code>references.bib</code> on github.</p>
+<p>This tool will easily generate valid bibtext from a doi link: <a href="https://www.doi2bib.org/">doi2bib.org</a></p>
+<p>For example, if we add the following bibtext reference to <code>references.bib</code>:</p>
+<pre><code>@article{Holmes2009_CanPlaying,
+  title = {Can Playing the Computer Game “Tetris” Reduce the Build-Up of Flashbacks for Trauma? A Proposal from Cognitive Science},
+  volume = {4},
+  ISSN = {1932-6203},
+  url = {http://dx.doi.org/10.1371/journal.pone.0004153},
+  DOI = {10.1371/journal.pone.0004153},
+  number = {1},
+  journal = {PLoS ONE},
+  publisher = {Public Library of Science (PLoS)},
+  author = {Holmes,  Emily A. and James,  Ella L. and Coode-Bate,  Thomas and Deeprose,  Catherine},
+  editor = {Bell,  Vaughan},
+  year = {2009},
+  month = jan,
+  pages = {e4153}
+}</code></pre>
+<p>We can then create a citation by enclosing the article tag in square brackets and the @ sign - eg <code>[@Holmes2009_CanPlaying]</code></p>
+<p>The code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>One unexpected and intriguing proposal in the last few decades suggests that carrying out very engaging visuo-spatial tasks with a neutral emotion in the immediate aftermath of a traumatic event may help reduce later flashbacks [@Holmes2009_CanPlaying]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The result: One unexpected and intriguing proposal in the last few decades suggests that carrying out very engaging visuo-spatial tasks with a neutral emotion in the immediate aftermath of a traumatic event may help reduce later flashbacks <span class="citation" data-cites="Holmes2009_CanPlaying">(<a href="#ref-Holmes2009_CanPlaying" role="doc-biblioref">Holmes et al. 2009</a>)</span></p>
+<p>Any referenced materials will be listed at the bottom of the page automatically.</p>
+</section>
+<section id="callout-blocks" class="level3">
+<h3 class="anchored" data-anchor-id="callout-blocks">Callout blocks</h3>
+<p>Callouts are an excellent way to draw extra attention to certain concepts, or to more clearly indicate that certain content is supplemental or applicable to only some scenarios.</p>
+<p>The Quarto documentation is the main source of info on <a href="https://quarto.org/docs/authoring/callouts.html">callout blocks</a></p>
+<p>The research methods pages mainly use two types of callout</p>
+<section id="content-info" class="level4">
+<h4 class="anchored" data-anchor-id="content-info">Content Info</h4>
+<p>Content information provides context about the content.</p>
+<p>The code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>::: {.callout-note appearance="simple"}</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a># Content Info</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>This is the same dataset that we used in week 7.</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The result:</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Today’s session
+Content Info
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Today you will be using Jamovi to perform a correlational analysis.</p>
-</div>
-</div>
-<p>When we want to test a research hypothesis, we obtain random samples of behaviour/data. We set up a null hypothesis H0: that the samples were drawn from populations with the same means (so that there will be no difference between them). We then obtain some samples and calculate the differences between the means of these samples, under the assumption that H0 is true (i.e.&nbsp;we obtained these means when the population means are equal).</p>
-<ul>
-<li>EXAMPLE: We want to test whether students drink more than the general population. To do this we collect data on the number of drinks per person in a club in one night, for two groups: students and general population. We then calculate the differences in the mean number of drinks for each of our groups. We assume that these means will be equal (null hypothesis). We are looking to disprove this hypothesis by finding differences in the means.</li>
-</ul>
-<p>We then calculate the probability of getting a mean difference that is at least as large as the one we actually obtained between the means of our samples. This probability is our confidence interval. With a t-test, for example, we usually aim to say that we are 95% confident that our data were drawn from two populations with different means (i.e.&nbsp;there is a significant difference between the populations). To do this, we use the critical value – usually p&lt;0.05. In this case, we are saying that the probability that we would obtain the significant difference in data that we did would occur less than 5% or 5 in 100 times, if the null were true! That’s a very small chance. We can also use smaller, stricter p values like p&lt;0.01 (we would see the differences we found less than 1% of the time, if the null were true).</p>
-<ul>
-<li>EXAMPLE: We calculate the differences in the mean number of drinks for our student and general population groups. We find that students drink on average 2.5 more drinks than the general population, and that this difference is significant. We use a critical value of 5% and a confidence interval of 95% (these add up to 100%). That is, we can say that we are 95% confident that our data were drawn from two populations that actually have different means, and this conclusion will only be a mistake (due to chance) 5% of the time.</li>
-</ul>
-<p>If the data do not lead us to reject the null hypothesis, the interpretation is more problematic – do we “accept” the null, or “retain” it, or just withhold judgement”?</p>
-<ul>
-<li>We can definitely never claim to have “proved” the null hypothesis (as you cannot 100% prove a null statement)! A non-significant result is an inconclusive one – we have insufficient data to choose which hypothesis (null or alternative) is the most accurate.</li>
-</ul>
-</section>
-<section id="one--and-two-tailed-tests" class="level2">
-<h2 class="anchored" data-anchor-id="one--and-two-tailed-tests">One- and two-tailed tests</h2>
-<ul>
-<li><p>If we are going to reject either the lowest or highest 5%, then we use a one-tailed (or directional) test</p></li>
-<li><p>If we want to conduct a two-tailed, non-directional test of significance, then to use an overall critical value of 5% we need to reject both the lowest and highest 2.5%, making 5% altogether</p></li>
-<li><p>If you are certain of the direction of your effect, you can use a one-tailed test – but generally, we use two-tailed tests (as it’s rare that we know what direction our effect will be in!)</p></li>
-</ul>
-</section>
-<section id="the-dataset" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="the-dataset">1. The Dataset</h2>
-<p>We will be exploring the dataset <em>correlation data</em> that you can find on the CANVAS page under <strong>Week 9</strong> of the computer labs folder of <strong>Research Methods A</strong></p>
-<p>There are <strong>five</strong> variables in the dataset</p>
-<ul>
-<li>Age</li>
-<li>Ice_Cream - number of ice creams sold</li>
-<li>Temp - temperature</li>
-<li>Motivation</li>
-<li>Stress</li>
-</ul>
-<p>There are 20 days where these two variables were recorded. These are represented by the rows in the ‘data view’. We will correlate the variables ‘Temp’ and ‘Ice_Cream’</p>
-</section>
-<section id="pearsons-correlation-coefficent" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="pearsons-correlation-coefficent">2. Pearson’s Correlation Coefficent</h2>
-<p>The Pearson’s Product Moment correlation is a parametric test that measures the size and significance of a relationship between two variables. In this test, the experimental data must meet certain assumptions of parametric tests. Some of these assumptions include data continuity and a normal distribution. We will discuss how to assess whether the distribution is normal in the next semester. For now, let’s assume it is normal.</p>
-<div class="callout callout-style-simple callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Opening Jamovi
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>We’ll be working with Jamovi throughout this practical.</p>
-<p><strong>Working on campus?</strong> You can open Jamovi through AppsAnywhere, either open the desktop application through the start menu on a campus computer or <a href="https://apps.bham.ac.uk/">Birmingham’s AppsAnywhere website</a>.</p>
-<p>Take a look at these <a href="frequently-asked-questions.qmd">frequently asked questions</a> or ask your tutor if you get stuck.</p>
-<p><strong>Working on your own computer?</strong> You can <a href="https://www.jamovi.org/">install Jamovi (for free!) folling these instructions</a>. Install the ‘Desktop’ application - not the ‘Cloud’ version.</p>
+<p>This is the same dataset that we used in week 7.</p>
 </div>
 </div>
 </section>
-<section id="jamovi-basics" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="jamovi-basics">3. Jamovi Basics</h2>
-<p>The instructions for installing and licensing JAMOVI on your personal computer are available above. To access JAMOVI once installed or when using Campus computers you will be able to find it in the start menu at the bottom left corner of your desktop (sometimes this will be in another location on your personal laptop or personal desktop PC – you know your device best!)</p>
-<p>Once open, you will see the following screen. Note that if you are working with a later version of JAMOVI, the screen may look a little different e.g.&nbsp;in version ‘2.3.28 solid’ there is a tab called “Variables” before “Data” at the top of the screen. As researchers we work with statistical software which updates occasionally. Most of the changes are often cosmetic but sometimes options and functions move or are improved. You should be prepared to familiarise yourself with the changes each time they happen and JAMOVI update their user guides regularly to account for updates.</p>
+<section id="key-step" class="level4">
+<h4 class="anchored" data-anchor-id="key-step">Key step</h4>
+<p>Key steps are practical actions that students must complete before progressing to the next section</p>
+<p>The code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>::: {.callout-note appearance="simple"}</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a># Key step</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Open a new ANOVA analysis and run a one-way ANOVA to test the control condition asking whether there was a difference between groups in intrusive memories in the time before the experiment started.</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>The variable `Days_Zero_Image_Based_Intrusions_in_Intrusion_Diary`</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The result:</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -458,317 +524,156 @@ Key step
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let’s start by loading the dataset into Jamovi. You can download the file <code>Correlation_data.xlsx</code> from canvas.</p>
+<p>Open a new ANOVA analysis and run a one-way ANOVA to test the control condition asking whether there was a difference between groups in intrusive memories in the time before the experiment started.</p>
+<p>The variable <code>Days_Zero_Image_Based_Intrusions_in_Intrusion_Diary</code></p>
 </div>
 </div>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">4. Exercises</h2>
-<p>Now it is time for you to explore the data. If you are unsure about any of these, please talk to the staff in your computer practical session.</p>
-<section id="task-1" class="level3">
-<h3 class="anchored" data-anchor-id="task-1">Task 1</h3>
-<ul>
-<li>To correlate the two variables click on ‘Analysis’ from the top tabs &gt; Regression &gt; Correlation Matrix</li>
-</ul>
-<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img1.png" class="img-fluid" width="600"></p>
-<ul>
-<li><p>Transfer ‘Ice_Cream’ and ‘Temp’ to the variables box by clicking them and pressing on the arrow button, double-clicking, or dragging them over to the box.</p></li>
-<li><p>For this example, make sure that the ‘Pearson’ and ‘Report significance’ boxes are ticked. Note that Pearson is the version we use if our data meet parametric assumptions (e.g.&nbsp;interval or scale data, normal distribution, free from outliers etc.). If your data didn’t meet parametric assumptions, you would use Spearman instead because this test is more resilient to violations of the assumptions.</p></li>
-<li><p>Select ‘correlated’ under hypothesis</p></li>
-</ul>
 </section>
-<section id="task-1---results" class="level3">
-<h3 class="anchored" data-anchor-id="task-1---results">Task 1 - Results</h3>
+<section id="data-skills" class="level3">
+<h3 class="anchored" data-anchor-id="data-skills">Data Skills</h3>
+<p>Data skills blocks are slightly modified callout blocks that ask a question with a non-numerical answer that the student should try to explore.</p>
+<p>The format is similar to the callout blocks above but using a <code>callout-caution</code> style to change the colour and specifying <code>collapse="true"</code> to hide and show the answer.</p>
+<p>The code</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution icon="false" collapse="true"}</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>## <span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-question-lg"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Data Skills - Is the dataset complete? do we have all information from everyone?</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>No, unfortunately some data is missing from some participants. You can see empty cells in quite a few places across the dataset. This means that some analyses may have an N of less than 2402 for analyses using some of these variables.</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The Result:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Data Skills - Is the dataset complete? do we have all information from everyone?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No, unfortunately some data is missing from some participants. You can see empty cells in quite a few places across the dataset. This means that some analyses may have an N of less than 2402 for analyses using some of these variables.</p>
+</div>
+</div>
+</div>
+<p>The question is on the line starting with the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>## <span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-question-lg"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Data Skills -</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The html adds a question mark icon and probably shouldn’t be changed.</p>
+</section>
+<section id="equations" class="level3">
+<h3 class="anchored" data-anchor-id="equations">Equations</h3>
+<p>Equations can be added using <code>latex</code>/<code>MathJax</code> format enclosed in <code>$$</code> signs. For example:</p>
+<p>The code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>t = \frac{18.6 - 0}{9.96} = 1.867</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The result:</p>
+<p><span class="math display">\[
+t = \frac{18.6 - 0}{9.96} = 1.867
+\]</span></p>
+<p>We can also do this in-line with a single dollar sign. For example the code <code>$X^2$</code> creates <span class="math inline">\(X^2\)</span>.</p>
+<section id="check-your-understanding" class="level4">
+<h4 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h4>
+<p>The big one! ‘Check your understanding’ boxes are larger quiz elements that pose a bigger challenge and might take some minutes to solve.</p>
+<p>These are large elements with several components. <strong>In general, you can copy the section below and just change the content underneath the Question/Hint/Answer subheadings</strong></p>
+<p>The subheading content can contain any other elements as normal - eg images, references and equations.</p>
+<p>The code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>:::: callout-tip</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>## Check Your Understanding</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>## Question</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>Here is my question</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>## Hint</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>Here is a hint!</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>## Solution</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>Here is the answer - perhaps with an image.</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>![](../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img5.png){width="400px"}</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>::::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The result:</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Check Your Understanding - Data Quiz
+Check Your Understanding
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Questions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Hint</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>Use the correlation output to complete this statement reporting the results of the correlation. Fill in the spaces provided.</p>
-<p>The correlation between temperature and the number of ice cream sold over 20 days is <select class="webex-select"><option value="blank"></option><option value="">not significant</option><option value="answer">strongly significant</option></select> (<em>r</em> (<input class="webex-solveme nospaces" size="2" data-answer="[&quot;18&quot;]">) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.893&quot;,&quot;.893&quot;]">, <em>p</em> &lt; <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.001&quot;,&quot;.001&quot;]">). There were <input class="webex-solveme nospaces" size="2" data-answer="[&quot;20&quot;]"> observations.</p>
+<p>Here is my question</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>The correlation matrix…</p>
-<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img2.png" class="img-fluid"></p>
+<p>Here is a hint!</p>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Interpretation
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>What does this result tell you? Have a think about how you would interpret the result?</p>
-</div>
-</div>
-</section>
-<section id="example-of-how-to-report-these-results" class="level3">
-<h3 class="anchored" data-anchor-id="example-of-how-to-report-these-results">Example of how to report these results</h3>
-<p>“A Pearson’s correlation was conducted to see if there was a significant relationship between temperature and the number of ice creams sold. This revealed that there was a very strong significant positive relationship between temperature and ice cream sales, r (18)= .893, p &lt; .001. Specifically, as temperatures increased, so too did ice cream scales. Therefore, we can accept the hypothesis that there would be a significant positive relationship between temperature and ice cream scales.”</p>
-<p>Note, a correlation can be positive (like this one was) or negative (e.g.&nbsp;the r value could have read -.893 instead). If it had been negative, this would have meant that as temperature increased, ice cream sales decreased. It is very important to get the direction of the relationship right because if you get it wrong it completely changes the findings!</p>
-<p>It is generally accepted that r values can be interpreted in the following ways (these numbers can be either positive or negative!): 0-0.19 = Very weak, 0.20–0.39 = Weak, 0.40–0.59 = Moderate, 0.60–0.79 = Strong, 0.80–1 = Very strong. It is extremely uncommon to have an r value of 1 because this means it is a perfect correlation (e.g.&nbsp;when you correlate temperature with itself because they are the same).</p>
-</section>
-<section id="task-2---create-a-graphical-representation-in-jamovi" class="level3">
-<h3 class="anchored" data-anchor-id="task-2---create-a-graphical-representation-in-jamovi">Task 2 - Create a graphical representation in Jamovi</h3>
-<p>This correlation can be illustrated graphically. This eases the understanding of the relationship between the variables. We can illustrate the relationship using the Jamovi Scatterplot function.</p>
-<ul>
-<li>Click on Analyse &gt; Exploration &gt; Scatterplot</li>
-</ul>
-<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img3.png" class="img-fluid" width="600"></p>
-<ul>
-<li><p>Move Ice_Cream and Temp across</p></li>
-<li><p>Click on linear under ‘Regression Line’</p></li>
-<li><p>A scatterplot should appear in the window to the right</p></li>
-</ul>
-<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img4.png" class="img-fluid" width="600"></p>
-<p>You can clearly see that as the temperature increases, the number of ice cream sold also raises. We know that this relationship is significant from the results of the Pearson’s Correlation.</p>
-</section>
-<section id="task-3---histograms" class="level3">
-<h3 class="anchored" data-anchor-id="task-3---histograms">Task 3 - Histograms</h3>
-<p>A histogram is a graph showing the frequency of different scores. Histograms are frequently used in psychological research. Histograms are useful to check whether the data is normally distributed.</p>
-<ul>
-<li>Go to Exploration &gt; Descriptives &gt; to generate a basic histogram of the MOTIVATION variable. Transfer MOTIVATION to the Variables box, remember to tick the Histogram box under ‘Histograms’ – A Histogram should appear in the window to the right</li>
-</ul>
-<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img5.png" class="img-fluid" width="600"></p>
-<ul>
-<li>Do the same for Stress_1</li>
-</ul>
-<p><img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img6.png" class="img-fluid" width="600"></p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - Do you think the Motivation and Stress_1 data are normally distributed or is the data skewed?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>To check this, look at your histograms. Can you see a classic “bell curve” shape (normally distributed data), or is some of the data pushed up at one end of the graph (skewed data)?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - Are there any outliers in the age data?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>To check this, you will need to create a “Boxplot”.</li>
-<li>Click on the Boxplot box under ‘Boxplots’ and then create a boxplot for AGE by moving AGE into the variable box.</li>
-<li>A boxplot should appear in the window to the right</li>
-<li>Look at the graph, you will see the boxplot and above it there is a point on its own. This means that one participant’s age is an outlier because they are a lot older than the rest of the sample. Check back in data view to see this in the data. If age was important to your study and this participants age could confound your results, you would need to remove their data.</li>
-<li>Important Note: ALWAYS keep the original JAMOVI data file in case you change your mind. Save the original and then when you make changes to your data set save this with a different name e.g.&nbsp;“Correlation data original”, “Correlation data outliers removed”.</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="task-4---copypaste-jamovi-results-into-other-applications" class="level3">
-<h3 class="anchored" data-anchor-id="task-4---copypaste-jamovi-results-into-other-applications">Task 4 - Copy/paste Jamovi results into other applications</h3>
-<p>You need to know how to copy results of statistical analyses into the appendices of reports in the future. Note that the only tables or figures which should ever go in the main part of the report are ones which help to illustrate your argument and they must fully adhere to APA format.</p>
-<p>It is also never enough to just say ‘see table 1’. You have to interpret what tables and figures show in the text. For example, “Figure 1 shows a scatterplot depicting the correlation between temperature and ice cream sales”.</p>
-<section id="copying-a-graph-or-table-into-a-word-document" class="level4">
-<h4 class="anchored" data-anchor-id="copying-a-graph-or-table-into-a-word-document">Copying a graph or table into a Word document</h4>
-<ul>
-<li>Click on the bottom right search icon <img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img7.png" class="img-fluid" width="40"></li>
-<li>Search for Snipping tool</li>
-<li>Click on ‘New’ top left</li>
-<li>Highlight the area of the graph or table that you want to copy</li>
-<li>Click ‘EDIT’ and scroll down to copy</li>
-<li>Click “Paste” in the Word Document</li>
-</ul>
-<p>More information about APA formatting can be found <a href="https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_tables_and_figures.html">here</a></p>
-</section>
-<section id="consolidate-your-knowledge-descriptive-statistics" class="level4">
-<h4 class="anchored" data-anchor-id="consolidate-your-knowledge-descriptive-statistics">Consolidate your knowledge: Descriptive Statistics</h4>
-<ul>
-<li><p>Download and open the JAMOVI data file <em>stroke_survival_data</em> that you can find on Canvas. We want to generate some descriptive statistics on this dataset. This is a real dataset from several hospitals.</p></li>
-<li><p>Firstly, make sure all the variables are set at the right measurement level</p>
-<ul>
-<li>Click on the DATA tab</li>
-<li>Click on ‘Setup’</li>
-<li>Click on each individual variable name on the data to check the details.</li>
-</ul></li>
-<li><p>From the ‘Analysis’ tab click on ‘Exploration’ and then ‘Descriptives’ and then</p></li>
-<li><p>Choose two Continuous variables to explore. These will be your Variable Names in the table below. For example, if you chose age in years as a scale variable this would be entered where it says Variable 1 (both times).</p></li>
-<li><p>Split your output by the two categorical variables of your choice. These categorical variables will provide your Factors in the table below. For example and gender was one of your two categorical variables you would list factor 1 as men and factor 2 as women and then report the data for men and the data for women.</p>
-<ul>
-<li>HINT: Enter a nominal variable into the “Split by” box. This will split your output by the categories within these variables</li>
-</ul></li>
-<li><p>Make sure your output includes a histogram.</p></li>
-<li><p>You will see your results automatically in the window to the right.</p></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Check Your Understanding
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Question</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>Using the results you just generated, fill out the following table:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Variable Name</th>
-<th>Factors</th>
-<th>Number of data points (N)</th>
-<th>Mean (M or x)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Variable 1</td>
-<td>Factor 1</td>
-<td>N</td>
-<td>M or x</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Factor 2</td>
-<td>N</td>
-<td>M or x</td>
-</tr>
-<tr class="odd">
-<td>Variable 1</td>
-<td>Factor 1</td>
-<td>N</td>
-<td>M or x</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Factor 2</td>
-<td>N</td>
-<td>M or x</td>
-</tr>
-<tr class="odd">
-<td>Variable 2</td>
-<td>Factor 1</td>
-<td>N</td>
-<td>M or x</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Factor 2</td>
-<td>N</td>
-<td>M or x</td>
-</tr>
-<tr class="odd">
-<td>Variable 2</td>
-<td>Factor 1</td>
-<td>N</td>
-<td>M or x</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Factor 2</td>
-<td>N</td>
-<td>M or x</td>
-</tr>
-</tbody>
-</table>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Here is the answer - perhaps with an image.</p>
+<p><img src="../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img5.png" class="img-fluid" width="400"></p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="consolidate-your-knowledge-analysis-practice" class="level4">
-<h4 class="anchored" data-anchor-id="consolidate-your-knowledge-analysis-practice">Consolidate your knowledge: Analysis Practice!</h4>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="interactive-quizzes" class="level4">
+<h4 class="anchored" data-anchor-id="interactive-quizzes">Interactive Quizzes</h4>
+<p>The <a href="https://psyteachr.github.io/webexercises/articles/webexercises.html">webexercises</a> page is the source documentation for interactive quiz elements. We tend to use the following:</p>
+<section id="fill-in-the-blanks" class="level5">
+<h5 class="anchored" data-anchor-id="fill-in-the-blanks">Fill in the blanks</h5>
+<p>These elements prompt the student to enter a precise value. This uses an R function called <code>fitb</code> which takes the correct response as the input.</p>
+<p>The code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>the p<span class="sc">-</span>value is <span class="st">`</span><span class="at">r fitb(0.151)</span><span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-title-container flex-fill">
-Check Your Understanding
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Hint</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<p>Correlate three variables of your choice. In the text box below write out: * Why are you correlating these variables? Why is this relationship interesting? Justify your analysis. * What do the results tell you? Write out and interpret the results. <input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
-</div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>Here’s the start of how to report correlations (see last week for more information): <img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img8.png" class="img-fluid" width="600"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<ul>
-<li>Open the survey_data file. This is a real dataset from a psychological study.</li>
-<li>Look over the dataset. What has been recorded? What is the dataset exploring?</li>
-<li>Split your dataset by one variable of your choice.
-<ul>
-<li>HINT: Use the “Split By” function.</li>
-</ul></li>
-<li>Now explore the data using Descriptives and Correlations. Choose some variables that you find interesting, and generate Descriptives and Correlations. What do your results show you? What do they mean?</li>
-</ul>
-<p>Write your results here. <input type="text" id="answer-box" name="answer" style="width: 600px;"></p>
+<p>The result:</p>
+<p>the p-value is <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.151&quot;,&quot;.151&quot;]"></p>
+<p>Note that the backticks `<code>r</code> at the start and ‘`’ at the end must be exactly in place.</p>
 </section>
-<section id="reorganise-the-data-into-a-new-jamovi-sheet" class="level4">
-<h4 class="anchored" data-anchor-id="reorganise-the-data-into-a-new-jamovi-sheet">Reorganise the data into a new Jamovi sheet</h4>
-<p>Now we will re-organise the data into a new JAMOVI sheet so we can compare scores at a later date based on a categorical variable of your choice.</p>
-<ul>
-<li>Choose a categorical variable that you are interested in
-<ul>
-<li>E.g. You might want to know, is there a difference in optimism scores (scale) between smokers and non-smokers (categorical)?</li>
-</ul></li>
-<li>Sort the dataset by this variable
-<ul>
-<li>HINT: Use the “Split By” function to compare groups. Your data will now be organised by this categorical variable.</li>
-</ul></li>
-<li>Choose three non-categorical variables of interest. Copy all of the data from each one of these variable columns for ONE of your categories (e.g.&nbsp;female) into the new spreadsheet.
-<ul>
-<li>E.g. if you’re interested in optimism scores, copy the data for optimism in females into a new variable column</li>
-<li>Give your new variables appropriate names, e.g.&nbsp;if you copied the “Total Optimism” scores for females, rename the variable “Tot_Opt_F”, for example</li>
-<li>Repeat for your other category/categories (e.g.&nbsp;copy all the male data, and rename the variables)</li>
-</ul></li>
-<li>Now you have re-organised your data…</li>
-</ul>
+<section id="multiple-choice-dropdown" class="level5">
+<h5 class="anchored" data-anchor-id="multiple-choice-dropdown">Multiple Choice Dropdown</h5>
+<p>The multiple choice dropdown uses a similar format</p>
+<p>The code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>The study used a <span class="st">`</span><span class="at">r mcq(c(answer = 'Between subjects', 'Within subjects'))</span><span class="st">`</span> design.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The result:</p>
+<p>The study used a <select class="webex-select"><option value="blank"></option><option value="answer">Between subjects</option><option value="">Within subjects</option></select> design.</p>
+<p>The <code>mcq</code> function takes an input as an R collection <code>c()</code> containing all of the options and the correct answer tagged with <code>answer =</code>.</p>
+
 
 
 </section>
 </section>
 </section>
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Holmes2009_CanPlaying" class="csl-entry" role="listitem">
+Holmes, Emily A., Ella L. James, Thomas Coode-Bate, and Catherine Deeprose. 2009. <span>“Can Playing the Computer Game <span>‘Tetris’</span> Reduce the Build-up of Flashbacks for Trauma? A Proposal from Cognitive Science.”</span> Edited by Vaughan Bell. <em>PLoS ONE</em> 4 (1): e4153. <a href="https://doi.org/10.1371/journal.pone.0004153">https://doi.org/10.1371/journal.pone.0004153</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -1376,14 +1281,11 @@ window.onload = function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../tutorials/rma_week-8_introduction-to-jamovi.html" class="pagination-link" aria-label="Week 8 - Introduction to Jamovi">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 8 - Introduction to Jamovi</span>
+      <a href="../support/frequently-asked-questions.html" class="pagination-link" aria-label="FAQs">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">FAQs</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../tutorials/rma_week-10_tests_of_difference_Chi-Squared.html" class="pagination-link" aria-label="Week 10 - Tests of Difference Chi-Squared">
-        <span class="nav-page-text">Week 10 - Tests of Difference Chi-Squared</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
