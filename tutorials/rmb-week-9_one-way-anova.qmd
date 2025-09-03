@@ -51,11 +51,11 @@ This tutorial refers to a video in which participants watched unpleasant events 
 
 Flashbacks and intrusive thoughts are a core features of post-traumatic stress disorder (PTSD). These can be highly distressing and disruptive for the person suffering from them and there are few early interventions that are known to help.
 
-One unexpected and intriguing proposal in the last few decades suggests that carrying out very engaging visuo-spatial tasks with a neutral emotion in the immediate aftermath of a traumatic event may help reduce later flashbacks [@Holmes2009_CanPlaying]. This is thought to be due to intense visuo-spatial processing disrupting the formations of the flashback memories, which are themselves flashbacks. 
+One unexpected and intriguing proposal in the last few decades suggests that carrying out very engaging visuo-spatial tasks with a neutral emotion in the immediate aftermath of a traumatic event may help reduce later flashbacks [@Holmes2009_CanPlaying]. This is thought to be due to intense visuo-spatial processing disrupting the formations of the flashback memories, which are themselves flashbacks.
 
-This week, we’re going to look at the dataset from one experiment attempting a replication and extension of this effect [@James2015_ComputerGame]. The abstract of the paper is below 
+This week, we’re going to look at the dataset from one experiment attempting a replication and extension of this effect [@James2015_ComputerGame]. The abstract of the paper is below
 
-> Memory of a traumatic event becomes consolidated within hours. Intrusive memories can then flash back repeatedly into the mind’s eye and cause distress. We investigated whether reconsolidation—the process during which memories become malleable when recalled—can be blocked using a cognitive task and whether such an approach can reduce these unbidden intrusions. We predicted that reconsolidation of a reactivated visual memory of experimental trauma could be disrupted by engaging in a visuospatial task that would compete for visual working memory resources. We showed that intrusive memories were virtually abolished by playing the computer game Tetris following a memory-reactivation task 24 hr after initial exposure to experimental trauma. Furthermore, both memory reactivation and playing Tetris were required to reduce subsequent intrusions (Experiment 2), consistent with reconsolidation-update mechanisms. A simple, noninvasive cognitive-task procedure administered after emotional memory has already consolidated (i.e., > 24 hours after exposure to experimental trauma) may prevent the recurrence of intrusive memories of those emotional events 
+> Memory of a traumatic event becomes consolidated within hours. Intrusive memories can then flash back repeatedly into the mind’s eye and cause distress. We investigated whether reconsolidation—the process during which memories become malleable when recalled—can be blocked using a cognitive task and whether such an approach can reduce these unbidden intrusions. We predicted that reconsolidation of a reactivated visual memory of experimental trauma could be disrupted by engaging in a visuospatial task that would compete for visual working memory resources. We showed that intrusive memories were virtually abolished by playing the computer game Tetris following a memory-reactivation task 24 hr after initial exposure to experimental trauma. Furthermore, both memory reactivation and playing Tetris were required to reduce subsequent intrusions (Experiment 2), consistent with reconsolidation-update mechanisms. A simple, noninvasive cognitive-task procedure administered after emotional memory has already consolidated (i.e., > 24 hours after exposure to experimental trauma) may prevent the recurrence of intrusive memories of those emotional events
 
 This experiment shows participants a 12-minute distressing film to simulate a traumatic event. Participants completed three sessions in the experiment day 0, day 1 and day 7. They also kept a diary recording their thoughts and memories about the film throughout the week. Participants viewed the film on day 0 and completed a range of experimental tasks on days 1 and 7.
 
@@ -67,7 +67,7 @@ Crucially, participants were allocated to one of four conditions in the time imm
 
 This week - we will explore two of the four conditions to test the following hypothesis:
 
-> Engaging in computer game and reactivation tasks after a trumatic event will reduce number of subsequent intrusive memories 
+> Engaging in computer game and reactivation tasks after a trumatic event will reduce number of subsequent intrusive memories
 
 This is similar to the hypothesis from week 7, but now we have allowed for several conditions in the experiment rather than just two.
 
@@ -144,7 +144,7 @@ $$
 \text{Mean-Square Error Between} = \frac{\text{Sum-Square Error Between}}{\text{Number of Groups} - 1}
 $$
 
-The ingredients for these fractions are already in our ANOVA table. The top of the fraction is the Sum of Squares we've seen earlier. The values on the bottom of the fraction are actually precomputed for us as the Degrees of Freedom. 
+The ingredients for these fractions are already in our ANOVA table. The top of the fraction is the Sum of Squares we've seen earlier. The values on the bottom of the fraction are actually precomputed for us as the Degrees of Freedom.
 
 The degrees of freedom for Condition (df between) is $\text{Number of Groups} - 1$. In our case we have four groups so the value is 3. The degrees of freedom for Residuals (df within) is $\text{Number of Participants} - \text{Number of Groups}$. We have 72 participants and 4 groups so the value is 68.
 
@@ -176,7 +176,7 @@ The ANOVA table from above...
 :::
 :::
 
-We now have the ingredients for our ANOVA! The F-statistics for the ANOVA is 
+We now have the ingredients for our ANOVA! The F-statistics for the ANOVA is
 
 $$
 \text{F} = \frac{\text{Mean-Square Error Between}}{\text{Mean-Square Error Within}}
@@ -281,9 +281,9 @@ There are two other options for ANOVA effect sizes:
 
 ## 5. Post-hoc Tests {.unnumbered}
 
-An ANOVA analysis returns a significant effect that indicates that there is a difference between the group means but doesn't tell us anything about which groups are actually different. 
+An ANOVA analysis returns a significant effect that indicates that there is a difference between the group means but doesn't tell us anything about which groups are actually different.
 
-If, and only if, the overall ANOVA returns a significant result - we can use post-hoc tests to explore what the specific differences actually are. This is a critical step for the interpretation of our results. 
+If, and only if, the overall ANOVA returns a significant result - we can use post-hoc tests to explore what the specific differences actually are. This is a critical step for the interpretation of our results.
 
 In the example above we saw that the experimental task that participants complete after watching the film does change the mean number of intrusive memories that the participants experience. The ANOVA table doesn't say more than this - as far as we know from this analysis it is possible that playing Tetris may have increased or decreased the number of intrusive memories.
 
@@ -327,7 +327,7 @@ So, lets run our post-hoc tests!
 ::: {.callout-note appearance="simple"}
 # Key step
 
-Find the 'Post-Hoc Tests' drop down menu and add 'Condition' to the right hand box to compute the post hoc comparison between each pair of groups within Condition. 
+Find the 'Post-Hoc Tests' drop down menu and add 'Condition' to the right hand box to compute the post hoc comparison between each pair of groups within Condition.
 
 Make sure to include 'Tukey' correction and add the Cohen's d effect size.
 
@@ -351,7 +351,7 @@ The `Reactivation+Tetris` and `Reactivation Only` conditions show a significant 
 
 We can use the estimated marginal means tables to be sure of these results.
 
-The `No-Task Control` group (M=5.11) had more intrusive memories than the `Reactivation+Tetris` group (M=1.89). 
+The `No-Task Control` group (M=5.11) had more intrusive memories than the `Reactivation+Tetris` group (M=1.89).
 
 The `Reactivation+Tetris` group (M=1.89) had fewer intrusive memories than the `Reactivation Only` group (M=4.83).
 
@@ -471,9 +471,9 @@ Use the results to complete this reporting of the ANOVA results.
 > Post hoc comparisons with Tukey correction were conducted to identify which pairs of conditions showed significant differences in their estimated marginal means. Three pairwise comparisons showed a significant difference. Note that we are reporting the log-transformed means with the post-hoc test, not the original means.
 >
 > The 'No-Task Control' group (M=`r fitb(0.691)`) had more instrusive memories than the 'Reactivation+Tetris' group (M=`r fitb(.389)`), t(`r fitb(68)`) = `r fitb(3.474)`, p=`r fitb(0.005)`, Cohen's d=`r fitb(1.1581)`
-> 
+>
 > The 'Reactivation+Tetris' group (M=`r fitb(.389)`) had fewer instrusive memories than the 'Tetris Only' group (M=`r fitb(.626)`), t(`r fitb(68)`) = `r fitb(-2.736)`, p=`r fitb(0.039)`, Cohen's d=`r fitb(-0.9119)`.
-> 
+>
 > The 'Reactivation+Tetris' group (M=`r fitb(.389)`) had fewer instrusive memories than the 'Reactivation Only' group (M=`r fitb(.707)`), t(`r fitb(68)`) = `r fitb(-3.668)`, p=`r fitb(0.003)`, Cohen's d=`r fitb(-1.2228)`.
 
 ## Hint - ANOVA Table
@@ -495,6 +495,6 @@ Use the results to complete this reporting of the ANOVA results.
 
 ## 8. Summary {.unnumbered}
 
-ANOVA is a flexible and powerful method for comparing the means of more than two groups whilst accounting for the exploding number of multiple comparisons we get from more complex experimental designs. ANOVA takes a bit more work to run, check and interpret than a t-test but the results from a single ANOVA analysis contain a huge amount of critical information about our data! 
+ANOVA is a flexible and powerful method for comparing the means of more than two groups whilst accounting for the exploding number of multiple comparisons we get from more complex experimental designs. ANOVA takes a bit more work to run, check and interpret than a t-test but the results from a single ANOVA analysis contain a huge amount of critical information about our data!
 
 ## References {.unnumbered}

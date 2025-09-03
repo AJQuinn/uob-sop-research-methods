@@ -45,14 +45,14 @@ Carney, D. R., Cuddy, A. J. C., & Yap, A. J. (2010). Power Posing: Brief Nonverb
 > Humans and other animals express power through open, expansive postures, and they express powerlessness through closed, contractive postures. But can these postures actually cause power? The results of this study confirmed our prediction that posing in high-power nonverbal displays (as opposed to low-power nonverbal displays) would cause neuroendocrine and behavioral changes for both male and female participants: High-power posers experienced elevations in testosterone, decreases in cortisol, and increased feelings of power and tolerance for risk; low-power posers exhibited the opposite pattern. In short, posing in displays of power caused advantaged and adaptive psychological, physiological, and behavioral changes, and these findings suggest that embodiment extends beyond mere thinking and feeling, to physiology and subsequent behavioral choices. That a person can, by assuming two simple 1-min poses, embody power and instantly become more powerful has real-world, actionable implications.
 [@Carney2010_power]
 
-This is a compelling result! Perhaps not so suprising that power poses would change our mood - but to cause a change hormones is amazing. 
+This is a compelling result! Perhaps not so suprising that power poses would change our mood - but to cause a change hormones is amazing.
 
 The authors quickly became famous with this result. The second author Amy Cuddy gave high profile talks (TED talk with 74 million views: [Video](https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are?utm_campaign=tedspread&utm_medium=referral&utm_source=tedcomshare) & [transcript](https://web.archive.org/web/20150408202457/http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are/transcript?language=en)), wrote books and appeared widely in the media as a result of this work.
 
 ![Amy Cuddy at Pop Tech 2011 - Photo by Erik Hersman.](../images/rmb-week-11_computer-practical/1024px-Power_pose_by_Amy_Cuddy_at_PopTech_2011.jpg){width=450px}
 
 
-These results attracted several replications attempts and the following debate became so intense that it was attracting attention in the mainstream media - including articles summarising the story in the New York Times magazine [@Dominus2017_revolution] and the British Psychological Society [@BPS2021_decade]. It even has it's own Wikipedia page [@wiki:Power_posing] and lead to some very awkward photos of british politicians [@Wheeler2018_whenisit]. 
+These results attracted several replications attempts and the following debate became so intense that it was attracting attention in the mainstream media - including articles summarising the story in the New York Times magazine [@Dominus2017_revolution] and the British Psychological Society [@BPS2021_decade]. It even has it's own Wikipedia page [@wiki:Power_posing] and lead to some very awkward photos of british politicians [@Wheeler2018_whenisit].
 
 We'll be focusing on one of these replications that tried to faithfully repeat the original methodology [@Ranehill2015_assessing] with a large, independent data sample.
 
@@ -133,7 +133,7 @@ Finally - use jPower in Jamovi to estimate the sample size you would need to hav
 [@Carney2010_power] report the following in their results.
 
 > As hypothesized, high-power poses caused an increase in testosterone compared with low-power poses, which caused a decrease in testosterone, F(1, 39) = 4.29, p < .05; r = .34 (Fig. 3). Also as hypothesized, high-power poses caused a decrease in cortisol compared with low-power poses, which caused an increase in cortisol, F(1, 38) = 7.45, p < .02; r = .43
->Finally, high-power posers reported feeling significantly more “powerful” and “in charge” (M = 2.57, SD = 0.81) than low-power posers did (M = 1.83, SD = 0.81), F(1, 41) = 9.53, p < .01; r = .44. 
+>Finally, high-power posers reported feeling significantly more “powerful” and “in charge” (M = 2.57, SD = 0.81) than low-power posers did (M = 1.83, SD = 0.81), F(1, 41) = 9.53, p < .01; r = .44.
 
 [@Carney2010_power] reported ANOVAs with `r` values as effect sizes - but remember that we can convert the effect sizes to Cohen's d using the online tool.
 
@@ -173,14 +173,14 @@ Next, we're going to look at the dataset from [@Ranehill2015_assessing] from the
 
 There were a small number of changes in the replication compared to the original study:
 
-- Whereas participants in Carney et al.’s study held each position for 1 min, we extended this time to 3 min. 
-- Second, Carney et al. manually configured participants’ positions before leaving the room, whereas participants in our study received instructions on a computer. As in Carney et al.’s study, participants were recorded while posing; the recordings verified that participants complied with task instructions. Because the instructions were given via computer, the experimenter was blind to experimental condition, which negated potential experimenter effects. 
-- Third, the filler task in our study involved constructing words from letters and spaces; in Carney et al.’s study, the task was to form impressions of faces. 
-- Finally, we did not use deception, but informed participants briefly in the consent form that the study investigated whether physical position influences hormone levels and behavior (the instructions and consent form are in the Supplemental Material). 
+- Whereas participants in Carney et al.’s study held each position for 1 min, we extended this time to 3 min.
+- Second, Carney et al. manually configured participants’ positions before leaving the room, whereas participants in our study received instructions on a computer. As in Carney et al.’s study, participants were recorded while posing; the recordings verified that participants complied with task instructions. Because the instructions were given via computer, the experimenter was blind to experimental condition, which negated potential experimenter effects.
+- Third, the filler task in our study involved constructing words from letters and spaces; in Carney et al.’s study, the task was to form impressions of faces.
+- Finally, we did not use deception, but informed participants briefly in the consent form that the study investigated whether physical position influences hormone levels and behavior (the instructions and consent form are in the Supplemental Material).
 
 These are reasonable changes that aim to improve the orignal design (blinded experimentors, longer pose duration) without making substantial changes to its purpose.
 
-Let's take a look at the data. 
+Let's take a look at the data.
 
 <!--# #############################################  -->
 
@@ -192,13 +192,13 @@ Let's take a look at the data.
 
 In the original study, [@Carney2010_power] reported that:
 
-> High-power posers reported feeling significantly more “powerful” and “in charge” (M = 2.57, SD = 0.81) than low-power posers did (M = 1.83, SD = 0.81), F(1, 41) = 9.53, p < .01; r = .44. 
+> High-power posers reported feeling significantly more “powerful” and “in charge” (M = 2.57, SD = 0.81) than low-power posers did (M = 1.83, SD = 0.81), F(1, 41) = 9.53, p < .01; r = .44.
 
 Can you replicate this analysis using the `powerful` and `hp_condition` (1 is 'high power pose' and 0 is 'low power pose') variables in the replication dataset from [@Ranehill2015_assessing]? [@Carney2010_power] used an ANOVA but you should use a t-test.
 
 Use the results to fill in the gaps in the reporting below.
 
-> The results `r mcq(c(answer="replicate", "do not replicate"))` the original finding about subjective feeling. High-power posers  (M = `r fitb(2.22)`, SD = `r fitb(0.753)`) reported feeling `r mcq(c('less powerful than', 'just as powerful as', answer = 'more powerful than'))` low-power posers did (M = `r fitb(1.978)`, SD = `r fitb(0.663)`), t(`r fitb(193)`) = `r fitb(-2.40)`, p = `r fitb(0.017)`; Cohen's d = `r fitb(-0.344)`. 
+> The results `r mcq(c(answer="replicate", "do not replicate"))` the original finding about subjective feeling. High-power posers  (M = `r fitb(2.22)`, SD = `r fitb(0.753)`) reported feeling `r mcq(c('less powerful than', 'just as powerful as', answer = 'more powerful than'))` low-power posers did (M = `r fitb(1.978)`, SD = `r fitb(0.663)`), t(`r fitb(193)`) = `r fitb(-2.40)`, p = `r fitb(0.017)`; Cohen's d = `r fitb(-0.344)`.
 
 ## Hint
 
@@ -207,7 +207,7 @@ Use the results to fill in the gaps in the reporting below.
 
 ## Solution
 
-> High-power posers reported feeling significantly more “powerful” (M = 2.22, SD = 0.753) than low-power posers did (M = 1.978, SD = 0.663), t(193) = -2.40, p = 0.017; Cohen's d = -0.344. 
+> High-power posers reported feeling significantly more “powerful” (M = 2.22, SD = 0.753) than low-power posers did (M = 1.978, SD = 0.663), t(193) = -2.40, p = 0.017; Cohen's d = -0.344.
 
 :::
 ::::
@@ -221,9 +221,9 @@ No! oddly they do not... [@Ranehill2015_assessing] report the following:
 
 > Using two-tailed t tests, we replicated Carney et al.’s finding that participants in the high-power condition self-reported, on average, higher feelings of power than did participants in the low-power condition (mean difference = 0.245, 95% confidence interval, or CI = [0.044, 0.446]), t(193) = 2.399, p = .017, Cohen’s d = 0.344. This suggests that the power-posing manipulation worked.
 
-Most of the reported values are the same, but but notice that the sign of the t-value is different! 
+Most of the reported values are the same, but but notice that the sign of the t-value is different!
 
-We can confirm that this is a weird variable issue by checking hte descriptive statistics. The direction of our effect is definitely the same as what is reported in the paper. 
+We can confirm that this is a weird variable issue by checking hte descriptive statistics. The direction of our effect is definitely the same as what is reported in the paper.
 
 :::
 
@@ -237,7 +237,7 @@ We can confirm that this is a weird variable issue by checking hte descriptive s
 Something strange has happened - it seems like [@Ranehill2015_assessing] must have computed the t-test the other way around compared to our analysis. They have a positive t-value and ours is negative.
 
 
-Remember that the **direction** of a t-test (ie whether the t-statistics is positive or negative) doesn't effect the p-values but does change the interpretation of the result a little. 
+Remember that the **direction** of a t-test (ie whether the t-statistics is positive or negative) doesn't effect the p-values but does change the interpretation of the result a little.
 
 This is because the order of subtraction makes a difference to the answer - if we do `2 + 3` or `3 + 2` we get the same answer however `2 - 3` and `3 - 2` are **not** the same.
 
@@ -275,7 +275,7 @@ Can you replicate the core findings from [@Carney2010_power] using the data from
 
 **Make sure you have completed the 'Key step' above before starting this exercise!**
 
-Run t-tests to analyse the effect of high vs low power posing on the following variables: `powerful`, `testosterone_diff`, `cortisol_diff` and `num_risky_gain_pc` as dependent variables. 
+Run t-tests to analyse the effect of high vs low power posing on the following variables: `powerful`, `testosterone_diff`, `cortisol_diff` and `num_risky_gain_pc` as dependent variables.
 
 Read through the results of the original paper [@Carney2010_power] - does the second study confirm the findings of the original?
 
@@ -359,7 +359,7 @@ It is very very difficult to separate these options with 100% confidence... Ofte
 
 One thing we do know is that if the effect size from the original study were accurate, then the replication should have had enough participants to see it again.
 
-The same is not true the other way around. Take a look at the figures below: 
+The same is not true the other way around. Take a look at the figures below:
 
 :::{.border}
 
@@ -369,20 +369,20 @@ The same is not true the other way around. Take a look at the figures below:
 
 :::
 
-The replication confidence interval is much smaller than the original and even crosses zero for all three key variables. This strongly indicates a very tiny or zero effect. 
+The replication confidence interval is much smaller than the original and even crosses zero for all three key variables. This strongly indicates a very tiny or zero effect.
 
 The replication effect is so small that, if it is accurate, then the original study with its smaller sample would only have a 5.9% chance of detecting it. ([Analysis by Data Colada](https://datacolada.org/37#identifier_0_910)).
 
 
 So which study do we trust? Ultimately that your decision as an individual scientist. Consider what you know about both studies and evaulate which you find more compelling.
 
-In this case, there is a substantial consensus in the field that the original effects on hormones was likely a false positive, though the increase in the subjective feelings of power after a power pose replicates well. The replications have several advantages including larger sample sizes, blinded and objective experimentors, and longer pose durations. 
+In this case, there is a substantial consensus in the field that the original effects on hormones was likely a false positive, though the increase in the subjective feelings of power after a power pose replicates well. The replications have several advantages including larger sample sizes, blinded and objective experimentors, and longer pose durations.
 
 The original authors have engaged in the debate and made several points in defense of their work. The original study was famous by the time the replication was carried out - perhaps the participants had heard of the original study. Similarly, the replication study participants were told what was being measured in advance which might have effected their feelings during hte study. Finally, the original study was in hte USA and hte replication in Switzerland - perhaps there is a cultural component to power posing?
 
 ## 7. Ethics & Collaboration. {.unnumbered}
 
-The original paper attracted huge scientific and media interest 
+The original paper attracted huge scientific and media interest
 
 - 61 news outlets
 - 33 blogs
@@ -401,7 +401,7 @@ This was a mix of constructive debate, harsh criticism and genuine interest. Unf
 
 > In addition to her fame and influence, Cuddy’s critics seemed obsessed with profits from her book and her fees for speaking engagements. Dollar amounts frequently emerged in conversations where academics discussed the research, and recently, one of her most vocal critics said her speaking engagement fees made him feel “ill.”  One Ivy League professor tweeted, “You can listen to her speak about her irreplicable results for $25-$40,000.” In reality, her book and speaking topics have little to do with the power posing studies.
 >
->Many of the negative comments were personal in nature and aimed at Cuddy directly. “They were comparing me to Harvey Weinstein,” Cuddy says, recalling a post to the PsychMAP Facebook group which the site owners were eventually persuaded to remove. As if that’s not bad enough, Cuddy also received death threats via direct messages on social media.  “I became an untouchable in my field,” she adds, describing how colleagues were shunned for merely friending her on Facebook. 
+>Many of the negative comments were personal in nature and aimed at Cuddy directly. “They were comparing me to Harvey Weinstein,” Cuddy says, recalling a post to the PsychMAP Facebook group which the site owners were eventually persuaded to remove. As if that’s not bad enough, Cuddy also received death threats via direct messages on social media.  “I became an untouchable in my field,” she adds, describing how colleagues were shunned for merely friending her on Facebook.
 >
 > Although Cuddy says Harvard wanted her to stay, she left her full-time position, because she no longer felt safe doing her work (she remains a faculty member at Harvard Business School in Executive Education). “My dean wanted me to stay, but I later told him, I couldn’t stay, because I couldn’t endure this abuse. It was relentless,” says Cuddy. Her experiences inspired her new book (still a work in progress) entitled, Bullies, Bystanders and Bravehearts aimed at helping others who find themselves facing similar experiences.
 >
@@ -426,7 +426,7 @@ Taking and receiving criticsm is a huge part of progressive constructive science
 
 ## 8. Summary. {.unnumbered}
 
-Replication is the gold standard for scientific progress but it is rarely as straightforward as we'd like it to be! 
+Replication is the gold standard for scientific progress but it is rarely as straightforward as we'd like it to be!
 
 A wide range of issues can arise - including statistical approaches, experimental design and sometimes interpersonal conflict. We have to navigate all of these points with high ethical standards for the scientific community to progress.
 

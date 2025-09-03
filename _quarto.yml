@@ -39,7 +39,7 @@ website:
         href: tutorials/rmb_week-7_non-parametrics.qmd
       - text: Week 8 - Sampling Distributions of Means
         href: tutorials/rmb-week-8_sampling-distributions-mean.qmd
-      - text: Week 9 - One-way ANOVA 
+      - text: Week 9 - One-way ANOVA
         href: tutorials/rmb-week-9_one-way-anova.qmd
       - text: Week 10 - Sampling Distributions of t-values
         href: tutorials/rmb-week-10_sampling-distributions-tvalues.qmd
@@ -48,9 +48,11 @@ website:
     - section: Support
       contents:
       - text: Using Copilot at UoB
-        href: copilot.qmd
+        href: support/copilot.qmd
       - text: FAQs
-        href: tutorials/frequently-asked-questions.qmd
+        href: support/frequently-asked-questions.qmd
+      - text: Faculty
+        href: support/faculty.qmd
 format:
   html:
     toc: true
