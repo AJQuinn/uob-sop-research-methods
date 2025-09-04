@@ -15,7 +15,7 @@ library(webexercises)
 
 |   ![](../images/logos/rm-logo_quantitative-methods.png){width=50px}         | Quantitative Methods                                    |
 |-----|:-------------------------------------------|
-|            | Hypthesis testing                            |
+|            | Hypothesis testing                            |
 |            | Confidence intervals and critical values                       |
 |            | Measures of skew and normality                          |
 
@@ -48,7 +48,7 @@ We then calculate the probability of getting a mean difference that is at least 
 
 * EXAMPLE: We calculate the differences in the mean number of drinks for our student and general population groups. We find that students drink on average 2.5 more drinks than the general population, and that this difference is significant. We use a critical value of 5% and a confidence interval of 95% (these add up to 100%). That is, we can say that we are 95% confident that our data were drawn from two populations that actually have different means, and this conclusion will only be a mistake (due to chance) 5% of the time.
 
-If the data do not lead us to reject the null hypothesis, the interpretation is more problematic – do we “accept” the null, or “retain” it, or just withhold judgement”? 
+If the data do not lead us to reject the null hypothesis, the interpretation is more problematic – do we “accept” the null, or “retain” it, or just withhold judgement”?
 
 * We can definitely never claim to have “proved” the null hypothesis (as you cannot 100% prove a null statement)! A non-significant result is an inconclusive one – we have insufficient data to choose which hypothesis (null or alternative) is the most accurate.
 
@@ -64,12 +64,12 @@ If the data do not lead us to reject the null hypothesis, the interpretation is 
 
 We will be exploring the dataset *correlation data* that you can find on the CANVAS page under **Week 9** of the computer labs folder of **Research Methods A**
 
-There are **five** variables in the dataset 
+There are **five** variables in the dataset
 
-* Age 
-* Ice_Cream - number of ice creams sold 
-* Temp - temperature 
-* Motivation 
+* Age
+* Ice_Cream - number of ice creams sold
+* Temp - temperature
+* Motivation
 * Stress
 
 There are 20 days where these two variables were recorded. These are represented by the rows in the 'data view'. We will correlate the variables 'Temp' and 'Ice_Cream'

@@ -14,7 +14,7 @@ Canvas should be used as your primary resource as it contains the complete overv
 
 -   [Week 8 : Introduction to Jamovi](tutorials/rma_week-8_introduction-to-jamovi.qmd)
 -   [Week 9 : Correlations, Graphs and Exporting](tutorials/rma_week-9_correlations-graphs-and-exporting.qmd)
--   [Week 10 : Tests of Differece: Chi Squared](tutorials/rma_week-10_tests_of_difference_Chi-squared.qmd)
+-   [Week 10 : Tests of Difference: Chi Squared](tutorials/rma_week-10_tests_of_difference_Chi-Squared.qmd)
 
 
 
