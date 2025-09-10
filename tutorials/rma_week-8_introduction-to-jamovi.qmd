@@ -1,6 +1,6 @@
 # Week 8 : Introduction to Jamovi {.unnumbered}
 
-This week you will be introduced to Jamovi. You will use Jamovi throughout your degree for statistical analysis, so it is very important to get familiar with it! 
+Welcome to this practical session! This week you will be introduced to Jamovi. You will use Jamovi throughout your degree for statistical analysis, so it is very important to get familiar with it! 
 
 JAMOVI has inbuilt functions which can be used to investigate and manipulate data, and to perform majority of statistical tests used in psychological research. Each task you perform in JAMOVI will generate an output which will support your research decisions, such as choosing a statistical test or deciding whether to reject a hypothesis.
 
