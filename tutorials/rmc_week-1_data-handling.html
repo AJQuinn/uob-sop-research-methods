@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.34">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>rmc_week-1_data-handling – Quantitative Methods Handbook</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../tutorials/rmc_week-2_review-of-inferential-tests.qmd" rel="next">
+<link href="../tutorials/rmb-week-11_putting-it-together.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ac0578e1f87f273c3fa40b04908a6ea7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../include/webex.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Quantitative Methods Handbook</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/AJQuinn/uob-sop-research-methods" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmc_week-1_data-handling.html">Research Methods C</a></li><li class="breadcrumb-item"><a href="../tutorials/rmc_week-1_data-handling.html">Week 1 - Data handling</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Research Methods A</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rma_week-8_introduction-to-jamovi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8 - Introduction to Jamovi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9 - Correlations, Graphs and Exporting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rma_week-10_tests_of_difference_Chi-Squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10 - Tests of Difference Chi-Squared</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Research Methods B</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-1_new-data-and-descriptives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1 - New data and descriptives</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-2_intro-to-Rj.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2 - Introducing R and Rj</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-3_one-sample-t-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - One-Sample T-tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-4_two-sample-t-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4 - Two-Sample T-tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-5_pvalue-effect-size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5 - p-values and Effect Sizes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-7_non-parametrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7 - Non-parametric tests and data transformation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-8_sampling-distributions-mean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8 - Sampling Distributions of Means</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-9_one-way-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9 - One-way ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-10_sampling-distributions-tvalues.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10 - Sampling Distributions of t-values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-11_putting-it-together.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11 - Putting it all together</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Research Methods C</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-1_data-handling.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 1 - Data handling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-2_review-of-inferential-tests.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2 - Review of inferential tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-3_more-anovas-with-jamovi.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - More ANOVAs with Jamovi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-4_factorial-anova-with-jamovi.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4 - Factorial ANOVA with Jamovi</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Support</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support/copilot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Copilot at UoB</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support/frequently-asked-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support/faculty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Faculty</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#week-1-data-handling" id="toc-week-1-data-handling" class="nav-link active" data-scroll-target="#week-1-data-handling">Week 1 : Data Handling</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#setting-up-data-files-and-entering-data" id="toc-setting-up-data-files-and-entering-data" class="nav-link" data-scroll-target="#setting-up-data-files-and-entering-data">1. Setting up data files and entering data</a></li>
+  <li><a href="#data-entry-for-within--and-between-participants-or-mixed-designs" id="toc-data-entry-for-within--and-between-participants-or-mixed-designs" class="nav-link" data-scroll-target="#data-entry-for-within--and-between-participants-or-mixed-designs">2. Data entry for within- and between-participants or mixed designs</a></li>
+  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">3. Activity 1</a></li>
+  <li><a href="#activity-2---understanding-the-data" id="toc-activity-2---understanding-the-data" class="nav-link" data-scroll-target="#activity-2---understanding-the-data">4. Activity 2 - Understanding the data</a>
+  <ul class="collapse">
+  <li><a href="#visual-inspection-of-the-data" id="toc-visual-inspection-of-the-data" class="nav-link" data-scroll-target="#visual-inspection-of-the-data">Visual inspection of the data</a></li>
+  </ul></li>
+  <li><a href="#activity-3a---frequency-counts" id="toc-activity-3a---frequency-counts" class="nav-link" data-scroll-target="#activity-3a---frequency-counts">5. Activity 3a - Frequency counts</a>
+  <ul class="collapse">
+  <li><a href="#crosstabs-looking-at-frequencies-in-combinations-of-groups" id="toc-crosstabs-looking-at-frequencies-in-combinations-of-groups" class="nav-link" data-scroll-target="#crosstabs-looking-at-frequencies-in-combinations-of-groups">Crosstabs: looking at frequencies in combinations of groups</a></li>
+  <li><a href="#activity-3b" id="toc-activity-3b" class="nav-link" data-scroll-target="#activity-3b">Activity 3b</a></li>
+  </ul></li>
+  <li><a href="#activity-4---exploring-the-data" id="toc-activity-4---exploring-the-data" class="nav-link" data-scroll-target="#activity-4---exploring-the-data">6. Activity 4 - Exploring the data</a>
+  <ul class="collapse">
+  <li><a href="#example-output" id="toc-example-output" class="nav-link" data-scroll-target="#example-output">Example output</a></li>
+  </ul></li>
+  <li><a href="#activity-5---using-jamovi-to-preparetransform-data-for-analysis" id="toc-activity-5---using-jamovi-to-preparetransform-data-for-analysis" class="nav-link" data-scroll-target="#activity-5---using-jamovi-to-preparetransform-data-for-analysis">7. Activity 5 - Using Jamovi to prepare/transform data for analysis</a>
+  <ul class="collapse">
+  <li><a href="#compute-variable---calculate-total-scores-for-several-related-variables" id="toc-compute-variable---calculate-total-scores-for-several-related-variables" class="nav-link" data-scroll-target="#compute-variable---calculate-total-scores-for-several-related-variables">Compute variable - calculate total scores for several related variables</a></li>
+  </ul></li>
+  <li><a href="#activity-6---calculate-mean-scores-for-several-related-variables" id="toc-activity-6---calculate-mean-scores-for-several-related-variables" class="nav-link" data-scroll-target="#activity-6---calculate-mean-scores-for-several-related-variables">8. Activity 6 - Calculate mean scores for several related variables</a></li>
+  <li><a href="#activity-7---calculate-a-difference-between-2-scores-from-the-same-participant-change-from-baseline" id="toc-activity-7---calculate-a-difference-between-2-scores-from-the-same-participant-change-from-baseline" class="nav-link" data-scroll-target="#activity-7---calculate-a-difference-between-2-scores-from-the-same-participant-change-from-baseline">9. Activity 7 - Calculate a difference between 2 scores from the same participant (change from baseline)</a></li>
+  <li><a href="#activity-8---recode-into-different-variables-to-create-categories-from-a-continuous-variable" id="toc-activity-8---recode-into-different-variables-to-create-categories-from-a-continuous-variable" class="nav-link" data-scroll-target="#activity-8---recode-into-different-variables-to-create-categories-from-a-continuous-variable">10. Activity 8 - Recode into different variables to create categories from a continuous variable</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmc_week-1_data-handling.html">Research Methods C</a></li><li class="breadcrumb-item"><a href="../tutorials/rmc_week-1_data-handling.html">Week 1 - Data handling</a></li></ol></nav></header>
+
+
+
+
+<section id="week-1-data-handling" class="level1 unnumbered">
+<h1 class="unnumbered">Week 1 : Data Handling</h1>
+<p>This week will serve as a refresher on Jamovi. You will use Jamovi throughout your degree for statistical analysis, so it is very important to refresh your memory on this!</p>
+<p>A guide to installing Jamovi on your personal computer can be found here (input link here)</p>
+<section id="learning-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_quantitative-methods.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Quantitative Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Recoding scores into groups</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">Calculating total scores</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Calculating means</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_data-skills.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Data Skills</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Working with the Jamovi editor</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">Setting up data files for between- and within-participants designs</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Computing descriptive statistics in Jamovi</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_open-science.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Open Science</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Working with openly available research data</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Today’s session
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Today you will be re-familiarising yourself with the Jamovi interface and its layout / basic functions as well as learning how to set up data for different statistical designs.</p>
+</div>
+</div>
+</section>
+<section id="setting-up-data-files-and-entering-data" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="setting-up-data-files-and-entering-data">1. Setting up data files and entering data</h2>
+<ul>
+<li><p>Data are entered into Jamovi using a ‘spreadsheet’ format of rows and columns. When in the <em>Data</em> tab you can view the data. The <strong>rows are cases</strong> (i.e.&nbsp;participants – each participant gets their own row), the <strong>columns are variables</strong> (i.e.&nbsp;whatever was measured for each participant gets a column). In the <em>Variable</em> tab rows are the details for each variable (e.g.&nbsp;one row = one variable).</p></li>
+<li><p>Entering the data in the <em>Data</em> tab is straightforward: you simply type a value in the appropriate box, or ‘cell’.</p></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img1.png" class="img-fluid" width="600"></p>
+<ul>
+<li>The data files for use in the computer practicals are available on the RMC/NM1 Canvas ‘Course Pack’ module. In the text of these pages, the data files will be referred to by file name. You can open different types of data file directly in Jamovi (e.g.&nbsp;.sav or .csv). How to do this is described on pp.&nbsp;9-10).</li>
+</ul>
+</section>
+<section id="data-entry-for-within--and-between-participants-or-mixed-designs" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="data-entry-for-within--and-between-participants-or-mixed-designs">2. Data entry for within- and between-participants or mixed designs</h2>
+<ul>
+<li>In a <strong>within-participants (or ‘repeated measures’)</strong> design the dependent variable (DV) is measured more than once under different conditions or at different times. Therefore, one participant will have two or more scores (e.g.&nbsp;before and after an intervention). This means we need more than one column to record the relevant scores/measurements of the DV.
+<ul>
+<li>For example, in <em>Data</em> tab column 1 could be their participant number, column 2 could be their first score and column 3 could be their second score. In the <em>Variables</em> tab you would therefore need three rows to define these variables.</li>
+<li>Participants could provide more than two scores in a repeated measures design.</li>
+</ul></li>
+<li>In a <strong>between-participants design</strong> each participant is assigned to a single condition or group. Scores/measurements from two different people can NEVER go in the same row because one row = one person. This means that to identify which condition or group a participant belongs to, we need to assign a label to that participant, which identifies them by their group membership. This is called a <strong>grouping variable.</strong>
+<ul>
+<li>For example, in the Data tab, the column 1 could be the participant number, column 2 could encode which group they were in (e.g.&nbsp;1 = Experimental Condition OR 2 = Control Group) and column 3 could be their score. In this example, we would need to set up three variables in the Variable tab and for the second row (the group they were in) you would need to define the grouping variable so that you later know what the numbers refer to (e.g.&nbsp;1 = experimental group, 2 = control group). You could add this information into the description of a variable in the Variables tab.</li>
+<li>Participants could be categorised as belonging to more than on group, e.g.&nbsp;they could be classified according to whether they are studying psychology or neuroscience AND whether they feel confident about using Jamovi or not.</li>
+</ul></li>
+<li>In some studies, participants belonging to different groups provide more than one score each. Such designs are called <em>mixed</em> designs.
+<ul>
+<li>For example, we might wish to study if a particular intervention helps students feel more confident with their use of Jamovi. This study might record Jamovi-confidence before the intervention and after the intervention. But we might also want to compare the size of the impact of the intervention for students who started off with high confidence to those who started off with low confidence.</li>
+</ul></li>
+</ul>
+</section>
+<section id="activity-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="activity-1">3. Activity 1</h2>
+<ul>
+<li><p>Download and open <em>RMC_NM1 Wksh1_Activity1.sav</em> from the Canvas module for the Course Pack</p></li>
+<li><p>Load the data into Jamovi</p></li>
+<li><p>Open Jamovi and click the three horizontal lines in the top left</p></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img2.png" class="img-fluid" width="600"></p>
+<ul>
+<li>Click open - browse</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img3.png" class="img-fluid" width="600"></p>
+<ul>
+<li>Navigate to where you saved the data and click to open. Note: when you download the file from the Canvas page it will automatically be saved into your ‘Downloads’ folder so look here if you are struggling to find it.</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img4.png" class="img-fluid" width="600"></p>
+<ul>
+<li>Look at the raw data (Data tab) and the variable labels (Variables tab) and answer the following questions.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Question 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>What is the repeated (within-subjects) variable and how many times is it measured?</p>
+<p>The repeated (within-subjects) variable is <select class="webex-select"><option value="blank"></option><option value="answer">breathing time</option><option value="">type of video</option></select> and is measured <input class="webex-solveme nospaces" size="1" data-answer="[&quot;3&quot;]"> times.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Look at the description in the <em>Variables</em> tab</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Question 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>What is the grouping (between-subjects) variable and what are the different groups?</p>
+<p>What is the grouping (between-subjects) variable and how many times is it measured?</p>
+<p>The grouping (between-subjects) variable is <select class="webex-select"><option value="blank"></option><option value="answer">type of video</option><option value="">breathing time</option></select> and the groups are <select class="webex-select"><option value="blank"></option><option value="answer">plant</option><option value="">tree</option><option value="">dog</option><option value="answer">cat</option></select> and <select class="webex-select"><option value="blank"></option><option value="answer">cat</option><option value="">tree</option><option value="">dog</option><option value="answer">plant</option></select>.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Look at the description in the <em>Data</em> tab</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="activity-2---understanding-the-data" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="activity-2---understanding-the-data">4. Activity 2 - Understanding the data</h2>
+<p>Once the data are entered, we need to look at what they can tell us. Jamovi has several tools we can use to better understand the data.</p>
+<section id="visual-inspection-of-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="visual-inspection-of-the-data">Visual inspection of the data</h3>
+<ul>
+<li><p>Before doing any statistical analysis, we can look at the data which gives us an idea of what we are dealing with: e.g.&nbsp;How many participants? How many variables? What is the range of scores? Are there any values that seem out of line with the rest?</p></li>
+<li><p>When satisfied that the raw data look okay, we continue our inspection of the data by using descriptive statistics, such as frequency counts, and measures of central tendency (such as mean, median and mode) and measures of spread (such as range or standard deviation).</p></li>
+<li><p>Download and open the <em>RMC_NCM_example_output_Explore.sav</em> in Jamovi</p></li>
+<li><p>Look at the raw data (Data tab) and information about the variables (Variables tab) and answer the following questions.</p></li>
+</ul>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Q1 - How many participants and how many variables were there?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>177 participants and 2 variables</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Q2 - Are there any missing data or any odd-looking cells?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Yes</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Q3 - Give an example (identify the example by the Jamovi row number)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Rows 48 and 175</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi bi-question-lg"></i> Q4 - What did you notice about these rows of data? Describe it in a few words.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>One of the rows is blank and the other has 999 in grey inside it</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="activity-3a---frequency-counts" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="activity-3a---frequency-counts">5. Activity 3a - Frequency counts</h2>
+<ul>
+<li><p>For nominal and ordinal data, the next step in getting to know the data is to determine the frequency counts for each possible score/value/option, i.e.&nbsp;how often each value occurs (e.g.&nbsp;the number of people who answered “yes” to the question “Did you take Psychology at A-Level?”).</p></li>
+<li><p>For example, in the dataset <em>RMC_NM1_example_output_Explore.sav</em>, the variable about whether or not a participant took Psychology ‘A’-Level can be examined using this method.</p></li>
+<li><p>Go to the <em>Analyses</em> menu and choose <em>Exploration</em></p></li>
+<li><p>From the submenu, choose <em>Descriptives</em></p></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img5.png" class="img-fluid" width="600"></p>
+<ul>
+<li>In the descriptives box, choose the variable for which you want to calculate frequency counts and enter it into the box on the right-hand side. Click the tick box next to ‘Frequency tables’ to display the frequency table.</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img6.png" class="img-fluid" width="600"></p>
+<ul>
+<li>Answer the following questions based on the Jamovi output</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Question 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>How many valid cases were processed? Was this correct?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Compare cases to your answer to Activity 2, Q1</p>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>175 cases were processed as there were 177 participants but 2 had missing data.</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Question 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Look at the number of times each option occurred. Which was the most common outcome? What percentage of the valid data did this account for?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>The most common outcome was ‘yes’ and this accounted for 84.6% of the data</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<section id="crosstabs-looking-at-frequencies-in-combinations-of-groups" class="level3">
+<h3 class="anchored" data-anchor-id="crosstabs-looking-at-frequencies-in-combinations-of-groups">Crosstabs: looking at frequencies in combinations of groups</h3>
+<ul>
+<li><p>Sometimes we want to look at combinations of categories, e.g.&nbsp;how many people studied Psychology at ‘A’-level, how many studied Biology at ‘A’-level, how many studied both, and how many studied neither subject.</p></li>
+<li><p>For example, in the dataset <em>RMC_NM1_example_output_Crosstabs.sav</em>, the variable about whether or not a participant took Psychology ‘A’-Level and the variable about whether or not a participant took Biology ‘A’-level can be examined using this method.</p></li>
+</ul>
+</section>
+<section id="activity-3b" class="level3">
+<h3 class="anchored" data-anchor-id="activity-3b">Activity 3b</h3>
+<ul>
+<li><p>Using <em>RMC_NM1_example_output_Crosstabs.sav</em> in Jamovi:</p>
+<ul>
+<li>Go to the <strong>Analyses</strong> menu and choose <strong>Frequencies.</strong></li>
+<li>From the submenu, choose <strong>Independent Samples</strong> (this is under contingency tables).</li>
+</ul></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img7.png" class="img-fluid" width="600"></p>
+<ul>
+<li>In the Contingency Tables box, put one categorical variable into the <strong>Rows</strong> box and the other into the <strong>Columns</strong> box. (If you have more categorical variables that you want to examine, you add a new <strong>Layer</strong> for each further variable added).</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img8.png" class="img-fluid" width="600"></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Question 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>How many students studied both Psychology and Biology at A-level?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p>64</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Question 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>Which was the most common combination of subjects studied?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p>Psychology without biology A-level</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+</section>
+</section>
+<section id="activity-4---exploring-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="activity-4---exploring-the-data">6. Activity 4 - Exploring the data</h2>
+<ul>
+<li><p>Scale data (interval or ratio data) are not always suitable for analysis by frequency counts. Instead, we want to look at measures of central tendency (e.g.&nbsp;means) and measures of spread (e.g.&nbsp;standard deviation). A good way to examine scale data is to ‘explore’ them.</p></li>
+<li><p>The Exploration module in Jamovi gives a range of statistics including charts to help us see whether the data are normally distributed, whether there are any outliers, and also to get an idea of the spread of the data and their typical value.</p></li>
+<li><p>While we should always carry out these explorative analyses, we tend not to report them all.</p>
+<ul>
+<li>For example, we do not usually include histograms or stem-and-leaf plots in a results write-up. A good rule of thumb in terms of what we need to report is to think of the exploratory data analyses as being a way in which to check whether our data meet the assumptions underlying successful statistical analysis.</li>
+<li>If they do not meet the assumptions, we need to report how they fail to meet them and state what this means in terms of how we then analyse the data.</li>
+</ul></li>
+<li><p>The main assumptions which should be met for all parametric tests are:</p>
+<ul>
+<li>The data are at least interval level of measurement.</li>
+<li>The data are normally distributed.</li>
+<li>The variance is homogeneous (similar) between different groups or conditions.</li>
+</ul></li>
+<li><p>We always have to describe what the data are like in order to carry out a successful statistical analysis. Hence, we routinely report the means and standard deviations of scale data when we carry out statistical tests. (In RMC/NM1, this will be referred to as ‘reporting the descriptives’).</p></li>
+<li><p>Using <em>RMC_NM1_example_output_Explore.sav</em> in Jamovi:</p>
+<ul>
+<li><p>Go to the <strong>Analyses</strong> menu and choose the <strong>Exploration</strong> module.</p></li>
+<li><p>From the submenu, choose <strong>Descriptives.</strong></p></li>
+</ul></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img9.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>In the Descriptives box, choose the variable(s) you want to explore and enter it (them) into the <strong>Variables</strong> box on the right-hand side.</p>
+<ul>
+<li>If you want to compare the score on one variable for two or more groups, enter the variable that represents your independent or grouping variable into the <strong>Split by</strong> box.</li>
+</ul></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img10.png" class="img-fluid" width="600"></p>
+<ul>
+<li>Click on the <strong>Plots</strong> menu and select <strong>‘histogram’</strong> and <strong>‘box plot’.</strong> Make sure that ‘label outliers’ is selected.</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img11.png" class="img-fluid" width="600"></p>
+<ul>
+<li>Answer the questions below based on the results</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Question 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>Are the data normally distributed? <em>(Base your judgement on the histograms.)</em></p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<p>Based on the histograms the data isn’t normally distributed</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">Question 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<p>Are there any outliers? These will be visible on the boxplots as circles with a number next to them (these numbers indicate which row(s) contains the outlier). Asterisks (*) denote ‘extreme’ values. Write down the row number for any extreme outliers.</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<p>Yes there is an outlier in row 98</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">Question 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<p>Remove the outlier from the data set by deleting the row with the outlier. Rerun the analysis. Are the data normally distributed?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<p>The data are approximately normally distributed</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">Question 4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<p>Rerun the analysis on the data, but this time look at the two groups in comparison (see box above). Does it look as though there are differences between the groups?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
+<p>No - the data look quite similar in both the boxplots and box plots</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">Question 5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
+<p>Report the means and standard deviations for self-reported expertise for the two groups to 1 decimal place.</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
+<p>Psychology A-level yes: 37.5</p>
+<p>Psychology A-level no: 34.4</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<section id="example-output" class="level3">
+<h3 class="anchored" data-anchor-id="example-output">Example output</h3>
+<ul>
+<li><p>The first part of the descriptives table shows how many cases were processed and if there is anything missing. Look at this to see if the correct number of cases has been processed.</p>
+<ul>
+<li>This can be a useful way to spot if a mistake has been made at the data entry stage and a value has been missed out or added. If the ‘N’ in this table does not match the number of cases expected, double-check the data entry.</li>
+</ul></li>
+</ul>
+<p>[The output below used ‘research_expertise’ in the <em>Variables</em> box and ‘psych_A_level’ in the <em>Split by</em> box before any extreme outliers were removed.]</p>
+<ul>
+<li>The descriptives table shows number of cases (N), <em>number of missing values (Missing), mean, median, standard deviation, minimum, and maximum.</em> You can change which values you want to display within the statistics drop down menu.</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img12.png" class="img-fluid" width="600"></p>
+<ul>
+<li>The output includes two graphical representations. The data from the example look like this as a histogram (left graph) and as a box and whisker plot (right plot). The boxplot gives us less information about the shape of the distribution but provides clear information about the outliers and which scores they are.</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img13.png" class="img-fluid" width="600"></p>
+<ul>
+<li>After you remove the outlier, the histograms and box and whisker plots should look like this:</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img14.png" class="img-fluid" width="600"></p>
+</section>
+</section>
+<section id="activity-5---using-jamovi-to-preparetransform-data-for-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="activity-5---using-jamovi-to-preparetransform-data-for-analysis">7. Activity 5 - Using Jamovi to prepare/transform data for analysis</h2>
+<ul>
+<li><p>When we enter data from questionnaires or have raw data collected from programmes such as Qualtrics or Open Sesame, we often have to prepare the data before analysing it. We might need to:</p>
+<ul>
+<li><p>Calculate total or mean scores for several questions, e.g.&nbsp;for the score on a questionnaire.</p></li>
+<li><p>Calculate a difference between two scores from the same participant, e.g.&nbsp;when checking if there has been a change from a baseline score.</p></li>
+<li><p>Combine groups of responses into meaningful categories, e.g.&nbsp;when we want to look at participants with high or low scores on a variable of interest.</p></li>
+</ul></li>
+<li><p>We can create these new ‘transformed’ or ‘computed’ variables using Jamovi.</p></li>
+</ul>
+<section id="compute-variable---calculate-total-scores-for-several-related-variables" class="level3">
+<h3 class="anchored" data-anchor-id="compute-variable---calculate-total-scores-for-several-related-variables">Compute variable - calculate total scores for several related variables</h3>
+<p>This activity demonstrates how to calculate the total and mean scores for a set of variables using the <strong>“compute”</strong> function in Jamovi.</p>
+<ul>
+<li><p>Using <em>RMC_NM1_datagen2.sav</em> in Jamovi</p>
+<ul>
+<li>Click on the column heading of the empty column on the far right of the screen (next to att5badgrade). Go to the <strong>Data</strong> tab. Choose the <strong>Compute</strong> option. This will create a new column.</li>
+</ul></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img15.png" class="img-fluid" width="600"></p>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img16.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>Double click the column heading to open the variable editor.</p></li>
+<li><p>In the computed variable box, enter a meaningful name for the <strong>total score</strong> variable (this is the new variable you are calculating).</p>
+<ul>
+<li>Given the nature of the items on this data sheet – look at the labels in Variable View – a name like <em>‘Attitude_to_Jamovi_total’</em> would be appropriate to describe the new score.</li>
+</ul></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img17.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>Click the fx box which shows all variables and functions, click the first variable that contributes to your total score to add it to the equation (by double-clicking on the variable name).</p></li>
+<li><p>Type the ‘+’ sign in the equation box and move the next contributing variable into the function box. Repeat this process, until you have entered all the variables which contribute to the total score.</p></li>
+<li><p>Back on the data sheet, you should now have a new variable with the computed total score.</p></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img18.png" class="img-fluid" width="600"></p>
+<ul>
+<li>In the <em>Variables</em> tab, <strong>describe</strong> the new variable appropriately, e.g.&nbsp;enter a descriptive, meaningful label into the description column and check that the level of measurement is correct (scale in this example).</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">Question 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<p>Which participants had the highest score?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
+<p>Participant 58 (25 total score)</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true">Question 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-13-1-tab">
+<p>Which participants had the lowest total score?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-13-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-2-tab">
+<p>Participant 65 (11 total score)</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-14-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-1" role="tab" aria-controls="tabset-14-1" aria-selected="true">Question 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-2" role="tab" aria-controls="tabset-14-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-14-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-14-1-tab">
+<p>Using the skills from the ‘Understanding the data’ section, decide whether men or women had higher total scores.</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-14-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-2-tab">
+<p>Males had a higher total score (mean males = 18.3; mean females = 17.7)</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+</section>
+</section>
+<section id="activity-6---calculate-mean-scores-for-several-related-variables" class="level2">
+<h2 class="anchored" data-anchor-id="activity-6---calculate-mean-scores-for-several-related-variables">8. Activity 6 - Calculate mean scores for several related variables</h2>
+<ul>
+<li><p>Using <em>RMC_NM1_datagen2.sav</em> in Jamovi, repeat the process with a new target variable name for the <strong>mean score</strong> variable.</p>
+<ul>
+<li><p>Go to the <strong>Compute</strong> module in the Data tab again.</p></li>
+<li><p>Enter a meaningful name for the <strong>mean score</strong> variable into the <strong>Computed Variable</strong> box.</p>
+<ul>
+<li>Given the nature of the items on this data sheet – look at the labels in Variable View – a name like ‘Jamovi_attitude_mean’ would be appropriate to describe the new score.</li>
+</ul></li>
+<li><p>Click on the fx drop down</p></li>
+<li><p>In the <strong>Functions</strong> window, select ‘Mean’ (you will have to scroll down to it). Double click to select it.</p></li>
+<li><p>Into the <strong>Variables</strong> window, select the first variable you want in the mean and type a comma next to it. Repeat until all variables are included in the list.</p></li>
+</ul></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img19.png" class="img-fluid" width="600"></p>
+<ul>
+<li>Back on the data sheet, you should now have a second variable with the computed mean score.</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img20.png" class="img-fluid" width="600"></p>
+<ul>
+<li>In the <strong>Variable</strong> tab <strong>define and label</strong> the second new variable appropriately.</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-15-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-15-1" role="tab" aria-controls="tabset-15-1" aria-selected="true">Question 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-15-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-15-2" role="tab" aria-controls="tabset-15-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-15-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-15-1-tab">
+<p>Using the skills from the ‘Understanding the data’ section, which participant(s) have the second highest mean scores?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-15-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-15-2-tab">
+<p>Participant 30, 49 and 63</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-16-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-16-1" role="tab" aria-controls="tabset-16-1" aria-selected="true">Question 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-16-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-16-2" role="tab" aria-controls="tabset-16-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-16-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-16-1-tab">
+<p>What is the overall mean (grand mean) for the whole sample (rounded to 1 d.p.)?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-16-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-16-2-tab">
+<p>3.6</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+</section>
+<section id="activity-7---calculate-a-difference-between-2-scores-from-the-same-participant-change-from-baseline" class="level2">
+<h2 class="anchored" data-anchor-id="activity-7---calculate-a-difference-between-2-scores-from-the-same-participant-change-from-baseline">9. Activity 7 - Calculate a difference between 2 scores from the same participant (change from baseline)</h2>
+<p>Using <em>RMC_NM1_Bloodsugar06-07_for_baseline_calc.sav</em> in Jamovi, calculate a new variable for the change in bloodsugar level from baseline (before) to after a drink has been consumed (after).</p>
+<ul>
+<li>Go to the <strong>Variables</strong> tab. Choose the <strong>Compute</strong> option.</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img21.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>Enter a meaningful name for the <strong>difference score</strong> variable into the <strong>Computed Variable</strong> box (this is the new variable you are calculating).</p>
+<ul>
+<li>Here ‘change_in_bloodsugar’ is a meaningful label.</li>
+</ul></li>
+<li><p>In the fx box double click the ‘after’ variable to move it into the formula box (by double-clicking it). Type the ‘-’ sign on the formula box and move the ‘before’ variable into the formula box. When you calculate the new variable, a positive/greater-than-zero value in the difference variable will mean an increase in the ‘after’ condition compared to ‘before’, and a negative value will mean a decrease.</p></li>
+<li><p>Back on the data sheet, you should now have a new variable with the computed change in bloodsugar.</p></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img22.png" class="img-fluid" width="600"></p>
+<ul>
+<li>In the Variable View, <strong>define and label</strong> the new variable appropriately.</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-17-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-17-1" role="tab" aria-controls="tabset-17-1" aria-selected="true">Question 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-17-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-17-2" role="tab" aria-controls="tabset-17-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-17-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-17-1-tab">
+<p>Visually inspect the raw data in the change variable. Pay attention to the ‘drink’ variable group. On average does it look as if there is a difference in how bloodsugar changes for the two drink groups?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-17-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-17-2-tab">
+<p>Yes it looks like there is a difference in how bloodsugar changes between the two different drinks</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-18-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-18-1" role="tab" aria-controls="tabset-18-1" aria-selected="true">Question 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-18-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-18-2" role="tab" aria-controls="tabset-18-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-18-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-18-1-tab">
+<p>What did drink group 1 drink? Did their bloodsugar level increase or decrease?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-18-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-18-2-tab">
+<p>Group 1 drank glucose and their blood sugar level increased</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-19-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-19-1" role="tab" aria-controls="tabset-19-1" aria-selected="true">Question 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-19-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-19-2" role="tab" aria-controls="tabset-19-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-19-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-19-1-tab">
+<p>What did drink group 2 drink? Did their bloodsugar level increase or decrease?</p>
+<p><input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+</div>
+<div id="tabset-19-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-19-2-tab">
+<p>Group 2 drank saccharin and their blood sugar level decreased</p>
+</div>
+</div>
+</div>
+<p>::::</p>
+</section>
+<section id="activity-8---recode-into-different-variables-to-create-categories-from-a-continuous-variable" class="level2">
+<h2 class="anchored" data-anchor-id="activity-8---recode-into-different-variables-to-create-categories-from-a-continuous-variable">10. Activity 8 - Recode into different variables to create categories from a continuous variable</h2>
+<p>Sometimes a continuous variable needs to be recoded to perform a particular analysis, e.g.&nbsp;if you wanted to turn a range of scores from 1 to 9 into three categories, ‘High’, ‘Middle’ and ‘Low’, this is what you need to do on Jamovi.</p>
+<p>Using <em>RMC_NM1_datagen3.sav</em> in Jamovi, recode the ‘which_row’ score into a ‘distance_category’ (near, mid, far).</p>
+<ul>
+<li>Go to Data &gt; Transform…</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img23.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>In the drop down next to ‘source variable’, click ‘which_row’. Type a name (e.g.&nbsp;‘distance_category’) in the ‘transformed variable’ box and describe the variable (e.g.&nbsp;‘Distance from front’) in the description box.</p></li>
+<li><p>Click on the drop down next to ‘using transform’ and click ‘Create New Transform…’</p></li>
+<li><p>A new window will appear called “Transform”. Give the transformation at name (e.g.&nbsp;‘Recode rows’).</p>
+<ul>
+<li><p><strong>RECODING lowest values into ‘near’:</strong></p></li>
+<li><p>Click ‘+ Add recode condition’</p></li>
+<li><p>This will add a new box at the top which will say ‘if $source … use …’</p></li>
+<li><p>In this box type the number you want to use as the upper limit for the ‘near’ condition (e.g.&nbsp;if you want to code 1, 2, and 3 as ‘near’, enter ‘&lt; 4’ into the dialog box as this will use all the numbers below, and not including, 4.)</p></li>
+<li><p>After the word ‘use’, type the value you want to recode the variable to (e.g.&nbsp;Use ‘near’ for the new variable. You need to include the quote marks around the new label.)</p></li>
+</ul></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img24.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p><strong>RECODING middle values into ‘mid’:</strong></p>
+<ul>
+<li><p>Click ‘+ Add recode condition’</p></li>
+<li><p>This will add a new box which will say ‘if $source … use …’</p></li>
+<li><p>In this box type the number you want to use as the upper limit for the ‘mid’ condition (e.g.&nbsp;if you want to code 4, 5 and 6 enter ‘&lt; 7’ into the dialog box as this will use all the numbers below, and not including, 7. Please note that the conditions are executed in order and because we have already set values below 4 to recode to 1, this formula will code values between 4 and 6 as 2. This may take some time to get your head around and this website may help https://blog.jamovi.org/2018/10/23/transforming-variables.html)</p></li>
+<li><p>After the word ‘use’, type the value you want to recode the variable to (e.g.&nbsp;Use ‘mid’ for the new variable. Don’t forget the quote marks around ‘mid’.)</p></li>
+</ul></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img25.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p><strong>RECODING highest values into ‘far’:</strong></p>
+<ul>
+<li>The bottom formula box should say ‘else use’. In this box type ‘far’ to recode the remaining values (7. 8, and 9) as ‘far’.</li>
+</ul></li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img26.png" class="img-fluid" width="600"></p>
+<ul>
+<li>Back on the data sheet, you should now have a new variable with the recoded data.</li>
+</ul>
+<p><img src="../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img27.png" class="img-fluid" width="600"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check Your Understanding - Data Quiz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-20-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-20-1" role="tab" aria-controls="tabset-20-1" aria-selected="true">Question 1</a></li></ul>
+<div class="tab-content">
+<div id="tabset-20-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-20-1-tab">
+<p>Using the ‘Understanding the Data’ skills, work out how many participants fall into each category</p>
+<ol type="a">
+<li><p>Near: <input class="webex-solveme nospaces" size="2" data-answer="[&quot;24&quot;]"></p></li>
+<li><p>Mid: <input class="webex-solveme nospaces" size="2" data-answer="[&quot;21&quot;]"></p></li>
+<li><p>Far: <input class="webex-solveme nospaces" size="2" data-answer="[&quot;21&quot;]"></p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Future work
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These calculations of overall scores and recoding techniques will be useful in Research Methods D also</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/AJQuinn\.github\.io\/uob-sop-research-methods\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../tutorials/rmb-week-11_putting-it-together.html" class="pagination-link" aria-label="Week 11 - Putting it all together">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 11 - Putting it all together</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../tutorials/rmc_week-2_review-of-inferential-tests.qmd" class="pagination-link" aria-label="Week 2 - Review of inferential tests">
+        <span class="nav-page-text">Week 2 - Review of inferential tests</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
