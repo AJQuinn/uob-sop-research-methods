@@ -84,10 +84,10 @@ Today you will be re-familiarising yourself with the Jamovi interface and its la
 * Look at the raw data (Data tab) and the variable labels (Variables tab) and answer the following questions.
 
 :::: callout-tip
-## Check Your Understanding - Data Quiz
+## Activity 1 Questions
 
 ::: panel-tabset
-## Question 1
+## Check Your Understanding - Activity 1 Questions
 
 What is the repeated (within-subjects) variable and how many times is it measured?
 
@@ -102,13 +102,11 @@ Look at the description in the *Variables* tab
 ::::
 
 :::: callout-tip
-## Check Your Understanding - Data Quiz
+## Check Your Understanding - Activity 1 Questions
 ::: panel-tabset
 ## Question 2
 
 What is the grouping (between-subjects) variable and what are the different groups?
-
-What is the grouping (between-subjects) variable and how many times is it measured?
 
 The grouping (between-subjects) variable is `r mcq(c(answer = "type of video", "breathing time"))` and the groups are `r mcq(c(answer = "plant", "tree", "dog", answer = "cat"))` and `r mcq(c(answer = "cat", "tree", "dog", answer = "plant"))`.
 
@@ -135,28 +133,28 @@ Once the data are entered, we need to look at what they can tell us. Jamovi has 
 * Look at the raw data (Data tab) and information about the variables (Variables tab) and answer the following questions.
 
 ::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Q1 - How many participants and how many variables were there?
+## <i class="bi bi-question-lg"></i> Activity 2 Q1 - How many participants and how many variables were there?
 
 177 participants and 2 variables 
 :::
 
 
 ::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Q2 - Are there any missing data or any odd-looking cells?
+## <i class="bi bi-question-lg"></i> Activity 2 Q2 - Are there any missing data or any odd-looking cells?
 
 Yes
 :::
 
 
 ::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Q3 - Give an example (identify the example by the Jamovi row number)
+## <i class="bi bi-question-lg"></i> Activity 2 Q3 - Give an example (identify the example by the Jamovi row number)
 
 Rows 48 and 175 
 :::
 
 
 ::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Q4 - What did you notice about these rows of data? Describe it in a few words. 
+## <i class="bi bi-question-lg"></i> Activity 2 Q4 - What did you notice about these rows of data? Describe it in a few words. 
 
 One of the rows is blank and the other has 999 in grey inside it 
 :::
@@ -180,34 +178,31 @@ One of the rows is blank and the other has 999 in grey inside it
 
 * Answer the following questions based on the Jamovi output 
 
+:::: callout-tip
+## Check Your Understanding - Activity 3a Questions
 ::: panel-tabset
 ## Question 1
 
 How many valid cases were processed? Was this correct? 
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+`r fitb(175)` cases were processed.
 
 ## Hint
 
 Compare cases to your answer to Activity 2, Q1 
 
-## Solution
-
-175 cases were processed as there were 177 participants but 2 had missing data.
 :::
 ::::
 
-
+:::: callout-tip
+## Check Your Understanding - Activity 3a Questions
 ::: panel-tabset
 ## Question 2
 
 Look at the number of times each option occurred. Which was the most common outcome? What percentage of the valid data did this account for?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+The most common outcome was `r mcq(c(answer = "yes", "no"))` and this accounted for `r fitb(84.6)`% of the data. 
 
-## Solution
-
-The most common outcome was 'yes' and this accounted for 84.6% of the data 
 :::
 ::::
 
@@ -230,30 +225,27 @@ The most common outcome was 'yes' and this accounted for 84.6% of the data
 
 ![](../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img8.png){width="600px"}
 
+:::: callout-tip
+## Check Your Understanding - Activity 3b Questions
 ::: panel-tabset
 ## Question 1
 
 How many students studied both Psychology and Biology at A-level?
+`r fitb(64)`
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
-
-## Solution
-
-64
 :::
 ::::
 
-
+:::: callout-tip
+## Check Your Understanding - Activity 3b Questions
 ::: panel-tabset
 ## Question 2
 
 Which was the most common combination of subjects studied?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+The most common combination of subjects studied was `r mcq(c(answer = "psychology without biology A-level", "both psychology and biology A-level", "biology without psychology A-level", "neither psychology or biology A-level"))`
 
-## Solution
 
-Psychology without biology A-level
 :::
 ::::
 
@@ -296,74 +288,69 @@ Psychology without biology A-level
 
 * Answer the questions below based on the results 
 
+:::: callout-tip
+## Check Your Understanding - Activity 4 Questions
 ::: panel-tabset
 ## Question 1
 
 Are the data normally distributed? *(Base your judgement on the histograms.)*
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+The data `r mcq(c("are", answer = "are not"))` normally distributed.
 
-## Solution
-
-Based on the histograms the data isn't normally distributed 
 :::
 ::::
 
 
+:::: callout-tip
+## Check Your Understanding - Activity 4 Questions
 ::: panel-tabset
 ## Question 2
 
 Are there any outliers? These will be visible on the boxplots as circles with a number next to them (these numbers indicate which row(s) contains the outlier).  Asterisks (*) denote ‘extreme’ values. Write down the row number for any extreme outliers.
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+`r mcq(c("There are no outliers", answer = "There is at least one outlier"))`
 
-## Solution
+If there are any outliers, write the row number for the outlier here `r fitb(98)`
 
-Yes there is an outlier in row 98 
 :::
 ::::
 
-
+:::: callout-tip
+## Check Your Understanding - Activity 4 Questions
 ::: panel-tabset
 ## Question 3
 
 Remove the outlier from the data set by deleting the row with the outlier. Rerun the analysis. Are the data normally distributed?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+The data `r mcq(c(answer = "are", "are not"))` normally distributed.
 
-## Solution
-
-The data are approximately normally distributed
 :::
 ::::
 
-
+:::: callout-tip
+## Check Your Understanding - Activity 4 Questions
 ::: panel-tabset
 ## Question 4
 
 Rerun the analysis on the data, but this time look at the two groups in comparison (see box above). Does it look as though there are differences between the groups?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+`r mcq(c("Yes - the data look quite different in both the boxplots and box plots ", answer = "No - the data look quite similar in both the boxplots and box plots "))`
 
-## Solution
-
-No - the data look quite similar in both the boxplots and box plots 
 :::
 ::::
 
-
+:::: callout-tip
+## Check Your Understanding - Activity 4 Questions
 ::: panel-tabset
 ## Question 5
 
 Report the means and standard deviations for self-reported expertise for the two groups to 1 decimal place.
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+Psychology A-level yes: M = `r fitb(37.5)`, SD = `r fitb(20.2)`
 
-## Solution
+Psychology A-level no: M = `r fitb(34.4)`, SD = `r fitb(20.4)`
 
-Psychology A-level yes: 37.5
 
-Psychology A-level no: 34.4
 :::
 ::::
 
@@ -433,44 +420,39 @@ This activity demonstrates how to calculate the total and mean scores for a set 
 
 * In the *Variables* tab, **describe** the new variable appropriately, e.g. enter a descriptive, meaningful label into the description column and check that the level of measurement is correct (scale in this example). 
 
+:::: callout-tip
+## Check Your Understanding - Activity 5 Questions
 ::: panel-tabset
 ## Question 1
 
 Which participants had the highest score?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+Participant `r fitb(58)`; total score = `r fitb(25)`
 
-## Solution
-
-Participant 58 (25 total score)
 :::
 ::::
 
-
+:::: callout-tip
+## Check Your Understanding - Activity 5 Questions
 ::: panel-tabset
 ## Question 2
 
 Which participants had the lowest total score?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+Participant `r fitb(65)`; total score = `r fitb(11)`
 
-## Solution
-
-Participant 65 (11 total score)
 :::
 ::::
 
-
+:::: callout-tip
+## Check Your Understanding - Activity 5 Questions
 ::: panel-tabset
 ## Question 3
 
 Using the skills from the 'Understanding the data' section, decide whether men or women had higher total scores. 
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+`r mcq(c("Females", answer = "Males"))` had a higher total score (mean females = `r fitb(17.7)`; mean males = `r fitb(18.3)`)
 
-## Solution
-
-Males had a higher total score (mean males = 18.3; mean females = 17.7)
 :::
 ::::
 
@@ -499,30 +481,22 @@ Males had a higher total score (mean males = 18.3; mean females = 17.7)
 
 * In the **Variable** tab **define and label** the second new variable appropriately. 
 
-::: panel-tabset
-## Question 1
-
-Using the skills from the 'Understanding the data' section, which participant(s) have the second highest mean scores?
-
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
-
-## Solution
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Activity 6 Q1 - Using the skills from the 'Understanding the data' section, which participant(s) have the second highest mean scores?
 
 Participant 30, 49 and 63 
 :::
-::::
 
 
+:::: callout-tip
+## Check Your Understanding - Activity 6 Questions
 ::: panel-tabset
 ## Question 2
 
 What is the overall mean (grand mean) for the whole sample (rounded to 1 d.p.)?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+The overall mean (grand mean) for the whole sample is `r fitb(3.6)` (rounded to 1 d.p.)
 
-## Solution
-
-3.6
 :::
 ::::
 
@@ -548,42 +522,40 @@ Type the ‘-’ sign on the formula box and move the ‘before’ variable into
 
 * In the Variable View, **define and label** the new variable appropriately. 
 
+:::: callout-tip
+## Check Your Understanding - Activity 7 Questions
 ::: panel-tabset
 ## Question 1
 
 Visually inspect the raw data in the change variable. Pay attention to the ‘drink’ variable group. On average does it look as if there is a difference in how bloodsugar changes for the two drink groups?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+`r mcq(c(answer = "Yes it looks like there is a difference in how bloodsugar changes between the two different drinks", "No it does not look like there is a difference in how bloodsugar changes between the two different drinks"))`
 
-## Solution
-
-Yes it looks like there is a difference in how bloodsugar changes between the two different drinks 
 :::
 ::::
 
+:::: callout-tip
+## Check Your Understanding - Activity 7 Questions
 ::: panel-tabset
 ## Question 2
 
 What did drink group 1 drink? Did their bloodsugar level increase or decrease?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+Group 1 drank `r mcq(c(answer = "glucose", "saccharin"))` and their blood sugar `r mcq(c(answer = "increased", "decreased"))`
 
-## Solution
-
-Group 1 drank glucose and their blood sugar level increased 
 :::
 ::::
 
+
+:::: callout-tip
+## Check Your Understanding - Activity 7 Questions
 ::: panel-tabset
 ## Question 3
 
 What did drink group 2 drink? Did their bloodsugar level increase or decrease?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+Group 2 drank `r mcq(c("glucose", answer = "saccharin"))` and their blood sugar `r mcq(c("increased", answer = "decreased"))`
 
-## Solution
-
-Group 2 drank saccharin and their blood sugar level decreased 
 :::
 ::::
 
@@ -639,7 +611,7 @@ Using *RMC_NM1_datagen3.sav* in Jamovi, recode the ‘which_row’ score into a 
 
 
 :::: callout-tip
-## Check Your Understanding - Data Quiz
+## Check Your Understanding - Activity 8 Questions
 
 ::: panel-tabset
 ## Question 1
