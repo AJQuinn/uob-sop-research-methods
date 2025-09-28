@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -89,14 +89,15 @@ div.csl-indent {
 <link href="../tutorials/rmb_week-4_two-sample-t-tests.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ac0578e1f87f273c3fa40b04908a6ea7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-000f0825b9c55ed21d14970d810c14a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -136,6 +137,8 @@ div.csl-indent {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Quantitative Methods Handbook</span>
     </a>
@@ -147,7 +150,7 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -175,6 +178,10 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -299,7 +306,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/rmc_week-2_review-of-inferential-tests.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmc_week-2_review-of-inferential-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 2 - Review of inferential tests</span></a>
   </div>
 </li>
@@ -463,7 +470,7 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Dataset
+<span class="screen-reader-only">Note</span>Dataset
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -509,9 +516,9 @@ Dataset
 <li>The definition - is <code>AIConfidenceBefore&lt;4</code>, again the same as we used last week</li>
 </ul>
 <p>We can combine these into a single line to create the variable. Note that we save the result into a new variable named <code>my_data</code>, we’ll use this from now on to avoid confusion with the original datasheet.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(data, <span class="at">ConfidentBefore =</span> AIConfidenceBefore<span class="sc">&lt;</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(data, <span class="at">ConfidentBefore =</span> AIConfidenceBefore<span class="sc">&lt;</span><span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We can check that this has done what we expected by running <code>head</code> to see the first few rows of the dataset.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The result should look like this:</p>
 <p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img1.png" class="img-fluid"></p>
 <p>We can see on in the results on the right hand side that the additional colume <code>ConfidentBefore</code> now appears with TRUE and FALSE values for each participant.</p>
@@ -520,7 +527,7 @@ Dataset
 <h3 class="anchored" data-anchor-id="compute-the-proportion-of-correct-responses">Compute the proportion of correct responses</h3>
 <p>Let’s do the same for total proportion of correctly identified faces. We can use the same principle as we used for the grouping variable and use <code>mutate()</code> along with the variable definition and name to create our new column.</p>
 <p>This definition is pretty long as we have 12 different faces to work with! You can copy the whole line using the copy icon in the right hand side of the code box. Take a moment to look through and understand each part: which part is the <em>Dataset</em>, the <em>Name</em> and the <em>Definition</em>?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(my_data, <span class="at">PropFacesCorrect =</span> (Face1_Real <span class="sc">+</span> Face2_Real <span class="sc">+</span> Face3_AI <span class="sc">+</span> Face4_AI <span class="sc">+</span> Face5_AI <span class="sc">+</span> Face6_AI <span class="sc">+</span> Face7_Real <span class="sc">+</span> Face8_Real <span class="sc">+</span> Face9_Real <span class="sc">+</span> Face10_Real <span class="sc">+</span> Face11_AI <span class="sc">+</span> Face12_AI) <span class="sc">/</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(my_data, <span class="at">PropFacesCorrect =</span> (Face1_Real <span class="sc">+</span> Face2_Real <span class="sc">+</span> Face3_AI <span class="sc">+</span> Face4_AI <span class="sc">+</span> Face5_AI <span class="sc">+</span> Face6_AI <span class="sc">+</span> Face7_Real <span class="sc">+</span> Face8_Real <span class="sc">+</span> Face9_Real <span class="sc">+</span> Face10_Real <span class="sc">+</span> Face11_AI <span class="sc">+</span> Face12_AI) <span class="sc">/</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>and validate the overall result using <code>head()</code> to make sure that <code>my_data</code> now has the column we expected.</p>
 <p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img2.png" class="img-fluid"></p>
 <p>The final column of the dataset is now <code>PropFacesCorrect</code> and contains the proportion of face trials that participant got right.</p>
@@ -531,12 +538,12 @@ Dataset
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Check Your Understanding
+<span class="screen-reader-only">Tip</span>Check Your Understanding
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Solution</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>Can you compute variables containing the proportion of correct responses for photos of real people and AI generated faces separately?</p>
@@ -548,8 +555,8 @@ Check Your Understanding
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>The following code will compute the variables</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(my_data, <span class="at">PropRealFacesCorrect =</span> (Face1_Real <span class="sc">+</span> Face2_Real <span class="sc">+</span> Face7_Real <span class="sc">+</span> Face8_Real <span class="sc">+</span> Face9_Real <span class="sc">+</span> Face10_Real) <span class="sc">/</span> <span class="dv">6</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(my_data, <span class="at">PropAIFacesCorrect =</span> (Face3_AI <span class="sc">+</span> Face4_AI <span class="sc">+</span> Face5_AI <span class="sc">+</span> Face6_AI <span class="sc">+</span> Face11_AI <span class="sc">+</span> Face12_AI) <span class="sc">/</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(my_data, <span class="at">PropRealFacesCorrect =</span> (Face1_Real <span class="sc">+</span> Face2_Real <span class="sc">+</span> Face7_Real <span class="sc">+</span> Face8_Real <span class="sc">+</span> Face9_Real <span class="sc">+</span> Face10_Real) <span class="sc">/</span> <span class="dv">6</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(my_data, <span class="at">PropAIFacesCorrect =</span> (Face3_AI <span class="sc">+</span> Face4_AI <span class="sc">+</span> Face5_AI <span class="sc">+</span> Face6_AI <span class="sc">+</span> Face11_AI <span class="sc">+</span> Face12_AI) <span class="sc">/</span> <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We’ve separated out the columns to sum all the real or AI faces together and changed the division to divide the results by 6 rather than 12.</p>
 <p>Checking the results with <code>head()</code> should produce the following outputs with four additional columns!</p>
 <p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img3.png" class="img-fluid"></p>
@@ -569,10 +576,10 @@ Check Your Understanding
 </blockquote>
 <p>We can compute this test using the following code that calls <code>ttestIS()</code> - this is the function that computes independent samples t-tests. Read more about it on <a href="https://www.jamovi.org/jmv/ttestis.html">the ttestIS documentation page</a>.</p>
 <p>You can click the numbers by the definitions at the bottom to highlight the corresponding part of the code.</p>
-<div class="sourceCode" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-1" class="code-annotation-target"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-1" class="code-annotation-target"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-4-2" class="code-annotation-target"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropFacesCorrect <span class="sc">~</span> ConfidentBefore,</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-4-3" class="code-annotation-target"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-4-4" class="code-annotation-target"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-4-4" class="code-annotation-target"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
@@ -593,7 +600,7 @@ Check Your Understanding
 </dl>
 <p>Most of this will be familiar from previous weeks, but let’s think about the formula in a little more detail.</p>
 <p>In R, the tilde (~) is used in formula definitions to specify the relationship between variables, particularly in statistical modeling and data analysis. Here, the tilde separates the dependent variable (response) from the independent variables (predictors). In our example, <code>PropFacesCorrect</code> is the dependent variable and <code>ConfidentBefore</code> is our independent variable (grouping variable) - so this formula</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PropFacesCorrect <span class="sc">~</span> ConfidentBefore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PropFacesCorrect <span class="sc">~</span> ConfidentBefore</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>is essentially telling <code>ttestIS()</code> to “Compute the ttest on <code>PropFacesCorrect</code> using <code>ConfidentBefore</code> as our groups”.</p>
 <p>We can now run all our code to get the results of the ttest - the code clearly tells the reader how all the relevant variables were computed and what hypothesis test has been run all in one screen.</p>
 <p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img4.png" class="img-fluid"></p>
@@ -604,12 +611,12 @@ Check Your Understanding
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Check Your Understanding
+<span class="screen-reader-only">Tip</span>Check Your Understanding
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Solution</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>Read through the <a href="https://www.jamovi.org/jmv/ttestis.html">ttestIS documentation page</a>. How could you change your code to add the following assumption checks</p>
@@ -624,12 +631,12 @@ Check Your Understanding
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>The following code will compute all the checks in addition to the t-test.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(                                       </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(                                       </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropFacesCorrect <span class="sc">~</span> ConfidentBefore,  </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,                                </span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">eqv =</span> <span class="cn">TRUE</span>)                             </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">eqv =</span> <span class="cn">TRUE</span>)                             </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The results should look like this:</p>
 <p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img5.png" class="img-fluid"></p>
 <p>Do the assumptions for Student’s t-test hold for this data?</p>
@@ -655,15 +662,15 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 <h4 class="anchored" data-anchor-id="print-statements">Print statements</h4>
 <p>We can use the <code>print()</code> function to help organise our code as well. The text within the call to <code>print()</code> will not be executed by the computer but will simply be printed into the output console. This can be useful to break the output of your code into sections and to inlcude additional information about the analysis next to the outputs themselves.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hypothesis 1'</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hypothesis 1'</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Confident people are better at distinguishing AI faces from real faces'</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(                                       </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropFacesCorrect <span class="sc">~</span> ConfidentBefore,  </span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,                                </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This code will print out information about the hypothesis next to the outputs.</p>
 <p>A full cleaned and commented version of our code might look like this.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute which participants were more confident than the median</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute which participants were more confident than the median</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(data, <span class="at">ConfidentBefore =</span> AIConfidenceBefore<span class="sc">&lt;</span><span class="dv">4</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the proportion of all faces each participant got right</span></span>
@@ -681,7 +688,7 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(                                       </span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropFacesCorrect <span class="sc">~</span> ConfidentBefore,  </span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,                                </span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>and running this code produces the following outputs including the test from our print statements</p>
 <p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img5.png" class="img-fluid"></p>
 <p>Nice and clear what is happening at each stage! There is no perfect or ‘correct’ way to tidy up your code (though some people can get opinionated about this…). Choose a mix of comments and print statements that makes sense to you.</p>
@@ -692,12 +699,12 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Check Your Understanding
+<span class="screen-reader-only">Tip</span>Check Your Understanding
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Solution</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p>Extend your code to test a second hypothesis.</p>
@@ -712,13 +719,13 @@ Check Your Understanding
 </div>
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <p>The following code will test the new hypothesis with some comments and print statements</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hypothesis test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hypothesis test</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hypothesis 2'</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Confident participants are more accurate than unconfident participants when identifying photos of real faces.'</span>)</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(                                       </span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropRealFacesCorrect <span class="sc">~</span> ConfidentBefore,  </span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,                                </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)                       </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)                       </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The output of the whole script should now look like this.</p>
 <p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img7.png" class="img-fluid"></p>
 <p>Note how the print statements help to separate the results into interpretable chunks.</p>
@@ -735,7 +742,7 @@ Check Your Understanding
 <section id="analysis-from-a-friend" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="analysis-from-a-friend">5. Analysis from a friend</h2>
 <p>Imagine that of your friends has been running some analyses on this dataset and would like you to check over their work. They send you the following R code that they have put together.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute some new variables</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute some new variables</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(data, <span class="at">ChangeAIConfidence =</span> AIConfidenceBefore <span class="sc">-</span> AIConfidenceAfter)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(my_data, <span class="at">ChangeEmoConfidence =</span> EmoConfidenceBefore <span class="sc">-</span> EmoConfidenceAfter)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(my_data, <span class="at">ChangeMemoryConfidence =</span> MemoryConfidenceBefore <span class="sc">-</span> MemoryConfidenceAfter)</span>
@@ -747,15 +754,15 @@ Check Your Understanding
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">testValue =</span> <span class="fl">0.0</span>,</span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">wilcoxon =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">desc =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Let’s think about this code a bit, your friend didn’t really explain the plan…</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - what variables are created?
+<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - what variables are created?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -767,12 +774,12 @@ Check Your Understanding
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - what statistical test is performed?
+<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - what statistical test is performed?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -783,12 +790,12 @@ Check Your Understanding
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - what additional computations are performed?
+<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - what additional computations are performed?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -804,18 +811,18 @@ Check Your Understanding
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Key step
+<span class="screen-reader-only">Note</span>Key step
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Open a new Rj window and run this code before going any further! Take a moment to read through the code and decide what it is doing.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Click here if you want to check that you have the right outputs.
+<span class="screen-reader-only">Caution</span>Click here if you want to check that you have the right outputs.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -834,12 +841,12 @@ Click here if you want to check that you have the right outputs.
 </blockquote>
 <p>Let’s think about whether this is accurate.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - are the reported statistics correct? take your time to read carefully and compare to the outputs
+<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - are the reported statistics correct? take your time to read carefully and compare to the outputs
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -857,12 +864,12 @@ Click here if you want to check that you have the right outputs.
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - was the correct test reported?
+<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - was the correct test reported?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -885,7 +892,7 @@ Click here if you want to check that you have the right outputs.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Key step
+<span class="screen-reader-only">Note</span>Key step
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -930,12 +937,12 @@ Key step
 </table>
 <p>These can be useful guidelines - through they have been criticised strongly for both the arbitrary nature of the thresholds and for over-simplifying interpretation of effect sizes. We can still use them as an informal indicator to help us quickly interpret our results.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - Is the effect size for <code>ChangeAIConfidence</code> small, medium or large?
+<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - Is the effect size for <code>ChangeAIConfidence</code> small, medium or large?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -946,12 +953,12 @@ Key step
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - Is the effect size for <code>ChangeEmoConfidence</code> small, medium or large?
+<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - Is the effect size for <code>ChangeEmoConfidence</code> small, medium or large?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -962,12 +969,12 @@ Key step
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi bi-question-lg"></i> Data Skills - Is the effect size for <code>ChangeMemoryConfidence</code> small, medium or large?
+<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - Is the effect size for <code>ChangeMemoryConfidence</code> small, medium or large?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1003,7 +1010,7 @@ Key step
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Key step - Install the jpower addon in Jamovi
+<span class="screen-reader-only">Note</span>Key step - Install the jpower addon in Jamovi
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1048,7 +1055,7 @@ Key step - Install the jpower addon in Jamovi
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Key step - Install the jpower addon in Jamovi
+<span class="screen-reader-only">Note</span>Key step - Install the jpower addon in Jamovi
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1084,12 +1091,12 @@ Key step - Install the jpower addon in Jamovi
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Check Your Understanding
+<span class="screen-reader-only">Tip</span>Check Your Understanding
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Solution</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false" href="">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <p>What is the sensitivity (power) of the effect size estimated by Cohen’s d for the <code>ChangeEmoConfidence</code> variable?</p>
@@ -1117,12 +1124,12 @@ Check Your Understanding
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Check Your Understanding
+<span class="screen-reader-only">Tip</span>Check Your Understanding
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Solution</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false" href="">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>It might be the case that our face recognition really does change participants confidence in recognising emotional faces, and our study simply doesn’t have enough participants to detect the change with statistical confidence. Perhaps we should consider running a larger study?</p>
@@ -1419,13 +1426,14 @@ window.onload = function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

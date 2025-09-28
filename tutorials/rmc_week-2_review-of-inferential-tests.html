@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>rmc_week-2_review-of-inferential-tests – Quantitative Methods Handbook</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../tutorials/rmc_week-3_more-anovas-with-jamovi.qmd" rel="next">
+<link href="../tutorials/rmc_week-1_data-handling.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-000f0825b9c55ed21d14970d810c14a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../include/webex.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Quantitative Methods Handbook</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/AJQuinn/uob-sop-research-methods" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmc_week-1_data-handling.html">Research Methods C</a></li><li class="breadcrumb-item"><a href="../tutorials/rmc_week-2_review-of-inferential-tests.html">Week 2 - Review of inferential tests</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Research Methods A</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rma_week-8_introduction-to-jamovi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8 - Introduction to Jamovi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9 - Correlations, Graphs and Exporting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rma_week-10_tests_of_difference_Chi-Squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10 - Tests of Difference Chi-Squared</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Research Methods B</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-1_new-data-and-descriptives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1 - New data and descriptives</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-2_intro-to-Rj.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2 - Introducing R and Rj</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-3_one-sample-t-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - One-Sample T-tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-4_two-sample-t-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4 - Two-Sample T-tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-5_pvalue-effect-size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5 - p-values and Effect Sizes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-7_non-parametrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7 - Non-parametric tests and data transformation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-8_sampling-distributions-mean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8 - Sampling Distributions of Means</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-9_one-way-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9 - One-way ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-10_sampling-distributions-tvalues.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10 - Sampling Distributions of t-values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-11_putting-it-together.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11 - Putting it all together</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Research Methods C</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-1_data-handling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1 - Data handling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-2_review-of-inferential-tests.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 2 - Review of inferential tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-3_more-anovas-with-jamovi.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - More ANOVAs with Jamovi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-4_factorial-anova-with-jamovi.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4 - Factorial ANOVA with Jamovi</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Support</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support/copilot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Copilot at UoB</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support/frequently-asked-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support/faculty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Faculty</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#week-2-review-of-inferential-tests" id="toc-week-2-review-of-inferential-tests" class="nav-link active" data-scroll-target="#week-2-review-of-inferential-tests">Week 2 : Review of Inferential Tests</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#comparing-2-independent-groups-on-jamovi" id="toc-comparing-2-independent-groups-on-jamovi" class="nav-link" data-scroll-target="#comparing-2-independent-groups-on-jamovi">Comparing 2 independent groups on Jamovi</a>
+  <ul class="collapse">
+  <li><a href="#independent-t-tests-on-jamovi" id="toc-independent-t-tests-on-jamovi" class="nav-link" data-scroll-target="#independent-t-tests-on-jamovi">1. Independent t-tests on Jamovi</a></li>
+  <li><a href="#mann-whitney-non-parametric-on-jamovi" id="toc-mann-whitney-non-parametric-on-jamovi" class="nav-link" data-scroll-target="#mann-whitney-non-parametric-on-jamovi">2. Mann-Whitney (non-parametric) on Jamovi</a></li>
+  </ul></li>
+  <li><a href="#comparing-2-related-groups-on-jamovi" id="toc-comparing-2-related-groups-on-jamovi" class="nav-link" data-scroll-target="#comparing-2-related-groups-on-jamovi">Comparing 2 related groups on Jamovi</a>
+  <ul class="collapse">
+  <li><a href="#paired-samples-t-tests-on-jamovi" id="toc-paired-samples-t-tests-on-jamovi" class="nav-link" data-scroll-target="#paired-samples-t-tests-on-jamovi">3. Paired samples <em>t</em>-tests on Jamovi</a></li>
+  <li><a href="#wilcoxon-test-non-parametric-on-jamovi" id="toc-wilcoxon-test-non-parametric-on-jamovi" class="nav-link" data-scroll-target="#wilcoxon-test-non-parametric-on-jamovi">4. Wilcoxon test (non-parametric) on Jamovi</a></li>
+  </ul></li>
+  <li><a href="#comparing-more-than-2-groups-on-jamovi" id="toc-comparing-more-than-2-groups-on-jamovi" class="nav-link" data-scroll-target="#comparing-more-than-2-groups-on-jamovi">Comparing more than 2 groups on Jamovi</a>
+  <ul class="collapse">
+  <li><a href="#between-participants-one-way-anova-independent-samples" id="toc-between-participants-one-way-anova-independent-samples" class="nav-link" data-scroll-target="#between-participants-one-way-anova-independent-samples">Between-participants one-way ANOVA (independent samples)</a></li>
+  <li><a href="#jamovi-output-one-way-anova-between-participants" id="toc-jamovi-output-one-way-anova-between-participants" class="nav-link" data-scroll-target="#jamovi-output-one-way-anova-between-participants">Jamovi output: One-way ANOVA between-participants</a></li>
+  <li><a href="#writing-up-the-anova" id="toc-writing-up-the-anova" class="nav-link" data-scroll-target="#writing-up-the-anova">Writing up the ANOVA</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmc_week-1_data-handling.html">Research Methods C</a></li><li class="breadcrumb-item"><a href="../tutorials/rmc_week-2_review-of-inferential-tests.html">Week 2 - Review of inferential tests</a></li></ol></nav></header>
+
+
+
+
+<section id="week-2-review-of-inferential-tests" class="level1 unnumbered">
+<h1 class="unnumbered">Week 2 : Review of Inferential Tests</h1>
+<section id="learning-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_quantitative-methods.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Quantitative Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Independent t-tests (and Mann-Whitney)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">Paired samples t-test (and Wilcoxon)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">One-way between participants ANOVA</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_data-skills.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Data Skills</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Working with the Jamovi editor</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">Setting up data files for between- and within-participants designs</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Computing descriptive statistics in Jamovi</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="../images/logos/rm-logo_open-science.png" class="img-fluid" width="50"></th>
+<th style="text-align: left;">Open Science</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">Working with openly available research data</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Today’s session
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Below is summary of several of the inferential tests covered at Level 1. As part of your preparation for Level 2 and your Level 3 Project, make sure that you are confident in how (and in what context) to carry out these tests on Jamovi and how to interpret the outputs. Some of the language used here may be a little different from what you learned in RMB but the statistical and theoretical content is effectively the same.</p>
+</div>
+</div>
+</section>
+<section id="comparing-2-independent-groups-on-jamovi" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="comparing-2-independent-groups-on-jamovi">Comparing 2 independent groups on Jamovi</h2>
+<section id="independent-t-tests-on-jamovi" class="level3">
+<h3 class="anchored" data-anchor-id="independent-t-tests-on-jamovi">1. Independent t-tests on Jamovi</h3>
+<ul>
+<li><p>An independent t-test is used to assess whether there are significant differences between two independent or separate groups (between-participants design) for a specific measure or DV, e.g.&nbsp;a comparison of psychology and human neuroscience students’ self-rating of statistics expertise.</p></li>
+<li><p>In this example, we test the two-sided hypothesis that there is a difference in the self-rated level of research methods expertise of psychology and human neuroscience students in response to a question asking participants to rate their expertise on a scale of 0 to 100.</p></li>
+</ul>
+<p><strong>Walk-through example 1</strong> Using <em>RMC_NM1_WT1_ind_t_test.sav</em> in Jamovi:</p>
+<ol type="a">
+<li>Screen the data using Exploration.
+<ol type="i">
+<li>If it looks as if the whole dataset is normally distributed, proceed with the t-test.</li>
+<li>If non-normal, check if this might be due to one or two outliers.
+<ul>
+<li>If so, remove the outlier(s) and explore the data again. Is it normally distributed now?</li>
+<li>If not move to Mann-Whitney.</li>
+</ul></li>
+</ol></li>
+</ol>
+<p><strong>[For the rest of the walk through, follow the instructions for the t-test.]</strong></p>
+<ol start="2" type="a">
+<li>Go to the <strong>Analyses</strong> menu. Select <strong>T-Tests.</strong> Select <strong>Independent-Samples T Test…</strong></li>
+</ol>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img1.png" class="img-fluid" width="600"></p>
+<ol start="3" type="a">
+<li><p>In the dialog box, move the dependent variable into the box labelled <strong>‘Dependent Variables’</strong></p></li>
+<li><p>Move the grouping variable into the box labelled <strong>Grouping Variable</strong></p></li>
+<li><p>Ensure that ‘Student’s’ is checked</p></li>
+<li><p>Under the additional satatistics menu make sure that the ‘mean difference’ with ‘confidence interval’; ‘effect size’, with ‘confidence interval’; and ‘descriptives’ are checked.</p></li>
+</ol>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img2.png" class="img-fluid" width="600"></p>
+<p>If you have carried out the analysis correctly, your output should consist of three tables. * The <strong>Independent Samples T-Test</strong> table shows us the results of the t-test. Looking at the first three columns we can determine if the results of the t-test are significant. The next four columns give us some more information about the differences between the two groups. The last four columns provide information about how large an observed effect is. When we report a t-test with a significant outcome, we should also report the effect size. <em>(If the t-test is not significant, you do not need to report Cohen’s d.)</em> - The larger the observed effect, the greater Cohen’s <em>d</em> becomes. Read the value from the <em>Effect Size</em> column. - A common interpretation of effect sizes using Cohen’s <em>d</em> is that <em>d</em> = 0.2 is a small effect, <em>d</em> = 0.5 is a medium effect, and <em>d</em> = 0.8 is a large effect. Essentially, <em>d</em> is measured in units of standard deviations. A <em>d</em> greater than 1 means that the difference between groups is greater than one standard deviation.</p>
+<ul>
+<li>The Assumptions table shows the Levene’s Test for Equality of Variances. This test shows whether the variances of the two groups are equal. When looking at this test, we are testing the assumption that the variances are statistically different. In Levene’s Test…
+<ul>
+<li><strong>If p is &gt; (greater than) 0.05</strong>, equal variances are assumed, and we use the t-test results from the Student’s t-test</li>
+<li><strong>If p is &lt; (smaller than) 0.05</strong>, unequal variances are assumed, and we need to rerun the analysis by clicking ‘Welch’s’ in the <strong>Tests</strong> menu and use the new values.</li>
+</ul></li>
+<li>The <strong>Group Descriptives</strong> table shows the number of participants, the mean score, the median score, and the standard deviations of what we have measured as well as the standard error of the mean for each group/condition. Check here that the groups/conditions match those you intended to compare…</li>
+</ul>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img3.png" class="img-fluid" width="600"></p>
+<p><strong>Reporting <em>p</em>-values in RMC/NCM1</strong> * Please give exact probabilities (p=…) to 3 decimal places, wherever possible. You may see very small p-values reported as &lt; .001 but never 0. - This is important as we can never have a p-value of 0. It would mean that there is no chance that the data have come out the way they did by sampling error, which cannot be the case: sampling error is always a possibility.</p>
+</section>
+<section id="mann-whitney-non-parametric-on-jamovi" class="level3">
+<h3 class="anchored" data-anchor-id="mann-whitney-non-parametric-on-jamovi">2. Mann-Whitney (non-parametric) on Jamovi</h3>
+<ul>
+<li><p>The <strong>Mann-Whitney</strong> test is used when there are different participants in each condition and parametric assumptions are not met. Therefore, it is a non-parametric equivalent of an independent <em>t</em>-test. For example, it can be used with data that are not normally distributed and with data that are ordinal.</p></li>
+<li><p>Instead of using means and standard deviations, the Mann-Whitney test looks at the ranking positions of the values from each of the two conditions. The test works out the ranks for the scores in each condition and compares them. The test statistic for a Mann-Whitney test is the <em>U</em>-value.</p></li>
+<li><p>In this example, we test the hypothesis that ‘politically correct’ language (pc) makes the ideas expressed feel less familiar to participants compared to ‘non-politically correct’ language (npc). Participants were given as series of sentences and asked to rate them for familiarity of the idea expressed on a 5-point scale (with 1 = <em>very unfamiliar</em> and 5 = <em>very familiar</em>).</p></li>
+</ul>
+<p><strong>Walk-through Example 2</strong> <em>Using RMC_NM1_WT2_Mann-Whitney.sav</em> in Jamovi: a) Screen the data using Exploration. Here the data are not normally distributed (and they are ordinal), so Mann-Whitney is a more appropriate test to use. Record <strong>medians</strong> for the different groups and <strong>minimum and maximum scores.</strong> These are needed when reporting Mann-Whitney test results. b) Go to the <strong>Analyses -&gt; T-Tests -&gt; Independent T-Test</strong></p>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img4.png" class="img-fluid" width="600"></p>
+<ol start="3" type="a">
+<li>Enter the DV into the ‘Dependent Variables’ box. Enter the IV into the ‘Grouping Variable’ box.</li>
+<li>In the ‘Tests’ section, deselect ‘Student’s’ and select ‘Mann-Whitney U’.</li>
+<li>Check the box next to ‘Descriptives’ and ‘Effect Size’.</li>
+</ol>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img5.png" class="img-fluid" width="600"></p>
+<p>The Jamovi output should look like this: * The <strong>Independent Samples T-Test</strong> table shows the value of Mann-Whitney’s U to be 59.0. The rank biserial correlation provides a measure of effect size (rpb = .476). The p-value is .019. We conclude that there is a significant difference in familiarity ratings for pc compared to npc sentences. To check the direction of the difference and get some idea of this effect, we would examine the <strong>medians</strong> for these data. * The <strong>Group Descriptives</strong> table shows the number of participants in each group and presents the mean, median, standard deviation and standard error of the mean for each group. The mean scores for the groups are <strong>NOT</strong> reported. <strong>Report median scores instead.</strong></p>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img6.png" class="img-fluid" width="600"></p>
+</section>
+</section>
+<section id="comparing-2-related-groups-on-jamovi" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="comparing-2-related-groups-on-jamovi">Comparing 2 related groups on Jamovi</h2>
+<section id="paired-samples-t-tests-on-jamovi" class="level3">
+<h3 class="anchored" data-anchor-id="paired-samples-t-tests-on-jamovi">3. Paired samples <em>t</em>-tests on Jamovi</h3>
+<ul>
+<li><p>A paired samples <em>t</em>-test is used to assess whether there are significant differences between two conditions which were completed by the same, single group of participants (within-participants design or repeated measures), e.g.&nbsp;comparison of a pre- and post-intervention measurement.</p></li>
+<li><p>In this example, the hypothesis tested is that people’s performance increased significantly for RMB compared to their performance for RMA (assessed as separate modules). This is a one-sided hypothesis as a specific direction for the difference is predicted.</p></li>
+</ul>
+<p><strong>Walk-Through Example 3</strong> Using <em>RMC_NM1_WT3_paired_t_test.sav</em> in Jamovi: a) Screen the data using <strong>Exploration -&gt; Descriptives.</strong> If it looks to be normally distributed, proceed with t-test. (If not move to Wilcoxon.)</p>
+<p><strong>[For the rest of the walk through, follow the instructions for the t-test.]</strong></p>
+<ol start="2" type="a">
+<li>Go to the <strong>Analyses</strong> tab. Select <strong>T-Tests.</strong> Select <strong>Paired Samples T Test</strong></li>
+</ol>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img7.png" class="img-fluid" width="600"></p>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img8.png" class="img-fluid" width="600"></p>
+<ol start="3" type="a">
+<li>Move the first variable of the pair you wish to compare into the <strong>Paired Variables</strong> box.</li>
+<li>Repeat with the second variable.</li>
+<li>Make sure ‘Student’s’, ‘Mean Difference’, ‘Effect size’ and ‘Confidence interval’, and ‘Descriptives’ are checked.</li>
+<li>As the hypothesis is one-tailed we need to specify this in the <strong>Hypothesis</strong> section. As we think that scores for RMA will be lower than RMB we should check ‘Measure 1 &lt; Measure 2’ here.</li>
+</ol>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img9.png" class="img-fluid" width="600"></p>
+<p>The output of a paired samples t-test consists of two tables. * The <strong>Paired Samples T-Test</strong> table shows the <em>t</em>-value, the degrees of freedom (df), the p-value, the mean difference between conditions (condition entered first minus condition entered second), the standard error of the difference and effect size information. - When interpreting a one-sided t-test, consider the direction of the difference: is it in the predicted direction? We hypothesised that the RMB mark would be higher than the RMA mark. The direction of the difference suggests that this is the case: The mean difference (RMA mark minus RMB mark) was negative – i.e.&nbsp;RMB mark was higher on average than RMA mark.</p>
+<ul>
+<li>The <strong>Descriptives</strong> table provides the descriptive statistics for the two conditions: number of participants, means, medians, standard deviations, and standard error of the mean for each condition.</li>
+</ul>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img10.png" class="img-fluid" width="600"></p>
+</section>
+<section id="wilcoxon-test-non-parametric-on-jamovi" class="level3">
+<h3 class="anchored" data-anchor-id="wilcoxon-test-non-parametric-on-jamovi">4. Wilcoxon test (non-parametric) on Jamovi</h3>
+<ul>
+<li><p>The <strong>Wilcoxon Matched Pairs Signed Ranks Test</strong> is used when a paired-samples t-test cannot be used, because the data do not meet the requirements of parametric tests.</p></li>
+<li><p>The Wilcoxon test makes use of the fact that the <strong>same</strong> participants are performing in both conditions. It does this by taking note of the differences in scores for each data-pair. The differences are ranked from lowest to highest.</p></li>
+<li><p>Some differences will be positive, some negative, and some 0 (ties) – the latter are ignored as they provide no information. If there is no significant difference between the two conditions, there would be a similar number of positive and negative differences, as the differences between one participant and another would cancel each other out.</p></li>
+<li><p>In this example, we test the hypothesis that primary school children recognise more emotions than they express (i.e.&nbsp;spontaneously label or mention) in a story description task.</p></li>
+</ul>
+<p><strong>Walk-Through Example 4</strong> <em>Using RMC_WT4_Wilcoxon.sav</em> in Jamovi:</p>
+<ol type="a">
+<li>Screen the data using <strong>Exploration -&gt; Descriptives.</strong> Record <strong>medians</strong> for the different conditions and <strong>minimum and maximum scores.</strong></li>
+<li>Go to the <strong>Analyses -&gt; T-Tests -&gt; Paired Samples -Test</strong></li>
+<li>Enter the first level of the DV into the ‘Paired Variables’ box. Enter the second level of the DV into the ‘Paired Variables’ list.</li>
+<li>In the ‘Tests’ section, select ‘Wilcoxon rank’.</li>
+<li>Select ‘Effect size’</li>
+<li>We have specified a one-way hypothesis that children will recognise more emotions that they express so we should check ‘Measure 1 &lt; Measure 2’.</li>
+</ol>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img11.png" class="img-fluid" width="600"></p>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img12.png" class="img-fluid" width="600"></p>
+<p>The Jamovi output should look like this:</p>
+<ul>
+<li>The <strong>Paired Samples T-Test</strong> table shows the significance of the test. The <em>T</em>-score is under the heading ‘Statistic’. The rank biserial correlation provides a measure of effect size (<em>rpb</em> = -.783). The difference is significant, at <em>p</em> &lt; .001. We conclude that there is a significant difference between emotions expressed and emotions recognised with children recognising more emotions than they express.</li>
+</ul>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img13.png" class="img-fluid" width="600"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Activity 1 - Choosing and running the appropriate test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Check Your Understanding - Activity 1 Question 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Check Your Understanding - Activity 1 Question 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Check Your Understanding - Activity 1 Question 3</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Using <em>RMC_NM1_Wksh2_choosing_tests.sav</em> in Jamovi and what has just been covered, test the following hypothesis:</p>
+<p>Older students look forward to the module more than younger ones</p>
+<p>Test used: <select class="webex-select"><option value="blank"></option><option value="answer">independent t-test</option><option value="">paired samples t-test</option><option value="answer">Mann-Whitney test</option><option value="">Wilcoxon test</option></select></p>
+<p>Is this hypothesis one-sided or two-sided? (Which direction if one-sided?): <select class="webex-select"><option value="blank"></option><option value="">two-sided</option><option value="answer">one-sided, group 1 &lt; group 2</option><option value="">one-sided, group 1 &gt; group 2</option></select></p>
+<p><strong>Key descriptives</strong> Older students: mean = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;2.48&quot;]">, median = <input class="webex-solveme nospaces" size="1" data-answer="[&quot;3&quot;]">, sd = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;1.33&quot;]"></p>
+<p>Younger students: mean = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;1.88&quot;]">, median = <input class="webex-solveme nospaces" size="1" data-answer="[&quot;2&quot;]">, sd = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;1.13&quot;]"></p>
+<p><strong>Report the result</strong> If you chose to use a parametric test, fill out the parametric question and if you chose to use a non-parametric test then fill out the non-parametric version</p>
+<p>Parametric: <em>t</em>(<input class="webex-solveme nospaces" size="2" data-answer="[&quot;48&quot;]">) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;-1.72&quot;]">; <em>p</em> = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.046&quot;,&quot;.046&quot;]"> (<select class="webex-select"><option value="blank"></option><option value="">two-sided</option><option value="answer">one-sided</option></select>); d = <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.487&quot;,&quot;-.487&quot;]"> Non-parametric: U = <input class="webex-solveme nospaces" size="3" data-answer="[&quot;229&quot;]">; N = <input class="webex-solveme nospaces" size="2" data-answer="[&quot;50&quot;]">; <em>p</em> = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.048&quot;,&quot;.048&quot;]"> (<select class="webex-select"><option value="blank"></option><option value="">two-sided</option><option value="answer">one-sided</option></select>); r<sub>rb</sub> = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.269&quot;,&quot;.269&quot;]"></p>
+<p>Hypothesis accepted? <select class="webex-select"><option value="blank"></option><option value="answer">yes</option><option value="">no</option></select></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Using <em>RMC_NM1_Wksh2_choosing_tests.sav</em> in Jamovi and what has just been covered, test the following hypothesis:</p>
+<p>Psychology students come from large families than Human Neuroscience students.</p>
+<p>Test used: <select class="webex-select"><option value="blank"></option><option value="">independent t-test</option><option value="">paired samples t-test</option><option value="answer">Mann-Whitney test</option><option value="">Wilcoxon test</option></select></p>
+<p>Is this hypothesis one-sided or two-sided? (Which direction if one-sided?): <select class="webex-select"><option value="blank"></option><option value="">two-sided</option><option value="answer">one-sided, group 1 &lt; group 2</option><option value="">one-sided, group 1 &gt; group 2</option></select></p>
+<p><strong>Key descriptives</strong> Psychology students: median = <input class="webex-solveme nospaces" size="1" data-answer="[&quot;1&quot;]">, sd = <input class="webex-solveme nospaces" size="1" data-answer="[&quot;1&quot;]"></p>
+<p>Human neuroscience students: median = <input class="webex-solveme nospaces" size="1" data-answer="[&quot;1&quot;]">, sd = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.995&quot;,&quot;.995&quot;]"></p>
+<p><strong>Report the result</strong> U = <input class="webex-solveme nospaces" size="3" data-answer="[&quot;282&quot;]">; N = <input class="webex-solveme nospaces" size="2" data-answer="[&quot;50&quot;]">; <em>p</em> = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.748&quot;,&quot;.748&quot;]"> (<select class="webex-select"><option value="blank"></option><option value="">two-sided</option><option value="answer">one-sided</option></select>); r<sub>rb</sub> = <input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.0992&quot;,&quot;.0992&quot;]"></p>
+<p>Hypothesis accepted? <select class="webex-select"><option value="blank"></option><option value="">yes</option><option value="answer">no</option></select></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Using <em>RMC_NM1_Wksh2_choosing_tests.sav</em> in Jamovi and what has just been covered, test the following hypothesis:</p>
+<p>Performance scores are higher after practice than before practice.</p>
+<p>Test used: <select class="webex-select"><option value="blank"></option><option value="">independent t-test</option><option value="">paired samples t-test</option><option value="">Mann-Whitney test</option><option value="answer">Wilcoxon test</option></select></p>
+<p>Is this hypothesis one-sided or two-sided? (Which direction if one-sided?): <select class="webex-select"><option value="blank"></option><option value="">two-sided</option><option value="answer">one-sided, measure 1 &lt; measure 2</option><option value="">one-sided, measure 1 &gt; measure 2</option></select></p>
+<p><strong>Key descriptives</strong> Before practice: median = <input class="webex-solveme nospaces" size="1" data-answer="[&quot;2&quot;]">, sd = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.772&quot;,&quot;.772&quot;]"></p>
+<p>After practice: median = <input class="webex-solveme nospaces" size="1" data-answer="[&quot;4&quot;]">, sd = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;1.249&quot;]"></p>
+<p><strong>Report the result</strong> T = <input class="webex-solveme nospaces" size="3" data-answer="[&quot;322&quot;]">; N = <input class="webex-solveme nospaces" size="2" data-answer="[&quot;50&quot;]">; <em>p</em> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;< .001&quot;]"> (<select class="webex-select"><option value="blank"></option><option value="">two-sided</option><option value="answer">one-sided</option></select>); rrb = <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.495&quot;,&quot;-.495&quot;]"></p>
+<p>Hypothesis accepted? <select class="webex-select"><option value="blank"></option><option value="answer">yes</option><option value="">no</option></select></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="comparing-more-than-2-groups-on-jamovi" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-more-than-2-groups-on-jamovi">Comparing more than 2 groups on Jamovi</h2>
+<ul>
+<li><p>This section is about reviewing how to carry out one-way ANOVAs (for data that meet parametric assumptions) in Jamovi.</p></li>
+<li><p>One-way ANOVAs have a <strong>single factor (IV)</strong> which has <strong>more than two levels</strong> (groups), and a <strong>single DV.</strong></p></li>
+<li><p>One-way ANOVAs are carried out differently in Jamovi depending on whether the IV is a within- or between-participants factor. You will have had some experience in RMB with one-way between-participants ANOVA – i.e.&nbsp;comparing two or more groups. The following sections go over how to perform one-way between-participants ANOVA. In the next workshop, one-way within-participants ANOVA will be introduced.</p></li>
+</ul>
+<section id="between-participants-one-way-anova-independent-samples" class="level3">
+<h3 class="anchored" data-anchor-id="between-participants-one-way-anova-independent-samples">Between-participants one-way ANOVA (independent samples)</h3>
+<ul>
+<li><p>In this example experiment, students were asked to decide which category a displayed word belonged to (e.g.&nbsp;Is ‘horse’ an animal or furniture?). Response times were recorded.</p></li>
+<li><p>Before the categorization task, the participants performed <strong>1 of 3 priming tasks:</strong></p>
+<ul>
+<li>The <strong>“surface”</strong> group looked at a list of words and decided if each one contained an ‘e’.</li>
+<li>The <strong>“deep”</strong> group looked at a list of words and decided if each one was a living thing.</li>
+<li>The <strong>“no prime”</strong> group did not look at any words before (control group).</li>
+</ul></li>
+<li><p>Hypotheses tested were:</p>
+<ul>
+<li><p>Participants who have previously processed a word at a deep level will categorise it more quickly than those who have processed it at a <em>surface</em> level or in the <em>no prime</em> condition.</p></li>
+<li><p>If <em>surface</em> processing has any effect on later categorization, the response times in the <em>surface</em> condition should be faster than in the <em>no prime</em> condition.</p></li>
+</ul></li>
+</ul>
+<p><strong>Walk-Through Example 5 “The effect of priming on a categorization task”</strong> a) Download and open the <em>RMC_NM1_1way_between_ANOVA.sav</em> from the Canvas folder. b) Click on the <strong>“Data”</strong> tab and look at the values in the ‘priming’ and ‘RT’ column.</p>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img14.png" class="img-fluid" width="600"></p>
+<ol start="3" type="a">
+<li>Click <strong>Analyses -&gt; Exploration -&gt; Descriptives.</strong> In the dialog box, enter the DV into the <strong>‘Variables’</strong> box. Enter the IV into the <strong>‘Split by’</strong> box.</li>
+<li>Go to <strong>‘Plots’.</strong> Check <strong>‘Histograms’</strong> and <strong>‘Box plot’</strong> with <strong>‘Label outliers’.</strong></li>
+</ol>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this example the data are broadly normally distributed with no major outliers and so meet data requirements for ANOVA.</p>
+</div>
+</div>
+<ol start="5" type="a">
+<li>Go to <strong>Analyses -&gt; ANOVA -&gt; ANOVA</strong></li>
+</ol>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img15.png" class="img-fluid" width="600"></p>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img16.png" class="img-fluid" width="600"></p>
+<ol start="6" type="a">
+<li>In the dialog box, enter the DV into the <strong>‘Dependent Variables’</strong> box. Enter the IV in the <strong>‘Fixed Factors’</strong> box.</li>
+<li>Under <strong>Effect Size</strong> check the ‘partial η<sup>2</sup>’ box.</li>
+</ol>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img17.png" class="img-fluid" width="600"></p>
+<ol start="8" type="a">
+<li>Click on the <strong>‘Post Hoc Tests’</strong> menu. Add ‘priming’ to the right-side box. Select ‘Bonferroni’ under <strong>‘Correction’</strong> and check the ‘Cohen’s d’ box under <strong>Effect Size.</strong></li>
+</ol>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img18.png" class="img-fluid" width="600"></p>
+<ol type="i">
+<li>Click on the <strong>‘Estimated Marginal Means’</strong> menu. Add ‘priming’ to the ‘Term 1’ box. Select ‘Marginal means plots’ and ‘Marginal means tables’ under <strong>‘Output’</strong> and change the ‘Error bars’ drop down to ‘Standard Error’.</li>
+</ol>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img19.png" class="img-fluid" width="600"></p>
+</section>
+<section id="jamovi-output-one-way-anova-between-participants" class="level3">
+<h3 class="anchored" data-anchor-id="jamovi-output-one-way-anova-between-participants">Jamovi output: One-way ANOVA between-participants</h3>
+<ul>
+<li>The means and standard errors for each group can be found in this table (scroll down as this will be at the bottom). The standard deviations and number of participants in each group can be found in the descriptive exploration we did earlier.</li>
+</ul>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img20.png" class="img-fluid" width="600"></p>
+<p>From this table and the Descriptives table from performing the Exploration analysis answer the following questions:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Jamovi Output One-way ANOVA (between) questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Question 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Question 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Question 3</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Which priming group responded the fastest? <select class="webex-select"><option value="blank"></option><option value="">surface</option><option value="answer">deep</option><option value="">no-prime</option></select></p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Which priming group responded the slowest? <select class="webex-select"><option value="blank"></option><option value="">surface</option><option value="">deep</option><option value="answer">no-prime</option></select></p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Which group showed the largest variation in response time? <select class="webex-select"><option value="blank"></option><option value="">surface</option><option value="answer">deep</option><option value="">no-prime</option></select></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>The ANOVA table shows if the mean differences between the levels/conditions of the IV are statistically significant.</li>
+</ul>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img21.png" class="img-fluid" width="600"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Jamovi Output One-way ANOVA (between) questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Question 4</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Is there a significant effect of priming upon response times in the categorization task? <select class="webex-select"><option value="blank"></option><option value="answer">yes</option><option value="">no</option></select></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>The next table presents the post-hoc test and looks at the mean differences between conditions to determine which of these differences are statistically significant.</li>
+</ul>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img22.png" class="img-fluid" width="600"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Jamovi Output One-way ANOVA (between) questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Question 5</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Which (if any) condition(s) is significantly different from “no prime”? <select class="webex-select"><option value="blank"></option><option value="answer">surface and deep</option><option value="">surface only</option><option value="">deep only</option><option value="">neither are significant</option></select></p>
+<p>Which (if any) condition(s) is significantly different from “deep”? <select class="webex-select"><option value="blank"></option><option value="">surface and no prime</option><option value="">surface only</option><option value="answer">no prime only</option><option value="">neither are significant</option></select></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>The final part of the output is a plot of the means which is a useful tool to understand the differences between groups. The white circles represent the mean and error bars represent whatever you have set them to (standard error of the mean in this case).</li>
+</ul>
+<p><strong>Figure 1</strong> <em>Mean Categorisation Times (ms) for the Surface, Deep and No-Prime Conditions</em></p>
+<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img23.png" class="img-fluid" width="600"></p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A chart is called a ‘Figure’ in APA style and should be labelled with an informative heading. The heading should appear immediately above the figure as in the example above. In a report you also need refer to the figure when you want the reader to look at it. You should always comment on what the chart shows in the main text.</p>
+</div>
+</div>
+</section>
+<section id="writing-up-the-anova" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-the-anova">Writing up the ANOVA</h3>
+<ul>
+<li>In reporting ANOVA results, include:
+<ul>
+<li>Information about the descriptive statistics for the different groups, possibly including a figure to illustrate the findings</li>
+<li>A summary of the test statistic including probability and effect size</li>
+<li>Comment on whether the findings supported the hypothesis or not.</li>
+</ul></li>
+<li>Here is an example write-up for the ANOVA in Walk-Through Example 5. (This report includes a table of means instead of a figure)</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>One-way ANOVA Write Up
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Fill in the blanks</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>(Any data preparation, e.g.&nbsp;how the response times were calculated or how the data were trimmed or if and how many outliers were removed, should be presented in the section of the method about data preparation and data analysis.)</p>
+<p>In a report, an ANOVA results section could look like this:</p>
+<p>Results</p>
+<p>As predicted, the mean categorization times were lowest in the ‘deep’ group, followed by the ‘surface’ group, with processing times being slowest in the ‘no prime’ group. A one-way between-participants ANOVA found significant differences in categorization times between the three priming conditions (see Table 1).</p>
+<p>Table 1 Means (Standard Deviations in Parentheses), and One-Way Analysis of Variance Statistics for Categorization Times (ms) for the Priming Conditions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Measure</th>
+<th></th>
+<th>Priming Condition</th>
+<th></th>
+<th><em>F(2,[<input class="webex-solveme nospaces" size="2" data-answer="[&quot;72&quot;]">])</em></th>
+<th>η<sup>2</sup><sub>p</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Surface</td>
+<td>Deep</td>
+<td>No-prime</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Categorisation time</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;1388&quot;]"> (141)</td>
+<td>1289 (223)</td>
+<td>1682 (<input class="webex-solveme nospaces" size="3" data-answer="[&quot;205&quot;]">)</td>
+<td>28.1***</td>
+<td>.44</td>
+</tr>
+</tbody>
+</table>
+<p>To locate these differences, a Bonferroni post hoc test was performed. The surface and no prime groups differed significantly (mean difference = 294 ms, p &lt; .001) as did the <input class="webex-solveme nospaces" size="4" data-answer="[&quot;deep&quot;]"> and no prime groups (mean difference = 393 ms, p &lt; .001). However, there was no difference between deep and <input class="webex-solveme nospaces" size="7" data-answer="[&quot;surface&quot;]"> priming (mean difference = 99 ms, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.225&quot;,&quot;.225&quot;]">).</p>
+<p>These findings <select class="webex-select"><option value="blank"></option><option value="">support</option><option value="answer">partially support</option><option value="">do not support</option></select> the hypothesis in that both surface and deep priming led to an advantage in the categorization task compared to the no prime condition, but there was no evidence that deep priming produced a greater advantage than surface priming.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/AJQuinn\.github\.io\/uob-sop-research-methods\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../tutorials/rmc_week-1_data-handling.html" class="pagination-link" aria-label="Week 1 - Data handling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 1 - Data handling</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../tutorials/rmc_week-3_more-anovas-with-jamovi.qmd" class="pagination-link" aria-label="Week 3 - More ANOVAs with Jamovi">
+        <span class="nav-page-text">Week 3 - More ANOVAs with Jamovi</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
