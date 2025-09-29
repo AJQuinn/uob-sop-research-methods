@@ -387,18 +387,18 @@ In a report you also need refer to the figure when you want the reader to look a
 
 In a report, an ANOVA results section could look like this:
 
-Results
+**Results**
 
 As predicted, the mean categorization times were lowest in the ‘deep’ group, followed by the ‘surface’ group, with processing times being slowest in the ‘no prime’ group. A one-way between-participants ANOVA found significant differences in categorization times between the three priming conditions (see Table 1).
 
 Table 1
-Means (Standard Deviations in Parentheses), and One-Way Analysis of Variance Statistics for Categorization Times (ms) for the Priming Conditions.
+*Means (Standard Deviations in Parentheses), and One-Way Analysis of Variance Statistics for Categorization Times (ms) for the Priming Conditions.*
 
 | Measure  |      | Priming Condition  |      | *F(2,[`r fitb(72)`])*  | η^2^~p~  |
 |--------|--------| --------|--------|--------|--------|
 |  | Surface  |  Deep  | No-prime  |  |   |
 | Categorisation time  | `r fitb(1388)` (141)  |  1289 (223)   | 1682 (`r fitb(205)`)  |28.1***   | .44  |
-
+*** p < .001
 
 To locate these differences, a Bonferroni post hoc test was performed. The surface and no prime groups differed significantly (mean difference = 294 ms, p < .001) as did the `r fitb("deep")` and no prime groups (mean difference = 393 ms, p < .001). However, there was no difference between deep and `r fitb("surface")` priming (mean difference = 99 ms, p = `r fitb(.225)`). 
 
