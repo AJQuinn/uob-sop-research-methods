@@ -43,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-000f0825b9c55ed21d14970d810c14a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -449,14 +452,14 @@ ul.task-list li input[type="checkbox"] {
 <ol start="2" type="a">
 <li>Go to the <strong>Analyses</strong> menu. Select <strong>T-Tests.</strong> Select <strong>Independent-Samples T Test…</strong></li>
 </ol>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img1.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img1.png" class="img-fluid" width="600"></a></p>
 <ol start="3" type="a">
 <li><p>In the dialog box, move the dependent variable into the box labelled <strong>‘Dependent Variables’</strong></p></li>
 <li><p>Move the grouping variable into the box labelled <strong>Grouping Variable</strong></p></li>
 <li><p>Ensure that ‘Student’s’ is checked</p></li>
 <li><p>Under the additional satatistics menu make sure that the ‘mean difference’ with ‘confidence interval’; ‘effect size’, with ‘confidence interval’; and ‘descriptives’ are checked.</p></li>
 </ol>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img2.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img2.png" class="img-fluid" width="600"></a></p>
 <p>If you have carried out the analysis correctly, your output should consist of three tables. * The <strong>Independent Samples T-Test</strong> table shows us the results of the t-test. Looking at the first three columns we can determine if the results of the t-test are significant. The next four columns give us some more information about the differences between the two groups. The last four columns provide information about how large an observed effect is. When we report a t-test with a significant outcome, we should also report the effect size. <em>(If the t-test is not significant, you do not need to report Cohen’s d.)</em> - The larger the observed effect, the greater Cohen’s <em>d</em> becomes. Read the value from the <em>Effect Size</em> column. - A common interpretation of effect sizes using Cohen’s <em>d</em> is that <em>d</em> = 0.2 is a small effect, <em>d</em> = 0.5 is a medium effect, and <em>d</em> = 0.8 is a large effect. Essentially, <em>d</em> is measured in units of standard deviations. A <em>d</em> greater than 1 means that the difference between groups is greater than one standard deviation.</p>
 <ul>
 <li>The Assumptions table shows the Levene’s Test for Equality of Variances. This test shows whether the variances of the two groups are equal. When looking at this test, we are testing the assumption that the variances are statistically different. In Levene’s Test…
@@ -466,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li>The <strong>Group Descriptives</strong> table shows the number of participants, the mean score, the median score, and the standard deviations of what we have measured as well as the standard error of the mean for each group/condition. Check here that the groups/conditions match those you intended to compare…</li>
 </ul>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img3.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img3.png" class="img-fluid" width="600"></a></p>
 <p><strong>Reporting <em>p</em>-values in RMC/NCM1</strong> * Please give exact probabilities (p=…) to 3 decimal places, wherever possible. You may see very small p-values reported as &lt; .001 but never 0. - This is important as we can never have a p-value of 0. It would mean that there is no chance that the data have come out the way they did by sampling error, which cannot be the case: sampling error is always a possibility.</p>
 </section>
 <section id="mann-whitney-non-parametric-on-jamovi" class="level3">
@@ -477,15 +480,15 @@ ul.task-list li input[type="checkbox"] {
 <li><p>In this example, we test the hypothesis that ‘politically correct’ language (pc) makes the ideas expressed feel less familiar to participants compared to ‘non-politically correct’ language (npc). Participants were given as series of sentences and asked to rate them for familiarity of the idea expressed on a 5-point scale (with 1 = <em>very unfamiliar</em> and 5 = <em>very familiar</em>).</p></li>
 </ul>
 <p><strong>Walk-through Example 2</strong> <em>Using RMC_NM1_WT2_Mann-Whitney.sav</em> in Jamovi: a) Screen the data using Exploration. Here the data are not normally distributed (and they are ordinal), so Mann-Whitney is a more appropriate test to use. Record <strong>medians</strong> for the different groups and <strong>minimum and maximum scores.</strong> These are needed when reporting Mann-Whitney test results. b) Go to the <strong>Analyses -&gt; T-Tests -&gt; Independent T-Test</strong></p>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img4.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img4.png" class="img-fluid" width="600"></a></p>
 <ol start="3" type="a">
 <li>Enter the DV into the ‘Dependent Variables’ box. Enter the IV into the ‘Grouping Variable’ box.</li>
 <li>In the ‘Tests’ section, deselect ‘Student’s’ and select ‘Mann-Whitney U’.</li>
 <li>Check the box next to ‘Descriptives’ and ‘Effect Size’.</li>
 </ol>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img5.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img5.png" class="img-fluid" width="600"></a></p>
 <p>The Jamovi output should look like this: * The <strong>Independent Samples T-Test</strong> table shows the value of Mann-Whitney’s U to be 59.0. The rank biserial correlation provides a measure of effect size (rpb = .476). The p-value is .019. We conclude that there is a significant difference in familiarity ratings for pc compared to npc sentences. To check the direction of the difference and get some idea of this effect, we would examine the <strong>medians</strong> for these data. * The <strong>Group Descriptives</strong> table shows the number of participants in each group and presents the mean, median, standard deviation and standard error of the mean for each group. The mean scores for the groups are <strong>NOT</strong> reported. <strong>Report median scores instead.</strong></p>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img6.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img6.png" class="img-fluid" width="600"></a></p>
 </section>
 </section>
 <section id="comparing-2-related-groups-on-jamovi" class="level2 unnumbered">
@@ -501,20 +504,20 @@ ul.task-list li input[type="checkbox"] {
 <ol start="2" type="a">
 <li>Go to the <strong>Analyses</strong> tab. Select <strong>T-Tests.</strong> Select <strong>Paired Samples T Test</strong></li>
 </ol>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img7.png" class="img-fluid" width="600"></p>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img8.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img7.png" class="img-fluid" width="600"></a></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img8.png" class="img-fluid" width="600"></a></p>
 <ol start="3" type="a">
 <li>Move the first variable of the pair you wish to compare into the <strong>Paired Variables</strong> box.</li>
 <li>Repeat with the second variable.</li>
 <li>Make sure ‘Student’s’, ‘Mean Difference’, ‘Effect size’ and ‘Confidence interval’, and ‘Descriptives’ are checked.</li>
 <li>As the hypothesis is one-tailed we need to specify this in the <strong>Hypothesis</strong> section. As we think that scores for RMA will be lower than RMB we should check ‘Measure 1 &lt; Measure 2’ here.</li>
 </ol>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img9.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img9.png" class="img-fluid" width="600"></a></p>
 <p>The output of a paired samples t-test consists of two tables. * The <strong>Paired Samples T-Test</strong> table shows the <em>t</em>-value, the degrees of freedom (df), the p-value, the mean difference between conditions (condition entered first minus condition entered second), the standard error of the difference and effect size information. - When interpreting a one-sided t-test, consider the direction of the difference: is it in the predicted direction? We hypothesised that the RMB mark would be higher than the RMA mark. The direction of the difference suggests that this is the case: The mean difference (RMA mark minus RMB mark) was negative – i.e.&nbsp;RMB mark was higher on average than RMA mark.</p>
 <ul>
 <li>The <strong>Descriptives</strong> table provides the descriptive statistics for the two conditions: number of participants, means, medians, standard deviations, and standard error of the mean for each condition.</li>
 </ul>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img10.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img10.png" class="img-fluid" width="600"></a></p>
 </section>
 <section id="wilcoxon-test-non-parametric-on-jamovi" class="level3">
 <h3 class="anchored" data-anchor-id="wilcoxon-test-non-parametric-on-jamovi">4. Wilcoxon test (non-parametric) on Jamovi</h3>
@@ -533,13 +536,13 @@ ul.task-list li input[type="checkbox"] {
 <li>Select ‘Effect size’</li>
 <li>We have specified a one-way hypothesis that children will recognise more emotions that they express so we should check ‘Measure 1 &lt; Measure 2’.</li>
 </ol>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img11.png" class="img-fluid" width="600"></p>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img12.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img11.png" class="img-fluid" width="600"></a></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img12.png" class="img-fluid" width="600"></a></p>
 <p>The Jamovi output should look like this:</p>
 <ul>
 <li>The <strong>Paired Samples T-Test</strong> table shows the significance of the test. The <em>T</em>-score is under the heading ‘Statistic’. The rank biserial correlation provides a measure of effect size (<em>rpb</em> = -.783). The difference is significant, at <em>p</em> &lt; .001. We conclude that there is a significant difference between emotions expressed and emotions recognised with children recognising more emotions than they express.</li>
 </ul>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img13.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img13.png" class="img-fluid" width="600"></a></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -614,7 +617,7 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 <p><strong>Walk-Through Example 5 “The effect of priming on a categorization task”</strong> a) Download and open the <em>RMC_NM1_1way_between_ANOVA.sav</em> from the Canvas folder. b) Click on the <strong>“Data”</strong> tab and look at the values in the ‘priming’ and ‘RT’ column.</p>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img14.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img14.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img14.png" class="img-fluid" width="600"></a></p>
 <ol start="3" type="a">
 <li>Click <strong>Analyses -&gt; Exploration -&gt; Descriptives.</strong> In the dialog box, enter the DV into the <strong>‘Variables’</strong> box. Enter the IV into the <strong>‘Split by’</strong> box.</li>
 <li>Go to <strong>‘Plots’.</strong> Check <strong>‘Histograms’</strong> and <strong>‘Box plot’</strong> with <strong>‘Label outliers’.</strong></li>
@@ -635,28 +638,28 @@ ul.task-list li input[type="checkbox"] {
 <ol start="5" type="a">
 <li>Go to <strong>Analyses -&gt; ANOVA -&gt; ANOVA</strong></li>
 </ol>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img15.png" class="img-fluid" width="600"></p>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img16.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img15.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img15.png" class="img-fluid" width="600"></a></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img16.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img16.png" class="img-fluid" width="600"></a></p>
 <ol start="6" type="a">
 <li>In the dialog box, enter the DV into the <strong>‘Dependent Variables’</strong> box. Enter the IV in the <strong>‘Fixed Factors’</strong> box.</li>
 <li>Under <strong>Effect Size</strong> check the ‘partial η<sup>2</sup>’ box.</li>
 </ol>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img17.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img17.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img17.png" class="img-fluid" width="600"></a></p>
 <ol start="8" type="a">
 <li>Click on the <strong>‘Post Hoc Tests’</strong> menu. Add ‘priming’ to the right-side box. Select ‘Bonferroni’ under <strong>‘Correction’</strong> and check the ‘Cohen’s d’ box under <strong>Effect Size.</strong></li>
 </ol>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img18.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img18.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img18.png" class="img-fluid" width="600"></a></p>
 <ol type="i">
 <li>Click on the <strong>‘Estimated Marginal Means’</strong> menu. Add ‘priming’ to the ‘Term 1’ box. Select ‘Marginal means plots’ and ‘Marginal means tables’ under <strong>‘Output’</strong> and change the ‘Error bars’ drop down to ‘Standard Error’.</li>
 </ol>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img19.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img19.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img19.png" class="img-fluid" width="600"></a></p>
 </section>
 <section id="jamovi-output-one-way-anova-between-participants" class="level3">
 <h3 class="anchored" data-anchor-id="jamovi-output-one-way-anova-between-participants">Jamovi output: One-way ANOVA between-participants</h3>
 <ul>
 <li>The means and standard errors for each group can be found in this table (scroll down as this will be at the bottom). The standard deviations and number of participants in each group can be found in the descriptive exploration we did earlier.</li>
 </ul>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img20.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img20.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img20.png" class="img-fluid" width="600"></a></p>
 <p>From this table and the Descriptives table from performing the Exploration analysis answer the following questions:</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -687,7 +690,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>The ANOVA table shows if the mean differences between the levels/conditions of the IV are statistically significant.</li>
 </ul>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img21.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img21.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img21.png" class="img-fluid" width="600"></a></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -711,7 +714,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>The next table presents the post-hoc test and looks at the mean differences between conditions to determine which of these differences are statistically significant.</li>
 </ul>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img22.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img22.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img22.png" class="img-fluid" width="600"></a></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -737,7 +740,7 @@ ul.task-list li input[type="checkbox"] {
 <li>The final part of the output is a plot of the means which is a useful tool to understand the differences between groups. The white circles represent the mean and error bars represent whatever you have set them to (standard error of the mean in this case).</li>
 </ul>
 <p><strong>Figure 1</strong> <em>Mean Categorisation Times (ms) for the Surface, Deep and No-Prime Conditions</em></p>
-<p><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img23.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="../images/rmc-week-2_computer_practical/RMC-2025_week-2_computer-practical_img23.png" class="img-fluid" width="600"></a></p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1454,6 +1457,38 @@ window.onload = function() {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
