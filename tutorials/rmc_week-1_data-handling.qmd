@@ -1,11 +1,14 @@
 ---
 engine: knitr
+lightbox: true
 ---
 
 ```{r}
 #| echo: false
 library(webexercises)
 ```
+
+
 
 # Week 1 : Data Handling {.unnumbered}
 
