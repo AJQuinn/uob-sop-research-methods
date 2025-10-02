@@ -50,7 +50,7 @@ Today you will be re-familiarising yourself with the Jamovi interface and its la
 
 ![](../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img1.png){width="600px"}
 
-* The data files for use in the computer practicals are available on the RMC/NM1 Canvas ‘Course Pack’ module. In the text of these pages, the data files will be referred to by file name. You can open different types of data file directly in Jamovi (e.g. .sav or .csv). How to do this is described on pp. 9-10). 
+* The data files for use in the computer practicals are available on the RMC/NM1 Canvas ‘Course Pack’ module. In the text of these pages, the data files will be referred to by file name. You can open different types of data file directly in Jamovi (e.g. .sav or .csv). You can import files directly into Jamovi. There is more information in the [Jamovi Textbook](https://davidfoxcroft.github.io/lsj-book/03-Getting-started-with-jamovi.html#loading-data-in-jamovi) 
 
 ## 2. Data entry for within- and between-participants or mixed designs {.unnumbered}
 
