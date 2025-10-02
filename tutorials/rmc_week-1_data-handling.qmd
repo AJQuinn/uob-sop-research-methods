@@ -42,7 +42,7 @@ A guide to installing Jamovi on your personal computer can be found here (input 
 Today you will be re-familiarising yourself with the Jamovi interface and its layout / basic functions as well as learning how to set up data for different statistical designs. 
 :::
 
-## 1. Setting up data files and entering data {.unnumbered}
+## Setting up data files and entering data {.unnumbered}
 
 * Data are entered into Jamovi using a ‘spreadsheet’ format of rows and columns. When in the *Data* tab you can view the data. The **rows are cases** (i.e. participants – each participant gets their own row), the **columns are variables** (i.e. whatever was measured for each participant gets a column). In the *Variable* tab rows are the details for each variable (e.g. one row = one variable). 
 
@@ -52,20 +52,20 @@ Today you will be re-familiarising yourself with the Jamovi interface and its la
 
 * The data files for use in the computer practicals are available on the RMC/NM1 Canvas ‘Course Pack’ module. In the text of these pages, the data files will be referred to by file name. You can open different types of data file directly in Jamovi (e.g. .sav or .csv). You can import files directly into Jamovi. There is more information in the [Jamovi Textbook](https://davidfoxcroft.github.io/lsj-book/03-Getting-started-with-jamovi.html#loading-data-in-jamovi) 
 
-## 2. Data entry for within- and between-participants or mixed designs {.unnumbered}
+## 1. Data entry for within- and between-participants or mixed designs {.unnumbered}
 
 * In a **within-participants (or ‘repeated measures’)** design the dependent variable (DV) is measured more than once under different conditions or at different times. Therefore, one participant will have two or more scores (e.g. before and after an intervention). This means we need more than one column to record the relevant scores/measurements of the DV. 
-    + For example, in *Data* tab column 1 could be their participant number, column 2 could be their first score and column 3 could be their second score. In the *Variables* tab you would therefore need three rows to define these variables.
+    + For example, in the *Data* tab: column 1 could be their participant number, column 2 could be their first score and column 3 could be their second score. In the *Variables* tab you would therefore need three rows to define these variables.
     + Participants could provide more than two scores in a repeated measures design.
 
 * In a **between-participants design** each participant is assigned to a single condition or group. Scores/measurements from two different people can NEVER go in the same row because one row = one person. This means that to identify which condition or group a participant belongs to, we need to assign a label to that participant, which identifies them by their group membership. This is called a **grouping variable.** 
-    + For example, in the Data tab, the column 1 could be the participant number, column 2 could encode which group they were in (e.g. 1 = Experimental Condition OR 2 = Control Group) and column 3 could be their score. In this example, we would need to set up three variables in the Variable tab and for the second row (the group they were in) you would need to define the grouping variable so that you later know what the numbers refer to (e.g. 1 = experimental group, 2 = control group). You could add this information into the description of a variable in the Variables tab.
+    + For example, in the *Data* tab: column 1 could be the participant number, column 2 could encode which group they were in (e.g. 1 = Experimental Condition OR 2 = Control Group) and column 3 could be their score. In this example, we would need to set up three variables in the Variable tab and for the second row (the group they were in) you would need to define the grouping variable so that you later know what the numbers refer to (e.g. 1 = experimental group, 2 = control group). You could add this information into the description of a variable in the Variables tab.
     + Participants could be categorised as belonging to more than on group, e.g. they could be classified according to whether they are studying psychology or neuroscience AND whether they feel confident about using Jamovi or not.
 
 * In some studies, participants belonging to different groups provide more than one score each. Such designs are called *mixed* designs.
     + For example, we might wish to study if a particular intervention helps students feel more confident with their use of Jamovi. This study might record Jamovi-confidence before the intervention and after the intervention. But we might also want to compare the size of the impact of the intervention for students who started off with high confidence to those who started off with low confidence.
 
-## 3. Activity 1 {.unnumbered}
+### Activity 1 
 
 * Download and open *RMC_NM1 Wksh1_Activity1.sav* from the Canvas module for the Course Pack
 
@@ -121,15 +121,16 @@ Look at the description in the *Data* tab
 :::
 ::::
 
+### Understanding the data - visual inspection of the data 
 
-## 4. Activity 2 - Understanding the data {.unnumbered}
 Once the data are entered, we need to look at what they can tell us. Jamovi has several tools we can use to better understand the data.
-
-### Visual inspection of the data 
 
 * Before doing any statistical analysis, we can look at the data which gives us an idea of what we are dealing with: e.g. How many participants? How many variables? What is the range of scores? Are there any values that seem out of line with the rest?
 
 * When satisfied that the raw data look okay, we continue our inspection of the data by using descriptive statistics, such as frequency counts, and measures of central tendency (such as mean, median and mode) and measures of spread (such as range or standard deviation).
+
+
+### Activity 2 
 
 * Download and open the *RMC_NCM_example_output_Explore.sav* in Jamovi
 
@@ -163,11 +164,13 @@ One of the rows is blank and the other has 999 in grey inside it
 :::
 
 
-## 5. Activity 3a - Frequency counts {.unnumbered}
+## 2. Frequency counts {.unnumbered}
 
 * For nominal and ordinal data, the next step in getting to know the data is to determine the frequency counts for each possible score/value/option, i.e. how often each value occurs (e.g. the number of people who answered “yes” to the question “Did you take Psychology at A-Level?”). 
 
 * For example, in the dataset *RMC_NM1_example_output_Explore.sav*, the variable about whether or not a participant took Psychology ‘A’-Level can be examined using this method.
+
+### Activity 3a
 
 * Go to the *Analyses* menu and choose *Exploration*
 
@@ -209,13 +212,13 @@ The most common outcome was `r mcq(c(answer = "yes", "no"))` and this accounted 
 :::
 ::::
 
-### Crosstabs: looking at frequencies in combinations of groups 
+## 3. Crosstabs: looking at frequencies in combinations of groups {.unnumbered}
 
 * Sometimes we want to look at combinations of categories, e.g. how many people studied Psychology at ‘A’-level, how many studied Biology at ‘A’-level, how many studied both, and how many studied neither subject. 
 
 * For example, in the dataset *RMC_NM1_example_output_Crosstabs.sav*, the variable about whether or not a participant took Psychology ‘A’-Level and the variable about whether or not a participant took Biology ‘A’-level can be examined using this method.
 
-### Activity 3b 
+### Activity 3b
 
 * Using *RMC_NM1_example_output_Crosstabs.sav* in Jamovi:
 
@@ -252,8 +255,8 @@ The most common combination of subjects studied was `r mcq(c(answer = "psycholog
 :::
 ::::
 
+## 4. Exploring the data {.unnumbered}
 
-## 6. Activity 4 - Exploring the data 
 * Scale data (interval or ratio data) are not always suitable for analysis by frequency counts. Instead, we want to look at measures of central tendency (e.g. means) and measures of spread (e.g. standard deviation). A good way to examine scale data is to ‘explore’ them. 
 
 * The Exploration module in Jamovi gives a range of statistics including charts to help us see whether the data are normally distributed, whether there are any outliers, and also to get an idea of the spread of the data and their typical value. 
@@ -268,6 +271,8 @@ The most common combination of subjects studied was `r mcq(c(answer = "psycholog
     + The variance is homogeneous (similar) between different groups or conditions.
 
 * We always have to describe what the data are like in order to carry out a successful statistical analysis. Hence, we routinely report the means and standard deviations of scale data when we carry out statistical tests. (In RMC/NM1, this will be referred to as ‘reporting the descriptives’). 
+
+### Activity 4 
 
 * Using  *RMC_NM1_example_output_Explore.sav* in Jamovi:
 
@@ -379,7 +384,7 @@ Psychology A-level no: M = `r fitb(34.4)`, SD = `r fitb(20.4)`
 ![](../images/rmc-week-1_computer_practical/RMC-2025_week-1_computer-practical_img14.png){width="600px"}
 
 
-## 7. Activity 5 - Using Jamovi to prepare/transform data for analysis 
+## 5. Using Jamovi to prepare/transform data for analysis 
 
 * When we enter data from questionnaires or have raw data collected from programmes such as Qualtrics or Open Sesame, we often have to prepare the data before analysing it. We might need to: 
 
@@ -391,9 +396,11 @@ Psychology A-level no: M = `r fitb(34.4)`, SD = `r fitb(20.4)`
 
 * We can create these new ‘transformed’ or ‘computed’ variables using Jamovi.
 
-### Compute variable - calculate total scores for several related variables 
+### Compute variable - calculate total scores for several related variables {.unnumbered}
 
 This activity demonstrates how to calculate the total and mean scores for a set of variables using the **“compute”** function in Jamovi.
+
+### Activity 5
 
 * Using *RMC_NM1_datagen2.sav* in Jamovi
 
@@ -459,7 +466,8 @@ Using the skills from the 'Understanding the data' section, decide whether men o
 :::
 ::::
 
-## 8. Activity 6 - Calculate mean scores for several related variables 
+## 6. Calculate mean scores for several related variables {.unnumbered}
+### Activity 6
 
 * Using *RMC_NM1_datagen2.sav* in Jamovi, repeat the process with a new target variable name for the **mean score** variable.
 
@@ -503,7 +511,8 @@ The overall mean (grand mean) for the whole sample is `r fitb(3.6)` (rounded to 
 :::
 ::::
 
-## 9. Activity 7 - Calculate a difference between 2 scores from the same participant (change from baseline)
+## 7. Calculate a difference between 2 scores from the same participant (change from baseline) {.unnumbered}
+### Activity 7
 
 Using *RMC_NM1_Bloodsugar06-07_for_baseline_calc.sav* in Jamovi, calculate a new variable for the change in bloodsugar level from baseline (before) to after a drink has been consumed (after).
 
@@ -562,9 +571,11 @@ Group 2 drank `r mcq(c("glucose", answer = "saccharin"))` and their blood sugar 
 :::
 ::::
 
-## 10. Activity 8 - Recode into different variables to create categories from a continuous variable 
+## 8. Recode into different variables to create categories from a continuous variable {.unnumbered}
 
 Sometimes a continuous variable needs to be recoded to perform a particular analysis, e.g. if you wanted to turn a range of scores from 1 to 9 into three categories, ‘High’, ‘Middle’ and ‘Low’, this is what you need to do on Jamovi.
+
+### Activity 8
 
 Using *RMC_NM1_datagen3.sav* in Jamovi, recode the ‘which_row’ score into a ‘distance_category’ (near, mid, far).
 

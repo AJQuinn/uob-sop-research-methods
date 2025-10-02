@@ -33,3 +33,8 @@ Canvas should be used as your primary resource as it contains the complete overv
 
 
 ## Research Methods C
+
+-   [Week 1 : Data handling](tutorials/rmc_week-1_data-handling.qmd)
+-   [Week 2 : Review of inferential tests](tutorials/rmc_week-2_review-of-inferential-tests.qmd)
+-   [Week 3 : More ANOVAs with Jamovi](tutorials/rmc_week-3_more-anovas-with-jamovi.qmd)
+-   [Week 4 : Factorial ANOVA with Jamovi](tutorials/rmc_week-4_factorial-anova-with-jamovi.qmd)
