@@ -22,6 +22,10 @@ website:
     collapse-level: 1
     reader-mode: true
     contents:
+    - section: Support
+      contents:
+      - text: Getting Started with Jamovi
+        href: support/frequently-asked-questions.qmd
     - section: Research Methods A
       contents:
       - text: Week 8 - Introduction to Jamovi
@@ -66,7 +70,7 @@ website:
       contents:
       - text: Using Copilot at UoB
         href: support/copilot.qmd
-      - text: FAQs
+      - text: Getting Started with Jamovi
         href: support/frequently-asked-questions.qmd
       - text: Faculty
         href: support/faculty.qmd

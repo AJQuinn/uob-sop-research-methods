@@ -14,7 +14,7 @@ library(webexercises)
 
 This week will serve as a refresher on Jamovi. You will use Jamovi throughout your degree for statistical analysis, so it is very important to refresh your memory on this! 
 
-A guide to installing Jamovi on your personal computer can be found here (input link here)
+A guide to installing Jamovi on your personal computer can be found [here](../support/frequently-asked-questions.qmd) 
 
 ### Learning Objectives
 
@@ -29,11 +29,6 @@ A guide to installing Jamovi on your personal computer can be found here (input 
 |          | Working with the Jamovi editor   |
 |          | Setting up data files for between- and within-participants designs     |
 |          | Computing descriptive statistics in Jamovi                |
-
-|    ![](../images/logos/rm-logo_open-science.png){width=50px}      | Open Science                                               |
-|-----|:-------------------------------------------|
-|          | Working with openly available research data |
-
 
 
 ::: {.callout-note appearance="simple"}

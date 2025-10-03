@@ -1,4 +1,19 @@
-# Frequently Asked Questions {.unnumbered}
+# Getting started with Jamovi {.unnumbered}
+
+## Installing Jamovi on your personal computer
+Here are instructions and links about how to install Jamovi on your personal/home computer. It should already be installed in our computer rooms.
+
+1. Go to the [Jamovi website](https://www.jamovi.org/)
+
+2. Click on ‘Jamovi desktop’:
+
+![](../images/faqs/jamovi_desktop.png) 
+
+3. Click the relevant version recommended for your device (the version number may not exactly match the image as new versions are released regularly - but should still say recommended)
+
+![](../images/faqs/jamovi_version.png) 
+
+4. Download the file and follow the installation instructions depending on your device.
 
 
 ## I can’t find Jamovi/Rstudio on my campus computer. {.unnumbered}
