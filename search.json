@@ -638,7 +638,7 @@
     "text": "Here are instructions and links about how to install Jamovi on your personal/home computer. It should already be installed in our computer rooms.\n\nGo to the Jamovi website\nClick on ‘Jamovi desktop’:\n\n\n\nClick the relevant version recommended for your device (the version number may not exactly match the image as new versions are released regularly - but should still say recommended)\n\n\n\nDownload the file and follow the installation instructions depending on your device.\n\n\n\n\nFirst check the start menu, if you can find both Jamovi and Rstudio then just open both from there and get started. Any programme that is not in the start menu can be opened using AppsAnywhere. This is available in the start menu of every campus computer – general information about AppsAnywhere can be found on this IT services page\n\n\n\nThis should be available as an icon on the desktop, or from within the start menu. If not, they you can try the web interface - https://apps.bham.ac.uk/ . The website may ask you to confirm that AppsAnywhere is installed on your device – you can click ‘I have it already’ if using a campus computer.\n\n\n\nOnce you have access to AppsAnywhere, you may have to log-in using your UoB credentials. The homepage of AppsAnywhere contains a search bar and will look something like this:\n\nYou can search for Jamovi and Rstudio in the search bar and click ‘Launch’ to run them. If this is the first time you’re running the app it may take a few minutes to get started. This is as AppsAnywhere is downloading and installing the programme on your computer.\n\n\n\nAppyAnywhere needs to be able to link to your desktop computer to run properly, the validation process ensures that this is working properly. Normally all you need to do is click to start validation and answer ‘Open AppsAnywhere Launcher’ when prompted by the browser.",
     "crumbs": [
       "Home",
-      "Support",
+      "Getting Started with Jamovi",
       "Getting Started with Jamovi"
     ]
   },
@@ -650,7 +650,7 @@
     "text": "Here are instructions and links about how to install Jamovi on your personal/home computer. It should already be installed in our computer rooms.\n\nGo to the Jamovi website\nClick on ‘Jamovi desktop’:\n\n\n\nClick the relevant version recommended for your device (the version number may not exactly match the image as new versions are released regularly - but should still say recommended)\n\n\n\nDownload the file and follow the installation instructions depending on your device.",
     "crumbs": [
       "Home",
-      "Support",
+      "Getting Started with Jamovi",
       "Getting Started with Jamovi"
     ]
   },
@@ -662,7 +662,7 @@
     "text": "First check the start menu, if you can find both Jamovi and Rstudio then just open both from there and get started. Any programme that is not in the start menu can be opened using AppsAnywhere. This is available in the start menu of every campus computer – general information about AppsAnywhere can be found on this IT services page",
     "crumbs": [
       "Home",
-      "Support",
+      "Getting Started with Jamovi",
       "Getting Started with Jamovi"
     ]
   },
@@ -674,7 +674,7 @@
     "text": "This should be available as an icon on the desktop, or from within the start menu. If not, they you can try the web interface - https://apps.bham.ac.uk/ . The website may ask you to confirm that AppsAnywhere is installed on your device – you can click ‘I have it already’ if using a campus computer.",
     "crumbs": [
       "Home",
-      "Support",
+      "Getting Started with Jamovi",
       "Getting Started with Jamovi"
     ]
   },
@@ -686,7 +686,7 @@
     "text": "Once you have access to AppsAnywhere, you may have to log-in using your UoB credentials. The homepage of AppsAnywhere contains a search bar and will look something like this:\n\nYou can search for Jamovi and Rstudio in the search bar and click ‘Launch’ to run them. If this is the first time you’re running the app it may take a few minutes to get started. This is as AppsAnywhere is downloading and installing the programme on your computer.",
     "crumbs": [
       "Home",
-      "Support",
+      "Getting Started with Jamovi",
       "Getting Started with Jamovi"
     ]
   },
@@ -698,7 +698,7 @@
     "text": "AppyAnywhere needs to be able to link to your desktop computer to run properly, the validation process ensures that this is working properly. Normally all you need to do is click to start validation and answer ‘Open AppsAnywhere Launcher’ when prompted by the browser.",
     "crumbs": [
       "Home",
-      "Support",
+      "Getting Started with Jamovi",
       "Getting Started with Jamovi"
     ]
   },
