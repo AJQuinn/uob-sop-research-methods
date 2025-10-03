@@ -22,7 +22,7 @@ website:
     collapse-level: 1
     reader-mode: true
     contents:
-    - section: Support
+    - section: Getting Started with Jamovi
       contents:
       - text: Getting Started with Jamovi
         href: support/frequently-asked-questions.qmd
