@@ -148,7 +148,7 @@ Table 1
 |--------|--------| --------|--------|--------|--------|
 |  | Surface  |  Deep  | No-prime  |  |   |
 | Categorisation time  | `r fitb(1753)` (388)  |  1701 (384)   | 1751 (`r fitb(388)`)  |3.6*   | .03  |
-* p <0.05
+*p <0.05
 
 
 Using Bonferroni-corrected pairwise comparisons to carry out post-hoc analyses, none of the difference between the conditions were found to be significant. The difference between the surface priming and `r fitb("deep")` conditions (mean difference = `r fitb(52)` ms, p = `r fitb(.069)`) came closest to significance. The difference between `r fitb("deep")` and no priming (mean difference = 50ms, p = .077) also approached significance. There was no significant difference between surface and `r fitb("no prime")` conditions. These findings `r mcq(c("support", "partially support", answer = "do not support"))` the hypothesis.
@@ -167,7 +167,7 @@ Using Bonferroni-corrected pairwise comparisons to carry out post-hoc analyses, 
 
 * Most of the tests you have covered so far have a direct non-parametric equivalent. The table below shows how they map:
 
-| **Parametric Test** | **Non-Parametric Equivalent**]    | 
+| **Parametric Test** | **Non-Parametric Equivalent**    | 
 |---------------|---------------| 
 | Pearson's correlation* | Spearman's correlation*  
 | Independent samples t-test | Mann-Whitney | 
@@ -259,9 +259,9 @@ Table 1
 | Day      | Median look forward score | Paired comparison significance | | |   |
 |----------|---------------------------|---------|---------|----------|---------|
 |          |                           | Monday  | Tuesday | Thursday | Friday  |
-| Monday   | `r fitb(388)`             |    -    |    -    |    -     |    -    |
+| Monday   | `r fitb(c(3, '3.0'))`             |    -    |    -    |    -     |    -    |
 | Tuesday  |         3                 |*p* - .470|   -    |    -     |    -    |
-| Thursday | `r fitb(388)`             |*p* - .194|*p* - .045*|   -   |    -    |
+| Thursday | `r fitb(c(4, '4.0'))`             |*p* - .194|*p* - .045*|   -   |    -    |
 | Friday   |         3                 |*p* - .370|*p* - .978|*p* - .051|  -    |
 *p <0.05
 
@@ -351,7 +351,7 @@ Histograms for the three conditions were inspected separately. As the data were 
 
 ::: {.callout-note appearance="simple"}
 # NOTE
-Before you start the next questions, recode the marks data into a new grouping variable called “grade_class” so that participants are allocated to either first_class (70-100), upper_second (60-69) or lower_second_or_below (0-59) groups.
+Download and open the *RMC_NM1_SPSS_attitude.sav* dataset and answer the following questions. Before you start, recode the marks data into a new grouping variable called “grade_class” so that participants are allocated to either first_class (70-100), upper_second (60-69) or lower_second_or_below (0-59) groups.
 
 :::
 
