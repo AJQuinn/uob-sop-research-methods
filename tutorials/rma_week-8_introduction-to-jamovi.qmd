@@ -1,8 +1,13 @@
 # Week 8 : Introduction to Jamovi {.unnumbered}
+```{r}
+#| echo: false
+library(webexercises)
+```
+
 
 Welcome to this practical session! This week you will be introduced to Jamovi. You will use Jamovi throughout your degree for statistical analysis, so it is very important to get familiar with it! 
 
-JAMOVI has inbuilt functions which can be used to investigate and manipulate data, and to perform majority of statistical tests used in psychological research. Each task you perform in JAMOVI will generate an output which will support your research decisions, such as choosing a statistical test or deciding whether to reject a hypothesis.
+JAMOVI has inbuilt functions which can be used to investigate and manipulate data, and to perform the majority of statistical tests used in psychological research. Each task you perform in JAMOVI will generate an output which will support your research decisions, such as choosing a statistical test or deciding whether to reject a hypothesis.
 
 JAMOVI will already be on the computers on Campus but if you want to use it at home too you will need to download and install it on to your personal laptop or desktop PC. The software is free and we recommend that you install it at home because you will need to use it a lot over the next three years, including for many of your assignments. As you can see on the JAMOVI website, there are versions for WindowsOS, MacOS and ChromeOS:  <https://www.jamovi.org/download.html> 
  
@@ -100,32 +105,40 @@ Try changing the labels for gender from 0 and 1 to something meaningful.
 
 When you start to do things in JAMOVI another screen will also come up to the right of the data view. This is the Output screen which keeps track of what you are doing and all of your results. When you have undertaken some analysis you can click on the results from this screen and cut and paste them into your reports.
 
-## 5. How to save your work in Jamovi {.unnumbered}
 
-::: {.callout-note appearance="simple"}
-# Key step - Saving data in Jamovi
 
-In JAMOVI Click on the 3 horizontal lines in the top left corner to File > Save as.  
+## 5. Exercises
+Now it is time for you to explore the data. If you are unsure about any of these, please talk to the staff in your computer practical session.
 
-Give the file an appropriate name and click on ‘Browse’ to decide where you want to save it – then just click on ‘Save’
+:::: callout-tip
+## Check Your Understanding
 
-![](../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img7.png){width="600px"}
+::: panel-tabset
+## Question
+
+Looking at JAMOVI, what do each row and column represent? 
+
+Each row represents `r mcq(c(answer = 'one participants data', 'one variable', 'a level of a variable'))`.
+
+Each column represents `r mcq(c('one participants data', answer = 'one variable', 'a level of a variable'))`.
+
 :::
+::::
 
-## 6. Exercises
-Now it is time for you to explore the data. If you are unsure about any of these, please talk to the staff in your computer practical session. 
 
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - What do each row and column represent?
+:::: callout-tip
+## Check Your Understanding
 
-The rows represent participants and the columns represent the different variables 
+::: panel-tabset
+## Question
+
+How many variables are there in this data set? 
+
+There are `r fitb(8)` variables in the dataset. 
+
 :::
+::::
 
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - How many variables are there in this data set?
-
-There are 8 variables in this data set
-:::
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - What are the variables called?
@@ -133,54 +146,83 @@ There are 8 variables in this data set
 The variable are called gender, bdate, educ, jobcat, salary, salbegin, prevexp, minority
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - How many levels are there to each variable?
+:::: callout-tip
+## Check Your Understanding
 
-Gender: 2
-Educ: 
-Jobcat: 3
-Minority: 2
+::: panel-tabset
+## Question
+
+How many levels are there in each variable? 
+
+Gender: `r fitb(2)`.
+
+Jobcat: `r fitb(3)`.
+
+Minority: `r fitb(2)`.
 
 Only the variables that are categorical have levels as these are the only variables that represent groups. 
+
+## Hint
+
+Check how many values are specified for each variable. E.g. Gender in this example only has two levels, male and female (which are represented by 1s and 0s) – look at the other variables as well. It is actually bad practice by the researcher to only list two potential labels for gender identity. Our research should be inclusive; this question isn’t inclusive because it excludes anyone who does not identify with one of these labels. 
+
+When you come to do your own research, it is incredibly important that you design your study well before you collect any data. How you design your study will determine what analyses you can perform, what hypotheses you can test and what conclusions can be drawn. If you don’t design your study in a way which allows you to collect the data you need, you won’t be able to analyse it how you intended, test your hypotheses or accomplish your aims/objectives. Therefore, you need to get it right because you can’t change it afterwards.  
+
 :::
+::::
+
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Ethical Consideration - How could you ask a question about gender identity in a more inclusive way? 
 
-You could ask participants to state their gender without putting constraints on this. 
-You could ask what gender participants identify as
+You could ask participants to state their gender without putting multiple choice constraints on this. 
+
+You could ask what gender participants identify as. 
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - What type of variables (ordinal, scale (continuous), nominal) are there in the dataset?
 
-Gender: Nominal
+:::: callout-tip
+## Check Your Understanding
 
-Bdate: ID
+::: panel-tabset
+## Question
 
-Educ: Nominal
+What type of variables (ordinal, scale (continuous), nominal) are there in the dataset?
 
-Jobcat: Nominal
+Gender: `r mcq(c('ordinal', 'scale (continuous)', answer='nominal', 'ID'))`.
 
-Salary: Scale (continuous)
+Bdate: `r mcq(c('ordinal', 'scale (continuous)', 'nominal', answer='ID'))`.
 
-Salbegin: Scale (continuous)
+Educ: `r mcq(c('ordinal', 'scale (continuous)', answer='nominal', 'ID'))`.
 
-Prevexp: Scale (continuous)
+Jobcat: `r mcq(c('ordinal', 'scale (continuous)', answer ='nominal', 'ID'))`.
 
-Minority: Nominal
+Salary: `r mcq(c('ordinal', answer='scale (continuous)', 'nominal', 'ID'))`.
 
+Salbegin: `r mcq(c('ordinal', answer = 'scale (continuous)', 'nominal', 'ID'))`.
+
+Prevexp: `r mcq(c('ordinal', answer = 'scale (continuous)', 'nominal', 'ID'))`.
+
+Minority: `r mcq(c('ordinal', 'scale (continuous)', answer = 'nominal', 'ID'))`.
 
 :::
+::::
 
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - Your variables are not always imported as the correct variable type. In this case Bdate has been imported as ID which isn't one of our variable types. What should you change this to? 
 
-Nominal 
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Your variables are not always imported as the correct variable type. In this case Bdate has been imported as ID which isn't one of our variable types. What should you change this to? 
+
+Bdate: `r mcq(c('ordinal', 'scale (continuous)', answer ='nominal'))`.
 
 Please change this on your dataset.
 
 :::
+::::
 
 
 ::: {.callout-note appearance="simple"}
@@ -197,44 +239,94 @@ The variable gives us information about whether the participant is part of a min
 It isn't very useful without labels. 
 There is no information in the dataset that would allow us to discern what the numbers mean either. 
 
+Please add labels to your 'Minority' variable where 0 = Not a minority and 1 = Minority
 :::
 
-Please add labels to your 'Minority' variable where 0 = Not a minority and 1 = Minority
 
+
+## 6. Descriptive statistics exercises {.unnumbered}
 For the next few exercises you need to run some short analysis to get some descriptive statistics. Go to Analyse -> Exploration -> Descriptive statistics. Put Education and Job Category into the right-hand box.  See the results appear in the right-hand window.
 
 ![](../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img8.png){width="600px"}
 
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+What is the mean education?
+
+Mean educ: `r fitb(13.5)`.
+
+:::
+::::
 
 Now try putting gender in the 'split by' box and see what happens to the output
 
 ![](../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img10.png){width="600px"}
+
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+What is the mean education split by gender?
+
+Mean education men: `r fitb(12.4)`.
+
+Mean education women: `r fitb(14.4)`.
+
+:::
+::::
+
 
 Add labels to the variable JobCat where 1 = Manual, 2 = Office and 3 = Corporate. 
 Go to Analyse -> Exploration -> Descriptive statistics. Put Salary into the right-hand box and Press OK. Look at the output 
 
 ![](../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img11.png){width="600px"}
 
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - What is the mean salary?
-
-34420
-:::
 
 Now do the same again but split by JobCat.
+
 
 ![](../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img12.png){width="600px"}
 
 
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - What are the mean salaries for each group?
+:::: callout-tip
+## Check Your Understanding
 
-Group 1: 27839
-Group 2: 30939
-Group 3: 63978
+::: panel-tabset
+## Question
+
+What are the mean salaries for each group?
+
+Group 1: `r fitb(27839)`.
+
+Group 2: `r fitb(30939)`.
+
+Group 3: `r fitb(63978)`.
+
 :::
+::::
 
 
 On the same screen click 'plot' and then tick the box for histogram and bar plot. You'll see the graphs appear in the screen to the right. Have a play around with the different options and see what you can produce. 
 
 ![](../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img13.png){width="600px"}
+
+
+
+## 7. How to save your work in Jamovi {.unnumbered}
+
+::: {.callout-note appearance="simple"}
+# Key step - Saving data in Jamovi
+
+In JAMOVI Click on the 3 horizontal lines in the top left corner to File > Save as.  
+
+Give the file an appropriate name and click on ‘Browse’ to decide where you want to save it – then just click on ‘Save’
+
+![](../images/rma-2025_week-8_computer-practical/RMA-2025_week-8_computer-practical_img7.png){width="600px"}
+:::
