@@ -322,11 +322,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#week-9-correlations-graphs-and-exporting" id="toc-week-9-correlations-graphs-and-exporting" class="nav-link active" data-scroll-target="#week-9-correlations-graphs-and-exporting">Week 9 : Correlations, graphs and exporting</a>
   <ul class="collapse">
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing">Hypothesis Testing</a></li>
   <li><a href="#one--and-two-tailed-tests" id="toc-one--and-two-tailed-tests" class="nav-link" data-scroll-target="#one--and-two-tailed-tests">One- and two-tailed tests</a></li>
   <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">1. The Dataset</a></li>
   <li><a href="#pearsons-correlation-coefficent" id="toc-pearsons-correlation-coefficent" class="nav-link" data-scroll-target="#pearsons-correlation-coefficent">2. Pearson’s Correlation Coefficent</a></li>
-  <li><a href="#jamovi-basics" id="toc-jamovi-basics" class="nav-link" data-scroll-target="#jamovi-basics">3. Jamovi Basics</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">4. Exercises</a>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">3. Exercises</a>
   <ul class="collapse">
   <li><a href="#task-1" id="toc-task-1" class="nav-link" data-scroll-target="#task-1">Task 1</a></li>
   <li><a href="#task-1---results" id="toc-task-1---results" class="nav-link" data-scroll-target="#task-1---results">Task 1 - Results</a></li>
@@ -334,6 +334,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#task-2---create-a-graphical-representation-in-jamovi" id="toc-task-2---create-a-graphical-representation-in-jamovi" class="nav-link" data-scroll-target="#task-2---create-a-graphical-representation-in-jamovi">Task 2 - Create a graphical representation in Jamovi</a></li>
   <li><a href="#task-3---histograms" id="toc-task-3---histograms" class="nav-link" data-scroll-target="#task-3---histograms">Task 3 - Histograms</a></li>
   <li><a href="#task-4---copypaste-jamovi-results-into-other-applications" id="toc-task-4---copypaste-jamovi-results-into-other-applications" class="nav-link" data-scroll-target="#task-4---copypaste-jamovi-results-into-other-applications">Task 4 - Copy/paste Jamovi results into other applications</a></li>
+  <li><a href="#task-5---consolidate-your-knowledge-descriptive-statistics" id="toc-task-5---consolidate-your-knowledge-descriptive-statistics" class="nav-link" data-scroll-target="#task-5---consolidate-your-knowledge-descriptive-statistics">Task 5 - Consolidate your knowledge: Descriptive Statistics</a></li>
+  <li><a href="#task-6---consolidate-your-knowledge-analysis-practice" id="toc-task-6---consolidate-your-knowledge-analysis-practice" class="nav-link" data-scroll-target="#task-6---consolidate-your-knowledge-analysis-practice">Task 6 - Consolidate your knowledge: Analysis Practice!</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -444,24 +446,27 @@ ul.task-list li input[type="checkbox"] {
 <p>Today you will be using Jamovi to perform a correlational analysis.</p>
 </div>
 </div>
-<p>When we want to test a research hypothesis, we obtain random samples of behaviour/data. We set up a null hypothesis H0: that the samples were drawn from populations with the same means (so that there will be no difference between them). We then obtain some samples and calculate the differences between the means of these samples, under the assumption that H0 is true (i.e.&nbsp;we obtained these means when the population means are equal).</p>
+</section>
+<section id="hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis Testing</h2>
+<p>When we want to test a research hypothesis, we obtain random samples of behaviour/data. We set up a <strong>null hypothesis H<sub>0</sub>:</strong> that the samples were drawn from populations with the <strong>same means</strong> (so that there will be no difference between them). We then obtain some samples and calculate the differences between the means of these samples, under the assumption that H0 is true (i.e.&nbsp;we obtained these means when the population means are equal).</p>
 <ul>
-<li>EXAMPLE: We want to test whether students drink more than the general population. To do this we collect data on the number of drinks per person in a club in one night, for two groups: students and general population. We then calculate the differences in the mean number of drinks for each of our groups. We assume that these means will be equal (null hypothesis). We are looking to disprove this hypothesis by finding differences in the means.</li>
+<li><strong>EXAMPLE:</strong> We want to test whether students drink more than the general population. To do this we collect data on the number of drinks per person in a club in one night, for two groups: students and general population. We then calculate the differences in the mean number of drinks for each of our groups. We assume that these means will be equal (null hypothesis). We are looking to disprove this hypothesis by finding differences in the means.</li>
 </ul>
-<p>We then calculate the probability of getting a mean difference that is at least as large as the one we actually obtained between the means of our samples. This probability is our confidence interval. With a t-test, for example, we usually aim to say that we are 95% confident that our data were drawn from two populations with different means (i.e.&nbsp;there is a significant difference between the populations). To do this, we use the critical value – usually p&lt;0.05. In this case, we are saying that the probability that we would obtain the significant difference in data that we did would occur less than 5% or 5 in 100 times, if the null were true! That’s a very small chance. We can also use smaller, stricter p values like p&lt;0.01 (we would see the differences we found less than 1% of the time, if the null were true).</p>
+<p>We then calculate the <strong>probability</strong> of getting a mean difference that is <em>at least as large</em> as the one we actually obtained between the means of our samples. This probability is our <strong>confidence interval</strong>. With a t-test, for example, we usually aim to say that we are <strong>95% confident</strong> that our data were drawn from two populations with different means (i.e.&nbsp;there is a significant difference between the populations). To do this, we use the <strong>critical value</strong> – usually <strong>p&lt;0.05</strong>. In this case, we are saying that the probability that we would obtain the significant difference in data that we did would occur less than 5% or 5 in 100 times, if the null were true! That’s a very small chance. We can also use smaller, stricter p values like p&lt;0.01 (we would see the differences we found less than 1% of the time, if the null were true).</p>
 <ul>
-<li>EXAMPLE: We calculate the differences in the mean number of drinks for our student and general population groups. We find that students drink on average 2.5 more drinks than the general population, and that this difference is significant. We use a critical value of 5% and a confidence interval of 95% (these add up to 100%). That is, we can say that we are 95% confident that our data were drawn from two populations that actually have different means, and this conclusion will only be a mistake (due to chance) 5% of the time.</li>
+<li><strong>EXAMPLE:</strong> We calculate the differences in the mean number of drinks for our student and general population groups. We find that students drink on average 2.5 more drinks than the general population, and that this difference is significant. We use a critical value of 5% and a confidence interval of 95% (these add up to 100%). That is, we can say that we are 95% confident that our data were drawn from two populations that actually have different means, and this conclusion will only be a mistake (due to chance) 5% of the time.</li>
 </ul>
 <p>If the data do not lead us to reject the null hypothesis, the interpretation is more problematic – do we “accept” the null, or “retain” it, or just withhold judgement”?</p>
 <ul>
-<li>We can definitely never claim to have “proved” the null hypothesis (as you cannot 100% prove a null statement)! A non-significant result is an inconclusive one – we have insufficient data to choose which hypothesis (null or alternative) is the most accurate.</li>
+<li>We can definitely <strong><em>never</em></strong> claim to have “proved” the null hypothesis (as you cannot 100% prove a null statement)! A non-significant result is an inconclusive one – we have insufficient data to choose which hypothesis (null or alternative) is the most accurate.</li>
 </ul>
 </section>
 <section id="one--and-two-tailed-tests" class="level2">
 <h2 class="anchored" data-anchor-id="one--and-two-tailed-tests">One- and two-tailed tests</h2>
 <ul>
-<li><p>If we are going to reject either the lowest or highest 5%, then we use a one-tailed (or directional) test</p></li>
-<li><p>If we want to conduct a two-tailed, non-directional test of significance, then to use an overall critical value of 5% we need to reject both the lowest and highest 2.5%, making 5% altogether</p></li>
+<li><p>If we are going to reject <em>either</em> the lowest or highest 5%, then we use a one-tailed (or directional) test</p></li>
+<li><p>If we want to conduct a two-tailed, non-directional test of significance, then to use an overall critical value of 5% we need to reject <em>both</em> the lowest and highest 2.5%, making 5% altogether</p></li>
 <li><p>If you are certain of the direction of your effect, you can use a one-tailed test – but generally, we use two-tailed tests (as it’s rare that we know what direction our effect will be in!)</p></li>
 </ul>
 </section>
@@ -474,13 +479,13 @@ ul.task-list li input[type="checkbox"] {
 <li>Ice_Cream - number of ice creams sold</li>
 <li>Temp - temperature</li>
 <li>Motivation</li>
-<li>Stress</li>
+<li>Stress - measured at two time points</li>
 </ul>
-<p>There are 20 days where these two variables were recorded. These are represented by the rows in the ‘data view’. We will correlate the variables ‘Temp’ and ‘Ice_Cream’</p>
 </section>
 <section id="pearsons-correlation-coefficent" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="pearsons-correlation-coefficent">2. Pearson’s Correlation Coefficent</h2>
 <p>The Pearson’s Product Moment correlation is a parametric test that measures the size and significance of a relationship between two variables. In this test, the experimental data must meet certain assumptions of parametric tests. Some of these assumptions include data continuity and a normal distribution. We will discuss how to assess whether the distribution is normal in the next semester. For now, let’s assume it is normal.</p>
+<p>We will correlate the variables ‘Temp’ (temperature) and ‘Ice_Cream’ (number of ice creams sold). There are 20 days where the two variables were recorded. These are represented by the rows in the ‘data view’.</p>
 <div class="callout callout-style-simple callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -493,15 +498,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="callout-body-container callout-body">
 <p>We’ll be working with Jamovi throughout this practical.</p>
 <p><strong>Working on campus?</strong> You can open Jamovi through AppsAnywhere, either open the desktop application through the start menu on a campus computer or <a href="https://apps.bham.ac.uk/">Birmingham’s AppsAnywhere website</a>.</p>
-<p>Take a look at these <a href="frequently-asked-questions.qmd">frequently asked questions</a> or ask your tutor if you get stuck.</p>
+<p>Take a look at these <a href="../support/frequently-asked-questions.html">frequently asked questions</a> or ask your tutor if you get stuck.</p>
 <p><strong>Working on your own computer?</strong> You can <a href="https://www.jamovi.org/">install Jamovi (for free!) folling these instructions</a>. Install the ‘Desktop’ application - not the ‘Cloud’ version.</p>
 </div>
 </div>
-</section>
-<section id="jamovi-basics" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="jamovi-basics">3. Jamovi Basics</h2>
-<p>The instructions for installing and licensing JAMOVI on your personal computer are available above. To access JAMOVI once installed or when using Campus computers you will be able to find it in the start menu at the bottom left corner of your desktop (sometimes this will be in another location on your personal laptop or personal desktop PC – you know your device best!)</p>
-<p>Once open, you will see the following screen. Note that if you are working with a later version of JAMOVI, the screen may look a little different e.g.&nbsp;in version ‘2.3.28 solid’ there is a tab called “Variables” before “Data” at the top of the screen. As researchers we work with statistical software which updates occasionally. Most of the changes are often cosmetic but sometimes options and functions move or are improved. You should be prepared to familiarise yourself with the changes each time they happen and JAMOVI update their user guides regularly to account for updates.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -516,8 +516,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">4. Exercises</h2>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">3. Exercises</h2>
 <p>Now it is time for you to explore the data. If you are unsure about any of these, please talk to the staff in your computer practical session.</p>
 <section id="task-1" class="level3">
 <h3 class="anchored" data-anchor-id="task-1">Task 1</h3>
@@ -548,7 +548,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>Use the correlation output to complete this statement reporting the results of the correlation. Fill in the spaces provided.</p>
-<p>The correlation between temperature and the number of ice cream sold over 20 days is <select class="webex-select"><option value="blank"></option><option value="">not significant</option><option value="answer">strongly significant</option></select> (<em>r</em> (<input class="webex-solveme nospaces" size="2" data-answer="[&quot;18&quot;]">) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.893&quot;,&quot;.893&quot;]">, <em>p</em> &lt; <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.001&quot;,&quot;.001&quot;]">). There were <input class="webex-solveme nospaces" size="2" data-answer="[&quot;20&quot;]"> observations.</p>
+<p>The correlation between temperature and the number of ice cream sold over 20 days is <select class="webex-select"><option value="blank"></option><option value="">not significant</option><option value="answer">significant</option></select> (<em>r</em> (<input class="webex-solveme nospaces" size="2" data-answer="[&quot;18&quot;]">) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.893&quot;,&quot;.893&quot;]">, <em>p</em> &lt; <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.001&quot;,&quot;.001&quot;]">). There were <input class="webex-solveme nospaces" size="2" data-answer="[&quot;20&quot;]"> observations.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>The correlation matrix…</p>
@@ -659,8 +659,9 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>More information about APA formatting can be found <a href="https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_tables_and_figures.html">here</a></p>
 </section>
-<section id="consolidate-your-knowledge-descriptive-statistics" class="level4">
-<h4 class="anchored" data-anchor-id="consolidate-your-knowledge-descriptive-statistics">Consolidate your knowledge: Descriptive Statistics</h4>
+</section>
+<section id="task-5---consolidate-your-knowledge-descriptive-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="task-5---consolidate-your-knowledge-descriptive-statistics">Task 5 - Consolidate your knowledge: Descriptive Statistics</h3>
 <ul>
 <li><p>Download and open the JAMOVI data file <em>stroke_survival_data</em> that you can find on Canvas. We want to generate some descriptive statistics on this dataset. This is a real dataset from several hospitals.</p></li>
 <li><p>Firstly, make sure all the variables are set at the right measurement level</p>
@@ -670,8 +671,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Click on each individual variable name on the data to check the details.</li>
 </ul></li>
 <li><p>From the ‘Analysis’ tab click on ‘Exploration’ and then ‘Descriptives’ and then</p></li>
-<li><p>Choose two Continuous variables to explore. These will be your Variable Names in the table below. For example, if you chose age in years as a scale variable this would be entered where it says Variable 1 (both times).</p></li>
-<li><p>Split your output by the two categorical variables of your choice. These categorical variables will provide your Factors in the table below. For example and gender was one of your two categorical variables you would list factor 1 as men and factor 2 as women and then report the data for men and the data for women.</p>
+<li><p>Fill out the tables in the question box below. You will take two continuous variables and two categorical variables at a time and run some descriptive statistics.</p>
 <ul>
 <li>HINT: Enter a nominal variable into the “Split by” box. This will split your output by the categories within these variables</li>
 </ul></li>
@@ -689,67 +689,142 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Question</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Continuous: age and income; Categorical: active and diabetes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Continuous: Age and cost; Categorical: smoker and obesity</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>Using the results you just generated, fill out the following table:</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 20%">
+<col style="width: 37%">
+<col style="width: 21%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Variable Name</th>
 <th>Factors</th>
 <th>Number of data points (N)</th>
-<th>Mean (M or x)</th>
+<th>Mean (M or x̅)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Variable 1</td>
-<td>Factor 1</td>
-<td>N</td>
-<td>M or x</td>
+<td>Age (years)</td>
+<td>Male</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;1203&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;62.1&quot;]"></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>Factor 2</td>
-<td>N</td>
-<td>M or x</td>
+<td>Female</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;1218&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;61.7&quot;]"></td>
 </tr>
 <tr class="odd">
-<td>Variable 1</td>
-<td>Factor 1</td>
-<td>N</td>
-<td>M or x</td>
+<td>Age (years)</td>
+<td>Diabetic</td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;168&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="2" data-answer="[&quot;64&quot;]"></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>Factor 2</td>
-<td>N</td>
-<td>M or x</td>
+<td>Non-diabetic</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;2253&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;61.7&quot;]"></td>
 </tr>
 <tr class="odd">
-<td>Variable 2</td>
-<td>Factor 1</td>
-<td>N</td>
-<td>M or x</td>
+<td>Income</td>
+<td>Male</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;1203&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="2" data-answer="[&quot;69&quot;]"></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>Factor 2</td>
-<td>N</td>
-<td>M or x</td>
+<td>Female</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;1218&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="2" data-answer="[&quot;71&quot;]"></td>
 </tr>
 <tr class="odd">
-<td>Variable 2</td>
-<td>Factor 1</td>
-<td>N</td>
-<td>M or x</td>
+<td>Income</td>
+<td>Diabetic</td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;168&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;70.2&quot;]"></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>Factor 2</td>
-<td>N</td>
-<td>M or x</td>
+<td>Non-diabetic</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;2253&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="2" data-answer="[&quot;70&quot;]"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Using the results you just generated, fill out the following table:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 20%">
+<col style="width: 37%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Factors</th>
+<th>Number of data points (N)</th>
+<th>Mean (M or x̅)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Age (years)</td>
+<td>Smoker</td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;479&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;62.2&quot;]"></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Non-smoker</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;1942&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;61.8&quot;]"></td>
+</tr>
+<tr class="odd">
+<td>Age (years)</td>
+<td>Obese</td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;560&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;63.1&quot;]"></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Not obese</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;1861&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;61.5&quot;]"></td>
+</tr>
+<tr class="odd">
+<td>Cost</td>
+<td>Smoker</td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;479&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;45.6&quot;]"></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Non-smoker</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;1942&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;39.5&quot;]"></td>
+</tr>
+<tr class="odd">
+<td>Cost</td>
+<td>Obese</td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;560&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;42.5&quot;]"></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Not obese</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;1861&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;40.1&quot;]"></td>
 </tr>
 </tbody>
 </table>
@@ -759,8 +834,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="consolidate-your-knowledge-analysis-practice" class="level4">
-<h4 class="anchored" data-anchor-id="consolidate-your-knowledge-analysis-practice">Consolidate your knowledge: Analysis Practice!</h4>
+<section id="task-6---consolidate-your-knowledge-analysis-practice" class="level3">
+<h3 class="anchored" data-anchor-id="task-6---consolidate-your-knowledge-analysis-practice">Task 6 - Consolidate your knowledge: Analysis Practice!</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -775,7 +850,7 @@ ul.task-list li input[type="checkbox"] {
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Hint</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<p>Correlate three variables of your choice. In the text box below write out: * Why are you correlating these variables? Why is this relationship interesting? Justify your analysis. * What do the results tell you? Write out and interpret the results. <input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
+<p>Correlate the variables Correlate three variables of your choice. In the text box below write out: * Why are you correlating these variables? Why is this relationship interesting? Justify your analysis. * What do the results tell you? Write out and interpret the results. <input type="text" id="answer-box" name="answer" style="width: 500px;"></p>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <p>Here’s the start of how to report correlations (see last week for more information): <img src="../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img8.png" class="img-fluid" width="600"></p>
@@ -794,7 +869,6 @@ ul.task-list li input[type="checkbox"] {
 <li>Now explore the data using Descriptives and Correlations. Choose some variables that you find interesting, and generate Descriptives and Correlations. What do your results show you? What do they mean?</li>
 </ul>
 <p>Write your results here. <input type="text" id="answer-box" name="answer" style="width: 600px;"></p>
-</section>
 <section id="reorganise-the-data-into-a-new-jamovi-sheet" class="level4">
 <h4 class="anchored" data-anchor-id="reorganise-the-data-into-a-new-jamovi-sheet">Reorganise the data into a new Jamovi sheet</h4>
 <p>Now we will re-organise the data into a new JAMOVI sheet so we can compare scores at a later date based on a categorical variable of your choice.</p>
