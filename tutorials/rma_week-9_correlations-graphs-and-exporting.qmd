@@ -273,30 +273,79 @@ Using the results you just generated, fill out the following table:
 
 ### Task 6 - Consolidate your knowledge: Analysis Practice! 
 
+* Run correlations between age and income; income and cost; and age and cost
+
 :::: callout-tip
 ## Check Your Understanding
 
 ::: panel-tabset
-## Question
+## Correlation: Age and income
 
-Correlate the variables 
-Correlate three variables of your choice. In the text box below write out: \* Why are you correlating these variables? Why is this relationship interesting? Justify your analysis. \* What do the results tell you? Write out and interpret the results. <input type="text" id="answer-box" name="answer" style="width: 500px;">
+The correlation between age and income is `r mcq(c(answer = "not significant", "significant"))` (*r* (`r fitb(2419)`) = `r fitb(-0.021)`, *p* = `r fitb(0.308)`). There were `r fitb(2421)` observations.
 
-## Hint
+## Correlation: Income and cost
 
-Here’s the start of how to report correlations (see last week for more information): ![](../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img8.png){width="600px"}
+The correlation between income and cost is `r mcq(c(answer = "not significant", "significant"))` (*r* (`r fitb(2419)`) = `r fitb(0.015)`, *p* = `r fitb(0.462)`). There were `r fitb(2421)` observations.
+
+## Correlation: Age and cost
+
+The correlation between age and cost is `r mcq(c("not significant", answer = "significant"))` (*r* (`r fitb(2419)`) = `r fitb(0.203)`, *p* \< `r fitb(.001)`). There were `r fitb(2421)` observations.
+
 :::
 ::::
 
-* Open the survey_data file. This is a real dataset from a psychological study.
-* Look over the dataset. What has been recorded? What is the dataset exploring?
-* Split your dataset by one variable of your choice.
-    + HINT: Use the “Split By” function.
-* Now explore the data using Descriptives and Correlations. Choose some variables that you find interesting, and generate Descriptives and Correlations. What do your results show you? What do they mean?
+### Task 7 - Consolidate your knowledge: More Analysis Practice! 
 
-Write your results here. <input type="text" id="answer-box" name="answer" style="width: 600px;">
+* Open the *survey_data* file. This is a real dataset from a psychological study.
 
-#### Reorganise the data into a new Jamovi sheet
+* Look over the dataset. Try to work out what has been recorded. What is the dataset exploring?
+
+* Explore the variables 'toptim' and 'tlifesat' using Descriptives, split by both the sex and smoke variable, and fill out the information below. 
+
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Continuous: toptim and tlifesat; Categorical: sex and smoke
+
+Using the results you just generated, fill out the following table:
+
+| Variable Name | Factors      | Number of data points (N)| Mean (M or x̅) |
+|---------------|--------------|--------------------------|---------------|
+| toptim        | Male         | `r fitb(184)`            |`r fitb(22.0)` |
+|               | Female       | `r fitb(251)`            |`r fitb(22.2)` |
+| toptim        | Smoker       | `r fitb(85)`             |`r fitb(21.5)` |
+|               | Non-smoker   | `r fitb(347)`            |`r fitb(22.3)` |
+| tlifesat      | Male         | `r fitb(185)`            |`r fitb(21.7)` |
+|               | Female       | `r fitb(251)`            |`r fitb(22.9)` |
+| tlifesat      | Smoker       | `r fitb(85)`             |`r fitb(21.6)` |
+|               | Non-smoker   | `r fitb(348)`            |`r fitb(22.6)` |
+
+:::
+::::
+
+* Now run a correlation bewteen 'toptim' and 'tlifesat'. Report your results in the question box below. 
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Correlation: toptim and tlifesat
+
+The correlation between optimism and life satisfaction is `r mcq(c("not significant", answer = "significant"))` (*r* (`r fitb(433)`) = `r fitb(0.483)`, *p* < `r fitb(0.001)`). There were `r fitb(435)` observations.
+
+## Results interpretation
+
+The results indicate a `r mcq(c(answer = "positive", "negative"))` correlation between optimism and life satisfaction. This means that as optimism `r mcq(c(answer = "increases", "decreases"))`, life satisfaction `r mcq(c(answer = "increases", "decreases"))`.
+
+:::
+::::
+
+* Explore the rest of the data using descriptives and correlations. This time you can use variables of your choice. Choose some variables that you find interesting and think about what your results show you. What interpretations can you make from your results? 
+
+
+### Task 8 - Reorganise the data into a new Jamovi sheet
 
 Now we will re-organise the data into a new JAMOVI sheet so we can compare scores at a later date based on a categorical variable of your choice.
 
