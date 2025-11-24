@@ -49,7 +49,7 @@ Today you will just be familiarising yourself with the Chi-Squared test of diffe
     + Your data is not normally distributed
 :::
 
-## How to perform a chi-square in Jamovi
+## 1. How to perform a chi-square in Jamovi {.unnumbered}
 ### Worked example- are males more likely to smoke than females?
 The table underneath contains information about smoking status distributed by gender. This information can be entered in to Jamovi providing that appropriate variables are constructed. In this example there are three variables, namely ‘smoking status’, ‘gender’, and ‘frequency’. In Point 2 illustrates these variables in Jamovi ‘Variable view’. Point 3 illustrates these variables and the associated data in Jamovi ‘Data view’
 
@@ -101,7 +101,8 @@ The table underneath contains information about smoking status distributed by ge
 
 ![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img10.png){width="600px"}
 
-### How to report these results in APA format
+## 2. How to report these results in APA format {.unnumbered}
+
 A Pearson Chi-Square was used to identify whether gender influenced smoking frequency.  Results of the chi-square showed no significant difference in smoking frequency between genders (χ² (1) = .742, p = .389).
 
 ::: {.callout-note appearance="simple"}
@@ -110,7 +111,7 @@ A Pearson Chi-Square was used to identify whether gender influenced smoking freq
 You can find the χ symbol on word by going to Insert > Symbol. You might need to look under More Symbols if you haven’t used this symbol before.
 :::
 
-## Exercises
+## 3. Exercise 1 {.unnumbered}
 A chi-square analysis was carried out to investigate the relationship between gender and smoking frequency, the Jamovi output showing the results of the analysis is shown below.
 
 ![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img11.png){width="600px"}
@@ -135,13 +136,6 @@ What are the observed frequencies for males and females who did and did not smok
 | Female           | `r fitb(12)`     | `r fitb(140)`    |
 
 
-
-## Solution
-
-|                  | Did smoke        | Did not smoke    |
-|------------------|------------------|------------------|
-| Male             | `50`             | `128`            |
-| Female           | `12`             | `140`            |
 :::
 ::::
 
@@ -153,21 +147,11 @@ What are the observed frequencies for males and females who did and did not smok
 
 How would you report the results of the chi-square analysis in APA format?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+A Pearson Chi-Square was used to identify whether `r mcq(c(answer = "gender", "smoking", "exercise"))` influenced `r mcq(c("obestiy", answer = "smoking", "exercise"))` frequency. Results of the chi-square `r mcq(c(answer = "showed a significant difference", "did not show a signficant difference"))` in smoking frequency between genders (*χ²* (`r fitb(1)`) = `r fitb(21.9)`, *p* `r mcq(c(" = .652", answer = "< .001", "= .036"))`.
 
-
-
-## Solution
-
-A Pearson Chi-Square was used to identify whether gender influenced smoking frequency.  Results of the chi-square showed a significant difference in smoking frequency between genders (χ² (1) = 21.9, p < .001).
 :::
 ::::
 
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - Are the results of the chi-square significant?
-
-Yes p < 0.05
-:::
 
 :::: callout-tip
 ## Check Your Understanding
@@ -177,17 +161,20 @@ Yes p < 0.05
 
 What do these results show?
 
-<input type="text" id="answer-box" name="answer" style="width: 500px;">
+As the results were `r mcq(c(answer = "statistically significant", "not significant"))`, there `r mcq(c(answer = "is an", "is no"))` association between `r mcq(c("obestiy", answer = "smoking", "exercise"))` frequency and `r mcq(c(answer = "gender", "smoking", "exercise"))`, with `r mcq(c(answer = "males", "females"))` being more likely to be a smoker than `r mcq(c("males", answer = "females"))`. 
 
-## Hint
-
-Think about the question we were trying to answer and what the results actually mean in real terms. Is there a difference between the groups? If there is, which group has a higher frequency of smokers?
-
-## Solution
-
-As the results were statistically significant, there is an association between smoking frequency and gender, with males being more likely to be a smoker than women.
 :::
 ::::
+
+## 4. Exercise 2 {.unnumbered}
+
+The table underneath shows how often men and women play football. Enter this data into Jamovi following the same format as in the previous example.
+
+
+|                  | Play football    | Do not play football|
+|------------------|------------------|---------------------|
+| Male             | `60`             | `70`                |
+| Female           | `45`             | `80`                |
 
 :::: callout-tip
 ## Check Your Understanding
@@ -195,18 +182,17 @@ As the results were statistically significant, there is an association between s
 ::: panel-tabset
 ## Question
 
-The table underneath shows how often men and women play football. Enter this data into Jamovi following the same format as in the previous example.
+Run the chi-square and report the results 
 
-a. What are the results of the chi-square?
+A Pearson Chi-Square was used to identify whether there was an association between gender and whether or not you play football. Results of the chi-square `r mcq(c("showed a significant association", answer = "did not show a signficant association"))` between gender and whether or not you play football (*χ²* (`r fitb(1)`) = `r fitb(2.71)`, *p* `r mcq(c(" < .001", answer = "= .100", "= .076"))`.
 
-b. Are the results significant?
 
-c. What do the results mean and what can you conclude?
+## Results interpretation
 
-|                  | Play football    | Do not play football|
-|------------------|------------------|---------------------|
-| Male             | `60`             | `70`                |
-| Female           | `45`             | `80`                |
+What do the results mean and what can you conclude?
+
+The results mean that there is `r mcq(c(answer = "no significant association", "a signficant association"))` between gender and whether or not you play football. Men are `r mcq(c("significantly", answer = "not signficantly"))` more likely to play football than women. 
+
 
 ## Hint
 
@@ -214,13 +200,6 @@ Take a look at the Jamovi output
 
 ![](../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img12.png){width="600px"}
 
-## Solution
-
-a. χ² (1) = 2.71, p = .100
-
-b. No
-
-c. The results of the chi-square show no significant association between gender and whether or not you play football.  Neither gender is significantly more likely to play football.
 
 :::
 ::::
