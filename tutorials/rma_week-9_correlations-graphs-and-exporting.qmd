@@ -40,23 +40,25 @@ library(webexercises)
 Today you will be using Jamovi to perform a correlational analysis.
 :::
 
-When we want to test a research hypothesis, we obtain random samples of behaviour/data. We set up a null hypothesis H0: that the samples were drawn from populations with the same means (so that there will be no difference between them). We then obtain some samples and calculate the differences between the means of these samples, under the assumption that H0 is true (i.e. we obtained these means when the population means are equal).
+## Hypothesis Testing
 
-* EXAMPLE: We want to test whether students drink more than the general population. To do this we collect data on the number of drinks per person in a club in one night, for two groups: students and general population. We then calculate the differences in the mean number of drinks for each of our groups. We assume that these means will be equal (null hypothesis). We are looking to disprove this hypothesis by finding differences in the means.
+When we want to test a research hypothesis, we obtain random samples of behaviour/data. We set up a **null hypothesis H~0~:** that the samples were drawn from populations with the **same means** (so that there will be no difference between them). We then obtain some samples and calculate the differences between the means of these samples, under the assumption that H0 is true (i.e. we obtained these means when the population means are equal).
 
-We then calculate the probability of getting a mean difference that is at least as large as the one we actually obtained between the means of our samples. This probability is our confidence interval. With a t-test, for example, we usually aim to say that we are 95% confident that our data were drawn from two populations with different means (i.e. there is a significant difference between the populations). To do this, we use the critical value – usually p\<0.05. In this case, we are saying that the probability that we would obtain the significant difference in data that we did would occur less than 5% or 5 in 100 times, if the null were true! That’s a very small chance. We can also use smaller, stricter p values like p\<0.01 (we would see the differences we found less than 1% of the time, if the null were true).
+* **EXAMPLE:** We want to test whether students drink more than the general population. To do this we collect data on the number of drinks per person in a club in one night, for two groups: students and general population. We then calculate the differences in the mean number of drinks for each of our groups. We assume that these means will be equal (null hypothesis). We are looking to disprove this hypothesis by finding differences in the means.
 
-* EXAMPLE: We calculate the differences in the mean number of drinks for our student and general population groups. We find that students drink on average 2.5 more drinks than the general population, and that this difference is significant. We use a critical value of 5% and a confidence interval of 95% (these add up to 100%). That is, we can say that we are 95% confident that our data were drawn from two populations that actually have different means, and this conclusion will only be a mistake (due to chance) 5% of the time.
+We then calculate the **probability** of getting a mean difference that is *at least as large* as the one we actually obtained between the means of our samples. This probability is our **confidence interval**. With a t-test, for example, we usually aim to say that we are **95% confident** that our data were drawn from two populations with different means (i.e. there is a significant difference between the populations). To do this, we use the **critical value** – usually **p<0.05**. In this case, we are saying that the probability that we would obtain the significant difference in data that we did would occur less than 5% or 5 in 100 times, if the null were true! That’s a very small chance. We can also use smaller, stricter p values like p\<0.01 (we would see the differences we found less than 1% of the time, if the null were true).
+
+* **EXAMPLE:** We calculate the differences in the mean number of drinks for our student and general population groups. We find that students drink on average 2.5 more drinks than the general population, and that this difference is significant. We use a critical value of 5% and a confidence interval of 95% (these add up to 100%). That is, we can say that we are 95% confident that our data were drawn from two populations that actually have different means, and this conclusion will only be a mistake (due to chance) 5% of the time.
 
 If the data do not lead us to reject the null hypothesis, the interpretation is more problematic – do we “accept” the null, or “retain” it, or just withhold judgement”?
 
-* We can definitely never claim to have “proved” the null hypothesis (as you cannot 100% prove a null statement)! A non-significant result is an inconclusive one – we have insufficient data to choose which hypothesis (null or alternative) is the most accurate.
+* We can definitely ***never*** claim to have “proved” the null hypothesis (as you cannot 100% prove a null statement)! A non-significant result is an inconclusive one – we have insufficient data to choose which hypothesis (null or alternative) is the most accurate.
 
 ## One- and two-tailed tests
 
-* If we are going to reject either the lowest or highest 5%, then we use a one-tailed (or directional) test
+* If we are going to reject *either* the lowest or highest 5%, then we use a one-tailed (or directional) test
 
-* If we want to conduct a two-tailed, non-directional test of significance, then to use an overall critical value of 5% we need to reject both the lowest and highest 2.5%, making 5% altogether
+* If we want to conduct a two-tailed, non-directional test of significance, then to use an overall critical value of 5% we need to reject *both* the lowest and highest 2.5%, making 5% altogether
 
 * If you are certain of the direction of your effect, you can use a one-tailed test – but generally, we use two-tailed tests (as it’s rare that we know what direction our effect will be in!)
 
@@ -70,13 +72,14 @@ There are **five** variables in the dataset
 * Ice_Cream - number of ice creams sold
 * Temp - temperature
 * Motivation
-* Stress
+* Stress - measured at two time points
 
-There are 20 days where these two variables were recorded. These are represented by the rows in the 'data view'. We will correlate the variables 'Temp' and 'Ice_Cream'
 
 ## 2. Pearson's Correlation Coefficent {.unnumbered}
 
 The Pearson’s Product Moment correlation is a parametric test that measures the size and significance of a relationship between two variables. In this test, the experimental data must meet certain assumptions of parametric tests. Some of these assumptions include data continuity and a normal distribution. We will discuss how to assess whether the distribution is normal in the next semester. For now, let’s assume it is normal.
+
+ We will correlate the variables 'Temp' (temperature) and 'Ice_Cream' (number of ice creams sold). There are 20 days where the two variables were recorded. These are represented by the rows in the 'data view'.
 
 ::: {.callout-warning appearance="simple"}
 # Opening Jamovi
@@ -85,16 +88,11 @@ We'll be working with Jamovi throughout this practical.
 
 **Working on campus?** You can open Jamovi through AppsAnywhere, either open the desktop application through the start menu on a campus computer or [Birmingham's AppsAnywhere website](https://apps.bham.ac.uk/).
 
-Take a look at these [frequently asked questions](frequently-asked-questions.qmd) or ask your tutor if you get stuck.
+Take a look at these [frequently asked questions](../support/frequently-asked-questions.qmd) or ask your tutor if you get stuck.
 
 **Working on your own computer?** You can [install Jamovi (for free!) folling these instructions](https://www.jamovi.org/). Install the 'Desktop' application - not the 'Cloud' version.
 :::
 
-## 3. Jamovi Basics {.unnumbered}
-
-The instructions for installing and licensing JAMOVI on your personal computer are available above. To access JAMOVI once installed or when using Campus computers you will be able to find it in the start menu at the bottom left corner of your desktop (sometimes this will be in another location on your personal laptop or personal desktop PC – you know your device best!)
-
-Once open, you will see the following screen. Note that if you are working with a later version of JAMOVI, the screen may look a little different e.g. in version ‘2.3.28 solid’ there is a tab called “Variables” before “Data” at the top of the screen. As researchers we work with statistical software which updates occasionally. Most of the changes are often cosmetic but sometimes options and functions move or are improved. You should be prepared to familiarise yourself with the changes each time they happen and JAMOVI update their user guides regularly to account for updates.
 
 ::: {.callout-note appearance="simple"}
 # Key step
@@ -102,7 +100,7 @@ Once open, you will see the following screen. Note that if you are working with 
 Let's start by loading the dataset into Jamovi. You can download the file `Correlation_data.xlsx` from canvas.
 :::
 
-## 4. Exercises
+## 3. Exercises {.unnumbered}
 
 Now it is time for you to explore the data. If you are unsure about any of these, please talk to the staff in your computer practical session.
 
@@ -128,7 +126,7 @@ Now it is time for you to explore the data. If you are unsure about any of these
 
 Use the correlation output to complete this statement reporting the results of the correlation. Fill in the spaces provided.
 
-The correlation between temperature and the number of ice cream sold over 20 days is `r mcq(c("not significant", answer = "strongly significant"))` (*r* (`r fitb(18)`) = `r fitb(.893)`, *p* \< `r fitb(.001)`). There were `r fitb(20)` observations.
+The correlation between temperature and the number of ice cream sold over 20 days is `r mcq(c("not significant", answer = "significant"))` (*r* (`r fitb(18)`) = `r fitb(.893)`, *p* \< `r fitb(.001)`). There were `r fitb(20)` observations.
 
 ## Hint
 
@@ -215,7 +213,7 @@ It is also never enough to just say ‘see table 1’. You have to interpret wha
 
 More information about APA formatting can be found [here](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_tables_and_figures.html)
 
-#### Consolidate your knowledge: Descriptive Statistics
+### Task 5 - Consolidate your knowledge: Descriptive Statistics
 
 * Download and open the JAMOVI data file *stroke_survival_data* that you can find on Canvas. We want to generate some descriptive statistics on this dataset. This is a real dataset from several hospitals.
 
@@ -227,9 +225,7 @@ More information about APA formatting can be found [here](https://owl.purdue.edu
 
 * From the ‘Analysis’ tab click on ‘Exploration’ and then ‘Descriptives’ and then
 
-* Choose two Continuous variables to explore. These will be your Variable Names in the table below. For example, if you chose age in years as a scale variable this would be entered where it says Variable 1 (both times).
-
-* Split your output by the two categorical variables of your choice. These categorical variables will provide your Factors in the table below. For example and gender was one of your two categorical variables you would list factor 1 as men and factor 2 as women and then report the data for men and the data for women.
+* Fill out the tables in the question box below. You will take two continuous variables and two categorical variables at a time and run some descriptive statistics. 
 
     + HINT: Enter a nominal variable into the “Split by” box. This will split your output by the categories within these variables
 
@@ -241,24 +237,41 @@ More information about APA formatting can be found [here](https://owl.purdue.edu
 ## Check Your Understanding
 
 ::: panel-tabset
-## Question
+## Continuous: age and income; Categorical: active and diabetes
 
 Using the results you just generated, fill out the following table:
 
-| Variable Name | Factors  | Number of data points (N) | Mean (M or x) |
-|---------------|----------|---------------------------|---------------|
-| Variable 1    | Factor 1 | N                         | M or x        |
-|               | Factor 2 | N                         | M or x        |
-| Variable 1    | Factor 1 | N                         | M or x        |
-|               | Factor 2 | N                         | M or x        |
-| Variable 2    | Factor 1 | N                         | M or x        |
-|               | Factor 2 | N                         | M or x        |
-| Variable 2    | Factor 1 | N                         | M or x        |
-|               | Factor 2 | N                         | M or x        |
+| Variable Name | Factors      | Number of data points (N)| Mean (M or x̅) |
+|---------------|--------------|--------------------------|---------------|
+| Age (years)   | Male         | `r fitb(1203)`           |`r fitb(62.1)` |
+|               | Female       | `r fitb(1218)`           |`r fitb(61.7)` |
+| Age (years)   | Diabetic     | `r fitb(168)`            |`r fitb(64.0)` |
+|               | Non-diabetic | `r fitb(2253)`           |`r fitb(61.7)` |
+| Income        | Male         | `r fitb(1203)`           |`r fitb(69.0)` |
+|               | Female       | `r fitb(1218)`           |`r fitb(71.0)` |
+| Income        | Diabetic     | `r fitb(168)`            |`r fitb(70.2)` |
+|               | Non-diabetic | `r fitb(2253)`           |`r fitb(70.0)` |
+
+
+## Continuous: Age and cost; Categorical: smoker and obesity
+
+Using the results you just generated, fill out the following table:
+
+| Variable Name | Factors      | Number of data points (N)| Mean (M or x̅) |
+|---------------|--------------|--------------------------|---------------|
+| Age (years)   | Smoker       | `r fitb(479)`            |`r fitb(62.2)` |
+|               | Non-smoker   | `r fitb(1942)`           |`r fitb(61.8)` |
+| Age (years)   | Obese        | `r fitb(560)`            |`r fitb(63.1)` |
+|               | Not obese    | `r fitb(1861)`           |`r fitb(61.5)` |
+| Cost          | Smoker       | `r fitb(479)`            |`r fitb(45.6)` |
+|               | Non-smoker   | `r fitb(1942)`           |`r fitb(39.5)` |
+| Cost          | Obese        | `r fitb(560)`            |`r fitb(42.5)` |
+|               | Not obese    | `r fitb(1861)`           |`r fitb(40.1)` |
 :::
 ::::
 
-#### Consolidate your knowledge: Analysis Practice!
+
+### Task 6 - Consolidate your knowledge: Analysis Practice! 
 
 :::: callout-tip
 ## Check Your Understanding
@@ -266,6 +279,7 @@ Using the results you just generated, fill out the following table:
 ::: panel-tabset
 ## Question
 
+Correlate the variables 
 Correlate three variables of your choice. In the text box below write out: \* Why are you correlating these variables? Why is this relationship interesting? Justify your analysis. \* What do the results tell you? Write out and interpret the results. <input type="text" id="answer-box" name="answer" style="width: 500px;">
 
 ## Hint
