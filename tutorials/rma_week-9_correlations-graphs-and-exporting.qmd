@@ -273,12 +273,27 @@ Using the results you just generated, fill out the following table:
 
 ### Task 6 - Consolidate your knowledge: Analysis Practice! 
 
-* Run correlations between age and income; income and cost; and age and cost
+* There are multiple variables in the data set. Which variables would be suitable for correlational analysis?
 
-:::: callout-tip
+:::: {.callout-tip}
 ## Check Your Understanding
 
-::: panel-tabset
+::: panel-tabset 
+## Which variables? 
+
+The stroke dataset has `r mcq(c("1", "2", answer = "3"))` pairs of variables which are suitable for correlational analysis. 
+
+These variables are `r mcq(c("age and smoking; age and cost; cost and smoking", answer = "age and cost; age and income; income and cost", "patid and age; patid and active; age and active"))`
+
+:::
+::::
+
+* **Only once you have completed the above**, expand the following question! 
+
+:::: {.callout-tip icon="false" collapse="true"}
+## Check Your Understanding
+
+::: panel-tabset 
 ## Correlation: Age and income
 
 The correlation between age and income is `r mcq(c(answer = "not significant", "significant"))` (*r* (`r fitb(2419)`) = `r fitb(-0.021)`, *p* = `r fitb(0.308)`). There were `r fitb(2421)` observations.
@@ -349,12 +364,50 @@ The results indicate a `r mcq(c(answer = "positive", "negative"))` correlation b
 
 Now we will re-organise the data into a new JAMOVI sheet so we can compare scores at a later date based on a categorical variable of your choice.
 
-* Choose a categorical variable that you are interested in
-    + E.g. You might want to know, is there a difference in optimism scores (scale) between smokers and non-smokers (categorical)?
-* Sort the dataset by this variable
-    + HINT: Use the “Split By” function to compare groups. Your data will now be organised by this categorical variable.
-* Choose three non-categorical variables of interest. Copy all of the data from each one of these variable columns for ONE of your categories (e.g. female) into the new spreadsheet.
-    + E.g. if you’re interested in optimism scores, copy the data for optimism in females into a new variable column
-    + Give your new variables appropriate names, e.g. if you copied the “Total Optimism” scores for females, rename the variable “Tot_Opt_F”, for example
-    + Repeat for your other category/categories (e.g. copy all the male data, and rename the variables)
-* Now you have re-organised your data…
+* For example, we might want to know if the correlation between optimism scores and age is different for males and females (categorical)
+
+* To do this we need to split the dataset into the categories of our categorical variable; in this case males and females. 
+    + HINT: We are going to filter the dataset, this will be covered further in RMB but the steps will be listed here for you to follow
+
+* Click filters in the data tab and type sex == 1 in the box. This will give you the data for the male participants. Ensure that you click the eye icon. This ensures that you only copy the filtered data. 
+
+![](../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img8.png){width="600px"}
+
+* Copy the data in the age column for the male participants and open a new Jamovi sheet.
+
+![](../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img9.png){width="400px"}
+
+* Paste the age data for the male participants into the first column in your new Jamovi sheet. Double click the variable name to open the variable editor and change the name to something that makes sense, this example uses 'age_male'. 
+
+![](../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img10.png){width="600px"}
+
+* Go back to your original Jamovi sheet and reopen the filter. Change the code to sex == 2. This will give you the female data. 
+
+![](../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img11.png){width="600px"}
+
+* Copy the female age data over to your new Jamovi sheet and change the variable name to something sensible like 'age_female'. 
+
+![](../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img12.png){width="600px"}
+
+* Repeat the steps to get the optimism data for males and females. 
+
+![](../images/rma-2025_week-9_computer-practical/RMA-2025_week-9_computer-practical_img13.png){width="600px"}
+
+* Now you have re-organised your data you can run the correlation
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Correlation: optimism and age - male
+
+The correlation between optimism and age for males is `r mcq(c(answer = "not significant", "significant"))` (*r* (`r fitb(182)`) = `r fitb(0.094)`, *p* = `r fitb(0.203)`). There were `r fitb(184)` observations.
+
+## Correlation: optimism and age - female
+
+The correlation between optimism and age for females is `r mcq(c("not significant", answer = "significant"))` (*r* (`r fitb(249)`) = `r fitb(0.259)`, *p* < `r fitb(0.001)`). There were `r fitb(251)` observations.
+
+:::
+::::
+
+* Now you know how to filter your data and run correlations. Spend the rest of the session exploring the other variables in the dataset. 
