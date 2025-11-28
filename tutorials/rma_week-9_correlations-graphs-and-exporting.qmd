@@ -237,7 +237,7 @@ More information about APA formatting can be found [here](https://owl.purdue.edu
 ## Check Your Understanding
 
 ::: panel-tabset
-## Continuous: age and income; Categorical: active and diabetes
+## Continuous: age and income; Categorical: sex and diabetes
 
 Using the results you just generated, fill out the following table:
 
