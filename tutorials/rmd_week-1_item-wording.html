@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../tutorials/rmd_week-2_item-analysis.html" rel="next">
+<link href="../tutorials/rmc_week-4_factorial-anova-with-jamovi.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -106,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmd_week-1_item-wording.html">Research Methods D</a></li><li class="breadcrumb-item"><a href="../tutorials/rmd_week-1_item-wording.html">Week 1 - Item Wording</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -280,13 +282,42 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
- <span class="menu-text">Support</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Research Methods D</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmd_week-1_item-wording.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 1 - Item Wording</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmd_week-2_item-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2 - Item Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmd_week-3_factor-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - Factor Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Support</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../support/copilot.html" class="sidebar-item-text sidebar-link">
@@ -317,20 +348,150 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#week-1-item-wording-and-partial-correlation" id="toc-week-1-item-wording-and-partial-correlation" class="nav-link active" data-scroll-target="#week-1-item-wording-and-partial-correlation">Week 1 : Item Wording and Partial Correlation</a></li>
+  <li><a href="#week-1-item-wordingvetting-and-partial-correlation" id="toc-week-1-item-wordingvetting-and-partial-correlation" class="nav-link active" data-scroll-target="#week-1-item-wordingvetting-and-partial-correlation">Week 1 : Item Wording/Vetting and Partial Correlation</a>
+  <ul class="collapse">
+  <li><a href="#item-wording" id="toc-item-wording" class="nav-link" data-scroll-target="#item-wording">Item Wording</a></li>
+  <li><a href="#jamovi-tasks-correlation" id="toc-jamovi-tasks-correlation" class="nav-link" data-scroll-target="#jamovi-tasks-correlation">Jamovi Tasks : Correlation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmd_week-1_item-wording.html">Research Methods D</a></li><li class="breadcrumb-item"><a href="../tutorials/rmd_week-1_item-wording.html">Week 1 - Item Wording</a></li></ol></nav></header>
 
 
 
 
-<section id="week-1-item-wording-and-partial-correlation" class="level1 unnumbered">
-<h1 class="unnumbered">Week 1 : Item Wording and Partial Correlation</h1>
+<section id="week-1-item-wordingvetting-and-partial-correlation" class="level1 unnumbered">
+<h1 class="unnumbered">Week 1 : Item Wording/Vetting and Partial Correlation</h1>
+<p>##&nbsp;Learning Objectives</p>
+<p>When you have completed this workshop, you should be able to:</p>
+<ol type="1">
+<li>Understand the need for careful wording in questionnaire design, distinguishing between different question features that must be considered.</li>
+<li>Distinguish between well-worded and poorly-worded items.</li>
+<li>Create a scatter plot in Jamovi to observe and describe relationships between variables.</li>
+<li>Create a scatter plot in Jamovi to observe and describe the relationship between two variables when data are grouped by a third variable.</li>
+<li>Conduct bivariate correlation between pairs of variables in Jamovi, interpret the output and write-up the findings.</li>
+<li>Conduct partial correlations between two variables in Jamovi, interpret the output and write-up the findings.</li>
+<li>Examine correlational data using scatter plots to make decisions about how to test the relationship between variables.</li>
+</ol>
+<section id="item-wording" class="level2">
+<h2 class="anchored" data-anchor-id="item-wording">Item Wording</h2>
+<p>Here is a list of things to bear in mind when writing questionnaire items. Read through and make sure you understand each potential limitation and how to avoid them</p>
+<p>Things to bear in mind: Explanation :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Things to bear in mind:</th>
+<th>Explanation:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Use simple language</td>
+<td>Avoid jargon, complicated language or technical terms, keep it simple so anyone can understand</td>
+</tr>
+<tr class="even">
+<td>Keep questions short</td>
+<td>Long questions confuse/bore participants, keep questions as short as possible</td>
+</tr>
+<tr class="odd">
+<td>Avoid double barrelled questions</td>
+<td>Asking two things in one question confuses participants and produces meaningless data. If you want to ask two things, split in to two questions</td>
+</tr>
+<tr class="even">
+<td>Avoid leading questions</td>
+<td>We want to know what our participants think and feel, we do not want our own thoughts reflected back at us because we have led participants. Don’t imply one answer is ‘right/better’</td>
+</tr>
+<tr class="odd">
+<td>Avoid double negatives</td>
+<td>“I never was, nor neither will be…” Double negatives are confusing and confusion leads to meaningless data. Consider wording carefully.</td>
+</tr>
+<tr class="even">
+<td>Is the respondent likely to know the answer?</td>
+<td>If the question is knowledge-based, participants should be able to answer. Keep in mind what your participants can be reasonably expected to know based on who they are.</td>
+</tr>
+<tr class="odd">
+<td>Are the meanings of words clear</td>
+<td>Some words have more than one meaning, so you need to make sure that meaning is clear. For example, a bat can mean a flying mammal, a cricket bat, to hit something away etc.</td>
+</tr>
+<tr class="even">
+<td>Avoid ‘prestige bias’</td>
+<td>The perceived prestige of a person, brand, job etc can influence how we respond to questions about them. Avoid implying that something or someone is superior if you want to obtain genuine responses</td>
+</tr>
+<tr class="odd">
+<td>Avoid ‘conformity bias’ and social desirability</td>
+<td>We often conform to behaviours we think are most common or most desirable but this might not be a true reflection of what participants actually do. Emphasise the importance of understanding their normal behaviour/attitudes, not what they think they should be doing/thinking</td>
+</tr>
+<tr class="even">
+<td>Avoid ambiguity</td>
+<td>Just like words can have more than one meaning, questions can often be interpreted several different ways. Make sure your question is clear and participants know what they should be doing</td>
+</tr>
+<tr class="odd">
+<td>Is the context clear?</td>
+<td>Words and questions can have different meanings in different contexts, it should be clear which context you are asking about</td>
+</tr>
+<tr class="even">
+<td>Avoid questions that create opinions</td>
+<td>Questionnaires should be designed in a way to explore what participants think and feel, we should not be trying to change how they think or feel (interventions for behaviour change come after understanding)</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Item Vetting Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Hint</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Look at the list of questions/items below that were designed to explore life as a student. A participant would respond with their level of agreement to the items below using a 7-point Likert scale ranging from ‘strongly agree’ to ‘strongly disagree’. Read through the items and see if you think any should be removed or re-written. Make a list of alterations (15 min)</p>
+<ol type="1">
+<li>I carefully considered other options before choosing to come to university.</li>
+<li>By working diligently, students earn the minimal funding they receive.</li>
+<li>It is not the case that students are not as well off as they used to be.</li>
+<li>Like successful graduates, I believe students should pay for their own education.</li>
+<li>Radical politicians should be allowed to cut student incomes to poverty levels.</li>
+<li>University will provide me with either a wider view of life or a new path in life’s big journey.</li>
+<li>One hundred pounds is a good amount.</li>
+<li>University life is providing me with new opportunities.</li>
+<li>My degree is the most important area of my life.</li>
+<li>Indolent student politicians are responsible for decimating maintenance grants.</li>
+<li>I balance my studying and socialising well.</li>
+<li>I make an important contribution to the University community.</li>
+<li>After getting my degree I will have a better chance in the British or international job market.</li>
+<li>It is an honest person that believes all education should be free</li>
+<li>Free education is an important cornerstone to our society.</li>
+<li>I believe that students should receive more financial support.</li>
+<li>Questionnaires about student opinions are a waste of time.</li>
+<li>When I started at University I believed I would ultimately improve my quality of life by undertaking further education.</li>
+</ol>
+<p>If you are not sure about any of these you can ask staff in your workshop, but ultimately you will need to make the decision because you need to be able to defend the methodological and statistical choices you make.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Review the table of things to bear in mind and consider whether they apply to each of the questions in the list.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p> </p>
+</section>
+<section id="jamovi-tasks-correlation" class="level2">
+<h2 class="anchored" data-anchor-id="jamovi-tasks-correlation">Jamovi Tasks : Correlation</h2>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -940,6 +1101,18 @@ window.onload = function() {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../tutorials/rmc_week-4_factorial-anova-with-jamovi.html" class="pagination-link" aria-label="Week 4 - Factorial ANOVA with Jamovi">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 4 - Factorial ANOVA with Jamovi</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../tutorials/rmd_week-2_item-analysis.html" class="pagination-link" aria-label="Week 2 - Item Analysis">
+        <span class="nav-page-text">Week 2 - Item Analysis</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
