@@ -9,7 +9,83 @@ library(webexercises)
 ```
 
 
-# Week 1 : Item Wording and Partial Correlation {.unnumbered}
+# Week 1 : Item Wording/Vetting and Partial Correlation {.unnumbered}
 
+
+## Learning Objectives
+
+When you have completed this workshop, you should be able to:
+
+1.	Understand the need for careful wording in questionnaire design, distinguishing between different question features that must be considered.
+2.	Distinguish between well-worded and poorly-worded items.
+3.	Create a scatter plot in Jamovi to observe and describe relationships between variables.
+4.	Create a scatter plot in Jamovi to observe and describe the relationship between two variables when data are grouped by a third variable.
+5.	Conduct bivariate correlation between pairs of variables in Jamovi, interpret the output and write-up the findings.
+6.	Conduct partial correlations between two variables in Jamovi, interpret the output and write-up the findings.
+7.	Examine correlational data using scatter plots to make decisions about how to test the relationship between variables.
+
+
+## Item Wording
+
+Here is a list of things to bear in mind when writing questionnaire items. Read through and make sure you understand each potential limitation and how to avoid them
+
+Things to bear in mind:	Explanation :
+
+
+
+| Things to bear in mind: | Explanation: |
+|---|---|
+| Use simple language | Avoid jargon, complicated language or technical terms, keep it simple so anyone can understand  |
+| Keep questions short | Long questions confuse/bore participants, keep questions as short as possible |
+| Avoid double barrelled questions | Asking two things in one question confuses participants and produces meaningless data. If you want to ask two things, split in to two questions |
+| Avoid leading questions | We want to know what our participants think and feel, we do not want our own thoughts reflected back at us because we have led participants. Don’t imply one answer is ‘right/better’ |
+| Avoid double negatives | “I never was, nor neither will be…” Double negatives are confusing and confusion leads to meaningless data. Consider wording carefully. |
+| Is the respondent likely to know the answer? | If the question is knowledge-based, participants should be able to answer. Keep in mind what your participants can be reasonably expected to know based on who they are. |
+| Are the meanings of words clear | Some words have more than one meaning, so you need to make sure that meaning is clear. For example, a bat can mean a flying mammal, a cricket bat, to hit something away etc. |
+| Avoid ‘prestige bias’ | The perceived prestige of a person, brand, job etc can influence how we respond to questions about them. Avoid implying that something or someone is superior if you want to obtain genuine responses  |
+| Avoid ‘conformity bias’ and social desirability | We often conform to behaviours we think are most common or most desirable but this might not be a true reflection of what participants actually do. Emphasise the importance of understanding their normal behaviour/attitudes, not what they think they should be doing/thinking |
+| Avoid ambiguity | Just like words can have more than one meaning, questions can often be interpreted several different ways. Make sure your question is clear and participants know what they should be doing |
+| Is the context clear? | Words and questions can have different meanings in different contexts, it should be clear which context you are asking about |
+| Avoid questions that create opinions | Questionnaires should be designed in a way to explore what participants think and feel, we should not be trying to change how they think or feel (interventions for behaviour change come after understanding) |
+
+
+:::: callout-tip
+## Item Vetting Task
+
+::: panel-tabset
+## Question
+
+Look at the list of questions/items below that were designed to explore life as a student. A participant would respond with their level of agreement to the items below using a 7-point Likert scale ranging from ‘strongly agree’ to ‘strongly disagree’. Read through the items and see if you think any should be removed or re-written. Make a list of alterations (15 min)
+
+1.	I carefully considered other options before choosing to come to university.
+2.	By working diligently, students earn the minimal funding they receive.
+3.	It is not the case that students are not as well off as they used to be.
+4.	Like successful graduates, I believe students should pay for their own education.
+5.	Radical politicians should be allowed to cut student incomes to poverty levels.
+6.	University will provide me with either a wider view of life or a new path in life’s big journey.
+7.	One hundred pounds is a good amount.
+8.	University life is providing me with new opportunities.
+9.	My degree is the most important area of my life.
+10.	Indolent student politicians are responsible for decimating maintenance grants.
+11.	I balance my studying and socialising well.
+12.	I make an important contribution to the University community.
+13.	After getting my degree I will have a better chance in the British or international job market.
+14.	It is an honest person that believes all education should be free
+15.	Free education is an important cornerstone to our society.
+16.	I believe that students should receive more financial support.
+17.	Questionnaires about student opinions are a waste of time.
+18.	When I started at University I believed I would ultimately improve my quality of life by undertaking further education.
+
+If you are not sure about any of these you can ask staff in your workshop, but ultimately you will need to make the decision because you need to be able to defend the methodological and statistical choices you make.
+
+## Hint
+
+Review the table of things to bear in mind and consider whether they apply to each of the questions in the list.
+
+:::
+::::
+ 
+
+## Jamovi Tasks : Correlation
 
 
