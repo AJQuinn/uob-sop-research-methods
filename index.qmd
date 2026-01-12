@@ -38,3 +38,10 @@ Canvas should be used as your primary resource as it contains the complete overv
 -   [Week 2 : Review of inferential tests](tutorials/rmc_week-2_review-of-inferential-tests.qmd)
 -   [Week 3 : More ANOVAs with Jamovi](tutorials/rmc_week-3_more-anovas-with-jamovi.qmd)
 -   [Week 4 : Factorial ANOVA with Jamovi](tutorials/rmc_week-4_factorial-anova-with-jamovi.qmd)
+
+
+## Research Methods D
+
+-   [Week 1 : Item Wording and Partial Correlation](tutorials/rmd_week-1_item-wording.qmd)
+-   [Week 2 : Item Analysis](tutorials/rmd_week-2_item-analysis.qmd)
+-   [Week 3 : Factor Analysis](tutorials/rmd_week-3_factor-analysis.qmd)
