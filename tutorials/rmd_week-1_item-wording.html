@@ -43,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-000f0825b9c55ed21d14970d810c14a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +74,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 </head>
@@ -350,8 +382,22 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#week-1-item-wordingvetting-and-partial-correlation" id="toc-week-1-item-wordingvetting-and-partial-correlation" class="nav-link active" data-scroll-target="#week-1-item-wordingvetting-and-partial-correlation">Week 1 : Item Wording/Vetting and Partial Correlation</a>
   <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li><a href="#item-wording" id="toc-item-wording" class="nav-link" data-scroll-target="#item-wording">Item Wording</a></li>
-  <li><a href="#jamovi-tasks-correlation" id="toc-jamovi-tasks-correlation" class="nav-link" data-scroll-target="#jamovi-tasks-correlation">Jamovi Tasks : Correlation</a></li>
+  <li><a href="#jamovi-tasks-correlation" id="toc-jamovi-tasks-correlation" class="nav-link" data-scroll-target="#jamovi-tasks-correlation">Jamovi Tasks : Correlation</a>
+  <ul class="collapse">
+  <li><a href="#changing-the-variable-type" id="toc-changing-the-variable-type" class="nav-link" data-scroll-target="#changing-the-variable-type">Changing the variable type</a></li>
+  <li><a href="#creating-a-scatter-plot-with-jamovi" id="toc-creating-a-scatter-plot-with-jamovi" class="nav-link" data-scroll-target="#creating-a-scatter-plot-with-jamovi">Creating a scatter plot with Jamovi</a></li>
+  <li><a href="#calculating-the-correlation-coefficient" id="toc-calculating-the-correlation-coefficient" class="nav-link" data-scroll-target="#calculating-the-correlation-coefficient">Calculating the correlation coefficient</a></li>
+  <li><a href="#correlation-output" id="toc-correlation-output" class="nav-link" data-scroll-target="#correlation-output">Correlation: Output</a></li>
+  <li><a href="#writing-up-bivariate-correlations" id="toc-writing-up-bivariate-correlations" class="nav-link" data-scroll-target="#writing-up-bivariate-correlations">Writing up Bivariate Correlations</a></li>
+  <li><a href="#creating-a-grouped-scatterplot" id="toc-creating-a-grouped-scatterplot" class="nav-link" data-scroll-target="#creating-a-grouped-scatterplot">Creating a grouped scatterplot</a></li>
+  <li><a href="#performing-a-partial-correlation" id="toc-performing-a-partial-correlation" class="nav-link" data-scroll-target="#performing-a-partial-correlation">Performing a partial correlation</a></li>
+  <li><a href="#calculating-the-degrees-of-freedom-for-partial-correlations" id="toc-calculating-the-degrees-of-freedom-for-partial-correlations" class="nav-link" data-scroll-target="#calculating-the-degrees-of-freedom-for-partial-correlations">Calculating the degrees of freedom for partial correlations</a></li>
+  <li><a href="#writing-up-partial-correlations" id="toc-writing-up-partial-correlations" class="nav-link" data-scroll-target="#writing-up-partial-correlations">Writing up partial correlations</a></li>
+  <li><a href="#using-jamovi-to-carry-out-multiple-correlations" id="toc-using-jamovi-to-carry-out-multiple-correlations" class="nav-link" data-scroll-target="#using-jamovi-to-carry-out-multiple-correlations">Using Jamovi to Carry out Multiple Correlations</a></li>
+  <li><a href="#different-correlation-coefficients-running-speed-and-heart-rate" id="toc-different-correlation-coefficients-running-speed-and-heart-rate" class="nav-link" data-scroll-target="#different-correlation-coefficients-running-speed-and-heart-rate">Different correlation coefficients: Running speed and heart rate</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -364,7 +410,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="week-1-item-wordingvetting-and-partial-correlation" class="level1 unnumbered">
 <h1 class="unnumbered">Week 1 : Item Wording/Vetting and Partial Correlation</h1>
-<p>##&nbsp;Learning Objectives</p>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <p>When you have completed this workshop, you should be able to:</p>
 <ol type="1">
 <li>Understand the need for careful wording in questionnaire design, distinguishing between different question features that must be considered.</li>
@@ -375,6 +422,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Conduct partial correlations between two variables in Jamovi, interpret the output and write-up the findings.</li>
 <li>Examine correlational data using scatter plots to make decisions about how to test the relationship between variables.</li>
 </ol>
+</section>
 <section id="item-wording" class="level2">
 <h2 class="anchored" data-anchor-id="item-wording">Item Wording</h2>
 <p>Here is a list of things to bear in mind when writing questionnaire items. Read through and make sure you understand each potential limitation and how to avoid them</p>
@@ -489,8 +537,356 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="jamovi-tasks-correlation" class="level2">
 <h2 class="anchored" data-anchor-id="jamovi-tasks-correlation">Jamovi Tasks : Correlation</h2>
+<p>Download and open the data file <strong>academicsuccess</strong> from Canvas. You were shown how to import data into Jamovi in previous research methods modules, if you have forgotten please refer to <a href="https://ajquinn.github.io/uob-sop-research-methods/tutorials/rmb_week-1_new-data-and-descriptives.html">this page</a></p>
+<p>Once open the data should look like this</p>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img1.png" class="img-fluid"></a></p>
+<p>Right now, you are in data view. The data are fictional and created to show that students who are more engaged in their studies are more likely to be academically successful than students who are less enagaged.</p>
+<p>The data has four columns:</p>
+<ul>
+<li>engagement - how engaged the students are in their studies</li>
+<li>acadsuccess - rating of academic success</li>
+<li>externalLoC - self reported external locus of control (sometimes referred to as Externality)</li>
+<li>employed - which participants were in employment after graduation</li>
+</ul>
+<p>You are going to test this hypothesis with a correlational analysis which you should be familiar with from earlier modules.</p>
+<section id="changing-the-variable-type" class="level3">
+<h3 class="anchored" data-anchor-id="changing-the-variable-type">Changing the variable type</h3>
+<p>Here we will show you how to amend the type of data each variable represents in Jamovi.</p>
+<p>Click on “Variables”. Here you can see all of your variable names. The symbols next to the name of each variable tells you what type of data Jamovi has stored this variable as (ordinal, nominal or continuous).</p>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img2.png" class="img-fluid"></a></p>
+<p>If you double click on the variable name, a new section will appear which lets you edit them.</p>
+<p>You can change the name of the variable, the type of measurement (nominal, ordinal, continuous, or participant ID). You can state if the data type is text, and integer, or allows decimals.</p>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img3.png" class="img-fluid"></a></p>
+<p>If data is nominal or ordinal, you can include levels. Levels are the possible options people have to choose from. For example, responses on a Likert scale or saying if they are employed.</p>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img4.png" class="img-fluid"></a></p>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img5.png" class="img-fluid"></a></p>
+<p>Click “Data” on the top of screen to go back and view the raw data.</p>
+</section>
+<section id="creating-a-scatter-plot-with-jamovi" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-scatter-plot-with-jamovi">Creating a scatter plot with Jamovi</h3>
+<p>Before correlating two variables, it is always a good idea to produce a scatter plot of the relationship between two variables. Scatter plots help you to decide which method for calculating a correlation coefficient to use. Scatter plots also tell you if you should perform a correlation analysis at all.</p>
+<p>Each point on a scatter plot represents an individual in the sample. The point’s position on the X and Y axes corresponds to that individual’s scores on the two variables.</p>
+<ol type="1">
+<li>Select analysis -&gt; exploration -&gt; scatterplot</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img6.png" class="img-fluid"></a></p>
+<ol start="2" type="1">
+<li>You will see your variables in this screen. Move the “engagement” and “acadsuccess” variables to the x &amp; y axis. You can do this by dragging the variable names to the x / y axis box, or selecting the variable and clicking the arrows next to the box.</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img7.png" class="img-fluid"></a></p>
+<ol start="3" type="1">
+<li>Once you have populated both x and y axis labels, the scatterplot with automatically appear.</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img8.png" class="img-fluid"></a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Test your understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Based on the scatterplot, answer these questions</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ol type="1">
+<li><p>Is the relationship approximately linear? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>Is the relationship likely to be strong? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>Is the relationship likely to be positive or negative? <select class="webex-select"><option value="blank"></option><option value="answer">Positive</option><option value="">Negative</option></select></p></li>
+<li><p>Are there any obvious outliers? <select class="webex-select"><option value="blank"></option><option value="">Yes: engagement ~5 and acadsuccess ~10</option><option value="answer">Yes: engagement ~0.75 and acadsuccess ~10</option><option value="">No</option></select></p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-the-correlation-coefficient" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-the-correlation-coefficient">Calculating the correlation coefficient</h3>
+<p>The scatterplot does not show if the correlation between the two variables is <em>statistically significant</em>. We can test this in the following way:</p>
+<ol type="1">
+<li>At the top of the screen select analysis -&gt; regression -&gt; correlation matrix</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img9.png" class="img-fluid"></a></p>
+<ol start="2" type="1">
+<li>A new window will appear</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img10.png" class="img-fluid"></a></p>
+<ol start="3" type="1">
+<li>In this window move your two variables (<em>engagement</em> and <em>acadsuccess</em>) to the empty box.</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img11.png" class="img-fluid"></a></p>
+<ol start="4" type="1">
+<li><p>Jamovi will automatically populate your results based on a default statistic. However, you must make sure the correct parametric test has run. Underneath the variables box, you will see an option to select from different tests.</p>
+<ol type="a">
+<li><p><strong>Correlation coefficients:</strong> You have the option to choose <strong>Pearsons</strong> if your data is suitable for parametric analysis. For non-parametric analysis you have the option to select <strong>Spearman</strong> or <strong>Kendall’s tau-b</strong>. For this data click <strong>Pearsons</strong>.</p></li>
+<li><p><strong>Hypothesis:</strong> If your hypothesis has direction of prediction such as a positive or negative correlation between the two variables, you can select either <strong>“Correlated Positively”</strong> or <strong>“Correlated Negatively”</strong> as a specific test. If you have no prediction as to the direction of the relationship, you can keep <strong>“Correlated”</strong>. For this data we should select <strong>“Correlated”</strong>.</p></li>
+</ol></li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img12.png" class="img-fluid"></a></p>
+<ol start="5" type="1">
+<li>The results will automatically load on the right-hand screen as you make your selection.</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img13.png" class="img-fluid"></a></p>
+</section>
+<section id="correlation-output" class="level3">
+<h3 class="anchored" data-anchor-id="correlation-output">Correlation: Output</h3>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img14.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img14.png" class="img-fluid"></a></p>
+<p>For Pearson’s correlations, you can work out the variance explained in the data by the relationship between the variables by squaring the correlation coefficient. E.g., (0.713)<sup>2</sup> = 0.508. Converted to a percentage this is roughly 51% of the variance explained (rounded up)</p>
+</section>
+<section id="writing-up-bivariate-correlations" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-bivariate-correlations">Writing up Bivariate Correlations</h3>
+<p>The following is an example of a correlation write-up, using the above example for the correlation between engagement and academic success. Remember that your results might be different if you have cleaned the data in any way (and that is fine – just remember to tell us what you did in your reports).</p>
+<p>“Consistent with the hypothesis, there was a strong positive correlation between study engagement and academic success, <em>r</em>(18) = .713, <em>p</em> &lt; .001, two-tailed. The relationship accounts for 51% of the variance observed.”</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Test your understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Questions</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Run a new correlation analysis to investigate the correlation between externality (external locus of control) and engagement. After that, do the same for externality and academic success. What do you find?</p>
+<p><strong>Externality and engagement:</strong></p>
+<ol type="1">
+<li><p>What is the value of the Person’s correlation coefficient? <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.802&quot;,&quot;-.802&quot;]"></p></li>
+<li><p>Is the correlation significant? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>If so at what level? <select class="webex-select"><option value="blank"></option><option value="answer">0.001</option><option value="">0.01</option><option value="">0.05</option><option value="">0.1</option></select></p></li>
+</ol>
+<p><strong>Externality and academic success:</strong></p>
+<ol type="1">
+<li><p>What is the value of the Person’s correlation coefficient? <input class="webex-solveme nospaces" size="5" data-answer="[&quot;-0.78&quot;,&quot;-.78&quot;]"></p></li>
+<li><p>Is the correlation significant? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>If so at what level? <select class="webex-select"><option value="blank"></option><option value="answer">p &lt; 0.001</option><option value="">p = 0.05</option><option value="">p = 0.01</option></select></p></li>
+</ol>
+<p><strong>APA Results</strong></p>
+<p>There was a strong <select class="webex-select"><option value="blank"></option><option value="">positive</option><option value="answer">negative</option></select> correlation between externality and engagement, <em>r</em>(<input class="webex-solveme nospaces" size="2" data-answer="[&quot;18&quot;]">) = <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.802&quot;,&quot;-.802&quot;]">, <em>p</em> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;< .001&quot;]">, two-tailed. The relationship accounts for <input class="webex-solveme nospaces" size="2" data-answer="[&quot;64&quot;]">% of the variance observed.</p>
+<p>There was a strong <select class="webex-select"><option value="blank"></option><option value="">positive</option><option value="answer">negative</option></select> correlation between externality and academic success, <em>r</em>(<input class="webex-solveme nospaces" size="2" data-answer="[&quot;18&quot;]">) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;-0.78&quot;,&quot;-.78&quot;]">, <em>p</em> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;< .001&quot;]">, two-tailed. The relationship accounts for <input class="webex-solveme nospaces" size="2" data-answer="[&quot;60&quot;]">% of the variance observed.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-a-grouped-scatterplot" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-grouped-scatterplot">Creating a grouped scatterplot</h3>
+<p>This section continues to use the <strong>academicsuccess</strong> data set.</p>
+<p>Six months after finishing their degrees, the students in this fictional study indicate whether they were in graduate employment. This information is in the <strong>academicsuccess</strong> file under the “employed” column.</p>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img15.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img15.png" class="img-fluid"></a></p>
+<p>Your task is to see if the correlation differed for people who were in graduate employment after finishing their degree. To see this, you will need to create a grouped scatter plot.</p>
+<ol type="1">
+<li><p>You should have already loaded the <strong>academicsuccess</strong> file. The steps are mostly the same as when you created the correlation coefficient in the previous section.</p></li>
+<li><p>Select analysis -&gt; exploration -&gt; scatterplot</p></li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img16.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img16.png" class="img-fluid"></a></p>
+<ol start="3" type="1">
+<li>In the x and y axis place the variables “engagement” and “acadsuccess”. In the group section place the variable “employed”.</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img17.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img17.png" class="img-fluid"></a></p>
+<ol start="4" type="1">
+<li>Jamovi will display a new scatterplot where employed and unemployed participants have their own colour to identify their group.</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img18.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img18.png" class="img-fluid"></a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Test your understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Questions</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Based on the grouped scatter plot…</p>
+<ol type="1">
+<li><p>What do you notice about this plot? (Remember this is a fake data set!)</p></li>
+<li><p>What does this suggest to you about the data set as a whole?</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="performing-a-partial-correlation" class="level3">
+<h3 class="anchored" data-anchor-id="performing-a-partial-correlation">Performing a partial correlation</h3>
+<p>The <strong>academicsuccess</strong> datasheet contains three continuous variables, the third being externality (labelled “externalLoC”). Externality is correlated with both engagement and academic success. It is possible that the apparent relationship between engagement and academic success is completely due to the relationship that they each have with externality. That is, externality might be acting as a <strong><em>mediating</em></strong> variable between the other two. Alternatively, the relationship between engagement and academic success might have little to do with externality. We can test this by performing a partial correlation which lets us see what the correlation between two variables (here engagement and academic success) would be if we were to hold a third variable (here externality) constant.</p>
+<ol type="1">
+<li>At the top of the screen select Analysis -&gt; Regression -&gt; Partial Correlation (ensure that the <strong>academicsuccess</strong> data set is loaded into Jamovi)</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img19.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img19.png" class="img-fluid"></a></p>
+<ol start="2" type="1">
+<li>Drag the “engagement” and “acadsuccess” variables into the “Variables” box</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img20.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img20.png" class="img-fluid"></a></p>
+<ol start="3" type="1">
+<li>Drag the “externalLoC” variable into the “Control Variables” box. This tells the analysis which variables you are controlling for.</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img21.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img21.png" class="img-fluid"></a></p>
+<ol start="4" type="1">
+<li><p>Underneath the variable sections, you can select the type of test you want to run. You must make sure the <strong>correct parametric test has run.</strong></p>
+<ol type="a">
+<li><p><strong>Correlation Coefficients:</strong> You have the option to choose <strong>Pearsons</strong> if your data is suitable for parametric tests. For non-parametric tests you have the option to select <strong>Spearman</strong> or <strong>Kendall’s tau-b</strong>. For this data click Pearsons.</p></li>
+<li><p><strong>Hypothesis:</strong> If your hypothesis has direction of prediction, such as a positive or negative correlation between the two variables, you can select either <strong>“Correlated Positively”</strong> or <strong>“Correlated Negatively”</strong> as a specific test. If you have no prediction as to the direction of the relationship, you can keep <strong>“Correlated”</strong>, which you should select for this data.</p></li>
+<li><p><strong>Correlation type:</strong> A <strong>partial</strong> correlation will measure the relationship between two variables, when controlling for another variable. A <strong>semipartial</strong> correlation will correlate the variable you are controlling for with just one of other variables, to see if that influences the relationship the remaining variable. For this data you should use a partial correlation.</p></li>
+<li><p><strong>Additional options:</strong> tick “report significance” to see the P value for every correlation. Note that this test does not calculate degrees of freedom, so you will need to tick “N” for when you do this further below.</p></li>
+</ol></li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img22.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img22.png" class="img-fluid"></a></p>
+<ol start="5" type="1">
+<li>You can now interpret the results that are presented</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img23.png" class="img-fluid"></a></p>
+</section>
+<section id="calculating-the-degrees-of-freedom-for-partial-correlations" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-the-degrees-of-freedom-for-partial-correlations">Calculating the degrees of freedom for partial correlations</h3>
+<p>Jamovi does not give you the degrees of freedom (df) in partial correlation analysis. You will need to calculate it manually using the equation below (see explanation in bullet points).</p>
+<p><span class="math display">\[
+df=n-k-p
+\]</span></p>
+<ul>
+<li><p>n: the number of datapoints or observations. You can see this by ticking “N” under “Additional Options” in the above analysis. As Jamovi is dynamic, you will be able to see the number of data points (20) appear in the partial correlation matrix.</p></li>
+<li><p>k: the number of variables, including the control variables. In this case we have 3 variables in the partial correlation (“engagement”, “acadsuccess” and “externality”)</p></li>
+<li><p>p: number of parameters that are being used. Here we are measuring one coefficient between “engagement” and “acadsuccess”. You are then measuring a second coefficient between the two variables and the control variable, externality (note this second parameter is not included in semipartial correlations). Therefore, here the parameter is 2.</p></li>
+</ul>
+<p>With this calculation you can confirm that the degrees of freedom is 15.</p>
+</section>
+<section id="writing-up-partial-correlations" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-partial-correlations">Writing up partial correlations</h3>
+<p>The following is an example of a partial correlation write-up. It refers to the above example for the correlation between engagement and academic success, controlling for externality.</p>
+<p>“When externality was held constant, the partial correlation between study engagement and academic success was not found to be significant, <em>r</em>(15) = .235, <em>p</em> = .334, two-tailed. The results suggest that academic success is unrelated to study engagement when controlling for externality.”</p>
+</section>
+<section id="using-jamovi-to-carry-out-multiple-correlations" class="level3">
+<h3 class="anchored" data-anchor-id="using-jamovi-to-carry-out-multiple-correlations">Using Jamovi to Carry out Multiple Correlations</h3>
+<p>Jamovi can easily calculate correlations between several pairs of variables at once. Download and open the <strong>stress</strong> data file on Canvas. The file contains made-up data of 100 people. Variables include:</p>
+<ul>
+<li><p>Stress – How much stress participants experience</p></li>
+<li><p>Age – Participants age</p></li>
+<li><p>Work_Hours – The number of hours participants work per week</p></li>
+<li><p>Children – The number children participants have</p></li>
+<li><p>Leisure - The amount of money participants spend on leisure per week</p></li>
+<li><p>Exercise - The amount of time per week participants spend exercising</p></li>
+<li><p>Salary - Participants’ salaries.</p></li>
+</ul>
+<p><strong>Calculate Person’s correlations for all pairings of the variables.</strong></p>
+<p><em>You can do this by adding all of the variables into the correlation dialog box at once.</em> The steps are the same as when you calculate the correlation coefficient, as shown above.</p>
+<ol type="1">
+<li>At the top of the screen select Analysis -&gt; Regression -&gt; Correlation Matrix</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img24.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img24.png" class="img-fluid"></a></p>
+<ol start="2" type="1">
+<li>When selecting your variables, rather than just selecting two variables, select all of them.</li>
+</ol>
+<p><a href="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img25.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img25.png" class="img-fluid"></a></p>
+<ol start="3" type="1">
+<li><p>Make sure you select the correct tests as explained in correlation coefficient section. Read the above steps again to remind yourself what they are.</p></li>
+<li><p>You can tell which pair each entry in the correlation matrix applies to by looking at the row and column headings. Since the order of variables in correlation makes no difference, only <strong>one ordering needs to be recorded</strong> for each pair when reporting multiple correlations (e.g.&nbsp;it is fine to report salary correlated with exercise, you don’t need to also report exercise correlated with salary). See the table below for a basic layout for a table of multiple correlations. The first column shows the correlation coefficients for stress versus each of the other variables in turn. <em>[NOTE: The table is <strong>not</strong> presented in APA format]</em></p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Test your understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Questions</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>Answer the following questions based on the table above</p>
+<ol type="1">
+<li>Are the following correlations significant at the .01 level? (i.e.&nbsp;<em>p</em> = .01 or <em>p</em> &lt; .01)</li>
+</ol>
+<p>Stress and age: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Stress and work hours: <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select> Stress and leisure: <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select> Stress and exercise: <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select> Stress and salary: <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select> Stress and children: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Age and work hours: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Age and leisure: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Age and exercise: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Age and salary: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Age and children: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Work hours and leisure: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Work hours and exercise: <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select> Work hours and salary: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Work hours and children: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Leisure and exercise: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Leisure and salary: <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select> Leisure and children: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Exercise and salary: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Exercise and children: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select> Salary and children: <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p>
+<ol start="2" type="1">
+<li><p>Which variable relates most strongly to the amount of money spent on leisure? <select class="webex-select"><option value="blank"></option><option value="">Stress</option><option value="">Age</option><option value="">Work hours</option><option value="">Exercise</option><option value="answer">Salary</option><option value="">Children</option></select></p></li>
+<li><p>What percentage of the variance in the data is explained by this relationship? <input class="webex-solveme nospaces" size="2" data-answer="[&quot;78&quot;]">%</p></li>
+<li><p>Complete the following sentence to describe this correlation as if in a report.</p></li>
+</ol>
+<p>There was a strong <select class="webex-select"><option value="blank"></option><option value="answer">positive</option><option value="">negative</option></select> correlation between <select class="webex-select"><option value="blank"></option><option value="">Stress</option><option value="">Age</option><option value="">Work hours</option><option value="">Exercise</option><option value="answer">Salary</option><option value="">Children</option></select> and money spent on leisure, <em>r</em>(<input class="webex-solveme nospaces" size="2" data-answer="[&quot;98&quot;]">) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.884&quot;,&quot;.884&quot;]">, <em>p</em> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;< .001&quot;]">, two-tailed.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Test your understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Questions</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>Create a scatterplot of the relationship between Age (x) and Stress (y) and answer the following questions.</p>
+<ol type="1">
+<li><p>Is the correlation coefficient for Age and Stress significant? <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p></li>
+<li><p>Is correlation an appropriate test for measuring the relationship between Age and Stress? <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p></li>
+<li><p>Why? <select class="webex-select"><option value="blank"></option><option value="">There is a linear relationship between the variables</option><option value="answer">The relationship between the variables doesn’t look linear</option></select></p></li>
+<li><p>Fill in the sentence below to report the correlation as if for a report. Think about any cautionary notes that you think should be applied.</p></li>
+</ol>
+<p>There was <select class="webex-select"><option value="blank"></option><option value="">a positive</option><option value="">a negative</option><option value="answer">no</option></select> correlation between Age and Stress, <em>r</em>(<input class="webex-solveme nospaces" size="2" data-answer="[&quot;98&quot;]">) = <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-0.057&quot;,&quot;-.057&quot;]">, <em>p</em> = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.572&quot;,&quot;.572&quot;]">, two-tailed.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="different-correlation-coefficients-running-speed-and-heart-rate" class="level3">
+<h3 class="anchored" data-anchor-id="different-correlation-coefficients-running-speed-and-heart-rate">Different correlation coefficients: Running speed and heart rate</h3>
+<p>Download and open the <strong>speed</strong> data file. Imagine that the resting heart rates of 10 people have been measured. The time taken by each person to run 100m is also measured. The theory is that fit people will have low resting heart rates and will also be able to run quickly. Create a scatter plot for this data.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Test your understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">Questions</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>Calculate both Pearson’s and Spearman’s correlation coefficients.</p>
+<ol type="1">
+<li><p>What is the value for Pearson’s correlation for these variables? <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.33&quot;,&quot;.33&quot;]"></p></li>
+<li><p>What is the value for Spearman’s correlation for these variables? <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.511&quot;,&quot;.511&quot;]"></p></li>
+<li><p>Are either of the coefficients significant? <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p></li>
+<li><p>Fill in the sentence below to report the correlation as if for a report.</p></li>
+</ol>
+<p>Pearson’s: There was <select class="webex-select"><option value="blank"></option><option value="">a positive</option><option value="">a negative</option><option value="answer">no significant</option></select> correlation between speed and heart rate, <em>r</em>(<input class="webex-solveme nospaces" size="1" data-answer="[&quot;8&quot;]">) = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.33&quot;,&quot;.33&quot;]">, <em>p</em> = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.176&quot;,&quot;.176&quot;]">, <select class="webex-select"><option value="blank"></option><option value="answer">one-tailed</option><option value="">two-tailed</option></select>.</p>
+<p>Spearman’s: There was <select class="webex-select"><option value="blank"></option><option value="">a positive</option><option value="">a negative</option><option value="answer">no significant</option></select> correlation between speed and heart rate, <em>r</em>(<input class="webex-solveme nospaces" size="1" data-answer="[&quot;8&quot;]">) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.511&quot;,&quot;.511&quot;]">, <em>p</em> = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.066&quot;,&quot;.066&quot;]">, <select class="webex-select"><option value="blank"></option><option value="answer">one-tailed</option><option value="">two-tailed</option></select>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 
@@ -1114,6 +1510,38 @@ window.onload = function() {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
