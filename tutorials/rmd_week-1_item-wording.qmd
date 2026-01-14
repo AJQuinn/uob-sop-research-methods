@@ -11,8 +11,7 @@ library(webexercises)
 
 # Week 1 : Item Wording/Vetting and Partial Correlation {.unnumbered}
 
-
-## Learning Objectives
+## Learning Objectives
 
 When you have completed this workshop, you should be able to:
 
@@ -87,5 +86,382 @@ Review the table of things to bear in mind and consider whether they apply to ea
  
 
 ## Jamovi Tasks : Correlation
+
+Download and open the data file **academicsuccess** from Canvas. You were shown how to import data into Jamovi in previous research methods modules, if you have forgotten please refer to [this page](https://ajquinn.github.io/uob-sop-research-methods/tutorials/rmb_week-1_new-data-and-descriptives.html)
+
+Once open the data should look like this
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img1.png)
+
+Right now, you are in data view. The data are fictional and created to show that students who are more engaged in their studies are more likely to be academically successful than students who are less enagaged. 
+
+The data has four columns: 
+
+* engagement - how engaged the students are in their studies
+* acadsuccess - rating of academic success 
+* externalLoC - self reported external locus of control (sometimes referred to as Externality)
+* employed - which participants were in employment after graduation
+
+You are going to test this hypothesis with a correlational analysis which you should be familiar with from earlier modules. 
+
+### Changing the variable type 
+
+Here we will show you how to amend the type of data each variable represents in Jamovi. 
+
+Click on "Variables". Here you can see all of your variable names. The symbols next to the name of each variable tells you what type of data Jamovi has stored this variable as (ordinal, nominal or continuous). 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img2.png)
+
+If you double click on the variable name, a new section will appear which lets you edit them. 
+
+You can change the name of the variable, the type of measurement (nominal, ordinal, continuous, or participant ID). You can state if the data type is text, and integer, or allows decimals. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img3.png)
+
+If data is nominal or ordinal, you can include levels. Levels are the possible options people have to choose from. For example, responses on a Likert scale or saying if they are employed. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img4.png)
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img5.png)
+
+Click “Data” on the top of screen to go back and view the raw data. 
+
+### Creating a scatter plot with Jamovi 
+
+Before correlating two variables, it is always a good idea to produce a scatter plot of the relationship between two variables. Scatter plots help you to decide which method for calculating a correlation coefficient to use. Scatter plots also tell you if you should perform a correlation analysis at all. 
+
+Each point on a scatter plot represents an individual in the sample. The point’s position on the X and Y axes corresponds to that individual’s scores on the two variables.
+
+1. Select analysis -> exploration -> scatterplot 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img6.png)
+
+2. You will see your variables in this screen. Move the "engagement" and "acadsuccess" variables to the x & y axis. You can do this by dragging the variable names to the x / y axis box, or selecting the variable and clicking the arrows next to the box. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img7.png)
+
+3. Once you have populated both x and y axis labels, the scatterplot with automatically appear. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img8.png)
+
+
+:::: callout-tip
+## Test your understanding
+
+::: panel-tabset
+## Based on the scatterplot, answer these questions
+
+1. Is the relationship approximately linear? `r mcq(c(answer = "Yes", "No"))`
+
+2. Is the relationship likely to be strong? `r mcq(c(answer = "Yes", "No"))`
+
+3. Is the relationship likely to be positive or negative? `r mcq(c(answer = "Positive", "Negative"))`
+
+4. Are there any obvious outliers? `r mcq(c("Yes: engagement ~5 and acadsuccess ~10", answer ="Yes: engagement ~0.75 and acadsuccess ~10", "No"))`
+
+
+:::
+::::
+
+### Calculating the correlation coefficient 
+
+The scatterplot does not show if the correlation between the two variables is *statistically significant*. We can test this in the following way: 
+
+1. At the top of the screen select analysis -> regression -> correlation matrix 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img9.png)
+
+2. A new window will appear
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img10.png)
+
+3. In this window move your two variables (*engagement* and *acadsuccess*) to the empty box. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img11.png)
+
+4. Jamovi will automatically populate your results based on a default statistic. However, you must make sure the correct parametric test has run. Underneath the variables box, you will see an option to select from different tests. 
+
+    a. **Correlation coefficients:** You have the option to choose **Pearsons** if your data is suitable for parametric analysis. For non-parametric analysis you have the option to select **Spearman** or **Kendall's tau-b**. For this data click **Pearsons**. 
+
+    b. **Hypothesis:** If your hypothesis has direction of prediction such as a positive or negative correlation between the two variables, you can select either **"Correlated Positively"** or **"Correlated Negatively"** as a specific test. If you have no prediction as to the direction of the relationship, you can keep **"Correlated"**. For this data we should select **"Correlated"**. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img12.png)
+
+5. The results will automatically load on the right-hand screen as you make your selection. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img13.png)
+
+
+### Correlation: Output
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img14.png)
+
+For Pearson’s correlations, you can work out the variance explained in the data by the relationship between the variables by squaring the correlation coefficient. E.g., (0.713)^2^ = 0.508. Converted to a percentage this is roughly 51% of the variance explained (rounded up)
+
+
+### Writing up Bivariate Correlations
+
+The following is an example of a correlation write-up, using the above example for the correlation between engagement and academic success. Remember that your results might be different if you have cleaned the data in any way (and that is fine – just remember to tell us what you did in your reports).  
+
+“Consistent with the hypothesis, there was a strong positive correlation between study engagement and academic success, *r*(18) = .713, *p* < .001, two-tailed. The relationship accounts for 51% of the variance observed.”
+
+
+:::: callout-tip
+## Test your understanding
+
+::: panel-tabset
+## Questions
+
+Run a new correlation analysis to investigate the correlation between externality (external locus of control) and engagement. After that, do the same for externality and academic success. What do you find? 
+
+**Externality and engagement:**
+
+1. What is the value of the Person's correlation coefficient? `r fitb(-0.802)`
+
+2. Is the correlation significant? `r mcq(c(answer = "Yes", "No"))`
+
+3. If so at what level? `r mcq(c(answer = "0.001", "0.01", "0.05", "0.1"))`
+
+**Externality and academic success:** 
+
+1. What is the value of the Person's correlation coefficient? `r fitb(-0.780)`
+
+2. Is the correlation significant? `r mcq(c(answer = "Yes", "No"))`
+
+3. If so at what level? `r mcq(c(answer = "p < 0.001", "p = 0.05", "p = 0.01"))`
+
+**APA Results** 
+
+There was a strong `r mcq(c("positive", answer = "negative"))` correlation between externality and engagement, *r*(`r fitb(18)`) =  `r fitb(-0.802)`, *p* `r fitb('< .001')`, two-tailed. The relationship accounts for `r fitb(64)`% of the variance observed.
+
+There was a strong `r mcq(c("positive", answer = "negative"))` correlation between externality and academic success, *r*(`r fitb(18)`) =  `r fitb(-.780)`, *p* `r fitb('< .001')`, two-tailed. The relationship accounts for `r fitb(60)`% of the variance observed.
+
+:::
+::::
+
+### Creating a grouped scatterplot 
+
+This section continues to use the **academicsuccess** data set. 
+
+Six months after finishing their degrees, the students in this fictional study indicate whether they were in graduate employment. This information is in the **academicsuccess** file under the "employed" column. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img15.png)
+
+Your task is to see if the correlation differed for people who were in graduate employment after finishing their degree. To see this, you will need to create a grouped scatter plot. 
+
+1. You should have already loaded the **academicsuccess** file. The steps are mostly the same as when you created the correlation coefficient in the previous section. 
+
+2. Select analysis -> exploration -> scatterplot
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img16.png)
+
+3. In the x and y axis place the variables "engagement" and "acadsuccess". In the group section place the variable "employed". 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img17.png)
+
+4. Jamovi will display a new scatterplot where employed and unemployed participants have their own colour to identify their group. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img18.png)
+
+
+:::: callout-tip
+## Test your understanding
+
+::: panel-tabset
+## Questions
+
+Based on the grouped scatter plot...
+
+1. What do you notice about this plot? (Remember this is a fake data set!)
+
+2. What does this suggest to you about the data set as a whole? 
+
+:::
+::::
+
+### Performing a partial correlation 
+
+The **academicsuccess** datasheet contains three continuous variables, the third being externality (labelled “externalLoC”). Externality is correlated with both engagement and academic success. It is possible that the apparent relationship between engagement and academic success is completely due to the relationship that they each have with externality. That is, externality might be acting as a ***mediating*** variable between the other two. Alternatively, the relationship between engagement and academic success might have little to do with externality. We can test this by performing a partial correlation which lets us see what the correlation between two variables (here engagement and academic success) would be if we were to hold a third variable (here externality) constant.
+
+1. At the top of the screen select Analysis -> Regression -> Partial Correlation (ensure that the **academicsuccess** data set is loaded into Jamovi)
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img19.png)
+
+2. Drag the "engagement" and "acadsuccess" variables into the "Variables" box
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img20.png)
+
+3. Drag the "externalLoC" variable into the "Control Variables" box. This tells the analysis which variables you are controlling for. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img21.png)
+
+4. Underneath the variable sections, you can select the type of test you want to run. You must make sure the **correct parametric test has run.** 
+
+    a. **Correlation Coefficients:** You have the option to choose **Pearsons** if your data is suitable for parametric tests. For non-parametric tests you have the option to select **Spearman** or **Kendall’s tau-b**. For this data click Pearsons.
+
+    b.	**Hypothesis:** If your hypothesis has direction of prediction, such as a positive or negative correlation between the two variables, you can select either **“Correlated Positively”** or **“Correlated Negatively”** as a specific test. If you have no prediction as to the direction of the relationship, you can keep **“Correlated”**, which you should select for this data.
+
+    c.	**Correlation type:** A **partial** correlation will measure the relationship between two variables, when controlling for another variable. A **semipartial** correlation will correlate the variable you are controlling for with just one of other variables, to see if that influences the relationship the remaining variable. For this data you should use a partial correlation.
+
+    d.	**Additional options:** tick “report significance” to see the P value for every correlation. Note that this test does not calculate degrees of freedom, so you will need to tick "N” for when you do this further below. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img22.png)
+
+5. You can now interpret the results that are presented 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img23.png)
+
+
+### Calculating the degrees of freedom for partial correlations 
+
+Jamovi does not give you the degrees of freedom (df) in partial correlation analysis. You will need to calculate it manually using the equation below (see explanation in bullet points).
+
+$$
+df=n-k-p
+$$
+
+* n: the number of datapoints or observations. You can see this by ticking “N” under “Additional Options” in the above analysis. As Jamovi is dynamic, you will be able to see the number of data points (20) appear in the partial correlation matrix. 
+
+* k: the number of variables, including the control variables. In this case we have 3 variables in the partial correlation (“engagement”, “acadsuccess” and “externality”)
+
+* p: number of parameters that are being used. Here we are measuring one coefficient between “engagement” and “acadsuccess”. You are then measuring a second coefficient between the two variables and the control variable, externality (note this second parameter is not included in semipartial correlations). Therefore, here the parameter is 2.
+
+With this calculation you can confirm that the degrees of freedom is 15.
+
+### Writing up partial correlations
+
+The following is an example of a partial correlation write-up. It refers to the above example for the correlation between engagement and academic success, controlling for externality.
+
+“When externality was held constant, the partial correlation between study engagement and academic success was not found to be significant, *r*(15) = .235, *p* = .334, two-tailed. The results suggest that academic success is unrelated to study engagement when controlling for externality.”
+
+
+### Using Jamovi to Carry out Multiple Correlations
+
+Jamovi can easily calculate correlations between several pairs of variables at once. Download and open the **stress** data file on Canvas. The file contains made-up data of 100 people. Variables include:
+
+* Stress – How much stress participants experience
+
+* Age – Participants age
+
+* Work_Hours – The number of hours participants work per week
+
+* Children – The number children participants  have
+
+* Leisure - The amount of money participants spend on leisure per week
+
+* Exercise - The amount of time per week participants  spend exercising
+
+* Salary - Participants’ salaries. 
+
+**Calculate Person's correlations for all pairings of the variables.**
+
+*You can do this by adding all of the variables into the correlation dialog box at once.* The steps are the same as when you calculate the correlation coefficient, as shown above. 
+
+1. At the top of the screen select Analysis -> Regression -> Correlation Matrix 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img24.png)
+
+2. When selecting your variables, rather than just selecting two variables, select all of them. 
+
+![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img25.png)
+
+3. Make sure you select the correct tests as explained in correlation coefficient section. Read the above steps again to remind yourself what they are. 
+
+4. You can tell which pair each entry in the correlation matrix applies to by looking at the row and column headings. Since the order of variables in correlation makes no difference, only **one ordering needs to be recorded** for each pair when reporting multiple correlations (e.g. it is fine to report salary correlated with exercise, you don't need to also report exercise correlated with salary). See the table below for a basic layout for a table of multiple correlations. The first column shows the correlation coefficients for stress versus each of the other variables in turn. *[NOTE: The table is **not** presented in APA format]*
+
+:::: callout-tip
+## Test your understanding
+
+::: panel-tabset
+## Questions
+
+Answer the following questions based on the table above
+
+1. Are the following correlations significant at the .01 level? (i.e. *p* = .01 or *p* < .01) 
+
+Stress and age: `r mcq(c("Yes", answer = "No"))`
+Stress and work hours: `r mcq(c(answer = "Yes", "No"))`
+Stress and leisure: `r mcq(c(answer = "Yes", "No"))`
+Stress and exercise: `r mcq(c(answer = "Yes", "No"))`
+Stress and salary: `r mcq(c(answer = "Yes", "No"))`
+Stress and children: `r mcq(c("Yes", answer = "No"))`
+Age and work hours: `r mcq(c("Yes", answer = "No"))`
+Age and leisure: `r mcq(c("Yes", answer = "No"))`
+Age and exercise: `r mcq(c("Yes", answer = "No"))`
+Age and salary: `r mcq(c("Yes", answer = "No"))`
+Age and children: `r mcq(c("Yes", answer = "No"))`
+Work hours and leisure: `r mcq(c("Yes", answer = "No"))`
+Work hours and exercise: `r mcq(c(answer = "Yes", "No"))`
+Work hours and salary: `r mcq(c("Yes", answer = "No"))`
+Work hours and children: `r mcq(c("Yes", answer = "No"))`
+Leisure and exercise: `r mcq(c("Yes", answer = "No"))`
+Leisure and salary: `r mcq(c(answer = "Yes", "No"))`
+Leisure and children: `r mcq(c("Yes", answer = "No"))`
+Exercise and salary: `r mcq(c("Yes", answer = "No"))`
+Exercise and children: `r mcq(c("Yes", answer = "No"))`
+Salary and children: `r mcq(c("Yes", answer = "No"))`
+
+2. Which variable relates most strongly to the amount of money spent on leisure? `r mcq(c("Stress", "Age", "Work hours", "Exercise", answer = "Salary", "Children"))`
+
+3. What percentage of the variance in the data is explained by this relationship? `r fitb(78)`%
+
+4. Complete the following sentence to describe this correlation as if in a report. 
+
+There was a strong `r mcq(c(answer = "positive", "negative"))` correlation between `r mcq(c("Stress", "Age", "Work hours", "Exercise", answer = "Salary", "Children"))` and money spent on leisure, *r*(`r fitb(98)`) =  `r fitb(0.884)`, *p* `r fitb('< .001')`, two-tailed.
+
+:::
+::::
+
+
+
+:::: callout-tip
+## Test your understanding
+
+::: panel-tabset
+## Questions
+
+Create a scatterplot of the relationship between Age (x) and Stress (y) and answer the following questions. 
+
+1. Is the correlation coefficient for Age and Stress significant? `r mcq(c("Yes", answer = "No"))`
+
+2. Is correlation an appropriate test for measuring the relationship between Age and Stress? `r mcq(c("Yes", answer = "No"))`
+
+3. Why? `r mcq(c("There is a linear relationship between the variables", answer = "The relationship between the variables doesn't look linear"))`
+
+4. Fill in the sentence below to report the correlation as if for a report. Think about any cautionary notes that you think should be applied. 
+
+There was `r mcq(c("a positive", "a negative", answer = "no"))` correlation between Age and Stress, *r*(`r fitb(98)`) =  `r fitb(-0.057)`, *p* = `r fitb(0.572)`, two-tailed.
+
+:::
+::::
+
+### Different correlation coefficients: Running speed and heart rate
+
+Download and open the **speed** data file. Imagine that the resting heart rates of 10 people have been measured. The time taken by each person to run 100m is also measured. The theory is that fit people will have low resting heart rates and will also be able to run quickly. Create a scatter plot for this data. 
+
+:::: callout-tip
+## Test your understanding
+
+::: panel-tabset
+## Questions
+
+Calculate both Pearson's and Spearman's correlation coefficients. 
+
+1. What is the value for Pearson's correlation for these variables? `r fitb(0.330)`
+
+2. What is the value for Spearman's correlation for these variables? `r fitb(0.511)`
+
+3. Are either of the coefficients significant? `r mcq(c("Yes", answer = "No"))`
+
+4. Fill in the sentence below to report the correlation as if for a report.
+
+Pearson's: There was `r mcq(c("a positive", "a negative", answer = "no significant"))` correlation between speed and heart rate, *r*(`r fitb(8)`) =  `r fitb(0.330)`, *p* = `r fitb(0.176)`, `r mcq(c(answer = "one-tailed", "two-tailed"))`.
+
+Spearman's: There was `r mcq(c("a positive", "a negative", answer = "no significant"))` correlation between speed and heart rate, *r*(`r fitb(8)`) =  `r fitb(0.511)`, *p* = `r fitb(0.066)`, `r mcq(c(answer = "one-tailed", "two-tailed"))`.
+
+:::
+::::
+
+
 
 
