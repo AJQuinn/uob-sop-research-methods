@@ -521,13 +521,13 @@ Calculate both Pearson's and Spearman's correlation coefficients.
 
 2. What is the value for Spearman's correlation for these variables? `r fitb(0.511)`
 
-3. Are either of the coefficients significant? `r mcq(c("Yes", answer = "No"))`
+3. Are either of the coefficients significant? `r mcq(c("Yes - Pearson's", "Yes - Spearman's", answer = "No"))`
 
-4. Fill in the sentence below to report the correlation as if for a report.
+4. Which correlation coefficient is the most appropriate for this data? `r mcq(c("Pearson's", answer = "Spearman's"))`
 
-**Pearson's:** There was `r mcq(c("a positive", "a negative", answer = "no significant"))` correlation between speed and heart rate, *r*(`r fitb(8)`) =  `r fitb(0.330)`, *p* = `r fitb(0.176)`, `r mcq(c(answer = "one-tailed", "two-tailed"))`.
+5. Fill in the sentence below to report the correlation as if for a report.
 
-**Spearman's:** There was `r mcq(c("a positive", "a negative", answer = "no significant"))` correlation between speed and heart rate, *r*(`r fitb(8)`) =  `r fitb(0.511)`, *p* = `r fitb(0.066)`, `r mcq(c(answer = "one-tailed", "two-tailed"))`.
+There was `r mcq(c("a positive", "a negative", answer = "no significant"))` correlation between speed and heart rate, ρ(`r fitb(8)`) =  `r fitb(0.511)`, *p* = `r fitb(0.066)`, `r mcq(c(answer = "one-tailed", "two-tailed"))`.
 
 :::
 ::::
