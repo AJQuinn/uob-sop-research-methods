@@ -295,6 +295,18 @@ Your task is to see if the correlation differed for people who were in graduate 
 
 ![](../images/rmd-week-1_computer_practical/RMD-2025_week-1_computer-practical_img18.png)
 
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - What do you notice about the grouped scatter plot? (Remember this is a fake data set!)
+
+There is a clear grouping of the data points based on whether they are employed or not. 
+:::
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## <i class="bi bi-question-lg"></i> Data Skills - What does this suggest to you about the data set as a whole?
+
+What appears to be a continuous correlation might be better explained as two group differences. It isn't the case that success increases linearly with engagement but actually that employed people are more successful and engaged. 
+:::
 
 :::: callout-tip
 ## Test your understanding
@@ -523,7 +535,7 @@ Calculate both Pearson's and Spearman's correlation coefficients.
 
 3. Are either of the coefficients significant? `r mcq(c("Yes - Pearson's", "Yes - Spearman's", answer = "No"))`
 
-4. Which correlation coefficient is the most appropriate for this data? `r mcq(c("Pearson's", answer = "Spearman's"))`
+4. Which correlation coefficient is the most appropriate for this data? Remember that you will need to decide based on the data in front of you (does it meet parametric assumptions?) `r mcq(c("Pearson's", answer = "Spearman's"))`
 
 5. Fill in the sentence below to report the correlation as if for a report.
 
