@@ -308,21 +308,6 @@ There is a clear grouping of the data points based on whether they are employed 
 What appears to be a continuous correlation might be better explained as two group differences. It isn't the case that success increases linearly with engagement but actually that employed people are more successful and engaged. 
 :::
 
-:::: callout-tip
-## Test your understanding
-
-::: panel-tabset
-## Questions
-
-Based on the grouped scatter plot...
-
-1. What do you notice about this plot? (Remember this is a fake data set!)
-
-2. What does this suggest to you about the data set as a whole? 
-
-:::
-::::
-
 
 ### Performing a partial correlation 
 
