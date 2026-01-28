@@ -28,6 +28,7 @@ Jamovi does not offer a built-in, dedicated procedure specifically labelled as "
 This process allows you to evaluate the impact of individual items on the questionnaire's internal reliability.
 
 Cronbach’s alpha is based on two key ideas:
+
 1.	If the items on a questionnaire fit together coherently, they should all correlate with the total score on the questionnaire. (In such a case alpha would be close to 1.0).
 2.	If an item makes a useful contribution to a questionnaire, the scores on the item will correlate with the questionnaire total.
 
@@ -46,7 +47,7 @@ When trying to improve the reliability of our questionnaires, we look for:
 
 | Situation | Notes | Action | 
 |---|---|---|
-| Negative item-total correlations | An item is negatively correlated with the total. It has either <li>been coded incorrectly OR</li><li>it is not measuring what it should be OR</li><li>it is not contributing to the total score</li> | Check the wording. Recode the item ONCE if it is negatively worded. If it is not negatively worded, delete it. | 
+| Negative item-total correlations | An item is negatively correlated with the total. It has either been coded incorrectly OR it is not measuring what it should be OR it is not contributing to the total score | Check the wording. Recode the item ONCE if it is negatively worded. If it is not negatively worded, delete it. | 
 | Small item-total correlations and poor reliability | Once all items are positively correlated with the total, but **alpha** for the whole questionnaire is low (less than .7), the questionnaire has poor reliability. You need to weed out items that do not ‘belong’ to the overall scale. These will generally have a low **item-total correlation** and a value of **alpha-if-deleted** that is higher than the current alpha for the scale as a whole. | Delete the item because it is not contributing towards the questionnaire and reliability might improve without it. |
 | Item keeps switching sign | Never re-code an item for a second time. These items will probably also have weak item-total correlations and high alpha-if-deleted values. | Delete the item, it is not working how you intended it to work. |
 | Weak items in a reasonably good measure | It is possible for a measure with alpha > .7 to contain some items that are still rather weak. These are identified (among other things) by weak item-total correlations. They contribute little to the measure overall. | You will need to decide if there is a good reason to keep the item. If there isn’t a good reason to keep it, delete it. |
@@ -114,13 +115,13 @@ However, we can also see a note under the scale reliability statistics box recom
 
 The decision process I (Emma) would follow is;
 
-•	Q2 – Does  not appear to be negatively worded. We will leave this alone for now.
-•	Q3 – Is negatively worded so will need to be reverse scored.
-•	Q8 – Is negatively worded so will need to be reverse scored.  
-•	Q9 - Is negatively worded so will need to be reverse scored.
-•	Q10 - Does not appear to be negatively worded. We will leave this alone for now.
-•	Q12 - Is negatively worded so will need to be reverse scored.  
-•	Q14 - Is negatively worded so will need to be reverse scored.
+* Q2 – Does  not appear to be negatively worded. We will leave this alone for now.
+* Q3 – Is negatively worded so will need to be reverse scored.
+* Q8 – Is negatively worded so will need to be reverse scored.  
+* Q9 - Is negatively worded so will need to be reverse scored.
+* Q10 - Does not appear to be negatively worded. We will leave this alone for now.
+* Q12 - Is negatively worded so will need to be reverse scored.  
+* Q14 - Is negatively worded so will need to be reverse scored.
 
 Luckily, Jamovi gives us an option to reverse score items on the same screen as the reliability analysis. You can just transfer the items you want to reverse scale from the Normal Scales Items box to the Reverse Scaled Items box as shown below. 
 
