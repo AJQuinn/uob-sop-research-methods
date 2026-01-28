@@ -389,7 +389,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="item-analysis-and-cronbachs-alpha">Item analysis and Cronbach’s alpha</h2>
 <p>Jamovi does not offer a built-in, dedicated procedure specifically labelled as “item analysis.” However, you can perform item analysis and calculate Cronbach’s alpha indirectly using Jamovi’s available statistical analyses, by conducting a “reliability analysis”. Through this analysis, you can obtain Cronbach’s alpha coefficient, indicating the internal consistency of the questionnaire (e.g.&nbsp;how well your items correlate with the total of the questionnaire). Additionally, you can explore item-total correlations to assess how each item correlates with the total score of the questionnaire.</p>
 <p>This process allows you to evaluate the impact of individual items on the questionnaire’s internal reliability.</p>
-<p>Cronbach’s alpha is based on two key ideas: 1. If the items on a questionnaire fit together coherently, they should all correlate with the total score on the questionnaire. (In such a case alpha would be close to 1.0). 2. If an item makes a useful contribution to a questionnaire, the scores on the item will correlate with the questionnaire total.</p>
+<p>Cronbach’s alpha is based on two key ideas:</p>
+<ol type="1">
+<li>If the items on a questionnaire fit together coherently, they should all correlate with the total score on the questionnaire. (In such a case alpha would be close to 1.0).</li>
+<li>If an item makes a useful contribution to a questionnaire, the scores on the item will correlate with the questionnaire total.</li>
+</ol>
 <p><strong>A reliable quesionnaire should have a Cronbach’s alpha of ≥ .7</strong></p>
 <p>In Jamovi, when assessing the reliability of a questionnaire, achieving a Cronbach’s alpha of ≥ .7 is considered indicative of a reliable instrument. If the calculated alpha falls below this threshold, we conduct an item analysis to identify potential issues contributing to the low reliability (note that this can include additional item vetting, as covered last week).</p>
 <p><strong>Always keep a clean copy of your data before any changes in case something goes wrong! Save a new version with your changes to keep track of what has changed.</strong></p>
@@ -411,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>Negative item-total correlations</td>
-<td>An item is negatively correlated with the total. It has either </td>
+<td>An item is negatively correlated with the total. It has either been coded incorrectly OR it is not measuring what it should be OR it is not contributing to the total score</td>
 <td>Check the wording. Recode the item ONCE if it is negatively worded. If it is not negatively worded, delete it.</td>
 </tr>
 <tr class="even">
@@ -567,9 +571,17 @@ ul.task-list li input[type="checkbox"] {
 <p>We can see that our initial Cronbach’s Alpha is -.836. Therefore, it is already over .7 (remember that this number can be positive or negative). The mean is 3.19 and the standard deviation is .235, which on a 5 point scale suggests participants are selecting the middle or neutral option.</p>
 <p>However, we can also see a note under the scale reliability statistics box recommending that we reverse score the following items: Q2, Q3, Q8, Q9, Q10, Q12 and Q14. This is just a recommendation, you need to be the one who makes the decision so check back over the previous task to see which items were negatively worded.</p>
 <p>The decision process I (Emma) would follow is;</p>
-<p>• Q2 – Does not appear to be negatively worded. We will leave this alone for now. • Q3 – Is negatively worded so will need to be reverse scored. • Q8 – Is negatively worded so will need to be reverse scored.<br>
-• Q9 - Is negatively worded so will need to be reverse scored. • Q10 - Does not appear to be negatively worded. We will leave this alone for now. • Q12 - Is negatively worded so will need to be reverse scored.<br>
-• Q14 - Is negatively worded so will need to be reverse scored.</p>
+<ul>
+<li>Q2 – Does not appear to be negatively worded. We will leave this alone for now.</li>
+<li>Q3 – Is negatively worded so will need to be reverse scored.</li>
+<li>Q8 – Is negatively worded so will need to be reverse scored.<br>
+</li>
+<li>Q9 - Is negatively worded so will need to be reverse scored.</li>
+<li>Q10 - Does not appear to be negatively worded. We will leave this alone for now.</li>
+<li>Q12 - Is negatively worded so will need to be reverse scored.<br>
+</li>
+<li>Q14 - Is negatively worded so will need to be reverse scored.</li>
+</ul>
 <p>Luckily, Jamovi gives us an option to reverse score items on the same screen as the reliability analysis. You can just transfer the items you want to reverse scale from the Normal Scales Items box to the Reverse Scaled Items box as shown below.</p>
 <p><a href="../images/rmd-week-2_computer_practical/RMD-2025_week-2_computer-practical_img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images/rmd-week-2_computer_practical/RMD-2025_week-2_computer-practical_img2.png" class="img-fluid"></a></p>
 <p>After checking Jamovi’s recommendation against the actual wording of the items, I would reverse score items 3, 8, 9, 12 and 14 so I would transfer those items to the Reverse Scaled Items box. Items 2 and 10 were not negatively worded so I have not reverse scored those and I will make a decision about what happens to them after the next step.</p>
