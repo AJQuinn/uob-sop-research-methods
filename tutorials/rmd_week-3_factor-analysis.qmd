@@ -45,10 +45,13 @@ For each element, give a rating for the constructs between 0 (which corresponds 
 a. E.g. If you see yourself as fairly approachable, give yourself a 7, if your least favourite lecturer is really unapproachable give them a 0.
 b. Use the full range of ratings for each construct if possible. (Without variability in the scores it will be difficult to use these data meaningfully).
 
-::: {.callout-note}	
+::: {.callout-note appearance="simple"}
 # Note
+
 The results you obtain from the analysis you perform on this data will be personal to you (e.g. your answers on the grid). The example output will not reflect your own data, this has been included to show you how to interpret your own results.
+
 :::
+
 
 When you have completed the grid, create a new Jamovi data file and enter this data, but remember that the constructs on the grid are variables (columns) on and the elements are participants (rows). Once you have entered your rep grid data in Jamovi, carry out a factor analysis on the data as per the following pages. 
 
@@ -72,9 +75,13 @@ Remember that your first Factor Analysis is based on the data you entered in the
 
 These instructions assume that you have data from a questionnaire or some other study entered in column format: that is one column for each item/question. 
 
+::: {.callout-note appearance="simple"}
 # Note
+
 Factor analyses should be carried out on raw data – not on recoded data
+
 :::
+
 
 1. Using your data file
 
@@ -143,7 +150,7 @@ Once you have extracted and interpreted the factors, you can work out subscale t
 
 Using an example repertory grid analysis below, here is an example write-up:
 
-    “An exploratory factor analysis was performed on the repertory grid data to see how the different constructs were related to each other. Using principal components extraction and Kaiser’s criterion (Eigenvalues > 1), three factors emerged and were adjusted using a varimax rotation. Together the factors explained 85% of the variance observed. The first factor, which accounted for 39% of the variance, was labelled ‘Affability’. A high score on this factor is related to agreeable and prosocial traits displayed by a person. The second factor accounted for a further 25% of the variance and was labelled ‘Cheerfulness’. This is related to a person’s apparent happiness and sense of relaxation. The third factor accounted for 22% of the variance. It was called ‘Intellectual appeal’ and was associated with a person’s intellect, exactingness, and professional values (see Table 1 for factor loadings).”
+“An exploratory factor analysis was performed on the repertory grid data to see how the different constructs were related to each other. Using principal components extraction and Kaiser’s criterion (Eigenvalues > 1), three factors emerged and were adjusted using a varimax rotation. Together the factors explained 85% of the variance observed. The first factor, which accounted for 39% of the variance, was labelled ‘Affability’. A high score on this factor is related to agreeable and prosocial traits displayed by a person. The second factor accounted for a further 25% of the variance and was labelled ‘Cheerfulness’. This is related to a person’s apparent happiness and sense of relaxation. The third factor accounted for 22% of the variance. It was called ‘Intellectual appeal’ and was associated with a person’s intellect, exactingness, and professional values (see Table 1 for factor loadings).”
 
 |  | Factor 1: Affability | Factor 2: Cheerfulness | Factor 3: Intellectual appeal |
 |---|---|---|---|
@@ -182,13 +189,13 @@ The file *'health'* contains some made-up data from a questionnaire on health. T
 
 Based on your analysis of the health questionnaire:
 
-1. How many factors can be extracted from these data? `r fitb(-0.802)`
+1. How many factors can be extracted from these data? `r fitb(2)`
 
-2. How much of the overall variance does the factor analysis explain? `r fitb(-0.802)`%
+2. How much of the overall variance does the factor analysis explain? `r fitb(73)`%
 
 3. Based on the Component Loadings matrix, write down the items which load on each factor in descending order of loading size. Note also the direction (positive or negative) of each factor loading which you report.
 
-4. Given the list of questions, interpret the meaning of each factor and write them down here. 
+4. Given the list of questions, interpret the meaning of each factor and write them down. 
 
 5. Sometimes items load on more than one factor. Are there any questions that do not belong to any factors or to more than one factor in this analysis? Why might this be?
 
@@ -207,9 +214,9 @@ Open the data file *'personality'*. The items in the questionnaire come from the
 
 Based on your analysis of the health questionnaire:
 
-1. How many factors does the computer initially extract? `r fitb(-0.802)`
+1. How many factors does the computer initially extract? `r fitb(2)`
 
-2. How many factors would you extract based on the scree plot? `r fitb(-0.802)`%
+2. How many factors would you extract based on the scree plot? `r fitb(73)`%
 
 3. What message does Jamovi give you about the Rotated Component Matrix? What might this mean?
 
