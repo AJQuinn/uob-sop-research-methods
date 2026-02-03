@@ -195,9 +195,47 @@ Based on your analysis of the health questionnaire:
 
 3. Based on the Component Loadings matrix, write down the items which load on each factor in descending order of loading size. Note also the direction (positive or negative) of each factor loading which you report.
 
+    **Factor 1**
+
+    Question: `r mcq(c("Q1: I often visit the doctor", "Q2: I often suffer from colds", "Q3: I feel nervous in crowds", "Q4: I am always stiff in the mornings", "Q5: I can't sleep a night before a big meeting at work", "Q6: I feel very tired at the end of the day", "Q7: I often go back to check that the front door is locked when I leave the house", answer = "Q8: Most things in life make me anxious"))` Loading size: `r mcq(c(".612", ".823", ".756", ".853", answer = ".858"))` Direction: `r mcq(c(answer = "positive", "negative"))`
+
+    Question: `r mcq(c("Q1: I often visit the doctor", "Q2: I often suffer from colds", "Q3: I feel nervous in crowds", "Q4: I am always stiff in the mornings", "Q5: I can't sleep a night before a big meeting at work", "Q6: I feel very tired at the end of the day", answer = "Q7: I often go back to check that the front door is locked when I leave the house", "Q8: Most things in life make me anxious"))` Loading size: `r mcq(c(".612", ".823", ".756", answer = ".853", ".858"))` Direction: `r mcq(c(answer = "positive", "negative"))`
+
+    Question: `r mcq(c("Q1: I often visit the doctor", "Q2: I often suffer from colds", answer = "Q3: I feel nervous in crowds", "Q4: I am always stiff in the mornings", "Q5: I can't sleep a night before a big meeting at work", "Q6: I feel very tired at the end of the day", "Q7: I often go back to check that the front door is locked when I leave the house", "Q8: Most things in life make me anxious"))` Loading size: `r mcq(c(".612", answer = ".823", ".756", ".853", ".858"))` Direction: `r mcq(c(answer = "positive", "negative"))`
+
+    Question: `r mcq(c("Q1: I often visit the doctor", "Q2: I often suffer from colds", "Q3: I feel nervous in crowds", "Q4: I am always stiff in the mornings", answer = "Q5: I can't sleep a night before a big meeting at work", "Q6: I feel very tired at the end of the day", "Q7: I often go back to check that the front door is locked when I leave the house", "Q8: Most things in life make me anxious"))` Loading size: `r mcq(c(".612", ".823", answer = ".756", ".853", ".858"))` Direction: `r mcq(c(answer = "positive", "negative"))`
+
+    Question: `r mcq(c(answer = "Q1: I often visit the doctor", "Q2: I often suffer from colds", "Q3: I feel nervous in crowds", "Q4: I am always stiff in the mornings", "Q5: I can't sleep a night before a big meeting at work", "Q6: I feel very tired at the end of the day", "Q7: I often go back to check that the front door is locked when I leave the house", "Q8: Most things in life make me anxious"))` Loading size: `r mcq(c(answer = ".612", ".823", ".756", ".853", ".858"))` Direction: `r mcq(c(answer = "positive", "negative"))`
+
+
+    **Factor 2** 
+
+    Question: `r mcq(c("Q1: I often visit the doctor", "Q2: I often suffer from colds", "Q3: I feel nervous in crowds", "Q4: I am always stiff in the mornings", "Q5: I can't sleep a night before a big meeting at work", answer = "Q6: I feel very tired at the end of the day", "Q7: I often go back to check that the front door is locked when I leave the house", "Q8: Most things in life make me anxious"))` Loading size: `r mcq(c(".722", ".805", ".695", answer = ".861"))` Direction: `r mcq(c(answer = "positive", "negative"))`
+
+    Question: `r mcq(c("Q1: I often visit the doctor", "Q2: I often suffer from colds", "Q3: I feel nervous in crowds", answer = "Q4: I am always stiff in the mornings", "Q5: I can't sleep a night before a big meeting at work", "Q6: I feel very tired at the end of the day", "Q7: I often go back to check that the front door is locked when I leave the house", "Q8: Most things in life make me anxious"))` Loading size: `r mcq(c(".722", answer = ".805", ".695", ".861"))` Direction: `r mcq(c(answer = "positive", "negative"))`
+
+    Question: `r mcq(c(answer = "Q1: I often visit the doctor", "Q2: I often suffer from colds", "Q3: I feel nervous in crowds", "Q4: I am always stiff in the mornings", "Q5: I can't sleep a night before a big meeting at work", "Q6: I feel very tired at the end of the day", "Q7: I often go back to check that the front door is locked when I leave the house", "Q8: Most things in life make me anxious"))` Loading size: `r mcq(c(answer = ".722", ".805", ".695", ".861"))` Direction: `r mcq(c(answer = "positive", "negative"))`
+
+    Question: `r mcq(c("Q1: I often visit the doctor", answer = "Q2: I often suffer from colds", "Q3: I feel nervous in crowds", "Q4: I am always stiff in the mornings", "Q5: I can't sleep a night before a big meeting at work", "Q6: I feel very tired at the end of the day", "Q7: I often go back to check that the front door is locked when I leave the house", "Q8: Most things in life make me anxious"))` Loading size: `r mcq(c(".722", ".805", answer = ".695", ".861"))` Direction: `r mcq(c(answer = "positive", "negative"))`
+
+
+
 4. Given the list of questions, interpret the meaning of each factor and write them down. 
 
-5. Sometimes items load on more than one factor. Are there any questions that do not belong to any factors or to more than one factor in this analysis? Why might this be?
+    Factor 1: `r mcq(c(answer = "general anxiety", "doctor's visits", "general physical health", "tiredness"))`
+
+    Factor 2: `r mcq(c("general anxiety", "doctor's visits", answer = "general physical health", "tiredness"))`
+
+    Factor 3: `r mcq(c("general anxiety", "doctor's visits", "general physical health", "tiredness", answer = "this factor doesn't exist"))`
+
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## 5. Sometimes items load on more than one factor. Are there any questions that do not belong to any factors or to more than one factor in this analysis? Why might this be?
+
+Q1 appears in both factors but poor psychological health and poor physical health could explain frequent visits to the doctors. 
+:::
+
 
 :::
 ::::
@@ -206,23 +244,30 @@ Based on your analysis of the health questionnaire:
 
 Open the data file *'personality'*. The items in the questionnaire come from the International Personality Item Pool (IPIP) and the data was collected from several cohorts of University of Birmingham 2nd year Psychology undergraduates. Run a factor analysis on the data in this file. 
 
+::: {.callout-note appearance="simple"}
+# Note
+
+When you run the analysis, Jamovi might say something like 'this analysis has terminated, likely due to hitting a resource limit'. If this happens it is likely that the box 'based on parallel analysis' is ticked under 'number of components'. If you change this to 'based on eigenvalue' then it should work.
+
+:::
+
 :::: callout-tip
 ## Test your understanding
 
 ::: panel-tabset
 ## Questions
 
-Based on your analysis of the health questionnaire:
+Based on your analysis of the personality questionnaire:
 
-1. How many factors does the computer initially extract? `r fitb(2)`
+1. How many factors does the computer initially extract? `r fitb(12)`
 
-2. How many factors would you extract based on the scree plot? `r fitb(73)`%
+2. How many factors would you extract based on the scree plot? `r fitb(5)`
 
 3. What message does Jamovi give you about the Rotated Component Matrix? What might this mean?
 
-4. Rerun the factor analysis, but this time set the criteria to extract 5 factors. You can do this in the ‘Number of Components” section: instead of selecting ‘based on eigenvalues’ select ‘fixed number’. Set this to 5. 
+Rerun the factor analysis, but this time set the criteria to extract 5 factors. You can do this in the ‘Number of Components” section: instead of selecting ‘based on eigenvalues’ select ‘fixed number’. Set this to 5. 
 
-5. The questionnaire is based on a trait model of personality called the ‘Big Five’ (Costa & McCrae, 1986). The Big Five are:
+4. The questionnaire is based on a trait model of personality called the ‘Big Five’ (Costa & McCrae, 1986). The Big Five are:
     * Openness to experience (or intellect)
     * Conscientiousness 
     * Extraversion 
@@ -231,12 +276,50 @@ Based on your analysis of the health questionnaire:
 
 Look at the rotated factor matrix and use 0.5 as your cut-off for factor loadings to be considered to belong to a factor. Match up your extracted factors to the factors described by Costa and McCrae. (you may want to make a note of what the items are by renaming the variables).
 
-| Factor 1 | `r mcq(c(answer = "Openness to experience", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism"))` | 
-|---|---|
-| Factor 2 | `r mcq(c(answer = "Openness to experience", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism"))`  | 
-| Factor 3 | `r mcq(c(answer = "Openness to experience", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism"))`  | 
-| Factor 4 | `r mcq(c(answer = "Openness to experience", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism"))`  | 
-| Factor 5 | `r mcq(c(answer = "Openness to experience", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism"))` |
+Factor 1: `r mcq(c("Openness to experience", "Conscientiousness", answer = "Extraversion", "Agreeableness", "Neuroticism"))` 
+
+::: {.callout-caution icon="false" collapse="true"}
+## Items
+
+I am the life of the party (.677), don’t talk a lot (-.794), feel comfortable around people (.624), keep in the background (-.787), start conversations (.606), have little to say (-.673), talk to a lot of different people at parties (.719), don’t like to draw attention to myself (-.654), don’t mind being the centre of attention (.643), am quiet around strangers (-.702)
+:::
+
+
+Factor 2: `r mcq(c("Openness to experience", "Conscientiousness", "Extraversion", "Agreeableness", answer = "Neuroticism"))` 
+
+::: {.callout-caution icon="false" collapse="true"}
+## Items
+
+Get stressed out easily (.709), am relaxed most of the time (-.573), worry about things (.682), get upset easily (.702), change my mood a lot (.692), have frequent mood swings (.744), get irritated easily (.656), often feel blue (.646)
+:::
+
+
+Factor 3: `r mcq(c("Openness to experience", answer = "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism"))` 
+
+::: {.callout-caution icon="false" collapse="true"}
+## Items
+
+Am always prepared (.610), leave my belongings around (-.607), make a mess of things (-.559), get chores done right (.703), like order (.703), shirk my duties (-.542), follow a schedule (.669), often forget to put things back in their proper place (-.642)
+:::
+
+
+Factor 4: `r mcq(c("Openness to experience", "Conscientiousness", "Extraversion", answer = "Agreeableness", "Neuroticism"))` 
+
+::: {.callout-caution icon="false" collapse="true"}
+## Items
+
+Feel little concern for others (-.513), sympathise with others feelings (.704), am not interested in other people’s problems (-.535), have a soft heart (.553), am not really interested in others (-.673), take time out for others (.700), feel others emotions (.613), 
+:::
+
+
+Factor 5: `r mcq(c(answer = "Openness to experience", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism"))`
+
+
+::: {.callout-caution icon="false" collapse="true"}
+## Items
+
+Have a rich vocabulary (.619), have difficulty understanding abstract ideas (-.529), have a vivid imagination (.645), have excellent ideas (.570), do not have a good imagination (-.648), use difficult words (.564), am full of ideas (.569)
+:::
 
 :::
 ::::
