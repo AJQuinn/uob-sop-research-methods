@@ -263,11 +263,9 @@ Based on your analysis of the personality questionnaire:
 
 2. How many factors would you extract based on the scree plot? `r fitb(5)`
 
-3. What message does Jamovi give you about the Rotated Component Matrix? What might this mean?
-
 Rerun the factor analysis, but this time set the criteria to extract 5 factors. You can do this in the ‘Number of Components” section: instead of selecting ‘based on eigenvalues’ select ‘fixed number’. Set this to 5. 
 
-4. The questionnaire is based on a trait model of personality called the ‘Big Five’ (Costa & McCrae, 1986). The Big Five are:
+3. The questionnaire is based on a trait model of personality called the ‘Big Five’ (Costa & McCrae, 1986). The Big Five are:
     * Openness to experience (or intellect)
     * Conscientiousness 
     * Extraversion 
