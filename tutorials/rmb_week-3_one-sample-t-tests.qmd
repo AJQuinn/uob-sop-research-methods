@@ -48,9 +48,9 @@ This week we will use one-sample t-tests to explore whether participants from th
 
 Before we start, think about what you would predict about participants from the UK. Is there a reason to expect that people in the UK would associate the north of a city with high SES or vice versa?
 
-Make a note of your answer and the reasons behind it. Note that there isn’t necessarily a correct answer to this question and we won't ask you for it later. 
+Make a note of your answer and the reasons behind it. Note that there isn’t necessarily a correct answer to this question and we won't ask you for it later.
 
-It is good practice to be clear about our predictions and expectations before starting a data analysis. 
+It is good practice to be clear about our predictions and expectations before starting a data analysis.
 
 :::
 
@@ -102,7 +102,9 @@ No, in this case the dataset looks very clean. We appear to have data for everyo
 
 Compute some descriptive statistics on the `NorthSouth` column. Make sure that you include the standard error of the mean!
 
-You can split the descriptive statistics using a second variable. This
+You can split the descriptive statistics using a second variable. We can do this by adding the variables we want to describe to the 'Variables' section and including a categorical variable in the 'Split by' section (we can only split data into categories, it wouldn't make sense to try and split data into a continuous variable)
+
+Split your descriptive statistics by the `SES_Story` variable.
 
 ![](../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img3.png)
 :::
@@ -140,7 +142,7 @@ No! remember that descriptive statistics only summarise the data as it is. They 
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - are we more confident in our estimate of the mean for the 'North' or 'South' condition?
- 
+
 The standard error of the mean tells us how well we think our estimated mean from the data sample represents the 'true' population mean.
 
 The standard error of the mean for the 'Low' group is higher (9.96 vs 7.3 for 'High') - indicating that we are less confident that this is a good representation of our population mean. Note that it could still be a good estimate, we're just relatively less confident than we are for the 'High' condition.
@@ -248,7 +250,7 @@ Before going any further - make sure that your data filter is set to include **o
 
 :::
 
-Of course, we will normally compute the t-test using Jamovi as rather than relying on hand calculations. We can do this by opening the 'One Sample T-Test' option under the 'Analysis -> T-Tests' menu on the top ribbon. 
+Of course, we will normally compute the t-test using Jamovi as rather than relying on hand calculations. We can do this by opening the 'One Sample T-Test' option under the 'Analysis -> T-Tests' menu on the top ribbon.
 
 Open the One Sample T-Test option now, and drag the `NorthSouth_Position` variable over to the 'dependent variables' box. The result should appear on the right hand side. Before we inspect the result, we should check and add a number of important options to our analysis.
 
@@ -257,7 +259,7 @@ Open the One Sample T-Test option now, and drag the `NorthSouth_Position` variab
 
 - **Hypothesis - test value** it is critical that we select the correct hypothesis or our test will be meaningless. Our 'test value', also known as a 'comparison value', is set to zero by default. This is correct for our analysis but may need setting to something else for other analyses. Take care to check it makes sense each time.
 
-- **Hypothesis - test tail** we can also specify whether we're going to perform a one- or two-tailed test. Here we want to specify a two-tailed test in which the mean does not equal the test value. 
+- **Hypothesis - test tail** we can also specify whether we're going to perform a one- or two-tailed test. Here we want to specify a two-tailed test in which the mean does not equal the test value.
 
 - **Assumption Checks** we should add a test to check that our data are normally distributed. Selecting the 'Normality test' box will compute a Shapio-Wilks statistic for you
 
@@ -305,7 +307,7 @@ Yes, we do have a significant difference - we could report our test as follows
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - Is it valid to use parametric statistics on this data?
 
-The Shapiro Wilk statistic has a p-value of 0.038 which is less than p = 0.05. This suggets that our data are not normally distributed. We should inspect the data in more detail and consider using a non-parametric alternative. 
+The Shapiro Wilk statistic has a p-value of 0.038 which is less than p = 0.05. This suggets that our data are not normally distributed. We should inspect the data in more detail and consider using a non-parametric alternative.
 
 The Wilcoxon Rank test is the non-parametric alternative for One Sample t-test. You can add this to the analysis to see if it gives the same result as the parametric test.
 
@@ -314,7 +316,7 @@ The Wilcoxon Rank test is the non-parametric alternative for One Sample t-test. 
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - Do the confidence intervals of the estimated mean cross zero?
 
-No - in the 'High' condition the confidence intervals of the mean are a long way from zero. 
+No - in the 'High' condition the confidence intervals of the mean are a long way from zero.
 
 :::
 
@@ -423,7 +425,7 @@ Your final code should look like this:
 low_ses <- filter(data, SES_Story == 'Low')
 
 jmv::ttestOneS(
-    data = low_ses, 
+    data = low_ses,
     vars = NorthSouth_Position,
     norm = TRUE,
     plots = TRUE)
