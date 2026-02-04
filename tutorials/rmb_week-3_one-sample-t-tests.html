@@ -650,7 +650,8 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>Compute some descriptive statistics on the <code>NorthSouth</code> column. Make sure that you include the standard error of the mean!</p>
-<p>You can split the descriptive statistics using a second variable. This</p>
+<p>You can split the descriptive statistics using a second variable. We can do this by adding the variables we want to describe to the ‘Variables’ section and including a categorical variable in the ‘Split by’ section (we can only split data into categories, it wouldn’t make sense to try and split data into a continuous variable)</p>
+<p>Split your descriptive statistics by the <code>SES_Story</code> variable.</p>
 <p><img src="../images/rmb-2025_week-3_computer-practical/RMB-2025_week-3_img3.png" class="img-fluid"></p>
 </div>
 </div>
@@ -1036,7 +1037,7 @@ Warning
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>low_ses <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, SES_Story <span class="sc">==</span> <span class="st">'Low'</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestOneS</span>(</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> low_ses, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> low_ses,</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">vars =</span> NorthSouth_Position,</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">plots =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
