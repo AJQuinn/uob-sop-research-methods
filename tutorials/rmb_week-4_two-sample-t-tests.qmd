@@ -270,6 +270,15 @@ The group average was a proportion of `r fitb(0.527)` correct responses with a 9
 
 Ok, we're ready to test the first hypothesis. Use the information you know about the dataset and try to find an answer!
 
+::: {.callout-note appearance="simple"}
+# Key step
+
+Run a one sample t-test testing whether the proportion of correctly identified faces was above chance level for the group, include some descriptive statistics to help you interpret the result.
+
+
+:::
+
+
 <!--# #############################################  -->
 
 :::: callout-tip
