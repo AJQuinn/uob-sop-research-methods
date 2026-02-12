@@ -838,6 +838,19 @@ window.Quarto = {
 <section id="hypothesis-1---people-are-able-to-distinguish-ai-generated-faces-from-real-photos-of-humans" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="hypothesis-1---people-are-able-to-distinguish-ai-generated-faces-from-real-photos-of-humans">4. Hypothesis 1 - People are able to distinguish AI generated faces from real photos of humans</h2>
 <p>Ok, we’re ready to test the first hypothesis. Use the information you know about the dataset and try to find an answer!</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key step
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Run a one sample t-test testing whether the proportion of correctly identified faces was above chance level for the group, include some descriptive statistics to help you interpret the result.</p>
+</div>
+</div>
 <!--# #############################################  -->
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -932,7 +945,7 @@ window.Quarto = {
 </div>
 <p>Let’s think through the results</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -941,25 +954,9 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The Shairo-Wilk statistic is significant, indicating that the data are <strong>not</strong> likely to be normally distributed</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - do we have homogeneity of variance?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Levene’s statistic is not significant, indicating that the variance of the two groups is comparable. We can confirm this by looking at the standard deviations in the descriptives table. 0.140 and 0.149 are fairly similar so the test report makes intuitive sense.</p>
+<p>The Shairo-Wilk statistic is significant, indicating that the data are <strong>not</strong> likely to be normally distributed</p>
 </div>
 </div>
 </div>
@@ -969,11 +966,27 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - which test should we report? Student’s, Welch’s or Mann-Whitney U?
+<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - do we have homogeneity of variance?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Levene’s statistic is not significant, indicating that the variance of the two groups is comparable. We can confirm this by looking at the standard deviations in the descriptives table. 0.140 and 0.149 are fairly similar so the test report makes intuitive sense.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - which test should we report? Student’s, Welch’s or Mann-Whitney U?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We can assume homogeneity of variance but we cannot assume normality, we should proceed with the non-parametric alternative test the <strong>Mann-Whitney U</strong>.</p>
 </div>
