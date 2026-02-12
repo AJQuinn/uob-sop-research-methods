@@ -187,7 +187,7 @@ Comparing confidence before and after the fact task, confidence in indentifying 
 
 Confidence in indentifying happy faces from sad faces `r mcq(c('decreased', answer = 'increased'))` from `r fitb(2.95)` before to `r fitb(2.85)` afterwards.
 
-Confidence in indentifying people you used to know in primary school from strangers  `r mcq(c('decreased', answer = 'increased'))` from `r fitb(3.51)` before to `r fitb(3.63)` afterwards.
+Confidence in indentifying people you used to know in primary school from strangers  `r mcq(c(answer = 'decreased', 'increased'))` from `r fitb(3.51)` before to `r fitb(3.63)` afterwards.
 
 
 :::
@@ -251,7 +251,7 @@ A total of `r fitb(61)` participants responded to all 12 faces, with `r fitb(111
 
 (Note from Andrew: I'll give more than 10 seconds per face next year!)
 
-The least accurate participant got a proportion of `r fitb(0.25)` correct, this corresponds to `r fitb(4)` correct responses out of a possible 12.
+The least accurate participant got a proportion of `r fitb(0.25)` correct, this corresponds to `r fitb(3)` correct responses out of a possible 12.
 
 The most accurate participant got a proportion of `r fitb(0.917)` correct, this corresponds to `r fitb(11)` correct responses out of a possible 12.
 
@@ -288,7 +288,7 @@ Compute the statistics, do the data support the experimental or the null hypothe
 
 Once you have finished, complete this writing to report the results as if it were in a paper or report.
 
-A one sample t-test comparing the group average proportion of correctly identified faces (M = `r fitb(0.527)`, SD=`r fitb(0.144)`) to chance level (proportion correct = `r fitb(0.5)`) showed a significant effect, t(`r fitb(0.60)`) = `r fitb(1.48)`, p=`r fitb(0.144)`. We can conclude that participants in the experiment were `r mcq(c('able', answer = 'not able'))` to distinguish AI generated faces from real faces.
+A one sample t-test comparing the group average proportion of correctly identified faces (M = `r fitb(0.527)`, SD=`r fitb(0.144)`) to chance level (proportion correct = `r fitb(0.5)`) showed a significant effect, t(`r fitb(60)`) = `r fitb(1.48)`, p=`r fitb(0.144)`. We can conclude that participants in the experiment were `r mcq(c('able', answer = 'not able'))` to distinguish AI generated faces from real faces.
 
 ## Hint
 
