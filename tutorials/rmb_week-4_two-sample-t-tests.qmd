@@ -125,7 +125,7 @@ We would expect `r fitb(50)`% accuracy if the participants answered randomly on 
 ::::
 
 
-The columns containing the responses for each face have a `0` when the participant was correct and a `1` when the participant was correct for that face.
+The columns containing the responses for each face have a `0` when the participant was incorrect and a `1` when the participant was correct for that face.
 
 ::: {.callout-note appearance="simple"}
 # Key step
@@ -287,7 +287,7 @@ Run a one sample t-test testing whether the proportion of correctly identified f
 ::: panel-tabset
 ## Question
 
-Test the following hypothesis:
+Using your results, address the following hypothesis:
 
 > People are able to distinguish AI generated faces from real photos of humans
 
