@@ -36,7 +36,7 @@ This week we will explore how to use the `jmv` package in R to test hypotheses a
 ::: {.callout-note}
 # Dataset
 
-Please note, this is the same dataset as we used in week 4 - but make sure that you load in the `rmb-week-3_lecture-quiz-data_ai-faces-fixed.omv` file from this week and NOT the week 4 file. It contains a small fix that we need for this week.
+Please note, this is the same dataset as we used in week 4 - but make sure that you load in the `rmb-week-3_lecture-quiz-data_ai-faces-2026.omv` file from this week and NOT the week 4 file. It contains a small fix that we need for this week.
 
 :::
 
