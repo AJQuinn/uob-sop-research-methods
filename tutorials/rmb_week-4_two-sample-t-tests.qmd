@@ -187,7 +187,7 @@ Comparing confidence before and after the fact task, confidence in indentifying 
 
 Confidence in indentifying happy faces from sad faces `r mcq(c('decreased', answer = 'increased'))` from `r fitb(2.95)` before to `r fitb(2.85)` afterwards.
 
-Confidence in indentifying people you used to know in primary school from strangers  `r mcq(c(answer = 'decreased', 'increased'))` from `r fitb(3.51)` before to `r fitb(3.63)` afterwards.
+Confidence in indentifying people you used to know in primary school from strangers  `r mcq(c('decreased', answer = 'increased'))` from `r fitb(3.63)` before to `r fitb(3.51)` afterwards.
 
 
 :::
