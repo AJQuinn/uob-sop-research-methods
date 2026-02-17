@@ -1,3 +1,12 @@
+---
+engine: knitr
+---
+
+```{r}
+#| echo: false
+library(webexercises)
+```
+
 # Week 5 : p-values and effect sizes {.unnumbered}
 
 This week we will explore how to use the `jmv` package in R to test hypotheses about a dataset using t-tests and to compute effect sizes corresponding to those tests. We will use those effect sizes to help interpret the sensitivity and power of our experiments.
@@ -39,7 +48,7 @@ We ran a quiz that students in the lecture could join on their phones/laptops. T
 
 The faces section included 12 faces that were either photographs or real people or AI generated images of people. The stimuli were taked from the materials released by [@Miller2024_AIHyperrealism] on the [Open Science Framework](https://osf.io/ru36d/). Responses were either 'Real person' or 'AI generated'.
 
-![](../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img0.png){width="600px"}
+[](../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img0-2026.png){.lightbox width="600px"}
 
 
 The confidence section asked participants to rate their confidence in their ability to do the following three things.
@@ -73,7 +82,7 @@ When computing a new varaible with `mutate()` we three pieces of information.
 
 ### Compute the grouping variable
 
-Let's start with our grouping variable. Our three pieces of information are 
+Let's start with our grouping variable. Our three pieces of information are
 
 - The dataset to work on - is `data`, which refers to the original datasheet loaded into Jamovi
 - The name of the new variable - is `ConfidentBefore`, the same as we used last week
@@ -82,6 +91,7 @@ Let's start with our grouping variable. Our three pieces of information are
 We can combine these into a single line to create the variable. Note that we save the result into a new variable named `my_data`, we'll use this from now on to avoid confusion with the original datasheet.
 
 ```R
+library(dplyr)
 my_data <- mutate(data, ConfidentBefore = AIConfidenceBefore<4)
 ```
 
@@ -100,7 +110,7 @@ We can see on in the results on the right hand side that the additional colume `
 
 ### Compute the proportion of correct responses
 
-Let's do the same for total proportion of correctly identified faces. We can use the same principle as we used for the grouping variable and use `mutate()` along with the variable definition and name to create our new column. 
+Let's do the same for total proportion of correctly identified faces. We can use the same principle as we used for the grouping variable and use `mutate()` along with the variable definition and name to create our new column.
 
 This definition is pretty long as we have 12 different faces to work with! You can copy the whole line using the copy icon in the right hand side of the code box. Take a moment to look through and understand each part: which part is the *Dataset*, the *Name* and the *Definition*?
 
@@ -123,7 +133,7 @@ The final column of the dataset is now `PropFacesCorrect` and contains the propo
 ::: panel-tabset
 ## Question
 
-Can you compute variables containing the proportion of correct responses for photos of real people and AI generated faces separately? 
+Can you compute variables containing the proportion of correct responses for photos of real people and AI generated faces separately?
 
 Store the results in `PropRealCorrectFaces` for real faces and `PropAICorrectFaces` for AI generated faces.
 
@@ -205,6 +215,14 @@ Read through the [ttestIS documentation page](https://www.jamovi.org/jmv/ttestis
 - Test for homogeneity of variance
 - Test for normal distribution
 
+Fill in the blanks to report the results of these tests. Report your results to 3 decimal places.
+
+Shaprio-Wilk's test for Normality found `r mcq(c("no significant", answer = 'a significant'))` difference to a normal distribution, W = `r fitb(0.958)`, p = `r fitb(0.037)`.
+
+Levene's test for homogeneity of variance `r mcq(c(answer = "no significant", 'a significant'))` difference in the variances of the two groups, F(`r fitb(1)`,`r fitb(58)`) = `r fitb(0.018)`, p = `r fitb(0.983)`.
+
+Based on these results we should report `r mcq(c("Student's t-test", "Welch's t-test", answer = "the Mann-Whitney U test"))`.
+
 ## Hint
 
 The documentation page contains a list of all the possible information that we can pass as an input to our `ttestIS()` function call. Each item in the list corresponds to the options available in the Jamovi dialogue box.
@@ -216,12 +234,12 @@ Have a look at the `norm` and `eqv` definitions. What would you need to add to t
 The following code will compute all the checks in addition to the t-test.
 
 ```R
-jmv::ttestIS(                                       
-    formula = PropFacesCorrect ~ ConfidentBefore,  
-    data = my_data,                                
+jmv::ttestIS(
+    formula = PropFacesCorrect ~ ConfidentBefore,
+    data = my_data,
     effectSize = TRUE,
     norm = TRUE,
-    eqv = TRUE)                             
+    eqv = TRUE)
 ```
 
 The results should look like this:
@@ -262,10 +280,12 @@ For example:
 ```R
 print('Hypothesis 1')
 print('Confident people are better at distinguishing AI faces from real faces')
-jmv::ttestIS(                                       
-    formula = PropFacesCorrect ~ ConfidentBefore,  
-    data = my_data,                                
-    effectSize = TRUE)
+jmv::ttestIS(
+    formula = PropFacesCorrect ~ ConfidentBefore,
+    data = my_data,
+    effectSize = TRUE,
+    norm = TRUE,
+    eqv = TRUE)
 ```
 
 This code will print out information about the hypothesis next to the outputs.
@@ -289,10 +309,12 @@ my_data <- mutate(my_data, PropAIFacesCorrect = (Face3_AI + Face4_AI + Face5_AI 
 # Hypothesis test
 print('Hypothesis 1')
 print('Confident people are better at distinguishing AI faces from real faces')
-jmv::ttestIS(                                       
-    formula = PropFacesCorrect ~ ConfidentBefore,  
-    data = my_data,                                
-    effectSize = TRUE)
+jmv::ttestIS(
+    formula = PropFacesCorrect ~ ConfidentBefore,
+    data = my_data,
+    effectSize = TRUE,
+    norm = TRUE,
+    eqv = TRUE)
 ```
 
 and running this code produces the following outputs including the test from our print statements
@@ -314,7 +336,8 @@ Extend your code to test a second hypothesis.
 
 > Confident participants are more accurate than unconfident participants when identifying photos of real faces.
 
-Include some code comments and print statements
+Include some code comments and print statements.
+
 
 ## Hint
 
@@ -330,10 +353,10 @@ The following code will test the new hypothesis with some comments and print sta
 # Hypothesis test
 print('Hypothesis 2')
 print('Confident participants are more accurate than unconfident participants when identifying photos of real faces.')
-jmv::ttestIS(                                       
-    formula = PropRealFacesCorrect ~ ConfidentBefore,  
-    data = my_data,                                
-    effectSize = TRUE)                       
+jmv::ttestIS(
+    formula = PropRealFacesCorrect ~ ConfidentBefore,
+    data = my_data,
+    effectSize = TRUE)
 ```
 
 The output of the whole script should now look like this.
@@ -399,50 +422,44 @@ The code runs a one sample t-test comparing the data mean to `0.0` using the jam
 In addition to the t-tests, the code runs a Wilcoxon Rank test, a Shapiro-Wilk test for normality and a descriptive statistics table.
 :::
 
-::: {.callout-note}
-# Key step
 
-Open a new Rj window and run this code before going any further! Take a moment to read through the code and decide what it is doing.
 
-::: {.callout-caution icon="false" collapse="true"}
-## Click here if you want to check that you have the right outputs.
+<!--# #############################################  -->
+
+:::: callout-tip
+## Check Your Understanding
+
+::: panel-tabset
+## Question
+
+Your friend thinks that none of the confidence values are changed by the task, do you think they are right?
+
+Run the code and fill in the gaps to describe the results.
+
+
+| Variable        | Significant or Not | Test Reported |
+| ----------- | ----------- | ----------- |
+| AI Confidence |  `r mcq(c("not significant", answer = 'significant'))`|   `r mcq(c(answer = "Student's t", 'Wilcoxon W'))` |
+| Emotion Recognition Confidence |  `r mcq(c(answer = "not significant", 'significant'))`|   `r mcq(c("Student's t", answer = 'Wilcoxon W'))` |
+| School Friend Memory Confidence |  `r mcq(c(answer = "not significant", 'significant'))`|   `r mcq(c("Student's t", answer = 'Wilcoxon W'))` |
+
+
+## Hint
+
+Open a new Rj window and run the code above before going any further! Take a moment to read through the code and decide what it is doing.
+
+
+## Solution
 
 The results should look like this:
 
 ![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img8.png){width=600px}
 
 :::
+::::
 
-:::
 
-They have written the following about the results.
 
-> A one sample t-test found that the change in participant confidence in distinguishing AI faces from real faces was significantly reduced after performing the task. The difference in confidence before and after the task (M=-1.1, SD=2.7) was significantly below zero, t(76) = 3.538, p = 0.0007. In contrast there was no change after the task confidence in emotion recognition (M=-.017, SD=1.341), t(76) = -1.012, p = 0.313 and face memory (M=-0.02985, SD=1.044), t(76) = -0.234, p = 0.816.
-
-Let's think about whether this is accurate.
-
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - are the reported statistics correct? take your time to read carefully and compare to the outputs
-
-No! there are a number of mistakes throughout this writing. How many of the following mistakes did you spot?
-
-> A one sample t-test found that the change in participant confidence in distinguishing AI faces from real faces was significantly reduced after performing the task. The difference in confidence before and after the task (M=-1.1, SD=2.7) was significantly below zero, t(76) = <span style="color:red;">3.538</span>, p = 0.0007. In contrast there was no change after the task confidence in emotion recognition (M=-.017, SD=1.341), t(<span style="color:red;">76</span>) = -1.012, p = 0.313 and face memory (M=-0.02985, SD=1.044), t(<span style="color:red;">76</span>) = -0.234, p = 0.816.
-
-- <span style="color:red;">3.538</span> -> the sign of the t-values on this test is wrong. Take a look a the output table, this should be `-3.538`.
-- <span style="color:red;">76</span> -> the degrees of freedom for the second and third tests are reported incorrectly (perhaps copied from the first test?). These should be `64` and `66` respectively
-
-:::
-
-::: {.callout-caution icon="false" collapse="true"}
-## <i class="bi bi-question-lg"></i> Data Skills - was the correct test reported?
-
-Again, no! there are mistakes here as well. The friend has done the right thing by computing the Shapiro-Wilk statistics but appears to have ignored them in the writing.
-
-Shapiro-Wilk is significant for all three variables - we should strongly consider reporting the Wilcoxon Rank Sum test rather than Student's t.
-
-They could have run this analysis as a paired t-test, but the one sample t-test of the differences is also a valid approach.
-
-:::
 
 
 Computing statistics and accurately reporting the results takes a lot of precision! take your time when writing code and results sections - make sure to check and double check your work as you go...
@@ -461,12 +478,12 @@ Update your friend's code to include computation of effect sizes - the results s
 
 :::
 
-There are effect sizes computed for every t-test and its non-parametric alternatives. 
+There are effect sizes computed for every t-test and its non-parametric alternatives.
 
 - **Cohen's d** is the parametric effect size corresponding to Student's t-test
 - **Rank Biserial Correlation** is the non-parametric effect size corresponding to Wilcoxon's test.
 
-Though they have methodological differences, these effect sizes can be interpreted in the same way as a measure of the magnitude of an effect. 
+Though they have methodological differences, these effect sizes can be interpreted in the same way as a measure of the magnitude of an effect.
 
 Remember that this is different to the t-value which is a measure of evidence against the null hypothesis. The important difference is that we can have strong evidence against the null either as the difference is large or if we have measured a small difference very precisely. The effect size only cares about the size of the difference between conditions.
 
@@ -504,148 +521,8 @@ The effect size `-0.0286` is tiny! the Rank Biserial correlation is even smaller
 :::
 
 
-## 7. Use an effect size for a sensitivity & power analysis
 
-
-One core application for effect sizes is that we can use the results to inform our sample size planning for future studies. we can do this with four linked pieces of information
-
-- **Effect Size** this is our effect size, usually Cohen's d for analyses in RM-B
-- **Significance Thresold** - this is the 'alpha' level at which we would consider a result significant, usually 5% or 0.05.
-- **Power** - this is probability of correctly detecting an effect if one exists in the data, we usually want 80% power.
-- **Number of datapoints (N)** - this is our sample size.
-
-These four pieces of information are linked such that if we have any three of these values we can always compute the fourth.
-
-This lets us do some very useful calculations to see how well our dataset is enabling us to answer our hypothesis and to plan for future studies. For examples
-
-> If we know the effect size, significance threshold and number of participants in a study, we can compute the power to tell us the probability that we can correctly detect an effect. This is known as 'sensitivity'.
-
-or 
-
-> If we want to compute how many participants we'll need in a future study and we already know the effect size from previous literature, we can specify the power and significance threshold we want and compute the number of participants that we'll need.
-
-Very useful! We can compute these different values using a Jamovi module known as 'jpower'
-
-::: {.callout-note}
-# Key step - Install the jpower addon in Jamovi
-
-Click through the 'Modules' button on the top right of the Jamovi ribbon. Click to the list of 'Available' modules and install 'jpower'
-
-![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img10.png){width=500px}
-
-Click through to open the jpower menu and select a 'one-sample t-test' from the options. You should see the following dialogue box
-
-![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img11.png){width=500px}
-
-:::
-
-Let's take a moment to understand the options.
-
-First - notice that we have the four pieces of information listed near the top of the options.
-
-| jpower menu | Interpretation |
-|-----------------|---------------|
-| Minimally interesting effect size (δ)  | Effect size |
-| Minimum desired power              | Power
-| N                                  | Number of participants |
-| α (type 1 error rate)              | Significance threshold |
-
-By default, one of these options is grayed out and not modifible. This is as jpower works to compute one value at a time whilst asking you to specify the other three. By default, we're computing `N` as specified by the 'Calculate' drop down menu at the top of the dialogue box. Try changing this to calculate one of the other values and notice that the greyed out box changes each time.
-
-::: {.callout-note}
-# Key step - Install the jpower addon in Jamovi
-
-Let's run through an example. Say that we want to answer the following question:
-
-> What is the probability the `ChangeAIConfidence` has been correctly detected in our previous analysis.
-
-We should run through the following steps.
-
-1. Select that we want to Calcuate 'Power' in the top drop down menu.
-2. Set the 'Minimally interesting effect size (δ)' to our observed effect size from before. This is `0.429` (ignoring the sign)
-3. Set the 'N' to `77` - this is the number of participants in the test (degrees of freedom are 76)
-4. Set 'α (type 1 error rate)' to `0.05` - this is usually the default
-
-The results should appear automatically.
-
-![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img12.png)
-
-:::
-
-jpower gives us some really useful explanatory text along with the results. Read this carefully to understand what is going on. Firstly,
-
->The purpose of a power analysis is to evaluate the sensitivity of a design and test. You have chosen to calculate the sensitivity of the chosen design for detecting the specified effect size.
-
-This clarifies the type of analyses we have run - we want to compute the sensitivity of our analysis given particular data and effect size. Next the results are summarised
-
-> A design with a sample size of 77 can detect effect sizes of δ ≥ 0.429 with a probability of at least 0.96, assuming a two-sided criterion for detection that allows for a maximum Type I error rate of α= 0.05.
-
-This is the critical information. This tells us that the power is 0.96 for our analysis, indicating that we have a 96% chance of correctly detecting an effect size at least as large as the one from our test. Great news!
-
-Finally, the 'Power by Effect size' table tells us the power we would have for different effect sizes. For example, in this case if we have an effect size of 0.3 - we would have power between 50% and 80%. If the effect size were 0.2 we would have less than 50% power.
-
-
-<!--# #############################################  -->
-
-:::: callout-tip
-## Check Your Understanding
-
-::: panel-tabset
-## Question
-
-What is the sensitivity (power) of the effect size estimated by Cohen's d for the `ChangeEmoConfidence` variable?
-
-## Hint
-
-Take a look at our previous results. Cohen'd d for `ChangeEmoConfidence` was `-0.126`.
-
-## Solution
-
-Our estimated power for the `ChangeEmoConfidence` is only 19.4%.
-
-> A design with a sample size of 77 can detect effect sizes of δ ≥ 0.126 with a probability of at least0.194, assuming a two-sided criterion for detection that allows for a maximum Type I error rate of α = 0.05.
-
-![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img13.png)
-
-This is the practical consequence of effect sizes! The smaller effect for `ChangeEmoConfidence` is harder to detect than the larger value for `ChangeAIConfidence` so we have a much lower chance of getting the right answer.
-
-:::
-::::
-
-<!--# #############################################  -->
-
-<!--# #############################################  -->
-
-:::: callout-tip
-## Check Your Understanding
-
-::: panel-tabset
-## Question
-
-It might be the case that our face recognition really does change participants confidence in recognising emotional faces, and our study simply doesn't have enough participants to detect the change with statistical confidence. Perhaps we should consider running a larger study?
-
-If we assume that our value for Cohen's d is accurate and we assume that there really is an effect to be detected (these are pretty brave assumptions!), how many participants would a future study need to have 80% chance of correctly detecting the effect?
-
-## Hint
-
-We'll need to change our analysis to calculate 'N' rather than 'Power' using the drop down menu at the top. Can you specify the power?
-
-## Solution
-
-We would need at least 497 participants to reject the null hypothesis if the estimated effect size for the change in emotional face recognition before and after our task is accurate! that is a lot....
-
-> We would need a sample size of 497 to reliably (with probability greater than 0.8) detect an effect size of δ ≥ 0.126, assuming a two-sided criterion for detection that allows for a maximum Type I error rate of α = 0.05.
-
-![](../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img14.png)
-
-This information suggests that this looking for differences in emotional face confidence is probably not worth pursuing futher. Our experiment wasn't perfect but this effect is so small that it is likely to be of little to no practical significance.
-
-:::
-::::
-
-
-
-## 8. Summary {.unnumbered}
+## 7. Summary {.unnumbered}
 
 We have explored some new methods for creating new variables and running t-tests with effect sizes using R code. The R code we wrote is a really clear way to specify how variables were manipulated and which tests were run. Quite complex analyses with several stages can be clearly expressed this way.
 
