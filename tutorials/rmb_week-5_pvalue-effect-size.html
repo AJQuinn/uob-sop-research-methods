@@ -415,8 +415,7 @@ div.csl-indent {
   <li><a href="#compute-a-t-test-using-r" id="toc-compute-a-t-test-using-r" class="nav-link" data-scroll-target="#compute-a-t-test-using-r">4. Compute a t-test using R</a></li>
   <li><a href="#analysis-from-a-friend" id="toc-analysis-from-a-friend" class="nav-link" data-scroll-target="#analysis-from-a-friend">5. Analysis from a friend</a></li>
   <li><a href="#compute-effect-sizes-for-t-tests" id="toc-compute-effect-sizes-for-t-tests" class="nav-link" data-scroll-target="#compute-effect-sizes-for-t-tests">6. Compute effect sizes for t-tests</a></li>
-  <li><a href="#use-an-effect-size-for-a-sensitivity-power-analysis" id="toc-use-an-effect-size-for-a-sensitivity-power-analysis" class="nav-link" data-scroll-target="#use-an-effect-size-for-a-sensitivity-power-analysis">7. Use an effect size for a sensitivity &amp; power analysis</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8. Summary</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">7. Summary</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -523,7 +522,7 @@ div.csl-indent {
 </blockquote>
 <p>We ran a quiz that students in the lecture could join on their phones/laptops. There were two parts to the quiz:</p>
 <p>The faces section included 12 faces that were either photographs or real people or AI generated images of people. The stimuli were taked from the materials released by <span class="citation" data-cites="Miller2024_AIHyperrealism">(<a href="#ref-Miller2024_AIHyperrealism" role="doc-biblioref">Miller et al. 2023</a>)</span> on the <a href="https://osf.io/ru36d/">Open Science Framework</a>. Responses were either ‘Real person’ or ‘AI generated’.</p>
-<p><img src="../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img0.png" class="img-fluid" width="600"></p>
+<p><a href="../images/rmb-week-4_computer-practical/rmb-week-4_computer-practical_img0-2026.png" class="lightbox" width="600px"></a></p>
 <p>The confidence section asked participants to rate their confidence in their ability to do the following three things.</p>
 <ul>
 <li>Distinguish real photos of people from AI generated images (Experimental condition)</li>
@@ -556,7 +555,8 @@ div.csl-indent {
 <li>The definition - is <code>AIConfidenceBefore&lt;4</code>, again the same as we used last week</li>
 </ul>
 <p>We can combine these into a single line to create the variable. Note that we save the result into a new variable named <code>my_data</code>, we’ll use this from now on to avoid confusion with the original datasheet.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(data, <span class="at">ConfidentBefore =</span> AIConfidenceBefore<span class="sc">&lt;</span><span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(data, <span class="at">ConfidentBefore =</span> AIConfidenceBefore<span class="sc">&lt;</span><span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We can check that this has done what we expected by running <code>head</code> to see the first few rows of the dataset.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The result should look like this:</p>
@@ -664,6 +664,10 @@ div.csl-indent {
 <li>Test for homogeneity of variance</li>
 <li>Test for normal distribution</li>
 </ul>
+<p>Fill in the blanks to report the results of these tests. Report your results to 3 decimal places.</p>
+<p>Shaprio-Wilk’s test for Normality found <select class="webex-select"><option value="blank"></option><option value="">no significant</option><option value="answer">a significant</option></select> difference to a normal distribution, W = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.958&quot;,&quot;.958&quot;]">, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.037&quot;,&quot;.037&quot;]">.</p>
+<p>Levene’s test for homogeneity of variance <select class="webex-select"><option value="blank"></option><option value="answer">no significant</option><option value="">a significant</option></select> difference in the variances of the two groups, F(<input class="webex-solveme nospaces" size="1" data-answer="[&quot;1&quot;]">,<input class="webex-solveme nospaces" size="2" data-answer="[&quot;58&quot;]">) = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.018&quot;,&quot;.018&quot;]">, p = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.983&quot;,&quot;.983&quot;]">.</p>
+<p>Based on these results we should report <select class="webex-select"><option value="blank"></option><option value="">Student’s t-test</option><option value="">Welch’s t-test</option><option value="answer">the Mann-Whitney U test</option></select>.</p>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>The documentation page contains a list of all the possible information that we can pass as an input to our <code>ttestIS()</code> function call. Each item in the list corresponds to the options available in the Jamovi dialogue box.</p>
@@ -671,12 +675,12 @@ div.csl-indent {
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>The following code will compute all the checks in addition to the t-test.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(                                       </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropFacesCorrect <span class="sc">~</span> ConfidentBefore,  </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,                                </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropFacesCorrect <span class="sc">~</span> ConfidentBefore,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">eqv =</span> <span class="cn">TRUE</span>)                             </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">eqv =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The results should look like this:</p>
 <p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img5.png" class="img-fluid"></p>
 <p>Do the assumptions for Student’s t-test hold for this data?</p>
@@ -704,10 +708,12 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 <p>For example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hypothesis 1'</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Confident people are better at distinguishing AI faces from real faces'</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(                                       </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropFacesCorrect <span class="sc">~</span> ConfidentBefore,  </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,                                </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropFacesCorrect <span class="sc">~</span> ConfidentBefore,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">eqv =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This code will print out information about the hypothesis next to the outputs.</p>
 <p>A full cleaned and commented version of our code might look like this.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute which participants were more confident than the median</span></span>
@@ -725,10 +731,12 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Hypothesis test</span></span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hypothesis 1'</span>)</span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Confident people are better at distinguishing AI faces from real faces'</span>)</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(                                       </span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropFacesCorrect <span class="sc">~</span> ConfidentBefore,  </span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,                                </span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropFacesCorrect <span class="sc">~</span> ConfidentBefore,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">eqv =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>and running this code produces the following outputs including the test from our print statements</p>
 <p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img5.png" class="img-fluid"></p>
 <p>Nice and clear what is happening at each stage! There is no perfect or ‘correct’ way to tidy up your code (though some people can get opinionated about this…). Choose a mix of comments and print statements that makes sense to you.</p>
@@ -751,7 +759,7 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 <blockquote class="blockquote">
 <p>Confident participants are more accurate than unconfident participants when identifying photos of real faces.</p>
 </blockquote>
-<p>Include some code comments and print statements</p>
+<p>Include some code comments and print statements.</p>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <p>This will require a second indenpendent samples t-test asking whether the mean proportion correct value for only real faces is different between our confident and not-confident groups.</p>
@@ -762,10 +770,10 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hypothesis test</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hypothesis 2'</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Confident participants are more accurate than unconfident participants when identifying photos of real faces.'</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(                                       </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropRealFacesCorrect <span class="sc">~</span> ConfidentBefore,  </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,                                </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)                       </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>jmv<span class="sc">::</span><span class="fu">ttestIS</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> PropRealFacesCorrect <span class="sc">~</span> ConfidentBefore,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> my_data,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">effectSize =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The output of the whole script should now look like this.</p>
 <p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img7.png" class="img-fluid"></p>
 <p>Note how the print statements help to separate the results into interpretable chunks.</p>
@@ -845,79 +853,63 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<!--# #############################################  -->
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Key step
+<span class="screen-reader-only">Tip</span>Check Your Understanding
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Open a new Rj window and run this code before going any further! Take a moment to read through the code and decide what it is doing.</p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false" href="">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Your friend thinks that none of the confidence values are changed by the task, do you think they are right?</p>
+<p>Run the code and fill in the gaps to describe the results.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Significant or Not</th>
+<th>Test Reported</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AI Confidence</td>
+<td><select class="webex-select"><option value="blank"></option><option value="">not significant</option><option value="answer">significant</option></select></td>
+<td><select class="webex-select"><option value="blank"></option><option value="answer">Student’s t</option><option value="">Wilcoxon W</option></select></td>
+</tr>
+<tr class="even">
+<td>Emotion Recognition Confidence</td>
+<td><select class="webex-select"><option value="blank"></option><option value="answer">not significant</option><option value="">significant</option></select></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Student’s t</option><option value="answer">Wilcoxon W</option></select></td>
+</tr>
+<tr class="odd">
+<td>School Friend Memory Confidence</td>
+<td><select class="webex-select"><option value="blank"></option><option value="answer">not significant</option><option value="">significant</option></select></td>
+<td><select class="webex-select"><option value="blank"></option><option value="">Student’s t</option><option value="answer">Wilcoxon W</option></select></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Click here if you want to check that you have the right outputs.
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>Open a new Rj window and run the code above before going any further! Take a moment to read through the code and decide what it is doing.</p>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
 <p>The results should look like this:</p>
 <p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img8.png" class="img-fluid" width="600"></p>
 </div>
 </div>
-</div>
-</div>
-</div>
-<p>They have written the following about the results.</p>
-<blockquote class="blockquote">
-<p>A one sample t-test found that the change in participant confidence in distinguishing AI faces from real faces was significantly reduced after performing the task. The difference in confidence before and after the task (M=-1.1, SD=2.7) was significantly below zero, t(76) = 3.538, p = 0.0007. In contrast there was no change after the task confidence in emotion recognition (M=-.017, SD=1.341), t(76) = -1.012, p = 0.313 and face memory (M=-0.02985, SD=1.044), t(76) = -0.234, p = 0.816.</p>
-</blockquote>
-<p>Let’s think about whether this is accurate.</p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - are the reported statistics correct? take your time to read carefully and compare to the outputs
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>No! there are a number of mistakes throughout this writing. How many of the following mistakes did you spot?</p>
-<blockquote class="blockquote">
-<p>A one sample t-test found that the change in participant confidence in distinguishing AI faces from real faces was significantly reduced after performing the task. The difference in confidence before and after the task (M=-1.1, SD=2.7) was significantly below zero, t(76) = <span style="color:red;">3.538</span>, p = 0.0007. In contrast there was no change after the task confidence in emotion recognition (M=-.017, SD=1.341), t(<span style="color:red;">76</span>) = -1.012, p = 0.313 and face memory (M=-0.02985, SD=1.044), t(<span style="color:red;">76</span>) = -0.234, p = 0.816.</p>
-</blockquote>
-<ul>
-<li><span style="color:red;">3.538</span> -&gt; the sign of the t-values on this test is wrong. Take a look a the output table, this should be <code>-3.538</code>.</li>
-<li><span style="color:red;">76</span> -&gt; the degrees of freedom for the second and third tests are reported incorrectly (perhaps copied from the first test?). These should be <code>64</code> and <code>66</code> respectively</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - was the correct test reported?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Again, no! there are mistakes here as well. The friend has done the right thing by computing the Shapiro-Wilk statistics but appears to have ignored them in the writing.</p>
-<p>Shapiro-Wilk is significant for all three variables - we should strongly consider reporting the Wilcoxon Rank Sum test rather than Student’s t.</p>
-<p>They could have run this analysis as a paired t-test, but the one sample t-test of the differences is also a valid approach.</p>
 </div>
 </div>
 </div>
@@ -977,7 +969,7 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 </table>
 <p>These can be useful guidelines - through they have been criticised strongly for both the arbitrary nature of the thresholds and for over-simplifying interpretation of effect sizes. We can still use them as an informal indicator to help us quickly interpret our results.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -986,14 +978,14 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The effect size <code>-0.403</code> is just below the thresold to be a ‘medium’ effect (ignoring the sign of the effect size). The effect size for the Rank Biserial correlation is similar.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1002,14 +994,14 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The effect size <code>-0.126</code> is just below the thresold to be a ‘small’ effect (ignoring the sign of the effect size). The effect size for the Rank Biserial correlation is larger but still closer to small than medium.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1018,181 +1010,15 @@ my_data &lt;- mutate(data, ConfidentBefore = AIConfidenceBefore&lt;4)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The effect size <code>-0.0286</code> is tiny! the Rank Biserial correlation is even smaller…</p>
 </div>
 </div>
 </div>
 </section>
-<section id="use-an-effect-size-for-a-sensitivity-power-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="use-an-effect-size-for-a-sensitivity-power-analysis">7. Use an effect size for a sensitivity &amp; power analysis</h2>
-<p>One core application for effect sizes is that we can use the results to inform our sample size planning for future studies. we can do this with four linked pieces of information</p>
-<ul>
-<li><strong>Effect Size</strong> this is our effect size, usually Cohen’s d for analyses in RM-B</li>
-<li><strong>Significance Thresold</strong> - this is the ‘alpha’ level at which we would consider a result significant, usually 5% or 0.05.</li>
-<li><strong>Power</strong> - this is probability of correctly detecting an effect if one exists in the data, we usually want 80% power.</li>
-<li><strong>Number of datapoints (N)</strong> - this is our sample size.</li>
-</ul>
-<p>These four pieces of information are linked such that if we have any three of these values we can always compute the fourth.</p>
-<p>This lets us do some very useful calculations to see how well our dataset is enabling us to answer our hypothesis and to plan for future studies. For examples</p>
-<blockquote class="blockquote">
-<p>If we know the effect size, significance threshold and number of participants in a study, we can compute the power to tell us the probability that we can correctly detect an effect. This is known as ‘sensitivity’.</p>
-</blockquote>
-<p>or</p>
-<blockquote class="blockquote">
-<p>If we want to compute how many participants we’ll need in a future study and we already know the effect size from previous literature, we can specify the power and significance threshold we want and compute the number of participants that we’ll need.</p>
-</blockquote>
-<p>Very useful! We can compute these different values using a Jamovi module known as ‘jpower’</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Key step - Install the jpower addon in Jamovi
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Click through the ‘Modules’ button on the top right of the Jamovi ribbon. Click to the list of ‘Available’ modules and install ‘jpower’</p>
-<p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img10.png" class="img-fluid" width="500"></p>
-<p>Click through to open the jpower menu and select a ‘one-sample t-test’ from the options. You should see the following dialogue box</p>
-<p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img11.png" class="img-fluid" width="500"></p>
-</div>
-</div>
-<p>Let’s take a moment to understand the options.</p>
-<p>First - notice that we have the four pieces of information listed near the top of the options.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>jpower menu</th>
-<th>Interpretation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Minimally interesting effect size (δ)</td>
-<td>Effect size</td>
-</tr>
-<tr class="even">
-<td>Minimum desired power</td>
-<td>Power</td>
-</tr>
-<tr class="odd">
-<td>N</td>
-<td>Number of participants</td>
-</tr>
-<tr class="even">
-<td>α (type 1 error rate)</td>
-<td>Significance threshold</td>
-</tr>
-</tbody>
-</table>
-<p>By default, one of these options is grayed out and not modifible. This is as jpower works to compute one value at a time whilst asking you to specify the other three. By default, we’re computing <code>N</code> as specified by the ‘Calculate’ drop down menu at the top of the dialogue box. Try changing this to calculate one of the other values and notice that the greyed out box changes each time.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Key step - Install the jpower addon in Jamovi
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Let’s run through an example. Say that we want to answer the following question:</p>
-<blockquote class="blockquote">
-<p>What is the probability the <code>ChangeAIConfidence</code> has been correctly detected in our previous analysis.</p>
-</blockquote>
-<p>We should run through the following steps.</p>
-<ol type="1">
-<li>Select that we want to Calcuate ‘Power’ in the top drop down menu.</li>
-<li>Set the ‘Minimally interesting effect size (δ)’ to our observed effect size from before. This is <code>0.429</code> (ignoring the sign)</li>
-<li>Set the ‘N’ to <code>77</code> - this is the number of participants in the test (degrees of freedom are 76)</li>
-<li>Set ‘α (type 1 error rate)’ to <code>0.05</code> - this is usually the default</li>
-</ol>
-<p>The results should appear automatically.</p>
-<p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img12.png" class="img-fluid"></p>
-</div>
-</div>
-<p>jpower gives us some really useful explanatory text along with the results. Read this carefully to understand what is going on. Firstly,</p>
-<blockquote class="blockquote">
-<p>The purpose of a power analysis is to evaluate the sensitivity of a design and test. You have chosen to calculate the sensitivity of the chosen design for detecting the specified effect size.</p>
-</blockquote>
-<p>This clarifies the type of analyses we have run - we want to compute the sensitivity of our analysis given particular data and effect size. Next the results are summarised</p>
-<blockquote class="blockquote">
-<p>A design with a sample size of 77 can detect effect sizes of δ ≥ 0.429 with a probability of at least 0.96, assuming a two-sided criterion for detection that allows for a maximum Type I error rate of α= 0.05.</p>
-</blockquote>
-<p>This is the critical information. This tells us that the power is 0.96 for our analysis, indicating that we have a 96% chance of correctly detecting an effect size at least as large as the one from our test. Great news!</p>
-<p>Finally, the ‘Power by Effect size’ table tells us the power we would have for different effect sizes. For example, in this case if we have an effect size of 0.3 - we would have power between 50% and 80%. If the effect size were 0.2 we would have less than 50% power.</p>
-<!--# #############################################  -->
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Check Your Understanding
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false" href="">Solution</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<p>What is the sensitivity (power) of the effect size estimated by Cohen’s d for the <code>ChangeEmoConfidence</code> variable?</p>
-</div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<p>Take a look at our previous results. Cohen’d d for <code>ChangeEmoConfidence</code> was <code>-0.126</code>.</p>
-</div>
-<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
-<p>Our estimated power for the <code>ChangeEmoConfidence</code> is only 19.4%.</p>
-<blockquote class="blockquote">
-<p>A design with a sample size of 77 can detect effect sizes of δ ≥ 0.126 with a probability of at least0.194, assuming a two-sided criterion for detection that allows for a maximum Type I error rate of α = 0.05.</p>
-</blockquote>
-<p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img13.png" class="img-fluid"></p>
-<p>This is the practical consequence of effect sizes! The smaller effect for <code>ChangeEmoConfidence</code> is harder to detect than the larger value for <code>ChangeAIConfidence</code> so we have a much lower chance of getting the right answer.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!--# #############################################  -->
-<!--# #############################################  -->
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Check Your Understanding
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false" href="">Solution</a></li></ul>
-<div class="tab-content">
-<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
-<p>It might be the case that our face recognition really does change participants confidence in recognising emotional faces, and our study simply doesn’t have enough participants to detect the change with statistical confidence. Perhaps we should consider running a larger study?</p>
-<p>If we assume that our value for Cohen’s d is accurate and we assume that there really is an effect to be detected (these are pretty brave assumptions!), how many participants would a future study need to have 80% chance of correctly detecting the effect?</p>
-</div>
-<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
-<p>We’ll need to change our analysis to calculate ‘N’ rather than ‘Power’ using the drop down menu at the top. Can you specify the power?</p>
-</div>
-<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
-<p>We would need at least 497 participants to reject the null hypothesis if the estimated effect size for the change in emotional face recognition before and after our task is accurate! that is a lot….</p>
-<blockquote class="blockquote">
-<p>We would need a sample size of 497 to reliably (with probability greater than 0.8) detect an effect size of δ ≥ 0.126, assuming a two-sided criterion for detection that allows for a maximum Type I error rate of α = 0.05.</p>
-</blockquote>
-<p><img src="../images/rmb-week-5_computer-practical/rmb-week-5_computer-practical_img14.png" class="img-fluid"></p>
-<p>This information suggests that this looking for differences in emotional face confidence is probably not worth pursuing futher. Our experiment wasn’t perfect but this effect is so small that it is likely to be of little to no practical significance.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section id="summary" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="summary">8. Summary</h2>
+<h2 class="unnumbered anchored" data-anchor-id="summary">7. Summary</h2>
 <p>We have explored some new methods for creating new variables and running t-tests with effect sizes using R code. The R code we wrote is a really clear way to specify how variables were manipulated and which tests were run. Quite complex analyses with several stages can be clearly expressed this way.</p>
 <p>Finally, we used effect sizes to explore the power and sensitivity of our experiment and explore the possiblity of a follow up study.</p>
 </section>
