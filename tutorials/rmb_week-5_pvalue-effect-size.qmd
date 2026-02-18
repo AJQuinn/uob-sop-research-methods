@@ -219,7 +219,7 @@ Fill in the blanks to report the results of these tests. Report your results to 
 
 Shaprio-Wilk's test for Normality found `r mcq(c("no significant", answer = 'a significant'))` difference to a normal distribution, W = `r fitb(0.958)`, p = `r fitb(0.037)`.
 
-Levene's test for homogeneity of variance `r mcq(c(answer = "no significant", 'a significant'))` difference in the variances of the two groups, F(`r fitb(1)`,`r fitb(58)`) = `r fitb(0.018)`, p = `r fitb(0.983)`.
+Levene's test for homogeneity of variance `r mcq(c(answer = "no significant", 'a significant'))` difference in the variances of the two groups, F(`r fitb(1)`,`r fitb(58)`) = `r fitb(0.018)`, p = `r fitb(0.893)`.
 
 Based on these results we should report `r mcq(c("Student's t-test", "Welch's t-test", answer = "the Mann-Whitney U test"))`.
 
