@@ -370,12 +370,6 @@ Note how the print statements help to separate the results into interpretable ch
 
 <!--# #############################################  -->
 
-Now we're going to explore how the size of the data sample changes the t-values that w
-
-Introduce slice_sample
-Introduce simple loops
-
-
 
 ## 5. Analysis from a friend {.unnumbered}
 
@@ -502,21 +496,21 @@ These can be useful guidelines - through they have been criticised strongly for 
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - Is the effect size for `ChangeAIConfidence` small, medium or large?
 
-The effect size `-0.403` is just below the thresold to be a 'medium' effect (ignoring the sign of the effect size). The effect size for the Rank Biserial correlation is similar.
+The effect size `-0.81` is just below the thresold to be a 'medium' effect (ignoring the sign of the effect size). The effect size for the Rank Biserial correlation is similar.
 
 :::
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - Is the effect size for `ChangeEmoConfidence` small, medium or large?
 
-The effect size `-0.126` is just below the thresold to be a 'small' effect (ignoring the sign of the effect size). The effect size for the Rank Biserial correlation is larger but still closer to small than medium.
+The effect size `-0.02` is a very 'small' effect (we can ignore the sign of the effect size). The effect size for the Rank Biserial correlation is much larger - perhaps as the data is not normally distributed.
 
 :::
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## <i class="bi bi-question-lg"></i> Data Skills - Is the effect size for `ChangeMemoryConfidence` small, medium or large?
 
-The effect size `-0.0286` is tiny! the Rank Biserial correlation is even smaller...
+The effect size `-0.083` is tiny! the Rank Biserial correlation is even smaller...
 
 :::
 
