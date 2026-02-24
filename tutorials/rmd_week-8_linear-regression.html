@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>rma_week-10_tests_of_difference_chi-squared – Quantitative Methods Handbook</title>
+<title>rmd_week-8_linear-regression – Quantitative Methods Handbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../tutorials/rmb_week-1_new-data-and-descriptives.html" rel="next">
-<link href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -43,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-000f0825b9c55ed21d14970d810c14a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 </head>
@@ -108,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rma_week-8_introduction-to-jamovi.html">Research Methods A</a></li><li class="breadcrumb-item"><a href="../tutorials/rma_week-10_tests_of_difference_Chi-Squared.html">Week 10 - Tests of Difference Chi-Squared</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -147,13 +177,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Research Methods A</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../tutorials/rma_week-8_introduction-to-jamovi.html" class="sidebar-item-text sidebar-link">
@@ -168,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/rma_week-10_tests_of_difference_Chi-Squared.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tutorials/rma_week-10_tests_of_difference_Chi-Squared.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 10 - Tests of Difference Chi-Squared</span></a>
   </div>
 </li>
@@ -348,375 +378,188 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#week-10-tests-of-difference-chi-squared" id="toc-week-10-tests-of-difference-chi-squared" class="nav-link active" data-scroll-target="#week-10-tests-of-difference-chi-squared">Week 10 : Tests of difference: Chi-Squared</a>
+  <li><a href="#week-8-linear-regression" id="toc-week-8-linear-regression" class="nav-link active" data-scroll-target="#week-8-linear-regression">Week 8 : Linear Regression</a>
   <ul class="collapse">
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#how-to-perform-a-chi-square-in-jamovi" id="toc-how-to-perform-a-chi-square-in-jamovi" class="nav-link" data-scroll-target="#how-to-perform-a-chi-square-in-jamovi">1. How to perform a chi-square in Jamovi</a>
+  <li><a href="#checking-assumptions-for-linear-regression" id="toc-checking-assumptions-for-linear-regression" class="nav-link" data-scroll-target="#checking-assumptions-for-linear-regression">Checking assumptions for linear regression</a></li>
+  <li><a href="#using-jamovi-to-carry-out-a-linear-regression" id="toc-using-jamovi-to-carry-out-a-linear-regression" class="nav-link" data-scroll-target="#using-jamovi-to-carry-out-a-linear-regression">Using Jamovi to carry out a Linear Regression</a></li>
+  <li><a href="#coefficients" id="toc-coefficients" class="nav-link" data-scroll-target="#coefficients">Coefficients</a></li>
+  <li><a href="#adding-a-line-of-best-fit-to-a-jamovi-scatter-plot" id="toc-adding-a-line-of-best-fit-to-a-jamovi-scatter-plot" class="nav-link" data-scroll-target="#adding-a-line-of-best-fit-to-a-jamovi-scatter-plot">Adding a line of best fit to a Jamovi scatter plot</a>
   <ul class="collapse">
-  <li><a href="#worked-example--are-males-more-likely-to-smoke-than-females" id="toc-worked-example--are-males-more-likely-to-smoke-than-females" class="nav-link" data-scroll-target="#worked-example--are-males-more-likely-to-smoke-than-females">Worked example- are males more likely to smoke than females?</a></li>
+  <li><a href="#how-good-is-the-prediction" id="toc-how-good-is-the-prediction" class="nav-link" data-scroll-target="#how-good-is-the-prediction">How good is the prediction?</a></li>
   </ul></li>
-  <li><a href="#how-to-report-these-results-in-apa-format" id="toc-how-to-report-these-results-in-apa-format" class="nav-link" data-scroll-target="#how-to-report-these-results-in-apa-format">2. How to report these results in APA format</a></li>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">3. Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">4. Exercise 2</a></li>
+  <li><a href="#writing-up-the-linear-regression" id="toc-writing-up-the-linear-regression" class="nav-link" data-scroll-target="#writing-up-the-linear-regression">Writing up the Linear Regression</a></li>
+  <li><a href="#transferable-skills-linear-regression" id="toc-transferable-skills-linear-regression" class="nav-link" data-scroll-target="#transferable-skills-linear-regression">Transferable Skills: Linear Regression</a></li>
+  <li><a href="#writing-up-the-jamovi-output" id="toc-writing-up-the-jamovi-output" class="nav-link" data-scroll-target="#writing-up-the-jamovi-output">Writing up the Jamovi Output</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rma_week-8_introduction-to-jamovi.html">Research Methods A</a></li><li class="breadcrumb-item"><a href="../tutorials/rma_week-10_tests_of_difference_Chi-Squared.html">Week 10 - Tests of Difference Chi-Squared</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-<section id="week-10-tests-of-difference-chi-squared" class="level1 unnumbered">
-<h1 class="unnumbered">Week 10 : Tests of difference: Chi-Squared</h1>
-<p>This week you will be learning about</p>
-<section id="learning-objectives" class="level3">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 89%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><img src="../images/logos/rm-logo_quantitative-methods.png" class="img-fluid" width="50"></th>
-<th style="text-align: left;">Quantitative Methods</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">Hypothesis testing</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 89%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><img src="../images/logos/rm-logo_data-skills.png" class="img-fluid" width="50"></th>
-<th style="text-align: left;">Data Skills</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">Working with the Jamovi editor</td>
-</tr>
-<tr class="even">
-<td></td>
-<td style="text-align: left;">Performing a chi-squared test in Jamovi</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">Plot basic graphs in Jamovi</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 89%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><img src="../images/logos/rm-logo_open-science.png" class="img-fluid" width="50"></th>
-<th style="text-align: left;">Open Science</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td style="text-align: left;">Working with openly available research data</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-simple callout-note callout-titled">
+<section id="week-8-linear-regression" class="level1 unnumbered">
+<h1 class="unnumbered">Week 8 : Linear Regression</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Decide when it is appropriate, based on the shape of your data, to use linear regression.</li>
+<li>Use Jamovi to conduct a linear regression, interpret the output and write up the findings in APA format.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Today’s session
+<span class="screen-reader-only">Note</span>Examining your data to decide if using linear regression is appropriate
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Today you will just be familiarising yourself with the Chi-Squared test of difference. The Chi-Squared test is a non-parametric test of difference. It is used when…</p>
-<ul>
-<li>You want to know about differences between groups
-<ul>
-<li>Are there more females than males studying Psychology?</li>
-</ul></li>
-<li>You want to know whether there is an association between two categorical variables
-<ul>
-<li>Is there an association between gender and smoking?</li>
-</ul></li>
-<li>Your groups are independent
-<ul>
-<li>Each observation only contributes to one cell of the analysis (e.g.&nbsp;gender)</li>
-</ul></li>
-<li>You have categorical data (otherwise known as on the nominal level of measurement)
-<ul>
-<li>Frequency or number of observations in a number of categories e.g.&nbsp;10 male vs 50 females enrolled in Psychology</li>
-</ul></li>
-<li>Your data violates parametric assumptions
-<ul>
-<li>Your data is not normally distributed</li>
-</ul></li>
-</ul>
+<p>When conducting a correlation analysis or a linear regression, there are several assumptions which need to be met in order for the analysis to be meaningful.</p>
 </div>
 </div>
 </section>
-<section id="how-to-perform-a-chi-square-in-jamovi" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="how-to-perform-a-chi-square-in-jamovi">1. How to perform a chi-square in Jamovi</h2>
-<section id="worked-example--are-males-more-likely-to-smoke-than-females" class="level3">
-<h3 class="anchored" data-anchor-id="worked-example--are-males-more-likely-to-smoke-than-females">Worked example- are males more likely to smoke than females?</h3>
-<p>The table underneath contains information about smoking status distributed by gender. This information can be entered in to Jamovi providing that appropriate variables are constructed. In this example there are three variables, namely ‘smoking status’, ‘gender’, and ‘frequency’. In Point 2 illustrates these variables in Jamovi ‘Variable view’. Point 3 illustrates these variables and the associated data in Jamovi ‘Data view’</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 36%">
-<col style="width: 45%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: left;">Smokes</th>
-<th>Does not smoke</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Male</td>
-<td style="text-align: left;">25</td>
-<td><pre><code>            128</code></pre></td>
-</tr>
-<tr class="even">
-<td>Female</td>
-<td style="text-align: left;">12</td>
-<td><pre><code>            85</code></pre></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>To learn how to perform a Chi-square test you may open the example data in this week’s Canvas folder and work through the steps detailed below – to open the file, simply double click on it. If you have Jamovi installed on your computer, then it will automatically open</li>
-<li>Check that all relevant details are included in variable view – click on ‘variables’ in the top tool bar (it should look like the screen below). You should add your own labels here too. Also check that the values are specified for ‘gender’ and ‘smokes’.</li>
-</ul>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img1.png" class="img-fluid" width="600"></p>
-<ul>
-<li>To edit your variables, simply double tap on the variable of choice in the ‘variable view’ or tap on ‘edit’ in the tool bar</li>
-<li>You will see all the details about the variable, which you can change.</li>
-</ul>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img2.png" class="img-fluid" width="600"></p>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img3.png" class="img-fluid" width="600"></p>
-<ul>
-<li>Click on ‘data’ and check that a row defines each cell of your frequency table (i.e.&nbsp;you should have 1 row for females who smoke, 1 for females who do not smoke, 1 for males who smoke and 1 for males who do not smoke). The total observed frequency of each category should be in the corresponding frequency column.</li>
-</ul>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img4.png" class="img-fluid" width="600"></p>
-<ul>
-<li>Now you are ready to perform the Chi squared test. Click on: Frequencies &gt; Independent Samples</li>
-</ul>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img5.png" class="img-fluid" width="600"></p>
-<ul>
-<li>Add ‘Gender’ to the rows box, ‘Smokes’ to the Columns box, and ‘Frequency’ to the counts box</li>
-</ul>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img6.png" class="img-fluid" width="600"></p>
-<ul>
-<li>Click on statistics and tick the Chi Squared test</li>
-</ul>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img7.png" class="img-fluid" width="600"></p>
-<ul>
-<li>Next, select the cells button and select expected counts AND row, column and total</li>
-</ul>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img8.png" class="img-fluid" width="600"></p>
-<ul>
-<li>You can also play around with plots to visualise your data</li>
-</ul>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img9.png" class="img-fluid" width="600"></p>
-<ul>
-<li>On the right-hand side, you will see your results</li>
-</ul>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img10.png" class="img-fluid" width="600"></p>
-</section>
-</section>
-<section id="how-to-report-these-results-in-apa-format" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="how-to-report-these-results-in-apa-format">2. How to report these results in APA format</h2>
-<p>A Pearson Chi-Square was used to identify whether gender influenced smoking frequency. Results of the chi-square showed no significant difference in smoking frequency between genders (χ² (1) = .742, p = .389).</p>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can find the χ symbol on word by going to Insert &gt; Symbol. You might need to look under More Symbols if you haven’t used this symbol before.</p>
-</div>
-</div>
-</section>
-<section id="exercise-1" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="exercise-1">3. Exercise 1</h2>
-<p>A chi-square analysis was carried out to investigate the relationship between gender and smoking frequency, the Jamovi output showing the results of the analysis is shown below.</p>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img11.png" class="img-fluid" width="600"></p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span><i class="bi bi-question-lg"></i> Data Skills - What are the observed frequencies for men and women who did and did not smoke?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The rows represent participants and the columns represent the different variables</p>
-</div>
-</div>
-</div>
+<section id="checking-assumptions-for-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="checking-assumptions-for-linear-regression">Checking assumptions for linear regression</h2>
+<p>For each of the following data sets, run checks to see if the assumptions for linear regression are met. (HINT: You may wish to draw on Jamovi techniques used in the first RMD workshop)</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Check Your Understanding
+<span class="screen-reader-only">Tip</span>Test your understanding
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Question</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">A and B</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">A and C</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">C and D</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">A and E</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>What are the observed frequencies for males and females who did and did not smoke?</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>Did smoke</th>
-<th>Did not smoke</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Male</td>
-<td><input class="webex-solveme nospaces" size="2" data-answer="[&quot;50&quot;]"></td>
-<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;128&quot;]"></td>
-</tr>
-<tr class="even">
-<td>Female</td>
-<td><input class="webex-solveme nospaces" size="2" data-answer="[&quot;12&quot;]"></td>
-<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;140&quot;]"></td>
-</tr>
-</tbody>
-</table>
+<p>Run the appropriate tests on the data in variables A and B in <em>LR_assumptions.csv</em></p>
+<ol type="1">
+<li><p>Does the relationship look linear? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>Does the data have evenly distributed variances (is it homoscedastic) <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p></li>
+<li><p>Are there any outliers? <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p></li>
+<li><p>Overall is it appropriate to run a linear regression on these data? <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p></li>
+</ol>
 </div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Run the appropriate tests on the data in variables A and C in <em>LR_assumptions.csv</em></p>
+<ol type="1">
+<li><p>Does the relationship look linear? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>Does the data have evenly distributed variances (is it homoscedastic) <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>Are there any outliers? <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p></li>
+<li><p>Overall is it appropriate to run a linear regression on these data? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+</ol>
 </div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Run the appropriate tests on the data in variables C and D in <em>LR_assumptions.csv</em></p>
+<ol type="1">
+<li><p>Does the relationship look linear? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>Does the data have evenly distributed variances (is it homoscedastic) <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p></li>
+<li><p>Are there any outliers? <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p></li>
+<li><p>Overall is it appropriate to run a linear regression on these data? <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p></li>
+</ol>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Check Your Understanding
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Question</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>How would you report the results of the chi-square analysis in APA format?</p>
-<p>A Pearson Chi-Square was used to identify whether <select class="webex-select"><option value="blank"></option><option value="answer">gender</option><option value="">smoking</option><option value="">exercise</option></select> influenced <select class="webex-select"><option value="blank"></option><option value="">obestiy</option><option value="answer">smoking</option><option value="">exercise</option></select> frequency. Results of the chi-square <select class="webex-select"><option value="blank"></option><option value="answer">showed a significant difference</option><option value="">did not show a signficant difference</option></select> in smoking frequency between genders (<em>χ²</em> (<input class="webex-solveme nospaces" size="1" data-answer="[&quot;1&quot;]">) = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;21.9&quot;]">, <em>p</em> <select class="webex-select"><option value="blank"></option><option value=""> = .652</option><option value="answer">&lt; .001</option><option value="">= .036</option></select>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Check Your Understanding
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Question</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<p>What do these results show?</p>
-<p>As the results were <select class="webex-select"><option value="blank"></option><option value="answer">statistically significant</option><option value="">not significant</option></select>, there <select class="webex-select"><option value="blank"></option><option value="answer">is an</option><option value="">is no</option></select> association between <select class="webex-select"><option value="blank"></option><option value="">obestiy</option><option value="answer">smoking</option><option value="">exercise</option></select> frequency and <select class="webex-select"><option value="blank"></option><option value="answer">gender</option><option value="">smoking</option><option value="">exercise</option></select>, with <select class="webex-select"><option value="blank"></option><option value="answer">males</option><option value="">females</option></select> being more likely to be a smoker than <select class="webex-select"><option value="blank"></option><option value="">males</option><option value="answer">females</option></select>.</p>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>Run the appropriate tests on the data in variables A and E in <em>LR_assumptions.csv</em></p>
+<ol type="1">
+<li><p>Does the relationship look linear? <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="">No</option><option value="answer">Yes, but not if you take the outliers into account</option><option value="answer">No the outliers are an issue</option></select></p></li>
+<li><p>Does the data have evenly distributed variances (is it homoscedastic) <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>Are there any outliers? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>Overall is it appropriate to run a linear regression on these data? <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option></select></p></li>
+</ol>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-2" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="exercise-2">4. Exercise 2</h2>
-<p>The table underneath shows how often men and women play football. Enter this data into Jamovi following the same format as in the previous example.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>Play football</th>
-<th>Do not play football</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Male</td>
-<td><code>60</code></td>
-<td><code>70</code></td>
-</tr>
-<tr class="even">
-<td>Female</td>
-<td><code>45</code></td>
-<td><code>80</code></td>
-</tr>
-</tbody>
-</table>
+<section id="using-jamovi-to-carry-out-a-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="using-jamovi-to-carry-out-a-linear-regression">Using Jamovi to carry out a Linear Regression</h2>
+<p>Open <strong>attract.csv</strong>. The idea with this made-up data set is that it tests the assumption that we can predict the number of dates a person has been on from their attractiveness rating on a scale of 1 to 10.</p>
+<ol type="1">
+<li><p>In Jamovi, once you have checked that the data are suitable for linear regression, go to <strong>Analyses &gt; Regression &gt; Linear Regression</strong></p></li>
+<li><p>In the “Linear Regression” window, move your predictor variable to the <em>Independent(s)</em> panel and the predicted variable to the <em>Dependent</em> panel.</p></li>
+<li><p>In the Linear Regression tabs tick <em>Model fit</em> and <em>Model Coefficients</em>. Click save.</p></li>
+<li><p>The result is shown in the right panel. Look at the notes to help you interpret.</p></li>
+</ol>
+<p><a href="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img1.png" class="img-fluid"></a></p>
+<p><a href="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img2.png" class="img-fluid"></a></p>
+<p><a href="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img3.png" class="img-fluid"></a></p>
+<p><a href="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img4.png" class="img-fluid"></a></p>
+</section>
+<section id="coefficients" class="level2">
+<h2 class="anchored" data-anchor-id="coefficients">Coefficients</h2>
+<p>The coefficients table gives us details of the model parameters (beta values, i.e.&nbsp;the slope of the line and the intercept) and the significance of these values.</p>
+<p>β0 = 1.588 – a indicates that for someone with an attractiveness rating of 0, the model predicts you will have been on just over 1.5 dates</p>
+<p>β1 = 0.951 – this is the slope of the regression line and represents the change in the outcome associated with a unit change in the predictor (positive number means positive regression line, negative number indicates negative regression line).</p>
+<p>So if your attractiveness increased by 1, this would predict an increase in number of dates attended by 0.951 (although remember that attractiveness only accounts for 78% of the variance in number of dates, so you may be lucky if you also have a sense of humour!).</p>
+<p>The regression line for this analysis therefore has the following equation:</p>
+<p><span class="math display">\[
+y = 1.588 + 0.951x
+\]</span></p>
+</section>
+<section id="adding-a-line-of-best-fit-to-a-jamovi-scatter-plot" class="level2">
+<h2 class="anchored" data-anchor-id="adding-a-line-of-best-fit-to-a-jamovi-scatter-plot">Adding a line of best fit to a Jamovi scatter plot</h2>
+<p>Using the <em>attract.csv</em> data, create a scatter plot. In Jamovi click on <em>Exploration &gt; Scatterplot</em>.</p>
+<p><a href="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img5.png" class="img-fluid"></a></p>
+<p>To get the line of best fit, select Linear under the Regression Line options</p>
+<p><a href="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img6.png" class="img-fluid"></a></p>
+<section id="how-good-is-the-prediction" class="level3">
+<h3 class="anchored" data-anchor-id="how-good-is-the-prediction">How good is the prediction?</h3>
+<p>There are a number of ways to assess the quality of predictions that can be made using the equation produced by a regression analysis. * <strong><em>R<sup>2</sup></em></strong> corresponds to the predictive power of the relationship between predictor and criterion. For a simple linear regression, <strong><em>R</em></strong> is the same as the correlation between the two variables, but it does not give the sign (direction) of the correlation. If <strong><em>R<sup>2</sup></em></strong> is high then most of the variance in the actual values of the predicted variable is explained by the prediction and the regression is good.</p>
+<ul>
+<li><p><strong><em>‘R<sup>2</sup> adjusted’</em></strong> measures the predictive power of the regression equation for the population rather than the sample (that is for values not in the original data set, but part of the same population).</p></li>
+<li><p>The <strong>ANOVA</strong> in regression. The null hypothesis for this ANOVA is that there is no relationship between the actual values of the predicted variable and the values given by the prediction. If the <em>p</em>-value is less than .05 we can be confident that the relationship between the two variables is a significant one.</p></li>
+</ul>
+</section>
+</section>
+<section id="writing-up-the-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="writing-up-the-linear-regression">Writing up the Linear Regression</h2>
+<p>“A linear regression was used to examine the relationship between attractiveness and the number of dates someone had been on. The regression equation produced a good fit with the data (<em>R<sup>2</sup></em> = .778), indicating that, as hypothesised, someone’s attractiveness score was a good predictor of the number of dates they had been on, <em>F</em>(1, 18) = 63.252, <em>p</em> &lt; .001.</p>
+<p>There was a significant positive relationship between attractiveness and number of dates (<em>β</em> = 0.882; <em>t</em> = 7.953, <em>p</em> &lt; .001) with number of dates increasing with increases in level of attractiveness. The model predicts that one unit change in attractiveness would result in an increase in dates attended of 0.951.”</p>
+</section>
+<section id="transferable-skills-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="transferable-skills-linear-regression">Transferable Skills: Linear Regression</h2>
+<p><strong>Interpreting Statistical Outputs from Different Software Platforms (e.g.&nbsp;SPSS)</strong></p>
+<p>Occasionally, you might need to interpret statistical outputs which have been generated using different statistical software, such as SPSS. Below you will see an example SPSS output which investigated if the researchers could predict levels of worry about statistics using hours of study engagement (e.g.&nbsp;hypothesising that as hours of study engagement increased, worries about statistics would decrease). Look at the output below to see what you can interpret based on what you know about linear regression so far.</p>
+<p><a href="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img7.png" class="img-fluid"></a></p>
+<p><a href="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img8.png" class="img-fluid"></a></p>
+<p>Based on this output, we can tell that 82% of the variance in worries about statistics could be explained by hours of study engagement (e.g.&nbsp;see the adjusted r square value in the model summary box). We can also see that hours of study engagement was a significant predictor of worries about statistics. Note that older versions of SPSS report <em>p</em> &lt; 0.001 as .000. Make sure this doesn’t through off your interpretation, it still means <em>p</em> &lt; .001!</p>
+</section>
+<section id="writing-up-the-jamovi-output" class="level2">
+<h2 class="anchored" data-anchor-id="writing-up-the-jamovi-output">Writing up the Jamovi Output</h2>
+<p>The file <strong>stress.csv</strong> contains some made-up data on people’s lifestyles and stress. We are interested in finding out whether the number of <strong>working hours</strong> can be used to predict <strong>stress</strong>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Check Your Understanding
+<span class="screen-reader-only">Tip</span>Test your understanding
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Results interpretation</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false" href="">Hint</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Stress.csv regression</a></li></ul>
 <div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<p>Run the chi-square and report the results</p>
-<p>A Pearson Chi-Square was used to identify whether there was an association between gender and whether or not you play football. Results of the chi-square <select class="webex-select"><option value="blank"></option><option value="">showed a significant association</option><option value="answer">did not show a signficant association</option></select> between gender and whether or not you play football (<em>χ²</em> (<input class="webex-solveme nospaces" size="1" data-answer="[&quot;1&quot;]">) = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;2.71&quot;]">, <em>p</em> <select class="webex-select"><option value="blank"></option><option value=""> &lt; .001</option><option value="answer">= .100</option><option value="">= .076</option></select>.</p>
-</div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<p>What do the results mean and what can you conclude?</p>
-<p>The results mean that there is <select class="webex-select"><option value="blank"></option><option value="answer">no significant association</option><option value="">a signficant association</option></select> between gender and whether or not you play football. Men are <select class="webex-select"><option value="blank"></option><option value="">significantly</option><option value="answer">not signficantly</option></select> more likely to play football than women.</p>
-</div>
-<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
-<p>Take a look at the Jamovi output</p>
-<p><img src="../images/rma-2025_week-10_computer-practical/RMA-2025_week-10_computer-practical_img12.png" class="img-fluid" width="600"></p>
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Using Jamovi, perform a linear regression and answer these questions</p>
+<ol type="1">
+<li><p>What was the original correlation? <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.426&quot;,&quot;.426&quot;]"></p></li>
+<li><p>What is the value of β<sub>0</sub>? (3 d.p.) <input class="webex-solveme nospaces" size="6" data-answer="[&quot;69.684&quot;]"> and β<sub>1</sub>? <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.626&quot;,&quot;.626&quot;]"></p></li>
+<li><p>Write down the regression equation (state coefficients to 1dp): y = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;69.8&quot;]"> + <input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.6&quot;,&quot;.6&quot;]">x</p></li>
+<li><p>What is the value of <em>R<sup>2</sup></em>? (as a proportion, 3 d.p.) <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.181&quot;,&quot;.181&quot;]"></p></li>
+<li><p>What is <em>R<sup>2</sup><sub>adj</sub></em>? (as a proportion, 3 d.p.) <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.173&quot;,&quot;.173&quot;]"></p></li>
+<li><p>What is the predicted value of stress for the 10th individual on the data sheet based on this regression equation? (using the equation, round answer to 1dp) <input class="webex-solveme nospaces" size="5" data-answer="[&quot;109.3&quot;]"></p></li>
+<li><p>Write a statement to explain the estimated predictive power of the relationship for the population and the significance or otherwise of this result.</p></li>
+</ol>
 </div>
 </div>
 </div>
@@ -1334,19 +1177,39 @@ window.onload = function() {
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html" class="pagination-link" aria-label="Week 9 - Correlations, Graphs and Exporting">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 9 - Correlations, Graphs and Exporting</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../tutorials/rmb_week-1_new-data-and-descriptives.html" class="pagination-link" aria-label="Week 1 - New data and descriptives">
-        <span class="nav-page-text">Week 1 - New data and descriptives</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
