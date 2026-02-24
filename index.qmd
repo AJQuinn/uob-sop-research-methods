@@ -45,3 +45,4 @@ Canvas should be used as your primary resource as it contains the complete overv
 -   [Week 1 : Item Wording and Partial Correlation](tutorials/rmd_week-1_item-wording.qmd)
 -   [Week 2 : Item Analysis](tutorials/rmd_week-2_item-analysis.qmd)
 -   [Week 3 : Factor Analysis](tutorials/rmd_week-3_factor-analysis.qmd)
+-   [Week 8 : Linear Regression](tutorials/rmd_week-8_linear-regression.qmd)
