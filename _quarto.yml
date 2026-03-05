@@ -76,6 +76,8 @@ website:
         href: tutorials/rmd_week-3_factor-analysis.qmd
       - text: Week 8 - Linear Regression
         href: tutorials/rmd_week-8_linear-regression.qmd
+      - text: Week 9 - Multiple Regression
+        href: tutorials/rmd_week-9_multiple-regression.qmd
     - section: Support
       contents:
       - text: Using Copilot at UoB

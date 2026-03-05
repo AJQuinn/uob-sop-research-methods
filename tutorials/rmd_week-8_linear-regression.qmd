@@ -160,21 +160,21 @@ The file **stress.csv**  contains some made-up data on people’s lifestyles and
 ## Test your understanding
 
 ::: panel-tabset
-## Stress.csv regression
+## Stress regression
 
 Using Jamovi, perform a linear regression and answer these questions 
 
-1. What was the original correlation? `r fitb(.426)`
+1. What was the original correlation? `r fitb(.388)`
 
 2. What is the value of β~0~? (3 d.p.) `r fitb(69.684)` and  β~1~? `r fitb(0.626)`
 
-3. Write down the regression equation (state coefficients to 1dp): y = `r fitb(69.8)` + `r fitb(0.6)`x
+3. Write down the regression equation (state coefficients to 1dp): y = `r fitb(69.7)` + `r fitb(0.6)`x
 
-4. What is the value of *R^2^*? (as a proportion, 3 d.p.) `r fitb(0.181)`
+4. What is the value of *R^2^*? (as a proportion, 3 d.p.) `r fitb(0.150)`
 
-5. What is *R^2^~adj~*? (as a proportion, 3 d.p.) `r fitb(0.173)`
+5. What is *R^2^~adj~*? (as a proportion, 3 d.p.) `r fitb(0.142)`
 
-6. What is the predicted value of stress for the 10th individual on the data sheet based on this regression equation? (using the equation, round answer to 1dp) `r fitb(109.3)`
+6. What is the predicted value of stress for the 10th individual on the data sheet based on this regression equation? (using the equation, round answer to 1dp) `r fitb(98.3)`
 
 7. Write a statement to explain the estimated predictive power of the relationship for the population and the significance or otherwise of this result. 
 
