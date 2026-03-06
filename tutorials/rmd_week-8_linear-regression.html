@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../support/copilot.html" rel="next">
+<link href="../tutorials/rmd_week-9_multiple-regression.html" rel="next">
 <link href="../tutorials/rmd_week-3_factor-analysis.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-000f0825b9c55ed21d14970d810c14a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-baedc78cbf92349237790bf011c153e8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -345,6 +345,12 @@ window.Quarto = {
  <span class="menu-text">Week 8 - Linear Regression</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmd_week-9_multiple-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9 - Multiple Regression</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -555,17 +561,17 @@ y = 1.588 + 0.951x
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Stress.csv regression</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Stress regression</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>Using Jamovi, perform a linear regression and answer these questions</p>
 <ol type="1">
-<li><p>What was the original correlation? <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.426&quot;,&quot;.426&quot;]"></p></li>
+<li><p>What was the original correlation? <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.388&quot;,&quot;.388&quot;]"></p></li>
 <li><p>What is the value of β<sub>0</sub>? (3 d.p.) <input class="webex-solveme nospaces" size="6" data-answer="[&quot;69.684&quot;]"> and β<sub>1</sub>? <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.626&quot;,&quot;.626&quot;]"></p></li>
-<li><p>Write down the regression equation (state coefficients to 1dp): y = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;69.8&quot;]"> + <input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.6&quot;,&quot;.6&quot;]">x</p></li>
-<li><p>What is the value of <em>R<sup>2</sup></em>? (as a proportion, 3 d.p.) <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.181&quot;,&quot;.181&quot;]"></p></li>
-<li><p>What is <em>R<sup>2</sup><sub>adj</sub></em>? (as a proportion, 3 d.p.) <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.173&quot;,&quot;.173&quot;]"></p></li>
-<li><p>What is the predicted value of stress for the 10th individual on the data sheet based on this regression equation? (using the equation, round answer to 1dp) <input class="webex-solveme nospaces" size="5" data-answer="[&quot;109.3&quot;]"></p></li>
+<li><p>Write down the regression equation (state coefficients to 1dp): y = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;69.7&quot;]"> + <input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.6&quot;,&quot;.6&quot;]">x</p></li>
+<li><p>What is the value of <em>R<sup>2</sup></em>? (as a proportion, 3 d.p.) <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.15&quot;,&quot;.15&quot;]"></p></li>
+<li><p>What is <em>R<sup>2</sup><sub>adj</sub></em>? (as a proportion, 3 d.p.) <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.142&quot;,&quot;.142&quot;]"></p></li>
+<li><p>What is the predicted value of stress for the 10th individual on the data sheet based on this regression equation? (using the equation, round answer to 1dp) <input class="webex-solveme nospaces" size="4" data-answer="[&quot;98.3&quot;]"></p></li>
 <li><p>Write a statement to explain the estimated predictive power of the relationship for the population and the significance or otherwise of this result.</p></li>
 </ol>
 </div>
@@ -1192,8 +1198,8 @@ window.onload = function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../support/copilot.html" class="pagination-link" aria-label="Using Copilot at UoB">
-        <span class="nav-page-text">Using Copilot at UoB</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tutorials/rmd_week-9_multiple-regression.html" class="pagination-link" aria-label="Week 9 - Multiple Regression">
+        <span class="nav-page-text">Week 9 - Multiple Regression</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

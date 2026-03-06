@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>rmd_week-9_multiple-regression – Quantitative Methods Handbook</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../support/copilot.html" rel="next">
+<link href="../tutorials/rmd_week-8_linear-regression.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-baedc78cbf92349237790bf011c153e8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../include/webex.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Quantitative Methods Handbook</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/AJQuinn/uob-sop-research-methods" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmd_week-1_item-wording.html">Research Methods D</a></li><li class="breadcrumb-item"><a href="../tutorials/rmd_week-9_multiple-regression.html">Week 9 - Multiple Regression</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Getting Started with Jamovi</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support/frequently-asked-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting Started with Jamovi</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Research Methods A</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rma_week-8_introduction-to-jamovi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8 - Introduction to Jamovi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rma_week-9_correlations-graphs-and-exporting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9 - Correlations, Graphs and Exporting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rma_week-10_tests_of_difference_Chi-Squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10 - Tests of Difference Chi-Squared</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Research Methods B</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-1_new-data-and-descriptives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1 - New data and descriptives</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-2_intro-to-Rj.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2 - Introducing R and Rj</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-3_one-sample-t-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - One-Sample T-tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-4_two-sample-t-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4 - Two-Sample T-tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-5_pvalue-effect-size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5 - p-values and Effect Sizes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb_week-7_non-parametrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7 - Non-parametric tests and data transformation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-8_sampling-distributions-mean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8 - Sampling Distributions of Means</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-9_one-way-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9 - One-way ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-10_sampling-distributions-tvalues.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10 - Sampling Distributions of t-values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmb-week-11_putting-it-together.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11 - Putting it all together</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Research Methods C</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-1_data-handling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1 - Data handling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-2_review-of-inferential-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2 - Review of inferential tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-3_more-anovas-with-jamovi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - More ANOVAs with Jamovi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmc_week-4_factorial-anova-with-jamovi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4 - Factorial ANOVA with Jamovi</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Research Methods D</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmd_week-1_item-wording.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1 - Item Wording</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmd_week-2_item-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2 - Item Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmd_week-3_factor-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - Factor Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmd_week-8_linear-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8 - Linear Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmd_week-9_multiple-regression.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 9 - Multiple Regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Support</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support/copilot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Copilot at UoB</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support/frequently-asked-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting Started with Jamovi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support/faculty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Faculty</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#week-9-simultaneous-multiple-regression-and-hierarchical-multiple-regression" id="toc-week-9-simultaneous-multiple-regression-and-hierarchical-multiple-regression" class="nav-link active" data-scroll-target="#week-9-simultaneous-multiple-regression-and-hierarchical-multiple-regression">Week 9 : Simultaneous Multiple Regression and Hierarchical Multiple Regression</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#using-jamovi-to-carry-out-multiple-regression" id="toc-using-jamovi-to-carry-out-multiple-regression" class="nav-link" data-scroll-target="#using-jamovi-to-carry-out-multiple-regression">Using Jamovi to carry out multiple regression</a>
+  <ul class="collapse">
+  <li><a href="#output-multiple-regression" id="toc-output-multiple-regression" class="nav-link" data-scroll-target="#output-multiple-regression">Output: Multiple Regression</a></li>
+  <li><a href="#writing-up-a-multiple-regression" id="toc-writing-up-a-multiple-regression" class="nav-link" data-scroll-target="#writing-up-a-multiple-regression">Writing up a Multiple Regression</a></li>
+  </ul></li>
+  <li><a href="#using-jamovi-to-carry-out-hierarchical-multiple-regression" id="toc-using-jamovi-to-carry-out-hierarchical-multiple-regression" class="nav-link" data-scroll-target="#using-jamovi-to-carry-out-hierarchical-multiple-regression">Using Jamovi to carry out hierarchical multiple regression</a>
+  <ul class="collapse">
+  <li><a href="#output-hierarchical-multiple-regression" id="toc-output-hierarchical-multiple-regression" class="nav-link" data-scroll-target="#output-hierarchical-multiple-regression">Output: Hierarchical Multiple Regression</a></li>
+  <li><a href="#writing-up-a-hierarchical-multiple-regression" id="toc-writing-up-a-hierarchical-multiple-regression" class="nav-link" data-scroll-target="#writing-up-a-hierarchical-multiple-regression">Writing up a hierarchical multiple regression</a></li>
+  </ul></li>
+  <li><a href="#different-methods-to-choose-which-predictor-variables-should-be-used-in-constructing-a-regression-equation" id="toc-different-methods-to-choose-which-predictor-variables-should-be-used-in-constructing-a-regression-equation" class="nav-link" data-scroll-target="#different-methods-to-choose-which-predictor-variables-should-be-used-in-constructing-a-regression-equation">Different methods to choose which predictor variables should be used in constructing a regression equation</a>
+  <ul class="collapse">
+  <li><a href="#measuring-how-well-each-model-describes-or-predicts-variance" id="toc-measuring-how-well-each-model-describes-or-predicts-variance" class="nav-link" data-scroll-target="#measuring-how-well-each-model-describes-or-predicts-variance">Measuring how well each model describes or predicts variance</a></li>
+  </ul></li>
+  <li><a href="#jamovi-tasks" id="toc-jamovi-tasks" class="nav-link" data-scroll-target="#jamovi-tasks">Jamovi Tasks</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmd_week-1_item-wording.html">Research Methods D</a></li><li class="breadcrumb-item"><a href="../tutorials/rmd_week-9_multiple-regression.html">Week 9 - Multiple Regression</a></li></ol></nav></header>
+
+
+
+
+<section id="week-9-simultaneous-multiple-regression-and-hierarchical-multiple-regression" class="level1 unnumbered">
+<h1 class="unnumbered">Week 9 : Simultaneous Multiple Regression and Hierarchical Multiple Regression</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>When you have completed this workshop, you should be able to: 1. Carry out regression analyses with more than one predictor variable using Jamovi. 2. Evaluate the results of multiple regression on Jamovi. 3. Use and interpret the resulting regression equations. 4. Report a multiple regression using narrative and appropriate tables. 5. Understand that there are different approaches to carrying out a regression analysis and that these will lead to different outcomes.</p>
+</section>
+<section id="using-jamovi-to-carry-out-multiple-regression" class="level2">
+<h2 class="anchored" data-anchor-id="using-jamovi-to-carry-out-multiple-regression">Using Jamovi to carry out multiple regression</h2>
+<p>Open <strong>stress1.csv</strong>. The idea with this made-up data set is that it tests the assumption that we can predict the stress (the first column/variable in the data) from several predictors:</p>
+<ul>
+<li>Work hours</li>
+<li>Number of children</li>
+<li>Money spent on leisure</li>
+<li>Hours spent exercising</li>
+<li>Salary earned</li>
+<li>Report of stress (dependant variable)</li>
+</ul>
+<ol type="1">
+<li><p>Load the stress1.csv data</p></li>
+<li><p>Look at the descriptive data by going to Analyses -&gt; Exploration -&gt; Descriptives</p></li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img1.png" class="img-fluid"></a></p>
+<ol start="3" type="1">
+<li>Move all the variables to the “Variables” box.</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img2.png" class="img-fluid"></a></p>
+<ol start="4" type="1">
+<li>In the results you will be able to see the means for each variable for later reporting purpose</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img3.png" class="img-fluid"></a></p>
+<ol start="5" type="1">
+<li>Next you may wish to look at how well each variable correlates with one another, to test for assumptions. As shown in previous weeks, select Analyses -&gt; Regression -&gt; Correlation Matrix</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img4.png" class="img-fluid"></a></p>
+<ol start="6" type="1">
+<li>Move all your variables from the first box to the second box</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img5.png" class="img-fluid"></a></p>
+<ol start="7" type="1">
+<li>In your results section you can then see the correlation matrix. This shows how the different variables you are about to enter into the regression model correlate. You can use this data to test the assumption of multicollinearity among independent variables.</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img6.png" class="img-fluid"></a></p>
+<ol start="8" type="1">
+<li>Finally you will run the Multiple Linear Regression. Select Analyses -&gt; Regression -&gt; Linear Regression</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img7.png" class="img-fluid"></a></p>
+<ol start="9" type="1">
+<li><p>Drag your dependent variable to the “Dependent Variable” box.</p></li>
+<li><p>Drag all your independent variables to the covariates box (note: the covariates box is for continuous independent variables. If you have any categorical variables you would put them in the “Factors” box. However, our data is all continuous).</p></li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img8.png" class="img-fluid"></a></p>
+<ol start="11" type="1">
+<li>Next you will need to set the parameters of you multiple regression. Some aspects of these you will go through another time, but we will go through the important ones for a multiple linear regression.</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img9.png" class="img-fluid"></a></p>
+<ol start="12" type="1">
+<li>Under “Assumption Checks” make sure you tick:
+<ol type="a">
+<li>Autocorrelation test - Assumption of autocorrelation</li>
+<li>QQ plot - Assumption of normality</li>
+<li>Residual plots - Homoscadicity</li>
+<li>Colinearity statistics - Assumption of no multicoliniarity</li>
+<li>Assumption of normality - Assumption that the distribution of the residuals should be approximately normally distributed, with a mean of zero</li>
+</ol></li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img10.png" class="img-fluid"></a></p>
+<ol start="13" type="1">
+<li><p>Within the “Model Fit” section, you can add some extra outputs to test whether your model fits the data i.e.&nbsp;how well the regression model predicts dependent variable data based on the independent variables. Here you should select the:</p>
+<ol type="a">
+<li>R</li>
+<li>R<sup>2</sup></li>
+<li>Adjusted R<sup>2</sup></li>
+<li>Under “Overall Model Test” select “F test” to see the overall significance of the regression model</li>
+</ol></li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img11.png" class="img-fluid"></a></p>
+<ol start="14" type="1">
+<li><p>In the “Model Coefficients” section you can run various tests on the individual coefficients in the regression model. This will help interpret the relationship and magnitude of the effect of the independent variables to the dependent variable.</p>
+<ol type="a">
+<li>Estimate - Confidence interval: this will provide the confidence interval of each coefficient</li>
+<li>Standardized Estimate - Standardized Estimate</li>
+<li>Standardized Estimate - Confidence interval</li>
+</ol></li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img12.png" class="img-fluid"></a></p>
+<section id="output-multiple-regression" class="level3">
+<h3 class="anchored" data-anchor-id="output-multiple-regression">Output: Multiple Regression</h3>
+<ol type="1">
+<li>The first table “Model Fit Measures” gives you information about the goodness of the models fit for your data. R<sup>2</sup> is a measure of the variance in the data that the model can explain in the sample tested. The regression was statistically significant: <em>F</em>(5, 94) = 30.6, <em>p</em> &lt; .001</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img13.png" class="img-fluid"></a></p>
+<ol start="2" type="1">
+<li>Next, in “Model Coefficients” you will see the following table. This table indicates the strength and significance of each predictor. Some values will be in a scientific notation (e.g., -2.43e-5 in salary and Estimate). See note for how to interpret.</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img14.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img14.png" class="img-fluid"></a></p>
+<p><strong>Note:</strong> from this output, the regression equation estimates that the Regression equation is</p>
+<p><span class="math display">\[
+Stress = -1367.197 + 13.613 \times work\_hours + .568 \times children - .335 \times leisure\_spend + 13.047 \times exercise - .0000243 \times salary
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Converting a number in scientific notation to standard notation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>e.g.&nbsp;1.4964425329764753e-5</p>
+<p>=</p>
+<p>1.4964425329764753 x 10-5</p>
+<p>=</p>
+<p>1.4964425329764753 x 0.00001</p>
+<p>=</p>
+<p>0.000014964425329764753</p>
+<p>e-5 = Move decimal point 5 places to left</p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>You will also be allowed to check some assumptions, which you can review in “Assumption Checks”. The first is the Durbin-Watson Test for Autocorrelation, which tests for the assumption of autocorrelation. This is when the residuals are not independent of each other, meaning that there is some pattern or correlation between the residuals at different points in the data. If the Durbin-Watson test statistic is close to 2 (typically between 1.5 and 2.5) this indicates there is no serious autocorrelation. Anything above or below suggests a negative or positive correlation between residuals. Here you can see the DW Statistic is 1.97, which means we can continue with the test.</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img15.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img15.png" class="img-fluid"></a></p>
+<ol start="4" type="1">
+<li>Continuing under the “Assumption Checks” section, you can see the “Collinearity Statistics” table, testing the assumption of multicollinearity. This is the extent to which independent variables are correlated with one another. Jamovi uses the VIF statistic (if you have selected this). VIF values above 10 or tolerance values below 0.1 indicate potentially problematic collinearity.</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img16.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img16.png" class="img-fluid"></a></p>
+<ol start="5" type="1">
+<li>Assumption of normality or “Normality Test (Shapiro-Wilk)” table is the assumption that the distribution of the residuals should be approximately normally distributed, with a mean of zero. A p-value lower than 0.05 suggests that the residuals do not follow a normal distribution, and you may wish to select another test. This can also be checked with the QQ plot. If the points on the Q-Q plot closely follow the diagonal line, it suggests that the residuals are approximately normally distributed, supporting the assumption of normality.</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img17.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img17.png" class="img-fluid"></a></p>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img18.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img18.png" class="img-fluid"></a></p>
+<ol start="6" type="1">
+<li>The first residual plot where the X axis is labelled “Fitted”, relates to the error/residuals in the regression. It is not a scatterplot of the relationship between the DV and the predictors, those are provided as you scroll down. To test the assumption of homoscedasticity and linearity, you can look to see if there is a random scatter of points as the fitted values increase. This indicates that the relationship between the predictors and the response variable is adequately linear, and that the variance of the residuals are constant (homoscedasticity).</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img19.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img19.png" class="img-fluid"></a></p>
+</section>
+<section id="writing-up-a-multiple-regression" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-a-multiple-regression">Writing up a Multiple Regression</h3>
+<p>A complete write-up of a multiple regression analysis should include four aspects:</p>
+<ol type="1">
+<li>Descriptive statistics for the variables used in the analysis</li>
+<li>A record of the relationships between the key variables (including a table)</li>
+<li>A description of the analysis carried out</li>
+<li>A description or a table of the model(s)</li>
+</ol>
+<section id="example-write-up-for-the-multiple-regression-above" class="level4">
+<h4 class="anchored" data-anchor-id="example-write-up-for-the-multiple-regression-above">Example write up for the multiple regression above:</h4>
+<p>“For each variable, the mean, standard deviation and range of scores was recorded (see Table 1). The data showed that participants in the sample tended to be more stressed than not, tended to work full time, and had three children on average. Overall, the participants tended to spend a high number of hours on exercise every month. Weekly leisure spend and salary ranged widely, with some very high salaries making the mean salary for the sample much larger than the national average (Office of National Statistics, 2016).”</p>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img20.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img20.png" class="img-fluid"></a></p>
+<p>“The correlations between stress and the predictors work hours, children, leisure spend, exercise and salary (see Table 2) showed that stress was positively and moderately correlated with hours worked, negatively and moderately correlated with salary, and negatively and weakly correlated with leisure spend and exercise. Stress was not correlated with the number of children. In fact, none of the five predictors was correlated with the number of children. Work hours were negatively and weakly correlated with leisure spend and salary, and were negatively and very strongly related to exercise. Leisure spend was positively and weakly correlated to exercise and positively and strongly correlated to salary. There was a positive and weak correlation between exercise and salary.”</p>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img21.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img21.png" class="img-fluid"></a></p>
+<p>“A regression analysis was conducted to examine which variables predicted stress. The variables were entered simultaneously. Work hours, exercise and leisure spend were significant predictors of stress. All variables together accounted for 62% of the variance in stress in the sample. People who reported higher stress levels also report longer work hours (<em>β</em> = 9.12, <em>p</em> &lt; .001), tended to exercise less (<em>β</em> = 8.84, <em>p</em> &lt; .001) and spent less money on leisure activities (<em>β</em> = - 0.47, <em>p</em> = .024). Neither the number of children (<em>β</em> = 0.06, <em>p</em> = .334), nor salary (<em>β</em> = - 0.08, <em>p</em> = .650) were significant predictors of stress.”</p>
+</section>
+</section>
+</section>
+<section id="using-jamovi-to-carry-out-hierarchical-multiple-regression" class="level2">
+<h2 class="anchored" data-anchor-id="using-jamovi-to-carry-out-hierarchical-multiple-regression">Using Jamovi to carry out hierarchical multiple regression</h2>
+<p>Open the data file <strong>predictingRMDgrades</strong>, which was used in the lecture. The idea with this made-up data set is that it tests the assumption that we can predict RMD grades based on a couple of predictors:</p>
+<ul>
+<li><p>Interest in the module</p></li>
+<li><p>Time spent on Facebook during the week</p></li>
+<li><p>Students’ IQ</p></li>
+<li><p>Attendance at taught sessions.</p></li>
+</ul>
+<p>You can find these variables in the csv file.</p>
+<p>Using this data you will test two models:</p>
+<ul>
+<li><p>How much variance in grades can be explained by the predictors that students can control to some extent (interest, attendance, time on FB)</p></li>
+<li><p>How much additional variance in grades can be explained by students’ IQ, which student cannot directly control.</p>
+<ol type="1">
+<li><p>Make sure you have loaded the <strong>predictingRMDgrades</strong> data into Jamovi as seen in the first workshop.</p></li>
+<li><p>Load the descriptives of your data, as you did with the multiple regressions, steps 2-4. After this you will need to look at correlations in your data to test for assumptions of multicollinearity in steps 5-6.</p></li>
+<li><p>Go to Analyses -&gt; Regression -&gt; Linear Regression</p></li>
+</ol></li>
+</ul>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img22.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img22.png" class="img-fluid"></a></p>
+<ol start="4" type="1">
+<li><p>Move “RMD Grade” to “Dependant Variable”</p></li>
+<li><p>Move the variables of the first model into “Covariates”, these are all the predictors which students have control over: Time on FB, Attendance, and Interest.</p></li>
+<li><p>Select the “Model Builder” drop down box as you can see below. Here you can see “Block 1” which represents your first model. Jamovi should automatically place the variables you have just selected into this block. If they have not, then select the predictors and drag them over.</p></li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img23.png" class="img-fluid"></a></p>
+<ol start="7" type="1">
+<li><p>You will now create a new block or model, adding “IQ” to see predictors which students have less control over affect results. First click “Add New Block”. You should now see a “Block 2” which is currently empty.</p></li>
+<li><p>Move “IQ” over to the “Covariates” Section</p></li>
+<li><p>“Block 2” should now have “Intelligence”, if not, move it from predictors to under “Block 2”.</p></li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img24.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img24.png" class="img-fluid"></a></p>
+<ol start="10" type="1">
+<li>You will need to set the parameters of your models. You should follow the steps in the previous “multiple linear regression” section. Whatever you select at that this point, will apply to both models.</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img25.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img25.png" class="img-fluid"></a></p>
+<section id="output-hierarchical-multiple-regression" class="level3">
+<h3 class="anchored" data-anchor-id="output-hierarchical-multiple-regression">Output: Hierarchical Multiple Regression</h3>
+<ol type="1">
+<li>As with multiple linear regression the first table, “Model Fit Measures” gives you information about the models fit for your data. (You can remind yourself how to interpret this by reading back within this section). This time you will have a row for each model you created (Model 1 is the first variables you selected; Model 2 is when you included IQ). The regression for Model 1 was statistically significant: <em>F</em> (3, 96) = 115, <em>p</em> &lt; .001</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img26.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img26.png" class="img-fluid"></a></p>
+<ol start="2" type="1">
+<li>The second table “Model Comparisons” gives you information about how different the models are.</li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img27.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img27.png" class="img-fluid"></a></p>
+<ol start="3" type="1">
+<li><p>You can read how much each predictor explains the dependant variable, for each model in the “Model Specific Results”. Select the drop down next to the title to select which model you would like to see. This will change the tables thereafter based on your models.</p></li>
+<li><p>First you will see “Model Coefficients” (see below) which will display depending on which model you have selected. The coefficients for individual predictors change between models. Sometimes, a predictor that was significant in one model is no longer significant when another variable is added.</p></li>
+</ol>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img28.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img28.png" class="img-fluid"></a></p>
+<ol start="5" type="1">
+<li><p>You will next be able to check you have met the assumptions of a hierarchical linear regression for each model as long as you select it as above. Follow the Output: Multiple Regression from steps 3-6.</p></li>
+<li><p>Remember that you can find the Beta values under the columns labelled ‘Stand. Estimate’.</p></li>
+</ol>
+<p>See previous section to help with interpreting the tables.</p>
+</section>
+<section id="writing-up-a-hierarchical-multiple-regression" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-a-hierarchical-multiple-regression">Writing up a hierarchical multiple regression</h3>
+<p>For each variable, the mean, standard deviation and minimum and maximum scores were recorded (see Table 1). Participants in the sample achieved an average grade of 62.5 and tended to show more interest in research methods than not and attended more sessions than they missed. On average participants spent approximately three hours a day on Facebook, but there was a wide range across the sample. Participants tended to have a higher than average IQ.</p>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img29.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img29.png" class="img-fluid"></a></p>
+<p>The correlations between RMD grade and the predictors time spent on Facebook (FB), attendance at workshops and lectures, interest in research methods, and IQ score showed that RMD grade was positively and strongly correlated with all predictors except for time spent on FB, which was negatively and strongly correlated with RMD grade. The four predictors were all moderately to strongly correlated with each other (see Table 2).</p>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img30.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img30.png" class="img-fluid"></a></p>
+<p>A hierarchical multiple regression analysis was conducted to compare two models for predicting RMD grade. The variables were entered in two steps in order to explore the contribution of the variables more directly under the control of students (i.e., time spent on FB, attendance at workshops and lectures, and interest shown in research methods) separately from the essentially fixed contribution of IQ score. Time spent on FB, attendance and interest were entered on Step 1, and IQ score was added on Step 2.</p>
+<p>As Table 3 shows, only attendance and interest were significant predictors in the first step. In Step 2, attendance, interest and IQ were significant predictors of RMD grade. All variables together accounted for 84% of the variance in RMD grade. Students who reported higher RMD grades also scored more highly on IQ and tended to spend less time on FB.</p>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img31.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img31.png" class="img-fluid"></a></p>
+</section>
+</section>
+<section id="different-methods-to-choose-which-predictor-variables-should-be-used-in-constructing-a-regression-equation" class="level2">
+<h2 class="anchored" data-anchor-id="different-methods-to-choose-which-predictor-variables-should-be-used-in-constructing-a-regression-equation">Different methods to choose which predictor variables should be used in constructing a regression equation</h2>
+<section id="measuring-how-well-each-model-describes-or-predicts-variance" class="level3">
+<h3 class="anchored" data-anchor-id="measuring-how-well-each-model-describes-or-predicts-variance">Measuring how well each model describes or predicts variance</h3>
+<p>Ideally a good model for a data set includes only significant predictors. We could carry out the search for a good model ‘manually’. I.e. seeing differences in results when we remove or add a predictor, as Jamovi is dynamic you can see the differences, or so that you can compare each variable, you can add each variable to a different model. You can then see how well the different models predict variance in the dependant variables. To do this select “AIC” and/or “BIC”.</p>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img32.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img32.png" class="img-fluid"></a></p>
+<p>Akaike Information Criterion (AIC) is a measure of the relative quality of statistical models for a given set of data. Lower values of AIC indicate better-fitting models. When comparing models, the model with the lowest AIC is preferred. However, AIC alone does not provide an absolute measure of model fit; it is best used for comparing relative model fit among competing models. Bayesian Information Criterion (BIC) is similar to AIC, in that lower values of BIC indicate better-fitting models.</p>
+<p><a href="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img33.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33"><img src="../images/rmd-week-9_computer_practical/RMD-2025_week-9_computer-practical_img33.png" class="img-fluid"></a></p>
+<p>For example, when you come to create your block you can include one variable in the first Block under model builder. In the second block include two variables, in the third block include three variables, and so on.</p>
+<p><strong>A note of caution: Problems with regression</strong></p>
+<p>Using this approach relies on statistical properties of the data (rather than on psychology) to decide which equations are best and which variables should be included, it is possible that the equations they come up with may be influenced by chance variations in the data set. Redoing the tests on a similar but different set of observations may well produce different results. For this reason, it is unwise to make strong claims about a regression equation you have derived using these methods. This is perhaps why we do not often see such methods reported. Instead many research reports in psychology use <strong>hierarchical regression</strong>, which is a little like a ‘manual’ search for a good model based on psychological theory.</p>
+</section>
+</section>
+<section id="jamovi-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="jamovi-tasks">Jamovi Tasks</h2>
+<p>The data file <strong>iq</strong> contains made-up IQ scores of 50 students together with their scores out of 10 on 9 imaginary essays. Suppose that a certain School wanted to reduce the number of essays set in the year whilst keeping those that best predict IQ. The lecturers and teaching fellows in the School cannot – however – agree on which essays to drop or even how many to drop. A colleague in Psychology has suggested using regression to solve the problem. The School has asked to see two solutions one with only those essays that have a significant impact on the prediction of IQ and another longer list including additional essays without being overly wasteful (of student or staff effort).</p>
+<ol type="a">
+<li>Short list: Using Different Models Run a multiple regression on all the essays with IQ as the dependent variable selecting <strong>an essay for each model</strong> (you should have 9 models in total)</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Test your understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">IQ Scores and essays</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li><p>What percentage of the variance in IQ for new students can be predicted by the final equation chosen by the computer? <input class="webex-solveme nospaces" size="4" data-answer="[&quot;52.8&quot;]">%</p></li>
+<li><p>Which essays are included?</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/AJQuinn\.github\.io\/uob-sop-research-methods\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../tutorials/rmd_week-8_linear-regression.html" class="pagination-link" aria-label="Week 8 - Linear Regression">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 8 - Linear Regression</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../support/copilot.html" class="pagination-link" aria-label="Using Copilot at UoB">
+        <span class="nav-page-text">Using Copilot at UoB</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
