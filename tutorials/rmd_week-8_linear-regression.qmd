@@ -95,7 +95,6 @@ Open **attract.csv**. The idea with this made-up data set is that it tests the a
 
 ![](../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img2.png)
 
-
 ![](../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img3.png)
 
 ![](../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img4.png)
