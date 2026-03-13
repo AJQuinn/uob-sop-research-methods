@@ -351,6 +351,12 @@ window.Quarto = {
  <span class="menu-text">Week 9 - Multiple Regression</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/rmd_week-10_mediation-moderation-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10 - Mediation/Moderation Analysis</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -500,7 +506,7 @@ window.Quarto = {
 <ol type="1">
 <li><p>In Jamovi, once you have checked that the data are suitable for linear regression, go to <strong>Analyses &gt; Regression &gt; Linear Regression</strong></p></li>
 <li><p>In the “Linear Regression” window, move your predictor variable to the <em>Independent(s)</em> panel and the predicted variable to the <em>Dependent</em> panel.</p></li>
-<li><p>In the Linear Regression tabs tick <em>Model fit</em> and <em>Model Coefficients</em>. Click save.</p></li>
+<li><p>In the Linear Regression tab <em>Model fit</em> tick R, R<sup>2</sup>, adjusted R<sup>2</sup> and F test. Under <em>Model Coefficients</em> click confidence interval and standardised estimate.</p></li>
 <li><p>The result is shown in the right panel. Look at the notes to help you interpret.</p></li>
 </ol>
 <p><a href="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img1.png" class="img-fluid"></a></p>
@@ -527,8 +533,9 @@ y = 1.588 + 0.951x
 <p><a href="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="../images/rmd-week-8_computer_practical/RMD-2025_week-8_computer-practical_img6.png" class="img-fluid"></a></p>
 <section id="how-good-is-the-prediction" class="level3">
 <h3 class="anchored" data-anchor-id="how-good-is-the-prediction">How good is the prediction?</h3>
-<p>There are a number of ways to assess the quality of predictions that can be made using the equation produced by a regression analysis. * <strong><em>R<sup>2</sup></em></strong> corresponds to the predictive power of the relationship between predictor and criterion. For a simple linear regression, <strong><em>R</em></strong> is the same as the correlation between the two variables, but it does not give the sign (direction) of the correlation. If <strong><em>R<sup>2</sup></em></strong> is high then most of the variance in the actual values of the predicted variable is explained by the prediction and the regression is good.</p>
+<p>There are a number of ways to assess the quality of predictions that can be made using the equation produced by a regression analysis.</p>
 <ul>
+<li><p><strong><em>R<sup>2</sup></em></strong> corresponds to the predictive power of the relationship between predictor and criterion. For a simple linear regression, <strong><em>R</em></strong> is the same as the correlation between the two variables, but it does not give the sign (direction) of the correlation. If <strong><em>R<sup>2</sup></em></strong> is high then most of the variance in the actual values of the predicted variable is explained by the prediction and the regression is good.</p></li>
 <li><p><strong><em>‘R<sup>2</sup> adjusted’</em></strong> measures the predictive power of the regression equation for the population rather than the sample (that is for values not in the original data set, but part of the same population).</p></li>
 <li><p>The <strong>ANOVA</strong> in regression. The null hypothesis for this ANOVA is that there is no relationship between the actual values of the predicted variable and the values given by the prediction. If the <em>p</em>-value is less than .05 we can be confident that the relationship between the two variables is a significant one.</p></li>
 </ul>
