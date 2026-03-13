@@ -87,7 +87,7 @@ Open **attract.csv**. The idea with this made-up data set is that it tests the a
 
 2. In the "Linear Regression" window, move your predictor variable to the *Independent(s)* panel and the predicted variable to the *Dependent* panel. 
 
-3. In the Linear Regression tabs tick *Model fit* and *Model Coefficients*. Click save. 
+3. In the Linear Regression tab *Model fit* tick R, R^2^, adjusted R^2^ and F test. Under *Model Coefficients* click confidence interval and standardised estimate. 
 
 4. The result is shown in the right panel. Look at the notes to help you interpret. 
 
@@ -127,6 +127,8 @@ To get the line of best fit, select Linear under the Regression Line options
 
 ### How good is the prediction?
 There are a number of ways to assess the quality of predictions that can be made using the equation produced by a regression analysis. 
+
+
 * ***R^2^*** corresponds to the predictive power of the relationship between predictor and criterion. For a simple linear regression, ***R*** is the same as the correlation between the two variables, but it does not give the sign (direction) of the correlation. If ***R^2^*** is high then most of the variance in the actual values of the predicted variable is explained by the prediction and the regression is good.
 
 

@@ -19,8 +19,6 @@ When you have completed this workshop, you should be able to:
 4. Report a multiple regression using narrative and appropriate tables. 
 5. Understand that there are different approaches to carrying out a regression analysis and that these will lead to different outcomes. 
 
-
-## Using Jamovi to carry out multiple regression 
 Open **stress1.csv**. The idea with this made-up data set is that it tests the assumption that we can predict the stress (the first column/variable in the data) from several predictors: 
 
 * Work hours 
