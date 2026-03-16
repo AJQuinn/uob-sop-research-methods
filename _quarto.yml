@@ -80,6 +80,8 @@ website:
         href: tutorials/rmd_week-9_multiple-regression.qmd
       - text: Week 10 - Mediation/Moderation Analysis 
         href: tutorials/rmd_week-10_mediation-moderation-analysis.qmd
+      - text: Week 11 - Introduction to ANCOVA
+        href: tutorials/rmd_week-11_introduction-to-ANCOVA.qmd
     - section: Support
       contents:
       - text: Using Copilot at UoB

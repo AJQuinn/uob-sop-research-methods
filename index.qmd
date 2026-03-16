@@ -48,4 +48,4 @@ Canvas should be used as your primary resource as it contains the complete overv
 -   [Week 8 : Linear Regression](tutorials/rmd_week-8_linear-regression.qmd)
 -   [Week 9 : Multiple Regression](tutorials/rmd_week-9_multiple-regression.qmd)
 -   [Week 10 : Mediation/Moderation Analysis](tutorials/rmd_week-10_mediation-moderation-analysis.qmd)
--   [Week 11 : Introduction to ANCOVA with Jamovi](tutorials/rmd_week-10_mediation-moderation-analysis.qmd)
+-   [Week 11 : Introduction to ANCOVA with Jamovi](tutorials/rmd_week-11_introduction-to-ANCOVA.qmd)
