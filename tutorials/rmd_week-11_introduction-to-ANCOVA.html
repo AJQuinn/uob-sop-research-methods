@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>frequently-asked-questions – Quantitative Methods Handbook</title>
+<title>rmd_week-11_introduction-to-ancova – Quantitative Methods Handbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../tutorials/rma_week-8_introduction-to-jamovi.html" rel="next">
+<link href="../support/copilot.html" rel="next">
+<link href="../tutorials/rmd_week-10_mediation-moderation-analysis.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -42,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-baedc78cbf92349237790bf011c153e8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../support/frequently-asked-questions.html">Getting Started with Jamovi</a></li><li class="breadcrumb-item"><a href="../support/frequently-asked-questions.html">Getting Started with Jamovi</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmd_week-1_item-wording.html">Research Methods D</a></li><li class="breadcrumb-item"><a href="../tutorials/rmd_week-11_introduction-to-ANCOVA.html">Week 11 - Introduction to ANCOVA</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -129,16 +133,16 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Getting Started with Jamovi</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../support/frequently-asked-questions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../support/frequently-asked-questions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting Started with Jamovi</span></a>
   </div>
 </li>
@@ -281,13 +285,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Research Methods D</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../tutorials/rmd_week-1_item-wording.html" class="sidebar-item-text sidebar-link">
@@ -326,7 +330,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/rmd_week-11_introduction-to-ANCOVA.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/rmd_week-11_introduction-to-ANCOVA.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Week 11 - Introduction to ANCOVA</span></a>
   </div>
 </li>
@@ -371,58 +375,110 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started-with-jamovi" id="toc-getting-started-with-jamovi" class="nav-link active" data-scroll-target="#getting-started-with-jamovi">Getting started with Jamovi</a>
+  <li><a href="#week-11-introduction-to-ancova-with-jamovi" id="toc-week-11-introduction-to-ancova-with-jamovi" class="nav-link active" data-scroll-target="#week-11-introduction-to-ancova-with-jamovi">Week 11: Introduction to ANCOVA with Jamovi</a>
   <ul class="collapse">
-  <li><a href="#installing-jamovi-on-your-personal-computer" id="toc-installing-jamovi-on-your-personal-computer" class="nav-link" data-scroll-target="#installing-jamovi-on-your-personal-computer">Installing Jamovi on your personal computer</a></li>
-  <li><a href="#i-cant-find-jamovirstudio-on-my-campus-computer." id="toc-i-cant-find-jamovirstudio-on-my-campus-computer." class="nav-link" data-scroll-target="#i-cant-find-jamovirstudio-on-my-campus-computer.">I can’t find Jamovi/Rstudio on my campus computer.</a></li>
-  <li><a href="#i-cant-find-appsanywhere-on-my-campus-computer." id="toc-i-cant-find-appsanywhere-on-my-campus-computer." class="nav-link" data-scroll-target="#i-cant-find-appsanywhere-on-my-campus-computer.">I can’t find AppsAnywhere on my campus computer.</a></li>
-  <li><a href="#how-do-i-use-appsanywhere" id="toc-how-do-i-use-appsanywhere" class="nav-link" data-scroll-target="#how-do-i-use-appsanywhere">How do I use AppsAnywhere?</a></li>
-  <li><a href="#appsanywhere-keeps-asking-me-about-validation." id="toc-appsanywhere-keeps-asking-me-about-validation." class="nav-link" data-scroll-target="#appsanywhere-keeps-asking-me-about-validation.">AppsAnywhere keeps asking me about ‘Validation’.</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#analysis-of-covariance-combining-anova-and-linear-regression" id="toc-analysis-of-covariance-combining-anova-and-linear-regression" class="nav-link" data-scroll-target="#analysis-of-covariance-combining-anova-and-linear-regression">Analysis of Covariance: Combining ANOVA and linear regression</a>
+  <ul class="collapse">
+  <li><a href="#using-jamovi-exploration-to-create-a-scatter-plot-with-regression-lines-for-each-group" id="toc-using-jamovi-exploration-to-create-a-scatter-plot-with-regression-lines-for-each-group" class="nav-link" data-scroll-target="#using-jamovi-exploration-to-create-a-scatter-plot-with-regression-lines-for-each-group">Using Jamovi Exploration to create a scatter plot with regression lines for each group</a></li>
+  <li><a href="#using-jamovi-to-carry-out-a-one-way-between-participants-ancova" id="toc-using-jamovi-to-carry-out-a-one-way-between-participants-ancova" class="nav-link" data-scroll-target="#using-jamovi-to-carry-out-a-one-way-between-participants-ancova">Using Jamovi to carry out a one-way between participants ANCOVA</a></li>
+  <li><a href="#output-ancova" id="toc-output-ancova" class="nav-link" data-scroll-target="#output-ancova">Output: ANCOVA</a></li>
+  <li><a href="#writing-up-an-ancova" id="toc-writing-up-an-ancova" class="nav-link" data-scroll-target="#writing-up-an-ancova">Writing up an ANCOVA</a></li>
+  </ul></li>
+  <li><a href="#jamovi-task-ancova" id="toc-jamovi-task-ancova" class="nav-link" data-scroll-target="#jamovi-task-ancova">Jamovi Task: ANCOVA</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../support/frequently-asked-questions.html">Getting Started with Jamovi</a></li><li class="breadcrumb-item"><a href="../support/frequently-asked-questions.html">Getting Started with Jamovi</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/rmd_week-1_item-wording.html">Research Methods D</a></li><li class="breadcrumb-item"><a href="../tutorials/rmd_week-11_introduction-to-ANCOVA.html">Week 11 - Introduction to ANCOVA</a></li></ol></nav></header>
 
 
 
 
-<section id="getting-started-with-jamovi" class="level1 unnumbered">
-<h1 class="unnumbered">Getting started with Jamovi</h1>
-<section id="installing-jamovi-on-your-personal-computer" class="level2">
-<h2 class="anchored" data-anchor-id="installing-jamovi-on-your-personal-computer">Installing Jamovi on your personal computer</h2>
-<p>Here are instructions and links about how to install Jamovi on your personal/home computer. It should already be installed in our computer rooms.</p>
+<section id="week-11-introduction-to-ancova-with-jamovi" class="level1 unnumbered">
+<h1 class="unnumbered">Week 11: Introduction to ANCOVA with Jamovi</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>When you have completed this workshop, you should be able to:</p>
 <ol type="1">
-<li><p>Go to the <a href="https://www.jamovi.org/">Jamovi website</a></p></li>
-<li><p>Click on ‘Jamovi desktop’:</p></li>
-</ol>
-<p><img src="../images/faqs/jamovi_desktop.png" class="img-fluid"></p>
-<ol start="3" type="1">
-<li>Click the relevant version recommended for your device (the version number may not exactly match the image as new versions are released regularly - but should still say recommended)</li>
-</ol>
-<p><img src="../images/faqs/jamovi_version.png" class="img-fluid"></p>
-<ol start="4" type="1">
-<li>Download the file and follow the installation instructions depending on your device.</li>
+<li>Choose when to perform an ANCOVA</li>
+<li>Use Jamovi to perform ANCOVA on a single factor with three or more levels to partial out the effects of a covariate</li>
+<li>Interpret the Jamovi output of an ANCOVA and write up an ANCOVA</li>
 </ol>
 </section>
-<section id="i-cant-find-jamovirstudio-on-my-campus-computer." class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="i-cant-find-jamovirstudio-on-my-campus-computer.">I can’t find Jamovi/Rstudio on my campus computer.</h2>
-<p>First check the start menu, if you can find both Jamovi and Rstudio then just open both from there and get started. Any programme that is not in the start menu can be opened using AppsAnywhere. This is available in the start menu of every campus computer – general information about AppsAnywhere can be found on <a href="https://itservicedesk.bham.ac.uk/itportal?id=uob_kb_article&amp;sysparm_article=kb16361">this IT services page</a></p>
+<section id="analysis-of-covariance-combining-anova-and-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-of-covariance-combining-anova-and-linear-regression">Analysis of Covariance: Combining ANOVA and linear regression</h2>
+<p>This workshop goes over a simple ANCOVA on Jamovi and shows you how to interpret the output and write up such analyses.</p>
+<p>ANCOVA stands for analysis of covariance. It combines the principles of analysis of variance, which we covered in RMC with the principles of regression. In this way, we can examine if different groups score differently on a DV, while partialling out (controlling for) the effect of another variable in a linear relationship with the DV. This variable is called the covariate.</p>
+<p>In Workshop 1, we looked at partial correlations which look at the relationship between two variables while taking into account the possible variance explained by the relationship with another variable. Something similar takes place when an ANCOVA is carried out: we remove the variance explained by the relationship of the DV with the covariate, to ‘isolate’ the effect of the IV on the DV itself.</p>
+<section id="using-jamovi-exploration-to-create-a-scatter-plot-with-regression-lines-for-each-group" class="level3">
+<h3 class="anchored" data-anchor-id="using-jamovi-exploration-to-create-a-scatter-plot-with-regression-lines-for-each-group">Using Jamovi Exploration to create a scatter plot with regression lines for each group</h3>
+<p>Open the <strong>involvement</strong> data set. This made-up data set tests the hypothesis that changing the level of involvement in the assessment process affects students’ final scores. Three groups of students were randomly assigned to three groups. The ‘No involvement’ group (0) completed an assessment designed by their lecturer without choice of topic. The ‘Choice of topic’ group (1) completed an assessment designed by their lecturer, but for which they could choose the topic to which to apply the task. The ‘Choice of topic and engagement with marking criteria’ group (2) completed an assessment designed by their lecturer, chose their own topic, and also participated in discussions and exercises about the marking criteria. Final scores on the assessment were compared across the groups. However, since the level of motivation of the students at the start of the task might have an effect upon the final score, motivation was also recorded.</p>
+<ol type="1">
+<li><p>Select analysis -&gt; exploration -&gt; scatterplot</p></li>
+<li><p>To populate the graph with data, select the variables to plot on each of the graph axis. Drag-and-drop each variable on to an axis of the graph as shown in the image below, with the grouping variable in the group box, the DV in the y-axis and the covariate in the x-axis.</p></li>
+<li><p>The output looks like a scatter plot with multiple lines on it.</p></li>
+</ol>
+<p><a href="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img1.png" class="img-fluid"></a></p>
+<p><a href="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img2.png" class="img-fluid"></a></p>
+<p>For ANCOVA to be carried out meaningfully, the lines of fit for the groups need to be parallel or nearly parallel. They are in this example.</p>
 </section>
-<section id="i-cant-find-appsanywhere-on-my-campus-computer." class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="i-cant-find-appsanywhere-on-my-campus-computer.">I can’t find AppsAnywhere on my campus computer.</h2>
-<p>This should be available as an icon on the desktop, or from within the start menu. If not, they you can try the web interface - https://apps.bham.ac.uk/ . The website may ask you to confirm that AppsAnywhere is installed on your device – you can click ‘I have it already’ if using a campus computer.</p>
+<section id="using-jamovi-to-carry-out-a-one-way-between-participants-ancova" class="level3">
+<h3 class="anchored" data-anchor-id="using-jamovi-to-carry-out-a-one-way-between-participants-ancova">Using Jamovi to carry out a one-way between participants ANCOVA</h3>
+<p>Open the file <strong>involvement.csv</strong>. In the JAMOVI main window, click on the “Analyses” tab in the top menu, then select “ANOVA” from the list of analysis options. In the ANOVA options, select “ANCOVA” from the dropdown menu.</p>
+<p>In the ANCOVA dialogue box, you will need to specify the dependent variable (the outcome variable you want to analyze), the independent variable (the grouping variable), and the covariate (the variable you want to control for).</p>
+<p>Depending on your specific analysis, you may need to adjust additional options such as select Bonferroni option from ‘correction’ drop down menu and tick on cohen’s D from ‘Effect size’ option.</p>
+<p><a href="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img3.png" class="img-fluid"></a></p>
+<p><a href="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img4.png" class="img-fluid"></a></p>
 </section>
-<section id="how-do-i-use-appsanywhere" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="how-do-i-use-appsanywhere">How do I use AppsAnywhere?</h2>
-<p>Once you have access to AppsAnywhere, you may have to log-in using your UoB credentials. The homepage of AppsAnywhere contains a search bar and will look something like this:</p>
-<p><img src="../images/faqs/appsanywhere.png" class="img-fluid"></p>
-<p>You can search for Jamovi and Rstudio in the search bar and click ‘Launch’ to run them. If this is the first time you’re running the app it may take a few minutes to get started. This is as AppsAnywhere is downloading and installing the programme on your computer.</p>
+<section id="output-ancova" class="level3">
+<h3 class="anchored" data-anchor-id="output-ancova">Output: ANCOVA</h3>
+<p><a href="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img5.png" class="img-fluid"></a></p>
+<p>Since this ANCOVA was significant, we need to carry out post-hoc analyses to identify when the differences lie.</p>
+<p><a href="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img6.png" class="img-fluid"></a></p>
+<p><a href="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img7.png" class="img-fluid"></a></p>
+<p><a href="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="../images/rmd-week-11_computer_practical/RMD-2025_week-11_computer-practical_img8.png" class="img-fluid"></a></p>
 </section>
-<section id="appsanywhere-keeps-asking-me-about-validation." class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="appsanywhere-keeps-asking-me-about-validation.">AppsAnywhere keeps asking me about ‘Validation’.</h2>
-<p>AppyAnywhere needs to be able to link to your desktop computer to run properly, the validation process ensures that this is working properly. Normally all you need to do is click to start validation and answer ‘Open AppsAnywhere Launcher’ when prompted by the browser.</p>
+<section id="writing-up-an-ancova" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-an-ancova">Writing up an ANCOVA</h3>
+<p>Here is an example write-up for this ANCOVA</p>
+<p>“After adjusting for level of motivation, the adjusted mean examination scores were highest in the ‘choice of topic and engagement with the marking criteria’ group (M = 73.8 marks, SEM = 2.7 marks), with the scores in the ‘choice of topic’ group slightly higher (M = 59.9 marks, SEM = 2.6 marks) than those in the ‘no involvement’ group (M = 54.4 marks, SEM = 2.3 marks). A one-way between participants ANCOVA, using level of motivation as the covariate, found a significant main effect of level of involvement upon examination scores, F (2, 20) = 15.695, p &lt; .001, η2p = .611. Paired comparisons using a Bonferroni correction showed that only the ‘choice of topic and engagement with the marking criteria’ group led to significantly higher scores in examination scores compared to ‘no involvement’ (mean increase = 19.3 marks, p &lt; .001) and ‘choice of topic’ (mean increase = 13.9 marks, p &lt; .001). There was no significant difference between the examinations scores of the ‘no involvement’ and ‘choice of topic’ groups (mean increase = 5.4 marks, p = .432). These findings partially supported the hypothesis that more involvement in the assessment process would improve examinations scores, in that choice of topic and engagement with the marking criteria increased scores, however, choice of topic on its own did not lead to higher scores.”</p>
+</section>
+</section>
+<section id="jamovi-task-ancova" class="level2">
+<h2 class="anchored" data-anchor-id="jamovi-task-ancova">Jamovi Task: ANCOVA</h2>
+<p><em>The effect of type of chocolate on memory</em></p>
+<p>Using <strong>chocmemory</strong>, test the hypothesis that eating high carb chocolate (2) would improve the score on a recall task more than low carb chocolate (1). But since participants may vary in their overall ability to recall information, baseline recall data was collected in a recall task before the chocolate was consumed.</p>
+<p>Carry out an ANCOVA using the baseline memory data as a covariate. (HINT: Don’t forget to inspect your grouped scatterplot with regression lines for each group.)</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Test your understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">ANCOVA</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li><p>Were the regression lines for the two groups parallel/near-parallel? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>What was the R<sup>2</sup> for each type of chocolate? Boots LoCarb = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.009&quot;,&quot;.009&quot;]">, Tesco Milk = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.009&quot;,&quot;.009&quot;]"></p></li>
+<li><p>Are the before and after memory scores significantly associated? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>Is there a significant effect of type of chocolate upon recall? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option></select></p></li>
+<li><p>Report the adjusted mean recall scores for each type of chocolate? Boots LoCarb = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;62.8&quot;]">, Tesco Milk = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;67.9&quot;]"></p></li>
+<li><p>Report the standard errors of the mean for each type of chocolate? Boots LoCarb = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;1.13&quot;]">, Tesco Milk = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;1.13&quot;]"></p></li>
+<li><p>Write a paragraph reporting the findings of this analysis.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -1037,14 +1093,49 @@ window.onload = function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../tutorials/rmd_week-10_mediation-moderation-analysis.html" class="pagination-link" aria-label="Week 10 - Mediation/Moderation Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 10 - Mediation/Moderation Analysis</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../tutorials/rma_week-8_introduction-to-jamovi.html" class="pagination-link" aria-label="Week 8 - Introduction to Jamovi">
-        <span class="nav-page-text">Week 8 - Introduction to Jamovi</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../support/copilot.html" class="pagination-link" aria-label="Using Copilot at UoB">
+        <span class="nav-page-text">Using Copilot at UoB</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
